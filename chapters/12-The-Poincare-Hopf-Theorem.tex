@@ -1,0 +1,660 @@
+\chapter{The Poincar\'e-Hopf Theorem }
+In the following, $M^n\subseteq\RR^{n+k}$ will denote a fixed Smooth-submanifold. If the
+cohomology of $M^n$ is finite-dimensional (e.g. when Mn is compact), the $i$-th
+\Index{Betti number} is given by
+\begin{align}\label{eq:12-1}
+  b_i(M) = \dim H^i(M^n).
+\end{align}
+
+The \Index{Euler characteristic} of $M^n$ is defined to be
+\begin{align}\label{eq:12-2}
+  \chi(M) = \sum_{i=0}^{n }{(-1)^i b_i(M)}.
+\end{align}
+
+This chapter's main result is:
+\begin{theorem}[Poincar\'{e}-Hopf]\label{theorem:12-1}\index{Poincar\'{e}-Hopf theorem}
+  Let $X$ be a smooth vector field on a compact manifold $M$. If $X$ has only isolated zeros then
+  \[
+    \R{Index}(X) = \chi(M).
+  \]
+\end{theorem}
+
+By the final result of Chapter 11 it is sufficient to show the formula for just one
+such vector field $X$ on $M$. We shall do so by making use of a Morse function on $M^n$.
+
+Given $f\in C^\infty(M, \RR)$, a point $p\in M$ is a critical point for $f$ if $\dd_pf=0$.
+
+\begin{proposition}\label{proposition:12-2}
+  Suppose that $p\in M$ is a critical point for $f\in C^\infty(M, \RR)$.
+  \begin{enumerate}[(i)]
+    \item There exsits a quadratic form $\dd_p^2f$ on $T_pM$ characterized by the equation
+      \[
+        \dd_p^2f(\alpha'(0)) = (f\circ\alpha)''(0)
+      \]
+      where $\alpha:(-\delta,\delta)\to M$ is any smooth curve with $\alpha(0)=p$.
+    \item Let $h:U\to\RR^n$ be a chart around $p$ and let $q=h(p)$. Then the composition 
+      \[
+        \RR^n\xra[D_qh^{-1}] T_pM\xra[\dd_p^2f] \RR
+      \]
+      is the quadratic fonn associated to the symmetric matrix
+      \[
+        \left(\frac{\partial^2f\circ h^{-1}}{\partial x_i\partial x_j}(q)\right)
+      \]
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  Set $h\circ\alpha(t) = \gamma(t) = (\gamma_1(t), \ldots, \gamma_n(t))$ and $\phi = f\circ h^{-1}$. A direct 
+  calculation yields
+  \[
+    (f\circ\alpha)'(t)
+    = (\phi\circ\gamma)'(t)
+    = \sum_{i=1}^{n}{\frac{\partial\phi}{\partial x_i}(\gamma(t))\gamma_i'(t)}.
+  \]
+  Since $p$ is critical, $(\partial\phi/\partial x_i)(\gamma(0)) = 0$. By differentiating once again and substituting 
+  $t=0$, we get 
+  \[
+    (f\circ\alpha)''(0)
+    = \sum_{i=1}^n\sum_{j=1}^n{\frac{\partial^2\phi}{\partial x_i\partial x_j}(q)\gamma_i'(0)\gamma_j'(0)}.
+  \]
+  This is the value at $\gamma'(0) = D_ph(\alpha'(0))\in\RR^n$ of the quadratic form from (ii).
+  Both (i) and (ii) follow.
+\end{proof}
+
+Consider another chart $\tilde{h}:\tilde{U}\to\RR^n$ around $p$ with $\tilde{q} = \tilde{h}(p)$ and let $F=\tilde{h}\circ h^{-1}$
+defined in a neighborhood of $q$. The last formula in the proof above can be compared with 
+\[ 
+  (f\circ\alpha)''(0)
+  = \sum_{i=1}^n\sum_{j=1}^n{\frac{\partial^2\tilde{\phi}}{\partial x_i\partial x_j}(\tilde{q})\tilde\gamma_i'(0)\tilde\gamma_j'(0)}.
+\]
+
+where $\tilde{\phi} = f\circ\tilde{h}^{-1}$ and $\tilde{\gamma}=\tilde{h}\circ\alpha$. Let $J$ denote the Jacobian matrix associated
+with $F$ in $q$. Then $\tilde{\gamma}'(0)=J\gamma'(0)$ for the column vectors $\tilde{\gamma}'(0)$ and $\gamma'(0)$. 
+By substituting this and comparing, one obtains the matrix identity
+\begin{align}\label{eq:12-3}
+  \left(\frac{\partial^2\phi}{\partial x_i\partial x_j}(q)\right) 
+  = J^t\left(\frac{\partial^2\tilde{\phi}}{\partial x_i\partial x_j }(\tilde{q})\right)J.
+\end{align}
+
+\begin{definition}\label{definition:12-3}
+  A critical point $p\in M$ of $f\in C^\infty(M, \RR)$ is said to be non-degenerate, if the matrix in 
+Proposition \ref{proposition:12-2}.(ii) is invertible. We call $f$ a \Index{Morse function}, if all critical points of $f$ are 
+non-degenerate. The \Index{index} of a \Index{non-degenerate critical point} $p$ is the maximal dimension of a subspace $V\subseteq T_pM$ for
+which the restriction of $d_p^2f$ to $V$ is negative definite.
+\end{definition}
+
+For smooth submanifolds $M^n\subseteq\RR^{n+k}$ one can get Morse functions by:
+\begin{theorem}\label{theorem:12-4}
+  For almost all $p_0\in\RR^{n+k}$ the function $f:M\to\RR$ defined by
+  \[
+    f(p) = \frac{1}{2}\|p-p_0\|^2
+  \]
+  is a Morse function.
+\end{theorem}
+
+\begin{proof}
+  Let $g:\RR^n\to M$ be a local parametrization and $Y_j:\RR^n\to\RR^{n+k},j=1,\ldots,k$ smooth maps, such 
+  that $Y_1(\F x), \ldots, Y_k(\F x)$ is a basis of $T_{g(\F x)}M^\perp$ for all $\F x\in\RR^n$ By Lemma \ref{lemma:9-21} we know that $M$ 
+  can be covered by at most countably many coordinate patches $g(U)$ of this type. Therefore it suffices to prove the
+  assertion for $g(U)$ instead of $M$.
+
+  We define $\Phi:\RR^{n+k}\to\RR^{n+k}$ by 
+  \begin{align}\label{eq:12-4}
+    \Phi(\F x, \F t) = g(\F x) + \sum_{j=1}^k{t_jY_j(\F x)}\qquad (\F x\in\RR^n, \F t\in\RR^k). 
+  \end{align}
+  By Sard's theorem it suffices to prove that if $p_0$ is regular value of $\Phi$, then $f$ becomes 
+  a Morse function on $g(U)$. Set $k=f\circ g:\RR^n\to\RR^n$; we can show instead that $k$ becomes 
+  a Morse function on $\RR^n$. We have 
+  \begin{align}\label{eq:12-5}
+    k(\F x) = \frac12\langle g(\F x)-p_0, g(\F x)-p_0\rangle,
+  \end{align}
+  where $\langle\cdot,\cdot\rangle$ denotes the standard inner product in $\RR^{n+k}$. 
+
+  Since $\langle \partial g/\partial x_i(\F x), Y_\nu(\F x)\rangle = 0$, it follows by Differentiation with respect to 
+  $x_j$ that 
+  \begin{align}\label{eq:12-6}
+    \biggl\langle \frac{\partial^2 g}{\partial x_i\partial x_j}, Y_\nu\biggr\rangle 
+    = -\biggl\langle \frac{\partial g}{\partial x_i}, \frac{\partial Y_\nu}{\partial x_j}\biggr\rangle.
+  \end{align}
+  From \eqref{eq:12-5} we have 
+  \begin{align}\label{eq:12-7}
+    \frac{\partial k}{\partial x_i } = \biggl\langle g(\F x)-p_0, \frac{\partial g}{\partial x_i}\biggr\rangle,
+  \end{align}
+  and therefore 
+  \begin{align}\label{eq:12-8}
+    \frac{\partial^2 k}{\partial x_i\partial x_j} 
+    = \biggl\langle \frac{\partial g}{\partial x_j}, \frac{\partial g}{\partial x_i}\biggr\rangle
+    + \biggl\langle g(\F x)-p_0, \frac{\partial^2 g}{\partial x_i\partial x_j}\biggr\rangle.
+  \end{align}
+  Furthermore, by \eqref{eq:12-4},
+  \begin{align}\label{eq:12-9}
+    \frac{\partial \Phi}{\partial x_j}
+    = \frac{\partial g}{\partial x_j}
+      + \sum_{\nu=1}^k{t_\nu\frac{\partial Y_\nu}{\partial x_j}},\qquad
+    \frac{\partial \Phi}{\partial t_\nu} = Y_\nu.
+  \end{align}
+  Assume that $p_0$ is a regular value of $\Phi$ and let $\F x$ be a critical point of $k$. It follows
+  from \eqref{eq:12-7} that $g(x)-p_0\in T_{g(\F x)}M^\perp$. Hence there exists a unique $t\in\RR^k$ with
+  \begin{align}\label{eq:12-10}
+    g(\F x) - p_0 = -\sum_{\nu=1}^k{t_\nu Y_\nu(\F x)},
+  \end{align}
+  and $(\F x, \F t)\in\Phi^{-1}(p_0)$. The $n+k$ vectors in \eqref{eq:12-9} are linearly independent at the 
+  point $(\F x, \F t)$. At this point, the equations \eqref{eq:12-8}, \eqref{eq:12-10} \eqref{eq:12-6} and \eqref{eq:12-9} 
+  give 
+  \begin{align*}
+    \frac{\partial^2k}{\partial x_i\partial x_j}
+    & = \biggl\langle \frac{\partial g }{\partial x_j}, \frac{\partial g}{\partial x_i}\biggr\rangle
+      - \biggl\langle \sum_{\nu=1}^{k}{t_\nu Y_\nu}, \frac{\partial^2 g}{\partial x_i\partial x_j}\biggr\rangle\\
+    & = \biggl\langle \frac{\partial g}{\partial x_j}, \frac{\partial g}{\partial x_i}\biggr\rangle
+      + \biggl\langle \sum_{\nu=1}^{k}{\frac{\partial Y_\nu}{\partial x_j}}, \frac{\partial g}{\partial x_i} \biggr\rangle 
+      = \biggl\langle \frac{\partial \Phi}{\partial x_j}, \frac{\partial g}{\partial x_i}\biggr\rangle.
+  \end{align*}
+  Let $A$ denote the invertible $(n+k)\times(n+k)$ matrix with bectors from \eqref{eq:12-9} as rows. 
+  Then $AD_{\F x}g$ takes the following form:
+  \[
+    \begin{pmatrix}
+      \frac{\partial^2 k}{\partial x_1\partial x_1} & \cdots & \frac{\partial^2 k}{\partial x_1\partial x_n}\\
+      \vdots &  & \vdots\\
+      \frac{\partial^2 k}{\partial x_n\partial x_1} & \cdots & \frac{\partial^2 k}{\partial x_n\partial x_n}\\
+      0 & \cdots & 0 \\
+      \vdots &  & \vdots\\
+      0 & \cdots & 0
+    \end{pmatrix}
+  \]
+  Since $D_xg$ has rank $n$, so does $AD_{\F x}g$. Hence the $n\times n$ matrix 
+  \[
+    \left(\frac{\partial^2 k}{\partial x_i\partial x_j}(\F x)\right)
+  \]
+  is invertible. This shows that $\F x$ is a non-degenerate critical point.
+\end{proof}
+
+\begin{example}\label{example:12-5}
+  Let $f:\RR^n\to\RR$ be the function
+  \[
+    f(x) = c - x_1^2 - x_2^2 - \cdots - x_\lambda^2 + x_{\lambda+1}^2 + \cdots + x_n^2,
+  \]
+  where $x\in\RR, \lambda\in\ZZ$ and $0\le\lambda\le n$. Since 
+  \[
+    \grad_{\F x}(f) = 2(-x_1, -x_2, \ldots, -x_\lambda, x_{\lambda+1}, \ldots, x_n),
+  \]
+  0 is the only critical point of $f$. We find that 
+  \[
+    \left(\frac{\partial^2 f}{\partial x_i\partial x_j}(0)\right)
+    = \R{diag}(-2, -2, \ldots, -2, 2, \ldots, 2)
+  \]
+  with exactly $\lambda$ diagonal entries equal to -2. Thus the origin is non-degenerate
+  of index $\lambda$. We note that the vector field $\grad(f)$ has the origin as its only zero
+  and that it is non-degenerate of index $(-1)^\lambda$.
+\end{example}
+
+\begin{theorem}\label{theorem:12-6}
+  Let $p\in M^n$ be a non-degenerate critical point for $f\in C^\infty(M,\RR)$. There exists a $C^\infty$-chart 
+  $h:U\to h(U)\subseteq\RR^n$ with $p\in U$ and $h(p)=0$ such that 
+  \[
+    f\circ h^{-1}(\F x) = f(p) + \sum_{i=1}^n{\delta_i x_i^2},\qquad \F x\in h(U),
+  \]
+  where $\delta_i=\pm1 (1\le i\le n)$ (By an additional permutation of coordinates we can put $f$ into the 
+  standard form given in Example \ref{example:12-5}.)
+\end{theorem}
+
+\begin{proof}
+  After replacing $f$ with $f - f(p)$ we may assume that $f(p) = 0$. Since
+the problem is local and diffeomorphism invariant, we may also assume that
+$f\in C^\infty(W, \RR)$, where $W$ is an open convex neighborhood of 0 in $\RR^n$ and that 0
+is the considered non-degenerate critical point with $f(0) = 0$.
+
+We write $f$ in the form
+\[
+  f(\F x) = \sum_{i=1}^{n }{x_i g_i(\F x)};\qquad g_i(\F x) = \int_0^1 \frac{\partial f(t\F x)}{\partial x_i}\dd t.
+\]
+Since $g_i(0) = \frac{\partial f }{\partial x_i}(0) = 0$, we may repeat to get 
+\[
+  g_i(\F x) = \sum_{j=1}^{n }{x_j g_{ij}(\F x)};\qquad 
+  g_{ij}(\F x) = \int_0^1 \frac{\partial g_i(s\F x)}{\partial x_j}\dd s.
+\]
+On $W$ we now have that 
+\[
+  f(\F x) = \sum_{i=1}^{n }{\sum_{j=1}^{n }{x_ix_j g_{ij}(\F x)}}.
+\]
+where $g_{ij}\in C^\infty(W, \RR)$. If we introduce $h_{ij}=\frac12(g_{ij}+g_{ji})$ then $(h_{ij})$ becomes 
+a symmetric $n\times n$ matrix of smooth functions on $W$, and 
+\begin{align}\label{eq:12-11}
+  f(\F x) = \sum_{i=1}^{n }{\sum_{j=1}^{n }{x_ix_j h_{ij}(\F x)}}.
+\end{align}
+By differentiating (II) twice and substituting 0, we get
+\[
+  \frac{\partial^2 f}{\partial x_i\partial x_j}(0) = 2h_{ij}(0).
+\]
+In particular the matrix $(h_{ij}(0))$ is invertible.
+
+Let us return to the original $f\in C^\infty(M, \RR)$. By induction on $k$, we attempt to
+show that the $C^\infty$-chart $h$ from the theorem can be choosen such that $f\circ h^{-1}$
+is given by \eqref{eq:12-11} with
+\[
+  (h_{ij}) = \begin{pmatrix}
+    D & 0\\
+    0 & E
+  \end{pmatrix}
+\]
+with $D$ a $(k - 1)\times(k - 1)$ matrix of the form $\R{diag}(\pm1,\ldots, \pm1)$, and $E$ some
+symmetric $(n-k+1)\times(n-k+1)$ matrix of smooth functions. So suppose inductively that
+\begin{align}\label{eq:12-12}
+  f(\F x) = \sum_{i=1}^{k-1}{\delta_ix_i^2} + \sum_{i=k}^{n}{\sum_{j=k}^{n}{x_ix_jh_{ij}(\F x)}}
+  ,\qquad \delta_i = \pm1
+\end{align}
+for $\F x$ in a neighborhood $W$ of the origin. We know that the minor $E$ is invertible
+at 0. To start off we can perfonn a linear change of variables in $X_k,\ldots,X_n$, so
+that our new variables satisfy \eqref{eq:12-12} with $h_{kk}(0)\neq 0$. By continuity we may assume
+that $h_{kk}(\F x)$ has constant sign $\delta_k = \pm1$ on the entire $W$. Set
+\[
+  q = \sqrt{|h_{kk}|}\in C^\infty(W, \RR),
+\]
+and introduce new variables:
+\begin{align*}
+  & y_k = q(\F x)\biggl(x_k + \sum_{i=k+1}^{n }{x_i\frac{h_{ik}(\F x)}{h_{kk}(\F x)}}\biggr) \\
+  & y_j = x_j \qquad \text{ for } j\neq k, 1\le j\le n. 
+\end{align*}
+The Jacobi detenninant for $\F y$ as function of $\F x$ is easily seen to be $\partial y_k/\partial x_k(0)=q(0)\neq 0$. 
+The change of variables thus defines a local diffeomorphism $W$ around 0. In a neighborhood around 0 we have for$ y = \Psi(\F x)$:
+\begin{align*}
+  f\circ\Psi^{-1}(\F y)
+  & = f(\F x) \\
+  & = \sum_{i=1}^{k-1}{\delta_ix_i^2 + x_k^2h_{kk}(\F x)} 
+    + 2x_k \sum_{j=k+1}^{n}{x_jh_{jk}(\F x)} 
+    + \sum_{i=k+1}^{n}{\sum_{j=k+1}^{n}{x_ix_jh_{ij}(\F x)}} \\
+  & = \sum_{i=1}^{k-1}{\delta_ix_i^2} 
+    + h_{kk}(\F x)\Biggl(x_k + \sum_{j=k+1}^{n}{x_j\frac{h_{jk}(\F x)}{h_{kk}(\F x)}}\Biggr)^2 \\
+  & \quad - h_{kk}(\F x)\Biggl(\sum_{j=k+1}^{n}{x_j\frac{h_{jk}(\F x)}{h_{kk}(\F x)}}\Biggr)^2 
+    + \sum_{i=k+1}^{n}{\sum_{j=k+1}^{n}{x_ix_jh_{ij}(\F x)}} \\
+  & = \sum_{i=1}^{k }{\delta_iy_i^2} + \sum_{i=k+1}^{n}{\sum_{j=k+1}^{n}{y_iy_j\tilde h_{ij}(\F x)}} \\
+  & = \sum_{i=1}^{k }{\delta_iy_i^2} + \sum_{i=k+1}^{n}{\sum_{j=k+1}^{n}{y_iy_j\tilde h_{ij}\circ\Psi^{-1}(\F y)}}
+\end{align*}
+where $\tilde{h}_{ij}\in C^\infty(W, \RR)$. This completes the induction step.
+\end{proof}
+
+We point out that with the assumptions of Theorem \ref{theorem:12-6} $p$ is the only critical
+point in $U$. If $M$ is compact and $f\in C^\infty(W, \RR)$ is a Morse function then $f$ has
+only finitely many critical points. Among them there will always be at least one
+local minimum (index $\lambda = 0$) and at least one local maximum (index $\lambda=n$).
+
+\begin{definition}\label{definition:12-7}
+  Let $f\in C^\infty(W, \RR)$ be a Morse function. A smooth tangent
+vector field $X$ on $M$ is said to be \Index{gradient-like} for $f$, if the following conditions
+are satisfied:
+\begin{enumerate}[(i)]
+  \item For every point $p\in M, \dd_pf(X(p)) > 0$.
+  \item If $p\in M^n$ is a critical point of $f$ then there exists a $C^\infty$-chart $h:U\to h(U)\subseteq\RR^n$
+  with $p\in U$ and $h(p) = 0$ such that
+  \[
+    f\circ h^{-1}(\F x) = f(p) - x_1^2 - \cdots - x_\lambda^2 + x_{\lambda+1}^2 + \cdots + x_n^2, \qquad \F x\in h(U).
+  \]
+  and $h_*X_{|U} = \grad(f\circ h^{-1})$.
+\end{enumerate}
+\end{definition}
+
+A smooth parametrized curve $\alpha:I\to M$ is an \Index{integral curve} for $X$, if
+\[
+  \alpha'(t) = X(\alpha(t)),\qquad \text{ for } t\in I.
+\]
+
+Hence one gets $(f\circ\alpha)'(t) = \dd_{\alpha(t)}f(X(\alpha(t)))$. If $\alpha(I)$ does not contain any
+critical points, then $f\circ\alpha:I\to\RR$ is a monotone increasing function by condition (i).
+
+\begin{lemma}\label{lemma:12-8}
+  Every Morse function on $M$ admits a gradient-like vector field.
+\end{lemma}
+
+
+\begin{proof}
+We can find a $C^\infty$-atlas $(U_\alpha, h_\alpha)_{\alpha\in A}$ for $M$ which satisfies the following two conditions:
+\begin{enumerate}[(i)]
+  \item Every critical point of $f$ belongs to just one of the coordinate patches $U_\alpha$.
+  \item For any $\alpha\in A$ either $f$ has no critical point in $U_\alpha$ or $f$ has precisely
+    one critical point $p$ in $U_\alpha, h_\alpha(p) = 0$, and $f\circ h_\alpha^{-1}$ has the form 
+    listed in Example \ref{example:12-5}.
+\end{enumerate}
+
+Let $X_\alpha$ be a tangent vector field on $U_\alpha$ determined by $X_\alpha = (h^{-1}_\alpha)_*(\grad (f\circ h_\alpha^{-1}))$.
+Choose a smooth partition of unity $(\rho_\alpha)_{\alpha\in A}$ subordinate to $(U_\alpha)_{\alpha\in A}$, and define a smooth 
+tangent vector field on $M$ by
+\[
+  X = \sum_{\alpha\in A}^{}{\rho_\alpha X_\alpha},
+\]
+where $\rho_\alpha X_\alpha$ is taken to be 0 outside $U_\alpha$. If $p\in M$ is not a critical point for $f$ then, for 
+every $\alpha\in A$ with $p\in U_\alpha$ and $q\in h_\alpha(p)$, we have 
+\[
+  \dd_pf(X_\alpha(p)) 
+  = \dd_q(f\circ h_\alpha^{-1})(X_\alpha(p))(\grad (f\circ h_\alpha^{-1})) > 0
+\]
+Indeed, there is at least one $\alpha$ with $\rho_\alpha(p)>0$ and 
+\[
+  \dd_pf(X(p)) = \sum_{\alpha\in A}^{}\rho_\alpha(p)\dd_pf(X_\alpha(p)).
+\]
+
+We see that $X$ satisfies condition (i) in Definition \ref{definition:12-7}.
+
+If $p$ is a critical point of $f$ then there exists a unique $\alpha\in A$ with $p\in U_\alpha$. It
+follows from (a) that $X$ coincides with $X_\alpha$. on a neighborhood of $p$, and condition
+(b) above shows that assertion (ii) in Definition \ref{definition:12-7} is satisfied.
+\end{proof}
+
+The next lemma relates the index of a Morse function to the local index of vector
+fields as defined in Chapter 11.
+
+\begin{lemma}\label{lemma:12-9}
+  Let $f$ be a Morse function on $M$ and $X$ a smooth tangent vector
+field such that $\dd_pf(X(p)) > 0$ for every $p\in M$ that is not a critical point for $f$.
+Let $p_0\in M$ be a critical point for $f$ of index $\lambda$. If $X(p_0) = 0$, then
+\[
+  \iota(X; p_0) = (-1)^\lambda.
+\]
+\end{lemma}
+
+\begin{proof}
+  We choose a gradient-like vector field $\tilde X$. By Definition \ref{definition:12-7}.(ii) and
+Example \ref{example:12-5},
+\[
+  \iota(\tilde{X}; p_0) = (-1)^\lambda.
+\]
+Let $U$ be an open neighborhood of $p_0$ that is diffeomorphic to $\RR^n$ and chosen so
+small that $p_0$ is the only critical point in $U$. The inequalities
+\[
+  \dd_pf(X(p)) > 0,\qquad \dd_pf(\tilde{X}(p)) > 0
+\]
+valid for $p\in U-\{p_0\}$, show that $X(p)$ and $\tilde X(p)$ belongs to the same open half-space in $T_pM$. Thus 
+\[
+  (1-t)X(p) + t\tilde{X}(p) \qquad (0\le t\le 1)
+\]
+defines a homotopy between $X$ and $\title{X}$ considered as maps from $U-\{p_0\}$ to $\RR^n-\{0\}$, and 
+$\iota(X; p_0) = \iota(\tilde{X}; p_0)$.
+\end{proof}
+
+\begin{remark}\label{remark:12-10}
+  Given a Riemannian metric on $M$ and $f\in C^\infty(M, \RR)$, one can define the gradient vector field $\grad f$ by 
+  the equation
+  \[
+    \langle \grad_p (f), X_p\rangle = \dd_pf(X_p)
+  \]
+  for all $X_p\in T_pM$. Then Lemma \ref{lemma:12-9} holds for $\grad(f)$.
+\end{remark}
+
+\begin{theorem}\label{theorem:12-11}
+  Let $M^n$ be a compact differentiable manifold and $X$ a smooth
+tangent vector field on $M^n$ with isolated singularities. Let $f\in C^\infty(M, \RR)$ be a
+Morse function and $c_\lambda$ the number of critical points of index $\lambda$ for $f$. Then we
+have that
+\[
+  \R{Index}(X) = \sum_{\lambda = 0}^{n }{(-1)^\lambda c_\lambda}.
+\]
+\end{theorem}
+
+\begin{proof}
+  It is a consequence of Theorem \ref{theorem:11-27} that any two tangent vector fields
+with isolated singularities have the same index. Thus we may assume that $X$ is
+gradient-like for $f$. The zeros for $X$ are exactly the critical points of $f$, and the
+claimed formula follows from Lemma \ref{lemma:12-9}.
+
+It is a consequence of the above theorem that the sum
+\begin{align}\label{eq:12-13}
+  \sum_{\lambda = 0}^{n }{(-1)^\lambda c_\lambda}
+\end{align}
+is independent of the choice of Morse function $f\in C^\infty(M, \RR)$. Given Theorem \ref{theorem:12-11}, the 
+Poincare-Hopf theorem is the statement that the sum \eqref{eq:12-13} is equal to the Euler characteristic; cf. \eqref{eq:12-2}.
+
+We will give a proof of this based on the two lemmas below, whose proofs in
+turn involve methods from dynamical systems and ordinary differential equations,
+and will be postponed to Appendix C.
+
+Let us fix a compact manifold $M^n$ and a Morse function $f$ on $M$. For $a\in\RR$ we set
+\[
+  M(a) = \{p\in M\mid f(p)<a\}.
+\]
+
+Recall that a number $a\in\RR$ is a \Index{critical value} if $f^{-1}(a)$ contains at least one
+critical point.
+
+\begin{lemma}\label{lemma:12-12}
+  If there are no critical values in the interval $[a_1, a_2]$, then $M(a_1)$ and $M(a_2)$ are diffeomorphic.
+\end{lemma}
+
+\begin{lemma}\label{lemma:12-13}
+  Suppose that $a$ is a critical value and that $p_1, \ldots, p_r$ are the critical
+points in $f^{-1}(a)$. Let $p_i$ have index $\lambda_i$. There exists an $\epsilon > 0$, and disjoint open
+neighbourhoods $U_i$ of $p_i$, such that
+\begin{enumerate}[(i)]
+  \item $p_1,\ldots,p_r$ are the only critical points in $f^{-1}([a-\epsilon, a+\epsilon])$.
+  \item $U_i$ is diffeomorphic to an open contractible subset of $\RR^n$.
+  \item $U_i\cap M(a-\epsilon)$ is diffeomorphic to $S^{\lambda_i-1}\times V_i$, where $V_i$ is an open
+    contractible subsets of $\RR^{n-\lambda_i+1}$ (in particular $U_i\cap M(a-\epsilon) = \ns$ if $\lambda_i=0$).
+  \item $M(a+\epsilon)$ is diffeomorphic to $U_1\cup\ldots\cup U_r\cup M(a-\epsilon)$.
+\end{enumerate}
+\end{lemma}
+\end{proof}
+
+\begin{proposition}\label{proposition:12-14}
+  In the situation of Lemma \ref{lemma:12-13} suppose that $M(a-\epsilon)$ has
+  finite-dimensional cohomology. Then the same will be true for $M(a + \epsilon)$, and
+  \[
+    \chi(M(a+\epsilon)) = \chi(M(a-\epsilon)) + \sum_{i=1}^{r}{(-1)^{\lambda_i}}.
+  \]
+\end{proposition}
+
+\begin{proof}
+  For $U=U_1\cup\ldots\cup U_r$, Lemma \ref{lemma:12-13} and Corollary \ref{corollary:6-10} imply that 
+  \begin{align*}
+    H^p(U) \se \left\{\begin{aligned}
+      &0 && \text{ if } p\neq 0 \\
+      &\RR^r && \text{ if } p = 0
+    \end{aligned}\right.
+  \end{align*}
+  This gives $\chi(U) = r$. Condition (iii) of Lemma \ref{lemma:12-13} shows that $U_i\cap M(a-\epsilon)$
+  is homotopy equivalent to $S^{\lambda_i-1}$, and Example \ref{example:9-29} gives
+  \[
+    \chi(U_i\cap M(a-\epsilon)) 
+    = 1 + (-1)^{\lambda_i - 1}
+  \]
+  Since $U\cap M(a-\epsilon)$ is a disjoint union of the sets $U_i\cap M(a-\epsilon)$, it has a
+  finite-dimensional de Rham cohomology, and 
+  \[
+    \chi(U\cap M(a-\epsilon)) 
+    = \sum_{i=1 }^{r }{(1+(-1)^{\lambda_i-1})}
+    = r - \sum_{i=1 }^{r }{(-1)^{\lambda_i}}
+    = \chi(U) - \sum_{i=1 }^{r }{(-1)^{\lambda_i}}.
+  \]
+  The claimed formula now follows from Lemma \ref{lemma:12-13}.(iv) and the lemma below,
+  applied to $U$ and $V = M(a - \epsilon)$.
+\end{proof}
+
+\begin{lemma}\label{lemma:12-15}
+  Let $U$ and $V$ be open subsets of a smooth manifold. If $U, V$ and
+$U\cap V$ have finite dimensional de Rham cohomology, the same is true for $U\cup V$, and
+\[
+  \chi(U\cup V) = \chi(U) + \chi(V) - \chi(U\cap V).
+\]
+\end{lemma}
+
+\begin{proof}
+  We use the long exact Mayer-Vietoris sequence
+  \[
+    \cdots\ra H^{p-1}(U\cap V)\ra H^p(U\cup V)\ra H^p(U)\oplus H^p(V)\ra H^p(U\cap V)\ra\cdots
+  \]
+  First we conclude that $\dim H^P(U\cup V)<\infty$. Second, the altematidg sum of the
+  dimensions of the vector spaces in an exact sequence is equal to zero; cf. Exercise \ref{exercise:4-4}.
+\end{proof}
+
+\begin{theorem}\label{theorem:12-16}
+  If $f$ is a Morse function on the compact manifold $M^n$, then
+  \[
+    \chi(M^n) = \sum_{\lambda=0}^{n }{(-1)^\lambda c_\lambda},
+  \]
+  where $c_\lambda$ denotes the number of critical points for $f$ of index $\lambda$.
+\end{theorem}
+
+\begin{proof}
+  Let $a_1 < a_2 < \ldots < a_{k-1} < a_k$ be the critical values. Choose real
+  numbers $b_0 < a_1. b_j\in (a_j, a_{j+1})$ for $1\le j\le k-1$ and $b_k > a_k$. 
+  Lemma \ref{lemma:12-12} shows that the dimensions of $H^d(M(b_j))$ are independent of 
+  the choice of $b_j$ from the relevant interval. If $M(b_{j-1})$ has finite-dimensional de 
+  Rham cohomology, the same will be true for $M(b_j)$ according to Proposition \ref{proposition:12-14}, 
+  and
+  \begin{align}\label{eq:12-14}
+    \chi(M(b_j)) - \chi(M(b_{j-1})) = \sum_{p\in f^{-1}(a_j)}^{}{(-1)^\lambda(p)}
+  \end{align}
+  Here the sum runs over the critical points $p\in f^{-1}(a_j)$, and $\lambda(p)$ 
+  denotes the index of $p$. We can start from $M(b_0) = 0$. An induction argument shows that
+  $\dim H^d(M(b_j))<\infty$ for all $j$ and $d$. The sum of the formulas of \eqref{eq:12-14} for
+  $1\le j\le k$ gives
+  \[
+    \chi(M) = \chi(M(b_k))
+    = \sum_{p }^{}{(-1)^{\lambda(p)}}
+  \]
+  where $p$ runs over the critical points.
+\end{proof}
+
+The Poincare-Hopf theorem \ref{theorem:12-1} follows by combining Theorems \ref{theorem:12-11} 
+and \ref{theorem:12-16}.
+
+
+\begin{corollary}\label{corollary:12-17}
+  If $M^n$ is compact and of odd dimension $n$ then $\chi(M^n) = 0$.
+\end{corollary}
+
+\begin{proof}
+  Let $f$ be a Morse function on $M$. Then $-f$ is also a Morse function,
+  and $-f$ has the same critical points as $f$. If a critical point $p$ has index $\lambda$ with
+  respect to $f$, then $p$ has index $n-\lambda$ with respect to $-f$. Theorem \ref{theorem:12-16} applied
+  to both $f$ and $-f$ gives
+  \[
+    \chi(M) 
+    = \sum_{\lambda=0}^{n }{(-1)^\lambda c_\lambda}
+    = \sum_{\lambda=0}^{n }{(-1)^{n-\lambda}c_{\lambda}}.
+  \]
+  The two sums differ by the factor $(-1)^n$, and the assertion follows.
+\end{proof}
+
+
+\begin{example}[Gauss-Bonnet in $\RR^3$]\label{example:12-18}
+  We consider a compact regular surface $S\subseteq\RR^3$, oriented by means of the Gauss 
+  map $N: S\to S^2$. The Gauss curvature of $S$ at the point $p$ is
+  \[
+    K(p) = \det(\!\dd_pN);\qquad T_pS = \{p\}^\perp = T_pS^2.
+  \]
+  Sard's theorem implies that we can find a pair of antipodal points in $S^2$ that are
+  both regular values of $N$. After a suitable rotation of the entire situation we can
+  assume that $p_\pm = (0, 0, \pm1)$ are regular values of $N$.
+
+  Let $f\in C^\infty(S, \RR)$ be the projection on the third coordinate axis of $\RR^3$. The
+  critical points $p\in S$ of $f$ are exactly the points for which $T_pS$ is parallel with
+  the $x_1, x_2$-plane, i.e. $N(p) = p_\pm$. At such a point $p$, the differential of the Gauss
+  map $\dd_pN$ is an isomorphism. Hence $K(p)\neq 0$. A neighborhood of $p$ in $S$ can be
+  parametrized by $(u, v, f (u, v))$, and in these local coordinates the Gauss curvature
+  has the following expression:
+  \[
+    K = \left(1+\left(\frac{\partial f }{\partial u }\right)^2 + \left(\frac{\partial f }{\partial v }\right)^2\right)^{-1}
+    \det\begin{pmatrix}
+      \frac{\partial^2 f}{\partial u^2} & \frac{\partial^2 f}{\partial u\partial v}\\[.75em]
+      \frac{\partial^2 f}{\partial v\partial u} & \frac{\partial^2 f}{\partial v^2}
+    \end{pmatrix}
+  \]
+  (see e.g. [do Carmo] page 163). Since $K(p)\neq 0$, the determinant in the expression
+  does not vanish at $p$, so $p$ is a non-degenerate critical point for $f$. If $K(p) > 0$
+  the determinant is positive and $p$ has index 0 or 2. If $K(p) < 0$ the determinant
+  is negative and $p$ has index 1. We apply Theorem \ref{theorem:12-16} to get
+  \[
+    \chi(S) = \#\{p\in S \mid N(p)=p_\pm, K(p)>0\} 
+    - \#\{p\in S \mid N(p)=p_\pm, K(p)<0\}.
+  \]
+  Since $p_+$ is regular value for $N$, we have by Theorem \ref{theorem:11-9}
+  \[
+    \R{deg}{N} = \#\{p\in N^{-1}(p_+)\mid K(p)>0\}
+    - \#\{p\in N^{-1}(p_+)\mid K(p)<0\}.
+  \]
+  and analogously with $p_{-}$ instead of $p_+$. It follows that
+  \begin{align}\label{eq:12-15}
+    \chi(S) = 2\;\R{deg}(N).
+  \end{align}
+  The map 
+  \[
+    \alt^2(\!\dd N_p):\alt^2(T_{N_p}S^2) 
+    = \alt^2(T_pS)\to\alt^2(T_p(S))
+  \]
+  is multiplication by $\det(\!\dd_pN) = K(p)$, so $N^*(\R{vol}_{S^2})=K(p)\R{vol}_S$. Hence 
+  \[
+    \int_S K\R{vol}_S 
+    = \int_{S^2} N^*(\R{vol}_{S^2})
+    = (\R{deg}N)\int_{S^2}\R{vol}_{S^2}
+    = 4\pi \R{deg}N.
+  \]
+  Combined with \eqref{eq:12-15} this yields the \Index{Gauss-Bonnet formula}
+  \begin{align}\label{eq:12-16}
+    \frac1{2\pi}\int_S K\R{vol}_S = \chi(S).
+  \end{align}
+\end{example}
+
+\begin{example}\label{example:12-19}
+  Consider the torus $T$ in $\RR^3$ . The height function $f:T\to\RR$ is a
+  Morse function with the four indicated critical points. The Gauss curvature of $T$ is
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[width=.5\linewidth]{./pics/chap12-1-o.pdf}
+    \label{fig:12-1}
+  \end{figure}
+  positive at $p$ and $s$, but negative at $q$ and $r$ (cf. Example \ref{example:12-18}). 
+  Hence $f$ is a Morse function on $T$. The index at $p, q, r$ and $s$ is 0, 1, 1 and 2, respectively. 
+  Theorem \ref{theorem:12-16} gives $\chi(T) = 0$. Since we know that $\dim H^0(T) = \dim H^2(T) = 1$, we
+  can calculate $\dim H^1(T) = 2$.
+\end{example}
+
+\begin{example}[Morse function on $\B{RP}^n$]\label{example:12-20}
+  Real functions on $\B{RP}^n$ are equivalent to even functions $f:S^n\to\RR$, 
+  i.e. $f(x) = f(-x)$ for all $x\in S^n$. Let us try
+  \[
+    f(\F x) = \sum_{i=1 }^{n }{a_ix_i^2}
+  \] 
+  for $\F x = (x_0, x_1, \ldots, x_n)\in S^n\subseteq\RR^{n+1}$, and real numbers $a_i$. The differential 
+  of $f$ at $\F x$ is given by  
+  \[
+    \dd_xf(v_0, \ldots, v_n) = 2\sum_{i=1 }^{n }{a_ix_iv_i},
+  \]  
+  where $u=(v_0, v_1, \ldots, v_n)\in T_xS^n$ so that 
+  \[
+    \sum_{i=1 }^{n }{x_iv_i} = 0.
+  \]
+  Thus $\F x$ is a critical point for $f$ if and only if the vectors $\F x$ and
+  $(a_0x_0, a_1x_1, \ldots, a_nx_n)$ are linearly independent. If the coefficients $a_i$ are
+  distinct, this occurs precisely for $\F x = \pm e_i = (0,\ldots, \pm1,\ldots,0)$, and $f$ has exactly $2n+2$ critical 
+  points. The induced smooth map $i:\B{RP}^n\to\RR$ then has $n+1$ critical points $[e_i]$. In a neighborhood 
+  of $\pm e_0\in S^n$ we have the charts $h$ with
+  \[
+    h_\pm^{-1}(u_1, \ldots, u_n)
+    = \left(\pm\sqrt{1-\sum\nolimits_{i=1}^nu_i^2},\; u_1, \ldots, u_n\right),
+  \]
+  and in a neighborhood of $0\in\RR^n$,
+  \[
+    f\circ h_\pm^{-1}(u_1, \ldots, u_n)
+    = a_0\biggl(1-\sum_{i=1}^n u_i^2\biggr) + \sum_{i=1}^{n }{a_iu_i^2}
+    = a_0 + \sum_{i=1}^{n }{(a_i-a_0)u_i^2}.
+  \]
+  The matrix of the second-order partial derivatives for $f\circ h_\pm^{-1}$ (at 0) is the 
+  diagonal matrix
+  \[
+    \R{diag}(2(a_1-a_0), 2(a_2-a_0), \ldots, 2(a_n-a_0)).
+  \]
+
+  Hence $\pm e_0$ are non-degenerate critical points for $f$; the index for each is equal
+  to the number of indices $i$ with $1\le i\le n$ and $a_i < a_0$. An analogous result
+  holds for the other critical points $\pm e_j$. For simplicity, suppose that 
+  $a_0 < a_1 <a_2 < \ldots < a_n$. Then the two critical points $\pm e_j$ for $f:S^n\to\RR$ have index $j$.
+  The induced function $\tilde{f}:\B{RP}^n\to\RR$ is a Morse function with critical points $[e_j]$ of
+  index $j$. We apply Theorem \ref{theorem:12-16} to $\tilde{f}$. Since $c_\lambda=1$ for $0\le\lambda\le n$, 
+  we get
+  \begin{align*}
+    \chi(\B{RP}^n)
+    = \left\{\begin{aligned}
+      1\quad & \text{ if $n$ is even } \\
+      0\quad & \text{ if $n$ is odd }. 
+    \end{aligned}\right.
+  \end{align*}
+  This agrees with Example \ref{example:9-31}.
+\end{example}
+

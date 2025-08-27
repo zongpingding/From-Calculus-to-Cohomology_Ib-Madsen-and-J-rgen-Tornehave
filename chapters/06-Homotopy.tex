@@ -1,0 +1,477 @@
+\chapter{Homotopy}
+In this chapter we show that de Rham cohomology is functorial on the category of continuous 
+maps between open sets in Euclidean spaces and calculate $H^*(\RR^n - \{0\})$.
+
+\begin{definition}
+  Two continuous maps $f_\nu:X\to Y, \nu = 0,1$ between topological
+spaces are said to be homotopic, if there exists a continuous map
+\begin{align*}
+  F:X\times [0,1] &\to Y
+\end{align*}
+
+such that $F(x, \nu) = f_\nu(x)$ for $\nu=0, 1$ and all $x\in X$.
+\end{definition}
+
+
+This is denoted by $f_0\sime f_1$, and $F$ is called a \Index{Homotopy} from $f_0$ to $f_1$. It is 
+convenient to think of $F$ as a family of continuous maps $f_t:X\to Y (0\le t\le 1)$, given by $f_t(x) = F(x, t)$, 
+which deform $f_0$ to $f_1$.
+
+
+\begin{lemma}\label{lemma:6-2}
+  Homotopy is an equivalence relation.
+\end{lemma}
+
+\begin{proof}
+  If $F$ is a homotopy from $f_0$ to $f_1$, a homotopy from $f_1$ to $f_0$ is defined by $G(x, t) = F(x, 1-t)$.
+  If $f_0\sime f_1$ via $F$ and $f_1\sime f_2$ via $G$, then $f_0\sime f_2$ via 
+  \begin{align*}
+    H(x, t) = \left\{\begin{aligned}
+      & F(x, 2t) && 0\le t\le \frac12\\
+      & G(x, 2t-1) && \frac12\le t\le 1
+    \end{aligned}\right.
+  \end{align*}
+
+  Finally we have that $f\sime f$ via $F(x, t) = f(x)$.
+\end{proof}
+
+\begin{lemma}\label{lemma:6-3}
+Let $X, Y$ and $Z$ be topological spaces and let $f_\nu:X\to Y$ and $g_\nu:Y\to Z$ be continuous maps for $\nu=0, 1$. If 
+$f_0 \sime f_1$ and $g_0\sime g_1$ then $g_0\circ f_0\sime g_1\circ f_1$.
+\end{lemma}
+
+\begin{proof}
+  Given homotopies $F$ from $f_0$ to $f_1$ and $G$ from $g_0$ to $g_1$, the homotopy $H$
+  from $g_0\circ f_0$ to $g_1\circ f_1$ can be defined by $H(x, t) = G(F(x, t), t)$.
+\end{proof}
+
+
+\begin{definition}\label{definition:6-4}
+  A continuous map $f:X\to Y$ is called a \Index{homotopy equivalence}\index{homotopy!equivalence}, if
+there exists a continuous map $g:Y\to X$, such that $g\circ f \sime \id_X$ and $f\circ g\sime \id_Y$.
+Such a map $g$ is said to be a \Index{homotopy inverse}\index{homotopy!inverse} to $f$.
+\end{definition}
+
+Two topological spaces $X$ and $Y$ are called \Index{homotopy equivalent} if there exists a
+homotopy equivalence between them. We say that X is contractible\index{contractibility}, when $X$ is
+homotopy equivalent to a single-point space. This is the same as saying that $\id_X$
+is homotopic to a constant map. The equivalence classes of topological spaces
+defined by the relation homotopy equivalence are called \Index{homotopy types}\index{homotopy!type}.
+
+\begin{example}\label{example:6-5}
+Let $Y\subseteq\RR^m$ have the topology induced by $\RR^m$. If, for the continuous maps $f_\nu:X\to Y, \nu=0, 1$, the line segement
+in $\RR^m$ from $f_0(x)$ to $f_1(x)$ is contained in $Y$ for all $x\in X$, we can define a homotopy $F:X\times [0, 1]\to Y$  from 
+$f_0$ to $f_1$ by 
+\begin{align*}
+  F(x, t) = (1-t)f_0(x) + tf_1(x).
+\end{align*}
+
+In particular this shows that a star-shaped set in $\RR^m$ is contractible.
+\end{example}
+
+
+\begin{lemma}\label{lemma:6-6}
+If $U, V$ are open sets in Euclidean spaces, then 
+\begin{enumerate}[(i)]
+  \item Every continuous map $f:U\to V$ is homotopic to a smooth map.
+  \item If two smooth maps $f_\nu:U\to V, \nu=0, 1$ are homotopic, then there exists a smooth map $F:U\times\RR\to U$ with 
+    $F(x, \nu) = f_\nu(x)$ for $\nu=0, 1$ and all $x\in U$. ($F$  is called a \Index{smooth homotopy} from $f_0$ to $f_1$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  We use Lemma \ref{lemma:A.9} to approximate $h$ by a smooth map $f:U\to V$. We
+can choose $f$ such that $V$ contains the line segment from $h(x)$ to $f(x)$ for every
+$x\in U$. Then $h\sime f$ by Example \ref{example:6-5}.
+
+Let $G$ be a homotopy from $f_0$ to $f_1$. Use continuous function $\psi:\RR\to[0, 1]$ with 
+$\psi(t) = 0$ for $t\le \frac13$ and $\psi(t) = 1$ for $t\ge \frac23$ to construct 
+\begin{align*}
+  H:U\times\RR &\to V, \quad H(x, t) = G(x, \psi(t)).
+\end{align*}
+
+Since $H(x, t) = f_0(x)$ for $t\le\frac13$ and $H(x, t) = f_1(x)$ for $t\ge\frac23$, $H$ is smooth 
+on $U\times(-\infty)\cup U\times(\frac23, \infty)$. Lemma \ref{lemma:A.9} allows us to approximate $H$ by a smooth map 
+$F:U\times\RR\to V$ such that $F$ and $H$ have the same restiction on $U\times\{0, 1\}$. For $\nu=0, 1$ and $x\in U$
+we have that $F(x, \nu) = H(x, \nu) = f_\nu(x)$.
+\end{proof}
+
+
+
+\begin{theorem}\label{theorem:6-7}
+If $f, g:U\to V$ are smooth maps and $f\sime g$ then the induced chain maps 
+\begin{align*}
+  f^*,g^*:\Omega^*(V)\to \Omega^*(U)
+\end{align*}
+
+are chain-homotopic (see Definition \ref{definition:4-10}).
+\end{theorem}
+
+\begin{proof}
+Recall, from the proof of Theorem \ref{theorem:3-15}, that every $p$-form $\omega$ on $U\times\RR$
+can be written as
+\begin{align*}
+  \omega = \sum f_I(x, t)\dd x_I + \sum g_J(x, t)\dd t\wedge\dd x_J
+\end{align*}
+
+If $\phi:U\to U\times\RR$ is the inlclusion map $\phi(x) = \phi_0(x) = (x, 0)$, then 
+\begin{align*}
+  \phi^*(\omega) = \sum f_I(x, 0)\dd \phi_I = \sum F_I(x, 0)\dd x_I.
+\end{align*}
+
+Indeed, $\phi^*(\!\dd t\wedge\dd x_J) = 0$ since the last component (the $t$-component) of $\phi$ is
+constant; see Example \ref{example:3-11}. Analogously, for $\phi_1(x) = (x, 1)$, we have that
+\begin{align*}
+  \phi^*_1(\omega) = \sum F_I(x, 1)\dd x_I.
+\end{align*}
+
+In the proof of Theorem \ref{theorem:3-15} we constructed
+\begin{align*}
+  \hat{S}^*_p: \Omega^p(U\times\RR)\to \Omega^{p-1}(U)
+\end{align*}
+
+such that 
+\begin{align}
+  (\!\dd\hat{S}_p + \hat{S}_{p+1}\dd)(\omega) = \phi^*_1(\omega) - \phi^*_0(\omega).
+\end{align}
+
+Consider the composition $U\xra[\phi_\nu]U\times\RR\xra[F] V$, where $F$ is a smooth homotopy between 
+$f$ and $g$. The we have that $F\circ\phi_0 = f$ and $F\circ\phi_1 = g$. We define 
+\begin{align*}
+  S_p:\Omega^p(V)\to \Omega^{p-1}(U)
+\end{align*}
+
+to be $S_p = \hat{S}_p\circ F$, and assert that 
+\begin{align*}
+  \dd\hat{S}_p(F^*(\omega)) + \hat{S}_{p+1}\dd F^*(\omega)
+  & = \phi_1^*(\omega) - \phi_0^*(\omega) \\
+  & = (F\circ\phi_0)^*(\omega) - (F\circ\phi_0)^*(\omega) \\
+  & = g^*(\omega) - f^*(\omega).
+\end{align*}
+
+Furthermore $\hat{S}_{p+1}F^*(\omega) = \hat{S}_{p+1}F^*\dd(\omega) = S_{p+1}\dd(\omega)$, since 
+$F^*$ is a chain map.
+\end{proof}
+
+In the situation of Theorem \ref{theorem:6-7}, Lemma \ref{lemma:4-11} states that 
+$f^* = g^*: H^p(V)\to H^(U)$. For a continuous map $\phi: U\to V$ we can find a smooth map 
+$f:U\to V$ with $\phi\sime f$ by (i) of Lemma \ref{lemma:6-6}, and by Lemma \ref{lemma:6-2} and the result 
+above we see that $f^*: H^p(V)\to H^p(U)$ is independent of the choice of $f$. Hence we can define
+\begin{align*}
+  \phi^* = H^p(\phi): H^p(V)\to H^p(U).
+\end{align*}
+
+be setting $\phi^* = f^*$, where $f:U\to V$ is a smooth map homotopy to $\phi$.
+
+
+\begin{theorem}\label{theorem:6-8}
+For $p\in\B{Z}$ and open sets $U, V, W$ in Euclidean spaces we have 
+\begin{enumerate}[(i)]
+  \item If $\phi_0, \phi_1:U\to V$ are homotopic continuous maps, then 
+    \begin{align*}
+      \phi_0^* = \phi_1^*: H^p(V)\to H^p(U).
+    \end{align*}
+  \item If $\phi:U\to V$ and $\psi:V\to W$ are continuous, then $(\phi\circ\psi)^* = \psi^*\circ\phi^*: H^p(W)\to H^p(U)$. 
+  \item If the continuous map $\phi:U\to V$ is a homotopy equivalence, then 
+    \begin{align*}
+      \phi^*: H^p(V)\to H^p(U)
+    \end{align*}
+    is an isomorphism.
+\end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+Choose a smooth map $f:U\to V$ with $\phi\sime f$. Lemma \ref{lemma:6-2} gives that
+$\phi_1\sime f$ and (i) immediately follows. Part (ii), with smooth $\phi$ and $\psi$, follows
+from the formula
+\begin{align*}
+  \Omega^p(\phi\circ\psi) = \Omega^p(\phi)\circ\Omega^p(\psi).
+\end{align*}
+
+In the general case, choose smooth maps $f:U\to V$ and $g:V\to W$ with $\phi\sime f$ and $\psi\sime g$. Lemma \ref{lemma:6-3}
+shows that $\phi\circ\psi\sime g\circ f$, and we get 
+\begin{align*}
+  (\phi\circ\psi)^* = (g\circ f)^* = f^*\circ g^* = \psi^*\circ\phi^*.
+\end{align*}
+
+If $\psi:U\to V$ is a homotopy inverse to $\phi$, i.e.,
+\begin{align*}
+  \psi\circ\phi\sime\id_U, \text{ and } \phi\circ\psi\sime\id_V,
+\end{align*}
+
+then it follows from (ii) that $\psi^*:H^p(U)\to H^p(V)$ is inverse to $\phi^*$.
+\end{proof}
+
+This result shows that $H^p(U)$ depends only on the homotopy type of $U$. In
+particular we have:
+
+\begin{corollary}[Topological invariance]\index{invariance!topological}\index{topological invariance}\label{corollary:6-9}
+A homeomorphism $h:U\to V$ between open sets in Euclidean spaces induces isomorphisms $h^*:H^p(U)\to H^p(V)$ for
+all $p$.
+\end{corollary}
+
+\begin{proof}
+  The corollary follows from Theorem \ref{theorem:6-8}.(iii), as $h^{-1}:V\to U$ is a
+homotopy inverse to $h$.
+\end{proof}
+
+\begin{corollary}\label{corollary:6-10}
+If $U\subseteq \RR$ is an open contractible set, then $H^p(U) = 0$ when
+$p > 0$ and $H^0(U) = \RR$.
+\end{corollary}
+
+
+\begin{proof}
+Let $F:U\times[0, 1]\to U$ be a homotopy from $f_0 =\id_U$ to a constant map
+$f_1$ with value $x_0\in U$. For $x\in U, F(x, t)$ defines a continuous curve in $U$,
+which connects $x$ to $x_0$. Hence $U$ is connected and $H^0(U) = \RR$ by Lemma \ref{lemma:3-9}.
+If $p > 0$ then $\Omega^p(f_1):\Omega^p(U)\to\Omega^p(U)$ is the zero map. Hence by Theorem
+\ref{theorem:6-8}.(i) we get that
+\begin{align*}
+  \id_{H^p(U)} = f_0^* = f_1^* = 0.
+\end{align*}
+
+and thus $H^p(U) = 0$.
+\end{proof}
+
+In the proposition below, $\RR^n$ is identified with the subspace $\RR^n\times\{0\}$ of $\RR^{n+1}$
+and $\RR\cdot 1$ denotes the 1-dimensional subspace consisting of constant functions.
+
+\begin{proposition}\label{prop:6-11}
+  For an arbitrary closed subset $A$ of $\RR$ with $A\neq\RR^n$ we have isomorphisms
+  \begin{align*}
+    H^p(\RR^n - A) &\cong H^p(\RR^n - A)\qquad\text{for} p\ge 1 \\
+    H^1(\RR^{n+1} - A) &\cong H^0(\RR^n - A)/\RR\cdot 1 \\
+    H^0(\RR^{n+1} - A) &\cong \RR.
+  \end{align*}
+\end{proposition}
+
+
+\begin{proof}
+  Define open subsets of $\RR^{n+1} = \RR^n\times\RR$,
+  \begin{align*}
+    U_1 & = \RR^n \times (0, \infty)\cup (\RR^n-A)\times(-1, \infty)\\
+    U_2 & = \RR^n \times (-\infty, 0)\cup (\RR^n-A)\times(-\infty, 1).
+  \end{align*}
+
+  Then $U_1\cup U_2 = \RR_{n+1} - A$ and $U_1\cap U_2 = (\RR_n - A) x (-1,1)$. 
+  Let $\phi: U_1\to U_1$ be given by adding 1 to the $(n + 1)$-st coordinate. For $x\in U_1$, $U_1$ contains the
+line segments from $x$ to $\phi(x)$ and from $\phi(x)$ to a fixed point in $\RR_n\times (0, \infty)$. As
+in Example \ref{example:6-5} we get homotopies from $\id_{U_1}$ to $\phi$ and from $\phi$ to a constant map.
+It follows that $U_1$ is contractible. Analogously $U_2$ is contractible, and $H^p(U_\nu)$ is
+described in Corollary \ref{corollary:6-10}.
+
+Let pr be the projection of $U_1\cap U_2 = (\RR^n-A)\times(-1, 1)$ on $\RR^n - A$. Define $i:\RR^n-A\to U_1\cap U_2$ 
+by $i(y) = (y, 0)$. We have $\R{pr}\circ i = \id_{\RR^n-A}$ and $i\circ\R{pr}\sime\id_{U_1\cap U_2}$. From Theorem \ref{theorem:6-8}
+(iii) we conclude that 
+\begin{align*}
+  \R{pr}^*: H^p(\RR^n - A)\to H^p(U_1\cap U_2)
+\end{align*}
+
+is an isomorphism for every $p$. Theorem \ref{theorem:5-2} gives isomorphism
+\begin{align*}
+  \partial^*: H^p(U_1\cap U_2)\to H^{p+1}(\RR^{n+1} - A)
+\end{align*}
+
+for $p\ge 1$. By composition with $\R{pr}^*$ one obtains the first part of Proposition \ref{prop:6-11}.
+
+Consider the exact suquence
+\begin{align*}
+  0\xra[]H^0(\RR^{n+1}-A)\xra[I^*]H^0(U_1)\oplus H^0(U_2)\xra[J^*]H^0(U_1\cap U_2)\xra[\partial^*] 
+  H^1(\RR^{n+1}-A)\xra[]0.
+\end{align*}
+
+An element of $H^0(U_1)\oplus H^0(U_2)$ is given by a pair of constant functions on $U_1$ and $U_2$ with values $a_1$ and $a_2$. 
+Their images under $J^*$ is by Theorem \ref{theorem:5-2} the constant function on $U_1\cap U_2$ with value $a_1 - a_2$. This shows 
+that 
+\begin{align*}
+  \ker\partial^* = \im J^* = \RR\cdot 1,
+\end{align*}
+
+and we obtain the isomorphism
+\begin{align*}
+  H^1(\RR^{n+1}-A) \sime H^0(U_1\cap U_2)/{\RR\cdot 1}
+  \cong H^0(\RR^n - A)/\RR\cdot 1.
+\end{align*}
+
+We also have that $\dim(\im(I^*)) = \dim(\ker(J^*)) = 1$, so $H^0(\RR^{n+1}-A) = \RR$. 
+\end{proof}
+
+
+\begin{addendum}\label{addendum:6-12}
+  In the situation of Proposition \ref{prop:6-11} we have a \Index{diffeomorphism}
+  \begin{align*}
+    R:\RR^{n+1}-A \to \RR^{n+1}-A
+  \end{align*}
+
+  defined by $R(x_1, \ldots, x_n, x_{n+1}) = (x_1, \ldots, x_n, -x_{n+1})$. The induced linear map
+  \begin{align*}
+    R^*:H^{p+1}(\RR^{n+1} -A) \to H^{p+1}(\RR^{n+1} - A)
+  \end{align*}
+
+  is multiplication by $(-1)$ for $p\ge 0$.
+\end{addendum}
+
+\begin{proof}
+  In the notation of the proof above we have commutative diagrams, in
+which the horizontal diffeomorphisms are restrictions of $R$:
+\begin{center}
+  \begin{tikzcd}
+    \RR^{n+1}-A\rar{R} & \RR^{n+1}-A \\
+    U_1\uar{i_1}\rar{R_1} & U_2\uar{i_2} \\
+    U_1\cap U_2\uar{j_1}\rar{R_0} & U_1\cap U_2\uar{j_2}
+  \end{tikzcd}
+  \hspace*{3em}
+  \begin{tikzcd}
+    \RR^{n+1}-A\rar{R} & \RR^{n+1}-A \\
+    U_1\uar{i_1}\rar{R_2} & U_2\uar{i_2} \\
+    U_1\cap U_2\uar{j_1}\rar{R_0} & U_1\cap U_2\uar{j_2}
+  \end{tikzcd}
+\end{center}
+
+In the proof of Proposition \ref{prop:6-11} we saw that
+\begin{align*}
+  \partial^*:H^p(U_1\cap U_2)\to H^{p+1}(\RR^{n+1}-A)
+\end{align*}
+
+is surjective. Therefore it is sufficient to show that $R^*\circ\partial^*([\omega]) = -\partial^*([\omega])$
+for arbitary closed $p$-form $\omega$ on $U_1\cap U_2$.
+
+Using Theorem \ref{theorem:5-1} we can find $\omega_\nu\in\Omega^p(U_\nu),\nu=0,1$, with $\omega=j_1^*(\omega_1) -
+j_2^*(\omega_2)$. The definition of $\partial^*$ (see Definition \ref{definition:4-5}) show that $\partial^*([\omega]) = [\tau]$
+where $\tau\in\Omega^{p+1}(\RR^{n+1} - A)$ is determined by $i^*_\nu(\tau) = \dd\omega_\nu$ for $\nu=1, 2$. Furthermore we get 
+\begin{align*}
+  -R^*_0\omega & = R^*_0\circ j^*_2(\omega_2) - R^*_0\circ j^*_1(\omega_1) 
+      = j^*_1\circ R^*_1(\omega_2) - j^*_2\circ R^*_2(\omega_1) \\
+  i^*_1(R^*\tau) & = R^*_1(i^*_2\tau) = R^*_1(\!\dd\omega_2) = \dd(R^*_1\omega_2) \\
+  i^*_2(R^*\tau) & = R^*_2(i^*_1\tau) = R^*_2(\!\dd\omega_1) = \dd(R^*_2\omega_1)
+\end{align*}
+
+These equations and the definition of $\partial^*$ give $\partial^*(-[R^*_0\omega]) = [\partial^*\tau]$. Hence 
+\begin{align}\label{eq:6-2}
+  \partial^*\circ R^*_0([\omega])
+  = -R^*_0\circ\partial^*([\omega]).
+\end{align}
+
+For the projection $\R{pr}:U_1\times U_2\to\RR^n-A$ we have that $\R{pr}\circ R_0 = \R{pr}$ and therefore 
+\begin{align*}
+  H^p(\RR^n-A)\xra[\R{pr}^*]H^p(U_1\cap U_2)\xra[R^*_0] H^p(U_1\cap U_2)
+\end{align*}
+
+is identical with $\R{pr}^*$. Since $\R{pr}^*$ is an isomorphism, $R^*_0$ is forced to be the identity
+map on $H^p(U_1\cap U_2)$, and the left-hand side in \eqref{eq:6-2} is $\partial^*[\omega]$. This completes the proof
+\end{proof}
+
+\begin{theorem}\label{theorem:6-13}
+  For $n\ge 2$ we have the isomorphisms
+  \begin{align*}
+    H^p(\RR^n -\{0\}) \cong \left\{\begin{aligned}
+      & \RR && \text{ if } p=0, n-1\\
+      & 0 && \text{ otherwise}
+    \end{aligned}\right.
+  \end{align*}
+\end{theorem}
+
+\begin{proof}
+  The case $n = 2$ was shown in Example \ref{example:5-4}. The general case follows
+from induction on $n$, via Proposition \ref{prop:6-11}.
+\end{proof}
+
+
+An invertible real $n\times n$ matrix $A$ defines a linear isomorphism $\RR^n\to\RR$, and
+a diffeomorphism
+\begin{align*}
+  f_A: \RR^n-\{0\}\to \RR^n-\{0\}
+\end{align*}
+
+\begin{lemma}\label{lemma:6-14}
+  For each $n\ge 2$, the induced map $f^*_A:H^{n-1}(\RR^n - \{0\})\to H^{n-1}(\RR^n - \{0\})$ operators by 
+  multiplication by $\det(A)/|\det A|\in \{\pm 1\}$.
+\end{lemma}
+
+\begin{proof}
+  Let $B$ be obtained from $A$ by replacing the $r$-th row by the sum of the
+$r$-th row and e times the $s$-th row, where $r \neq s$ and $c\in\RR$,
+\begin{align*}
+  B = (I + cE_{r, s})A
+\end{align*}
+
+where $I$ is the identity matrix and $E_{r,s}$ is the matrix with entry 1 in its $r$-th row
+and $s$-th column and zeros elsewhere. A homotopy between $f_A$ and $f_B$ is defined
+by the matrices
+\begin{align*}
+  (I+tcE_{r, s})A, \quad 0\le t\le 1.
+\end{align*}
+
+From Theorem \ref{theorem:6-8} it follows that $f_A = f_B$. Furthermore $\det_A = \det_B$.
+By a sequence of elementary operations of this kind, $A$ can be changed to
+$\R{diag} (1, \ldots, 1, \pm 1)$, where $d =\det A$. Hence it suffices to prove the assertion for
+diagonal matrices. The matrices
+\begin{align*}
+  \R{diag}(1, \ldots, 1, \frac{|d|^td}{|d|}), \quad 0\le t\le 1
+\end{align*}
+
+yield a homotopy, which reduces the problem to the two cases $A = \R{diag} (1, \ldots, 1, \pm 1)$, so $f_A$ is 
+either the identity or the map $R$ from Addendum \ref{addendum:6-12}. This proves the assertion
+\end{proof}
+
+
+From topological invariance (see Corollary \ref{corollary:6-9}) and the calculation in Theorem
+\ref{theorem:6-13}, supplemented with
+\begin{align*}
+  H^p(\RR^1 - \{0\}) \cong \left\{\begin{aligned}
+    & \RR\otimes\RR && \text{ if } p=0\\
+    & 0 && \text{ otherwise}
+  \end{aligned}\right.
+\end{align*}
+
+we get 
+\begin{proposition}\label{proposition:6-15}
+  If $n \neq m$ then $\RR^n$ and $\RR^m$ are not homeomorphic.
+\end{proposition}
+
+\begin{proof}
+  A possible homeomorphism $\RR^n\to\RR^m$ may be assumed to map 0 to 0, and would induce a homeomorphism 
+  between $\RR^n-\{0\}$ and $\RR^m-\{0\}$. Hence
+  \begin{align*}
+    H^p(\RR^n - \{0\}) \cong H^p(\RR^m - \{0\})
+  \end{align*}
+
+  for all $p$, in conflict with our calculations.
+\end{proof}
+
+\begin{remark}\label{remark:6-16}
+  We offer the following more conceptual proof of Addendum \ref{addendum:6-12}. Let
+  \begin{center}
+    \begin{tikzcd}
+    \end{tikzcd}
+  \end{center}
+\end{remark}
+
+\begin{center}
+  \begin{tikzcd}
+    0\rar & A^*\dar{\alpha^*}\rar{f^*} & B^*\dar{\beta^*}\rar{g^*} & C^*\dar{\gamma^*}\rar & 0\\
+    0\rar & A_1^*\rar{f^*} & B_1^*\rar{g^*} & C_1^*\rar & 0\\
+  \end{tikzcd}
+\end{center}
+
+be a commutative diagram of chain complexes with exact rows. It is not hard
+to prove that the diagram
+\begin{center}
+  \begin{tikzcd}
+    H^p(C^*)\dar{\gamma^*}\rar{\partial^*} & H^{p+1}\dar{A^*} \\
+    H^p(C_1^*)\rar{\partial_1^*} & H^{p+1}(A_1^*)
+  \end{tikzcd}
+\end{center}
+
+is commutative. In the situation of Addendum \ref{addendum:6-12} consider the diagram
+\begin{center}
+  \begin{tikzcd}
+    0\rar & \Omega^*(U)\dar{R^*}\rar{I^*} & \Omega^*(U_1)\oplus\Omega^*(U_2)\dar{R}\rar & \Omega^*(U_1\cap U_2)\dar{-R^*_0}\rar & 0\\
+    0\rar & \Omega^*(U)\rar{I^*} & \Omega^*(U_1)\oplus\Omega^*(U_2)\rar & \Omega^*(U_1\cap U_2)\rar & 0
+  \end{tikzcd}
+\end{center}
+
+With $R(\omega_1, \omega_2) = (R^*_1\omega_2, R^*_2\omega_1)$. This gives equation \eqref{eq:6-2} of the proof of the
+addendum.

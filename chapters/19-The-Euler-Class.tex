@@ -1,0 +1,320 @@
+\chapter{The Euler Class}
+Let $\xi$ be a smooth real $2 k$-dimensional vector bundle over $M$ with inner 
+product $\langle,\rangle$. The inner product induces a pairing
+\[
+  \begin{aligned}
+    & \langle,\rangle: \Omega^{i}(\xi) \otimes \Omega^{j}(\xi) \ra \Omega^{i+j}(M); \\
+    & \langle\omega_{1} \otimes s_{1}, \omega_{2} \otimes s_{2}\rangle
+      = \omega_{1} \wedge \omega_{2} \otimes\langle s_{1}, s_{2}\rangle
+  \end{aligned}
+\]
+
+where $\langle s_{1}, s_{2}\rangle$ is the function that maps $p \in M$ to $\langle s_{1}(p), s_{2}(p)\rangle$ 
+and $\omega_{1}, \omega_{2} \in$ $\Omega^{*}(M)$.
+
+
+\begin{definition}\label{definition:19-1}
+  A connection $\btd$ on $(\xi,\langle,\rangle)$, is said to be metric or orthogonal if
+  \[
+    \dd\langle s_{1}, s_{2}\rangle
+    = \langle\btd s_{1}, s_{2}\rangle+\langle s_{1}, \btd s_{2}\rangle
+  \]
+
+  We express this condition locally in terms of the connection form $A$ associated to an orthonormal 
+  frame. Let $e_{1}, \ldots, e_{k} \in \Omega^{0}(\xi)$ be sections over $U$, so that $e_{1}(p), \ldots, e_{k}(p)$ 
+  forms an orthonormal basis of $\xi$ for $p \in U$. Let $A$ be the associated connection form,
+  \[
+    \btd\left(e_{i}\right)=\sum A_{i j} \otimes e_{j}.
+  \]
+
+  For every pair $(i, k)$ we have $\langle e_{i}, e_{k}\rangle=\delta_{i k}$ (on $U$ ), 
+  so $\dd\langle e_{i}, e_{k}\rangle=0$. If $\btd$ is metric one gets
+  \[
+    \begin{aligned}
+      0 
+      & =\langle\Sigma A_{i j} \otimes e_{j}, e_{k}\rangle+\langle e_{i}, \Sigma A_{k j} \otimes e_{j}\rangle \\
+      & =\Sigma_{j} A_{i j}\langle e_{j}, e_{k}\rangle+\Sigma_{j} A_{k j}\langle e_{i}, e_{j}\rangle=A_{i k}+A_{k i}
+    \end{aligned}
+  \]
+
+  Thus the connection matrix with respect to an orthonormal frame is skewsymmetric. If conversely $A$ is 
+  skew-symmetric with respect to an orthonormal frame, then $\btd$ is metric.
+\end{definition}
+
+Let $F^{\btd} \in \Omega^{2}(\R{Hom}(\xi, \xi))$ be the curvature form associated to a metric connection. 
+After choice of an orthonormal frame for $\xi_{\mid U}$,
+\[
+  \Omega^{2}\left(\R{Hom}(\xi, \xi)_{\mid U}\right) \cong M_{2 k}\left(\Omega^{2}(U)\right)
+\]
+
+In (17.\ref{eq:17-10}) the corresponding matrix of 2-forms $F^{\btd}(\F e)$  was calculated to be
+\[
+  F^{\btd}(\F{e})=\dd A-A \wedge A
+\]
+where $A$ is the connection form associated to $\F e$. In particular, $F^{\btd}(\F{e})$ is skewsymmetric, 
+and we can apply the Pfaffian polynomial from Appendix B to $F^{\btd}(\F e)$  to get
+\begin{equation}\label{eq:19-1}
+  \R{Pf}\left(F^{\btd}(\F{e})\right) \in \Omega^{2 k}(U)
+\end{equation}
+
+
+In another orthonormal frame $\F{e}^{\prime}$ over $U$
+\begin{equation}\label{eq:19-2}
+  F^{\btd}\left(\F{e}^{\prime}\right)_{p}=B_{p} F^{\btd}(\F{e}) B_{p}^{-1}
+\end{equation}
+where $B_{p}$ is the orthogonal transisition matrix between $\F{e}(p)$ and $\F{e}^{\prime}(p)$.
+
+Now suppose further that the vector bundle $\xi$ is oriented, and that $\F{e}(p)$ and $\F{e}^{\prime}(p)$ 
+are oriented orthonormal bases for $\xi_{p}, p \in U$. Then $B_{p} \in S O_{2 k}$, and by Theorem \ref{theorem:B.5},
+\begin{equation}\label{eq:19-3}
+\R{Pf}\left(F^{\btd}(\F{e})\right)=\R{Pf}\left(F^{\btd}\left(\F{e}^{\prime}\right)\right)
+\end{equation}
+
+
+It follows that $\R{Pf}\left(F^{\btd}\right)$ becomes a well-defined global $2 k$-form on $M$. The proof 
+of Lemma \ref{lemma:18-1} shows that $\R{Pf}\left(F^{\btd}\right)$ is a closed $2 k$-form.
+
+We must verify that its cohomology class is independent of the choice of metric on $\xi$ and of the metric 
+connection. First note that connections can be glued together by a partition of unity: 
+if $\left(\btd_{\alpha}\right)_{\alpha \in A}$ is a family of connections on $\xi$ 
+and $\left(\rho_{\alpha}\right)_{\alpha \in A}$ is a smooth partition of unity on $M$, 
+then $\btd s=\sum \rho_{\alpha} \btd_{\alpha} s$ defines a connection on $\xi$. Furthermore, if 
+each $\btd_\alpha$ is a metric for $g=\langle,\rangle$ then $\btd=\sum \rho_{\alpha} \btd_{\alpha}$ is also metric. 
+Indeed, if
+\begin{equation}\label{eq:19-4}
+  \dd\langle s_{1}, s_{2}\rangle=\langle\btd{ }_{\alpha} s_{1}, s_{2}\rangle+\langle s_{1}, \btd{ }_{\alpha} s_{2}\rangle
+\end{equation}
+then
+\[
+  \begin{aligned}
+    \langle\btd s_{1}, s_{2}\rangle+\langle s_{1}, \btd s_{2}\rangle 
+      & = \sum\langle\rho_{\alpha} \btd{ }_{\alpha} s_{1}, s_{2}\rangle+\sum\langle s_{1}, \rho_{\alpha} \btd_{\alpha} s_{2}\rangle \\
+      & = \sum \rho_{\alpha}\left(\langle\btd_{\alpha} s_{1}, s_{2}\rangle+\langle s_{1}, \btd{ }_{\alpha} s_{2}\rangle\right) \\
+      & = \sum \rho_{\alpha} \dd\langle s_{1}, s_{2}\rangle=\dd\langle s_{1}, s_{2}\rangle .
+  \end{aligned}
+\]
+
+In this calculation we have only used \eqref{eq:19-4} over open sets that contain $\R{supp}_{M}\left(\rho_{\alpha}\right)$, and not 
+neccesarily on all of $M$. This will be used in the proof of Lemma \ref{lemma:19-2} below.
+
+Consider the maps
+\[
+  M \mathop{\rightrightarrows}_{i_1}^{i_0}  M \times \RR \xrightarrow{\pi} M
+\]
+with $i_{\nu}(x)=(x, \nu)$ and $\pi(x, t)=x$, and let $\tilde{\xi}=\pi^{*}(\xi)$ over $M \times \B{R}$. 
+Then $i_{\nu}^{*}(\tilde{\xi})=\xi$ for $\nu=0,1$ and we have:
+
+\begin{lemma}\label{lemma:19-2}
+  For any choice of inner products and metric connections $g_{\nu}, \btd_{\nu}$ ( $\nu=0,1$ ) on the smooth real 
+  vector bundle $\xi$ over $M$, there is an inner product $\widetilde{g}$ on $\widetilde{\xi}$ and a metric 
+  connection $\widetilde{\btd}$ compatible with $\widetilde{g}$ such that $i_{\nu}^{*}(\widetilde{g})=g_{\nu}$ 
+  and $i_{\nu}^{*}(\widetilde{\btd})=\btd_{\nu}$.
+\end{lemma}
+
+\begin{proof}
+  We can pull back by $\pi^{*}$ the metric $g_{\nu}$ and the metric connections $\btd_{\nu}$ to $\widetilde{\xi}$. 
+  Let $\left\{\rho_{0}, \rho_{1}\right\}$ be a partition of unity on $M \times \RR$ subordinate to the 
+  cover $M \times(-\infty, 3 / 4)$ and $M \times(1 / 4, \infty)$. 
+  Then $\widetilde{g}=\rho_{0} \pi^{*}\left(g_{0}\right)+\rho_{1} \pi^{*}\left(g_{1}\right)$ is a metric 
+  on $\widetilde{\xi}$ which agrees with $\pi^{*}\left(g_{0}\right)$ over $M \times(-\infty, 1 / 4)$ and 
+  with $\pi^{*}\left(g_{1}\right)$ on $M \times(3 / 4, \infty)$. In particular $i_{\nu}^{*}(\widetilde{g})=g_{\nu}$.
+
+  Let $\widetilde{\btd}$ be any metric connection on $\tilde{\xi}$ compatible with $\tilde{g}$. We have 
+  connections $\pi^{*}\left(\btd_{0}\right), \widetilde{\btd}$ and $\pi^{*}\left(\btd_{1}\right)$ compatible 
+  with $\tilde{g}$ over $M \times(-\infty \times 1 / 4), M \times(1 / 8,7 / 8)$ and $M \times(3 / 4, \infty)$ respectively. 
+  We use a partition of unity, subordinate to this cover, to glue together the three connections to construct a 
+  connection $\widetilde{\btd}$ over $M \times \RR$. This is metric w.r.t. $\tilde{g}$, and by 
+  construction, $i_{\nu}^{*} \widetilde{\btd}=\btd_\nu$.
+\end{proof}
+
+\begin{corollary}\label{corollary:19-3}
+  The cohomology class $\left[\R{Pf}\left(F^{\btd}\right)\right] \in H^{2 k}(M)$ is independent of the metric
+  and the compatible metric connection.
+\end{corollary}
+
+\begin{proof}
+  Let $\left(g_{0}, \btd_{0}\right)$ and $\left(g_{1}, \btd_{1}\right)$ be two different choices and 
+  let $(\widetilde{g}, \widetilde{\btd})$ be the metric and connection of the previous lemma. 
+  Then $i_{\nu}^{*}\left(F^{\widetilde{\btd}}\right)=F^{\btd_{\nu}}$, and 
+  hence $i_{\nu}^{*} \R{Pf}\left(F^{\widetilde{\btd}}\right)=\R{Pf}\left(F^{\btd_{\nu}}\right)$. The 
+  maps $i_{0}$ and $i_{1}$ are homotopic, so $i_{0}^{*}=$ $i_{1}^{*}: H^{n}(M \times \RR) \ra H^{n}(M)$. 
+  Thus the cohomology classes of $\R{Pf}\left(F^{\btd_{0}}\right)$ and $\R{Pf}\left(F^{\btd_{1}}\right)$ agree.
+\end{proof}
+
+
+\begin{definition}\label{definition:19-4}
+  The cohomology class
+  \[
+    e(\xi)=\left[\R{Pf}\left(\frac{-F^{\btd}}{2 \pi}\right)\right] \in H^{2 k}(M)
+  \]
+  is called the \Index{Euler class} of the oriented real $2 k$-dimensional vector bundle $\xi$.
+\end{definition}
+
+
+\begin{example}\label{example:19-5}
+  Suppose $M$ is an oriented surface with Riemannian metric and that $\xi=\tau^{*} \cong \tau_{M}$ is 
+  the cotangent bundle. Let $e_{1}, e_{2}$ be an oriented orthonormal frame 
+  for $\Omega^{0}\left(\tau_{\mid U}^{*}\right)=\Omega^{1}(U)$, such that $e_{1} \wedge e_{2}=\R{vol}$ 
+  on $U$. Let $a_{1}, a_{2}$ be the smooth functions on $U$ determined by
+  \[
+    \dd e_{1}=a_{1}\left(e_{1} \wedge e_{2}\right), \quad \dd e_{2}=a_{2}\left(e_{1} \wedge e_{2}\right)
+  \]
+  and let $A_{12}=a_{1} e_{1}+a_{2} e_{2}$. We give $\tau_{\mid U}^{*}$ the connection with connection form
+  \[
+    A=\begin{pmatrix}
+      0 & A_{12} \\
+      -A_{12} & 0
+    \end{pmatrix}
+  \]
+  so that $\btd\left(e_{1}\right)=A_{12} \otimes e_{2}$ and $\btd\left(e_{2}\right)=-A_{12} \otimes e_{1}$. 
+  This is the so-called Levi-Civita connection; cf. Exercise \ref{exercise:19-6}. By (17.\ref{eq:17-10})
+  \[
+    F^{\btd}=\dd A-A \wedge A =
+    \begin{pmatrix}
+      0 & \dd A_{12} \\
+      -\dd A_{12} & 0
+    \end{pmatrix}
+  \]
+  since $A_{12} \wedge A_{12}=0$. In this case $\R{Pf}\left(F^{\btd}\right)=\dd A_{12}$ is called the 
+  Gauss-Bonnet form, and the Gaussian curvature $\kappa \in \Omega^{0}(M)$ is defined by the formula
+  \[
+    -\kappa\, \R{vol}=\R{Pf}\left(F^{\btd}\right) .
+  \]
+
+  This definition is compatible with Example \ref{example:12-18}; cf. Exercise \ref{exercise:19-6}.
+\end{example}
+
+There is also a concept of \textit{metric}\index{metric connection} or \textit{hermitian connection}\index{hermitian connection} 
+for complex vector bundles equipped with a hermitian metric. Indeed hermitian connections are defined as above, Definition \ref{definition:19-1}, 
+with the sole change that $\langle\,,\,\rangle$ now indicates a hermitian inner product on the complex vector bundle in question.
+
+
+The connection form $A$ of a hermitian connection with respect to a local orthonormal frame is skew-hermitian 
+rather than skew-symmetric: $A_{i k}+\bar{A}_{k i}=0$ or in matrix terms
+\begin{equation}\label{eq:19-5}
+  A^{*}+A = 0. 
+\end{equation}
+
+
+Given a hermitian smooth vector bundle $(\zeta,\langle\,,\,\rangle_{\CC})$ of complex dimension $k$ with a 
+hermitian connection, the underlying \Index{real vector bundle} $\zeta_{\RR}$ is naturally oriented, and 
+inherits an inner product $\langle\,,\,\rangle_{\RR}$, namely the real part of $\langle\,,\,\rangle_{\CC}$, and an 
+orthogonal connection.
+
+
+If $A$ is the skew-hermitian connection form of $\left(\zeta,\langle\,,\,\rangle_{C}\right)$ with respect to an 
+orthonormal frame e, then the connection form associated with the underlying real situation is $A_{\RR}$, 
+the matrix of 1 -forms given by the usual embedding of $M_{k}(\CC)$ into $M_{2 k}(\RR)$. This embedding sends 
+skew-hermitian matrices into skewsymmetric matrices, and
+\begin{equation}\label{eq:19-6}
+  \R{Pf}\left(F \btd(\F{e})_{\RR}\right)=(-i)^{k} \R{det}\left(F^{\btd}(\F{e})\right)
+\end{equation}
+by Theorem \ref{theorem:B.6}.
+
+
+For a complex vector bundle $\zeta$ we write $e(\zeta)$ instead of $e\left(\zeta_{\RR}\right)$. Then we have
+
+\begin{theorem}\label{theorem:19-6}
+\begin{enumerate}
+  \item For a complex $k$-dimensional vector bundle $\zeta, e(\zeta)=c_{k}(\zeta)$.
+  \item For oriented real vector bundles $\xi_{1}$ and $\xi_{2}, e\left(\xi_{1} \oplus \xi_{2}\right)=e\left(\xi_{1}\right) e\left(\xi_{2}\right)$.
+  \item $e\left(f^{*}(\xi)\right)=f^{*} e(\xi)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The first assertion follows from \eqref{eq:19-6} upon comparing with Definition \ref{definition:18-3}. 
+  Indeed, $\sigma_{k}: M_{k}(\B{C}) \ra \B{C}$ is precisely the determinant, so by \eqref{eq:19-6}
+  \[
+  \begin{aligned}
+  \R{Pf}\left(-F_{\RR}^{\btd} / 2 \pi\right) 
+    & =(-1)^{k} /(2 \pi)^{k} \R{Pf}\left(F_{\RR}^{\btd}\right) \\
+    & =i^{k} /(2 \pi)^{k} \sigma_{k}\left(F^{\btd}\right)
+  \end{aligned}
+  \]
+  when $F \btd$ is the curvature of a hermitian connection on $\left(\zeta,\langle\,,\,\rangle_{c}\right)$. Thus
+  \[
+    \R{Pf}\left(-F_{\RR}^{\btd} / 2 \pi\right)=\sigma_{k}\left(i F^{\btd} / 2 \pi\right) .
+  \]
+  This proves (i).
+
+  The second assertion is similar to Theorem \ref{theorem:18-6}. With the direct sum connection on $\zeta_{1} \oplus \zeta_{2}$,
+  \[
+    F^{\btd}=F^{\btd_{1}} \oplus F^{\btd_{2}}
+  \]
+  and for matrices $A$ and $B$,
+  \[
+    \R{Pf}(A \oplus B)=\R{Pf}(A) \R{Pf}(B) .
+  \]
+  
+  Finally assertion (iii) follows from (17.\ref{eq:17-13}).
+\end{proof}
+
+In order to prove uniqueness of Euler classes we need a version of the splitting principle for real oriented 
+vector bundles, namely
+
+
+\begin{theorem}[Real splitting principle]\label{theorem:19-7}\index{real splitting principle}
+  For any oriented real vector bundle $\zeta$ over $M$ there exists a 
+  manifold $T(\zeta)$ and a smooth proper map $f: T(\zeta) \ra M$ such that
+  \begin{enumerate}
+    \item $f^{*}: H^{*}(M) \ra H^{*}(T)$ is injective.
+    \item $f^{*}(\zeta)=\gamma_{1} \oplus \ldots \oplus \gamma_{n}$ when $\R{dim} \zeta=2 n$, 
+      and $f^{*}(\zeta)=\gamma_{1} \oplus \ldots \oplus \gamma_{n} \oplus \varepsilon^{1}$ 
+      when $\R{dim} \zeta=2 n+1$, where $\gamma_{1}, \ldots \gamma_{n}$ are oriented 2 -plane bundles, 
+      and $\varepsilon^{1}$ is the trivial line bundle. 
+  \end{enumerate}
+\end{theorem}
+
+The proof of this theorem will be postponed to the next chapter.
+
+\begin{theorem}\label{theorem:19-8}
+  Suppose that to each oriented isomorphism class of $2 n$-dimensional oriented real vector bundles $\zeta^{2 n}$ over $M$ 
+  we have associated a class $\hat{e}\left(\zeta^{2 n}\right) \in$ $H^{2 n}(M)$ that satisfies
+  \begin{enumerate}
+    \item $f^{*}(\hat{e}(\zeta))=\hat{e}\left(f^{*}(\zeta)\right)$ for a smooth map $f: N \ra M$
+    \item $\hat{e}\left(\zeta_{1} \oplus \zeta_{2}\right)=\hat{e}\left(\zeta_{1}\right) \hat{e}\left(\zeta_{2}\right)$ 
+      for oriented even-dimensional vector bundles over the same base space.
+  \end{enumerate}
+  Then there exists a real constant $a \in \RR$ such that $\hat{e}\left(\zeta^{2 n}\right)=a^{n} e\left(\zeta^{2 n}\right)$.\\
+\end{theorem}
+
+
+\begin{proof}
+  Given a complex line bundle $L$ over $M$, we can define $c(L)=\hat{e}\left(L_{\RR}\right)$. 
+  Then $f^{*} c(L)=c\left(f^{*} L\right)$, and the argument used at the beginning of the proof of 
+  Theorem \ref{theorem:18-9} shows that $c(L)=a c_{1}(L)$. Thus $\hat{e}(\gamma)=a e(\gamma)$ for 
+  each oriented 2-plane bundle $\gamma$. Indeed, an oriented 2-plane bundle is of the 
+  form $L_{\RR}$ for a complex line bundle which is uniquely determined up to isomorphism. One simply 
+  defines multiplication by $\sqrt{-1}$ to be a positive rotation by $\pi/2$.
+  
+  If $\zeta^{2 n}=\gamma_{1} \oplus \ldots \oplus \gamma_{n}$ is a sum of oriented 2-plane bundles then 
+  we can use (ii) and Theorem \ref{theorem:19-6}.(ii) to see that $\hat{e}\left(\zeta^{2 n}\right)=a^{n} e\left(\zeta^{2 n}\right)$. 
+  Finally Theorem \ref{theorem:19-7} implies the result in general.
+\end{proof}
+
+In (18.\ref{eq:18-14}) we defined the Pontryagin classes $p_{k}(\zeta)$ of a real vector bundle 
+by $p_{k}(\zeta)=(-1)^{k} c_{2 k}\left(\zeta_{\B{C}}\right)$. The total Pontryagin class
+\begin{equation}\label{eq:19-7}
+  p(\zeta)=1+p_{1}(\zeta)+p_{2}(\zeta)+\cdots
+\end{equation}
+is exponential: $p\left(\zeta_{1} \oplus \zeta_{2}\right)=p\left(\zeta_{1}\right) p\left(\zeta_{2}\right)$. 
+Indeed, this follows from the exponential property of the total Chern class together with the fact (Properties \ref{property:18-11}) 
+that the odd Chern classes of a complexified bundle are trivial.
+
+
+\begin{proposition}\label{proposition:19-9}
+  For an oriented $2 k$-dimensional real vector bundle $\zeta, p_{k}(\zeta)=$ $e(\zeta)^{2}$.
+\end{proposition}
+
+
+\begin{proof}
+  We give $\zeta$ a metric $\langle\,,\,\rangle$ and chose a compatible metric connection $\btd$. 
+  Then $e(\zeta)$ is represented locally by $(-1)^{k} /(2 \pi)^{k} \R{Pf}(F \btd(\F{e}))$ 
+  where $\F{e}$ is an orthonormal frame. If on the complexified bundle $\zeta_{\B{C}}$ we use 
+  the complexified metric then $\F{e}$ is still an orthonormal frame, and the connection $\btd$ 
+  becomes a hermitian connection on $\left(\zeta_{\B{C}},\langle\,,\,\rangle\right)$. It follows 
+  that $F^\btd(\F{e})$ is the curvature form for $\zeta_{\CC}$, and $c_{2k}(\zeta_{\B{C}})$ 
+  is represented by $i^{2 k} /(2 \pi)^{2 k} \R{det}(F^\btd(\F{e}))$. The result now follows from 
+  Theorem \ref{theorem:B.5}.(i) of Appendix B.
+\end{proof}

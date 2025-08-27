@@ -1,0 +1,334 @@
+\chapter{Invariant Polynomials}\index{invariant polynomial}\index{polynomial!invariant}
+In this appendix we shall consider polynomials in $n^2$ variables. We may arrange
+the $n^2$ variables $A_{ij}$ as a matrix $A = (A_{ij})$ and write $P(A)$. We shall only consider
+homogeneous polynomials\index{homogeneous polynomial}, i.e. a sum of monomials of same degree, which will
+be called the degree of $P$. The polynomial $P(A)$ is said to be invariant when
+\[
+  p(gag^{-1}) = P(A)
+\]
+for all $g\in\R{GL}_n(\CC)$. Every polynomial $P(A)$ determines a function
+\[
+  P:M_n(\CC)\to \CC
+\]
+and this function uniquely determines the polynomial. Moreover, an invariant
+polynomial defines a function
+\[
+  P:\hom(V, V)\to\CC
+\]
+for every $n$-dimensional complex vector space $V$ independent of choice of basis.
+Let us consider the \Index{characteristic polynomial}
+\[
+  \sigma(i) = \det(I+tA) = \sum_{i=0}^n \sigma_i(A)t^i, \qquad \sigma_0(A) = 1.
+\]
+
+Each of the functions $\sigma_i(A)$ is an invariant polynomial. Also consider
+\begin{align}\label{eq:B.1}
+  s(t) = -t\frac{\dd }{\dd t}\log(\det(I-tA))
+    = \sum_{k=0}^{\infty}{s_k(A)t^k}
+\end{align}
+where $\log$ denotes the power series
+\[
+  \log(1+x) = \sum_{k=1}^{\infty}\frac{(-1)^{k-1}}{k}x^k
+\]
+and $\log(\det(I - tA))$ means that we substitute the polynomial $\det(I - tA$) in the
+power series. Differentiation in \eqref{eq:B.1} is performed formally,
+\[
+  \frac{\dd }{\dd t}\left(\sum_{i=0}^{\infty }{a_it^i}\right)
+  = \sum_{i=1}^{\infty }{ia_it^{i-1}}.
+\]
+
+Conversely
+\[
+  \sigma(t) = \sum_{i=1}^{\infty}\sigma_it^i = \exp\left(\int \frac{s(-t)}{t}\dd t\right),
+\]
+calculated formally too.
+
+\begin{lemma}\label{lemma:B.1}
+  For every $A\in M_n(\CC)$ we have $s_k(A)=\R{tr}(A^k)$.
+\end{lemma}
+
+\begin{proof}
+  Let us assume that $A$ is a diagonal matrix, $A = \diag(\lambda_1,, \ldots, \lambda_n)$, such that
+  \[
+    \det(I-tA) = \prod_{i=1}^n(1-t\lambda_i).
+  \]
+  This yields the following equation of power series 
+  \[
+    -t\frac{\dd }{\dd t}\log(\det(I-tA)) 
+    = \sum_{k=1}^{n}{\frac{t\lambda_i}{1-t\lambda_i}}
+    = \sum_{i=1}^{n}{\sum_{k=1}^{\infty }{\lambda_i^k t^k}}
+    = \sum_{k=1}^{\infty }{\left(\sum_{i=1}^{n }{\lambda_i^k}\right)t^k}.
+  \]
+  Hence 
+  \[
+    s_k(\diag(\lambda_1, \ldots, \lambda_n)) 
+    = \lambda_1^k + \ldots + \lambda_n^k
+    = \R{tr}(\diag(\lambda_1, \ldots, \lambda_n)^k).
+  \]
+
+  Since both $s_k(A)$ and $\R{tr}(A_k)$ are unaltered when we replace $A$ by $gAg^{-1}$, and
+  since the diagonalizable matrices are dense in the vector space of all matrices, the
+  assertion follows.
+\end{proof}
+
+\begin{lemma}\label{lemma:B.2}
+  For polynomials in $n^2$ variables we have that 
+  \[
+    s_k(A) - s_{k-1}(A)\sigma_1(A) + s_{k-2}\sigma_2(A)
+    - \ldots + (-1)^k\sigma_k(A) = 0.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  It suffices to prove the equation for a diagonal matrix $A = \diag(\lambda_1,, \ldots, \lambda_n)$ where
+  \[
+    \overline{\sigma}(t)
+    = \prod_{i=1}^n (1-t\lambda_i)
+    = \sum_{k=0}^{n }{(-1)^k\sigma_k(A)t^k}
+    \quad \text{ and }\quad 
+    s(t) = \sum_{i=1}^{n }{\frac{t\lambda_i }{1-t\lambda_i}}
+    = \sum_{k=1}^{\infty }{s_k(A)t^k}.
+  \]
+  Now
+  \begin{align*}
+    \overline{\sigma}(t)s(t)
+    & = \left(\sum_{i=1}^{n }{\frac{t\lambda_i }{1-t\lambda_i }}\right)\prod_{i=1}^n (1-t\lambda_i)
+      = \sum_{i=1}^{n }{t\lambda_i \prod_{j\neq i }(1-t\lambda_j)} = -t\frac{\dd\overline{\sigma}}{\dd t}\\
+    & = \sum_{k=1}^{n }{(-1)^{k-1}k\sigma_k(A)t^k}.
+  \end{align*}
+  he coefficient of $t^k$ in this equation yields the desired identity.
+\end{proof}
+
+Note that the equation of Lemma \ref{lemma:B.2} inductively determines $s_k(A)$ as a 
+polynomial with integer coefficients in the variables $\sigma_1(A),\ldots, \sigma_k(A)$. Conversely
+$\sigma_k(A)$ is a polynomial with rational coefficients in $s_1(A), \ldots, s_k(A)$. We write
+\begin{align}\label{eq:B.2}
+  \begin{matrix}
+    s_k(A) = Q_k(\sigma_1(A),\ldots, \sigma_k(A)) \\
+    \sigma_k(A) = P_k(s_1(A),\ldots, s_k(A)).
+  \end{matrix}
+\end{align}
+
+For instance $s_1(A)=\sigma_1(A)$ and $s_2(A) = \sigma_1(A)-2\sigma_2(A)$. We have the following 
+indentities in $n_1^2+n_2^2$ variables
+\begin{align}\label{eq:B.3}
+  \begin{aligned}
+    \sigma_k(A_1\oplus A_2) & = \sum_{i=0}^{k}{\sigma_i(A_1)\sigma_{k-i}(A_2)} \\
+    s_k(A_1\oplus A_2) & = s_k(A_1) + s_{k}(A_2) \\
+    s_k(A_1\otimes A_2) & = s_k(A_1)\cdot s_k(A_2)
+  \end{aligned}
+\end{align}
+where $A_1\otimes A_2$ the matrix of the tensor product of the two linear maps. For the first
+equation it is sufficient to show that both sides of both formulas define the same
+functions on $M_{n_1}(\CC)\times M_{n_2}(\CC)$, but this is obvious from the definitions:
+\[
+  \det(I+t(A_1\oplus A_2)) = \det(I+tA_1)\cdot\det(I+tA_2).
+\]
+giving the first equation in \eqref{eq:B.3} upon considering the coefficient of $t^k$. The other
+relations are similar, and left to the reader.
+
+Let $\sigma_i(\lambda_1, \ldots, \lambda_n),\enspace i=1,\ldots, n$ be the polynomials defined by 
+\[
+  \prod_{i=1}^n (1+t\lambda_i) = \sum_{i=0}^{n }{\sigma_i(\lambda_1, \ldots, \lambda_n)t^i}.
+\]
+They are the so-called elementary symmetrical\index{polynomial!elementary symmetrical} polynomials in the variables $(\lambda_1, \ldots, \lambda_n)$.
+
+\begin{theorem}\label{theorem:B.3}
+  Every polynomial $P(\lambda_1, \ldots, \lambda_n)$ which is invariant under permutation of coordinates can be \
+  written in the form $P(\lambda_1, \ldots, \lambda_n)=p(\sigma_1, \ldots,\sigma_n)$, where $\sigma_i$ are the 
+  elementary symmetrical polynomials and $p$ is a polynomial.
+\end{theorem}
+
+\begin{proof}
+  See [Lang]\supercite{Lang} Chapter V.9.
+\end{proof}
+
+\begin{theorem}\label{theorem:B.4}
+  Every invariant polynomial $P:M_n(\CC)\to\CC$ can be written in the form 
+  \[
+    P(A) = p(\sigma_1(A), \ldots, \sigma_n(A))
+  \]
+  where $p$ is a polynomial.
+\end{theorem}
+
+\begin{proof}
+  Let $D_n\subset M_n(\CC)$ be the diagonal matrices. Since $P$ is invariant and the set 
+  \[
+    \bigcup_{g\in\R{GL}_n(\CC)} gD_ng^{-1}\subset M_n(\CC)
+  \]
+  is everywhere dense, $P:M_n{\CC}\to \CC$ is determined by its restriction to $D_n$.
+  A permutation $\pi\in\Sigma_n$ of $n$ elements induces an endomorphism $\CC^n\to\CC^n$
+  permuting the coordinates, i.e. an element in $M_n(\CC)$, again denoted by $\pi$. If
+  $\diag(\lambda_1,\ldots,\lambda_n)\in M_n(\CC)$ is the diagonal matrix with elements $\lambda_1,\ldots,\lambda_n$ 
+  then
+  \[
+    \pi\dd(\lambda_1, \ldots, \lambda_n)\pi^{-1}
+    = \dd(\lambda_{\pi(1)}, \ldots, \lambda_{\pi{n}})
+  \]
+
+  In particular we have 
+  \[
+    P(\!\dd(\lambda_1, \ldots, \lambda_n))
+    = P(\!\dd(\lambda_{\pi(1)}, \ldots, \lambda_{\pi{n}}))
+  \]
+  for all $\pi\in\Sigma_n$. Theorem \ref{theorem:B.3} gives that 
+  \[
+    P(\lambda_1, \ldots, \lambda_n) = p(\sigma_1, \ldots, \sigma_n),
+  \]
+  where $\sigma_i=\sigma_i(\lambda_1,\ldots,\lambda_n)$, and $p$ is certain polynomial. Hence 
+  \[
+    P(A) = p(\sigma_1(A),\ldots, \sigma_n(A)).
+  \]
+  for all $A\in D_n$, and hence for all $A\in M_n(\CC)$.
+\end{proof}
+
+We finally consider the Pfaffian $\R{Pf}(A)$. This is a homogeneous polynomial in
+$n(2n - 1)$ real variables, or alternatively a polynomial in the skew-symmetric
+$2n\times 2n$ matrices $A = (A_{ij})$. It has degree $n$. We can consider $\R{Pf}(A)$ as a map
+\[
+  \R{Pf}:\K{so}_{2n}\to \RR,
+\]
+from the space of skew-symmetric matrices. For an $A\in\K{so}_{2n}$, we let 
+\[
+  \omega(A) = \sum_{i<j} A_{ij} e_i\wedge e_j \in \Lambda^2(\RR^{2n})
+\]
+and define $\R{Pf}(A)$ be the equation 
+\[
+  \omega(A)\wedge\ldots\wedge\omega(A) = n!\R{Pf}(A)\R{vol},
+\]
+where $\R{vol}=e_1\wedge e_2\wedge\ldots\wedge e_{2n}$. For the block matrix 
+\[
+  A = \diag\left(
+    \begin{pmatrix}
+      0 & a_1 \\
+      -a_1 & 0
+    \end{pmatrix},
+    \begin{pmatrix}
+      0 & a_2 \\
+      -a_2 & 0
+    \end{pmatrix},
+    \cdots,
+    \begin{pmatrix}
+      0 & a_n \\
+      -a_n & 0
+    \end{pmatrix}
+  \right)
+\]
+a simple calculation gives 
+\begin{align}\label{eq:B.4}
+  \omega(A) = a_1e_1\wedge e_2 + a_2e_3\wedge e_4 + \ldots + a_ne_{2n-1}\wedge e_{2n},
+\end{align}
+and one see that 
+\[
+  \omega(A)\wedge\ldots\wedge\omega(A) = n!(a_1\ldots a_n)\R{vol}.
+\]
+
+It follows that $\R{Pf}(A) = a_1\ldots a_n$ and $\R{Pf}(A)^2 = \det(A)$ in this case.
+
+
+\begin{theorem}\label{theorem:B.5}
+  If $A\in\K{so}_{2n}$ and $B$ is an arbitrary matrix then 
+  \begin{enumerate}
+    \item $\R{Pf}(A)^2 = \det(A)$,
+    \item $\R{Pf}(BAB^t) = \R{Pf}(A)\det(B)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Since $A$ is a real matrix and $AA^t = At^A$, $A$ is normal when considered as
+element in $M_{2n}(\CC)$. The spectral theorem ensures the existence of an orthonormal
+basis of eigenvectors $e_1,\cdots,e_{2n}$ in $\CC^{2n}$ and eigenvalues $\lambda_i\in\CC$.
+By conjugation we see that the complex conjugate vector $e_i$ is an eigenvector
+with eigenvalue $\overline{\lambda}_i$. We claim that the basis can be chosen so that $e_{2j} = e_{2j-1} (1\le j\le n)$. 
+This is easy if all eigenvalues are zero, i.e. $A = 0$, so we may assume et to be an eigenvector with 
+non-zero eigenvalue $\lambda_1$. By skew-symmetry
+\[
+  \lambda_1 = \langle Ae_1, e_1\rangle 
+  = \langle -e_1, Ae_1\rangle
+  = -\overline{\lambda}_1,
+\]
+so $\lambda_1$ is purely imaginary. Pick $e_2 = \overline{e}_1$, and note that $e_2$ 
+has eigenvalue $\lambda_2=\overline{\lambda}_1\neq \lambda_1$. Hence $e_2$ is orthogonal to $e_1$ 
+in $\CC^{2n}$ . Note that the orthogonal complement $\R{Span}(e_1, \overline{e}_1)^\perp$ is invariant 
+under $A$ and also under complex conjugation. This makes is possible to repeat the process in this subspace.
+
+
+Having arranged that $e_{2j} = \overline{e}_{2j-1}$, we obtain an orthonormal basis for $\RR^{2n}$ consisting of the vectors
+\[
+  v_j = \frac{1}{\sqrt{2}}(e_{2j-1} + e_{2j}), \quad 
+  w_j = \frac{1}{\sqrt{2}\sqrt{-1}} (e_{2j-1} - e_{2j})\quad (1\le j \le n).
+\]
+
+Morever for $a_j\in\RR$ given by $\lambda_{2j-1}=\sqrt{-1}a_j$ we have $Av_j = -a_jw_j$ and 
+$Aw_j = a_jv_j$. This proves the existence of $g\in O_{2n}$ such that 
+\[
+  gAg^{-1} = \diag\left(
+    \begin{pmatrix}
+      0 & a_1 \\
+      -a_1 & 0
+    \end{pmatrix},
+    \cdots, 
+    \begin{pmatrix}
+      0 & a_n \\
+      -a_n & 0
+    \end{pmatrix}
+  \right)
+\]
+In particular 
+\[
+    \R{Pf}(gAg^{-1})^2 = (a_1\ldots a_n)^2
+    = \det(gAg^{-1}) = \det(A).
+\]
+
+Since $g^{-1}=g^t$, assertion (ii) implies that $\R{Pf}(A)^2=\det(A)$ for all $A$.
+
+In order to prove (ii) we consider the elemants $f_i=B_{e_i}\in\RR^{2n}$. Since $f_i=\sum B_{\nu i}e_\nu$ we have that 
+\[
+  \tau = \sum A_{ij}f_i\wedge f_j 
+  = \sum B_{\nu i}A_{ij}B_{\mu j} e_\nu\wedge e_\mu
+  = \sum (BAB^t)_{\nu\mu} e_\nu\wedge e_\mu,
+\]
+so that $\tau=\omega(BAB^t)$. Hence 
+\[
+  \omega(BAB^t)\wedge\ldots\wedge\omega(BAB^t)
+  = \tau\wedge\ldots\wedge\tau
+  = n!\R{Pf}(A)f_1\wedge\ldots\wedge f_{2n}.
+\]
+
+By Theorem \ref{theorem:2-16} the map 
+\[
+    A^{2n}(B):\Lambda^{2n}(\RR^{2n})\to \Lambda^{2n}(\RR^{2n})
+\]
+is multiplication by $\det(B)$, so that 
+\[
+    f_1\wedge\ldots\wedge f_{2n} = \det(B)e_1\wedge\ldots\wedge e_{2n}.
+\]
+
+This gives (ii).
+\end{proof}
+
+Let $\K{su}_{n}\subset M_n(\CC)$ denote the subset of skew-hennitian matrices. The realification
+map from $M_n(\CC)$ to $M_{2n}(\RR)$ induces a map from $\K{su}_n$ to $\K{so}_{2n}$, denoted $A\ma A_\RR$,
+and we have
+\begin{theorem}\label{theorem:B.6}
+  $\R{Pf}(A_\RR) = (-\sqrt{-1})^n\det(A)$.
+\end{theorem}
+
+\begin{proof}
+  Since a skew-hennitian matrix has an orthononnal basis of eigenvectors,
+we may assume $A$ is diagonal, $A = \diag(\sqrt{-1}a_1,\ldots, \sqrt{-1}a_n)$ with $a_i\in\RR$.
+Multiplication by $\sqrt{-1}a_i$ on $\CC$ corresponds to the matrix
+\[
+\begin{pmatrix}
+  0 & -a_i \\
+  a_i & 0 
+\end{pmatrix}
+\in \K{so}_2
+\]
+so by \eqref{eq:B.4} $\R{Pf}(A_\RR) = (-1)^na_1\ldots a_n$. On the other hand 
+\[
+  \det(A) = (\sqrt{-1})^n a_1\ldots a_n
+\]
+and the results follows.
+\end{proof}

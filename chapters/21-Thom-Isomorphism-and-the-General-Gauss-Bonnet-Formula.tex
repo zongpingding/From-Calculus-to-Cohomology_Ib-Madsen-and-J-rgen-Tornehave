@@ -1,0 +1,495 @@
+\chapter[Thom Isomorphism and the General Gauss-Bonnet Formula]{Thom Isomorphism and the General\IfFontTimesTF{\\}{} Gauss-Bonnet Formula}
+Let $\xi$ be an oriented vector bundle over $M$ with total space $E = E( \xi )$. The Thom isomorphism theorem 
+calculates the compactly supported cohomology $H_c^*( E)$ in terms of ${H}^*( M)$, 
+namely ${H}^{q}( M)  \cong  H_c^{q + m}(E)$ where $m = \dim \xi$. Assuming $\xi$ to be 
+smooth (cf. Exercise \ref{exercise:15-8}) and $M$ to be oriented the Thom isomorphism theorem is a consequence of 
+Poincar\'e duality. Indeed,
+\[
+  H_c^{m + q}( E)  
+  \cong  {H}^{n- q}{( E) }^* 
+  \cong  {H}^{n- q}{( M) }^* 
+  \cong  H_c^{q}( M)
+\]
+where $n = \dim M$. The second isomorphism is induced from the homotopy equivalence $E \simeq  M$. 
+For $M$ compact we give below a more direct proof of Thom isomorphism.
+
+Suppose $\xi$ is smooth and has an inner product, and let $\xi  \oplus  1$ denote the (orthogonal) direct 
+sum of $\xi$ and the trivial line bundle over $M$. We write $S( {\xi  \oplus  1})$ for its unit sphere bundle 
+over $M$, or what amounts to the same thing, for the fiberwise one-point compactification of $E$. Let
+\[
+  \pi: S( {\xi  \oplus  1})  \ra  M,\;{s}_{\infty } : M \ra  S( {\xi  \oplus  1})
+\]
+be the bundle projection and the ``section at infinity'', respectively, that 
+is ${s}_{\infty }( p)  =$  $( {0,1})  \in  {\xi }_{p} \oplus  \RR$. This makes $S( {\xi  \oplus  1})$ into 
+a smooth fiber bundle over $M$, and hence ${H}^*( {S( {\xi  \oplus  1}) })$ into a ${H}^*( M)$-module 
+(cf. Theorem \ref{theorem:20-1}). The fiber of $\pi$ is the $m$-sphere ${S}^{m} \cong  {\pi }^{-1}( p)$, and the 
+orientation of ${\xi }_{p}$ induces an orientation of each fiber ${S}^{m}$. In particular the integration homomorphism 
+of Chapter 10 induces a fixed isomorphism
+\begin{align}\label{eq:21-1}
+  I: H^m( {{\pi }^{-1}( p) }) \overset{ \cong  }{ \ra  }\RR
+\end{align}
+
+Stereographic projection from ${s}_{\infty }( p)$ identifies ${\pi }^{-1}( p) - \left\{  {{s}_{\infty }( p) }\right\}$ 
+with ${\xi }_{p}$, and globally it identifies the total space $E$ with $S( {\xi  \oplus  1}) - {s}_{\infty }( M)$.
+
+\begin{definition}\label{definition:21-1}
+  An orientation class for $\xi$ is a cohomology class $u \in$  $H^m( {S( {\xi  \oplus  1}) })$ that satisfies
+  \begin{enumerate}[(a)]
+    \item ${s}_{\infty }^*( u)  = 0$
+    \item For each $p \in  M$, the restriction of $u$ to ${\pi }^{-1}( p)$ has integral 1.
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}\label{theorem:21-2}
+  Each oriented vector bundle $\xi$ admits a unique orientation class $u$, and ${H}^*( {S( {\xi  \oplus  1}) })$ 
+  is a free ${H}^*( M)$-module with basis $\{ 1,u\}$
+\end{theorem}
+
+\begin{proof}
+  The second part of the theorem follows from Theorem \ref{theorem:20-1}, since ${H}^*( {{\pi }^{-1}( p) })$ has basis 1
+  and ${i}_{p}^*( u)$ according to Example \ref{example:9-19} and Corollary \ref{corollary:10-14}. Here ${i}_{p}$ denotes 
+  the inclusion of the fiber into the total space $S( {\xi  \oplus  1})$. In particular, it suffices to find a class $v$ that 
+  satisfies Definition \ref{definition:21-1}.(b). Indeed, if $v$ is such a class then any other class in $H^m( {S( {\xi  \oplus  1}) })$ 
+  has the form
+  \[
+    u = {\pi }^*( x)  + {\pi }^*( a)  \land  v
+  \]
+  for some $x \in  H^m( M)$ and $a \in  {H}^{0}( M)$. The restriction of ${\pi }^*( x)$ to ${\pi }^{-1}( p)$ 
+  vanishes for all $p$, so the locally constant function $a$ must have value 1 at each $p \in  M$ if $u$ is to satisfy 
+  Definition \ref{definition:21-1}.(b). But then
+  \[
+    {s}_{\infty }^*( u)  = x + {s}_{\infty }^*( v)
+  \]
+  and ${s}_{\infty }^*( u)  = 0$ if and only if $x = - {s}_{\infty }^*( v)$.
+  
+  The existence of a class $u \in  H^m( {S( {\xi  \oplus  1}) })$ that satisfies condition (b) is based upon 
+  Theorem \ref{theorem:13-9}. Write ${S}_{U} = {\pi }^{-1}( U)$ where $U \subseteq  M$ is open, and let $\mathcal{U}$ 
+  be the collection of open sets for which the restriction ${\xi }_{U} = {\xi }_{\mid U}$ satisfies the conclusion
+  of the theorem. The preceding discussion shows that $U \in  \mathcal{U}$ if and only if there exists a class 
+  in $H^m( {S}_{U})$ with integral equal to 1 over each fiber ${\pi }^{-1}( p)$ for $p \in  U$. Let $\mathcal{V} = ( {V}_{\beta })$ 
+  in Theorem \ref{theorem:13-9} be the cover with ${V}_{\beta }$ the open sets in $M$ such that ${\xi }_{\mid {V}_{\beta }}$ is a 
+  trivial bundle $( {{\xi }_{\mid {V}_{\beta }} \cong  {\varepsilon }_{{V}_{\beta }}^{m}})$. We must verify the four 
+  conditions of Theorem \ref{theorem:13-9}.
+
+  The first condition is trivial. If $U \subseteq  {V}_{\beta }$ then we may trivialize ${\xi }_{U}$ (compatible with the 
+  Riemannian metric) so as to identify ${S}_{U}$ with $U \times  {S}^{m}$. Let
+  \[
+    {S}_{U} \cong  U \times  {S}^{m}\overset{\R{pr}}{ \ra  }{S}^{m}
+  \]
+  denote the resulting projection, and let $u \in  H^m( {S}^{m})$ have integral equal to 1. 
+  Then ${\R{pr}}^*( u)$ restricts to a class with integral 1 on each fiber, and condition (ii) of Theorem \ref{theorem:13-9} 
+  is satisfied. Next we verify condition (iii). So suppose ${U}_{1},{U}_{2}$ and ${U}_{1} \cap  {U}_{2}$ belong 
+  to $\mathcal{U}$. The orientation classes ${u}_{\nu } \in  H^m( {S}_{{U}_{\nu }}),\nu  = 1,2$ restrict to 
+  classes in $H^m( {S}_{{U}_{1} \cap  {U}_{2}})$ that satisfy both condition (a) and (b) 
+  for ${\xi }_{{U}_{1} \cap  {U}_{2}}$. Uniqueness applied to ${\xi }_{{U}_{1} \cap  {U}_{2}}$ shows 
+  that ${u}_{1}$ and ${u}_{2}$ have the same restriction to ${S}_{{U}_{1} \cap  {U}_{2}}$. In the 
+  Mayer-Vietoris sequence
+  \[
+    H^m( {S}_{{U}_{1} \cup  {U}_{2}}) 
+    \overset{{I}^*}{ \ra  }H^m( {S}_{{U}_{1}}) \oplus H^m( {S}_{{U}_{2}}) 
+    \overset{{J}^*}{ \ra  }H^m( {S}_{{U}_{1} \cap {U}_{2}}),
+  \]
+  $( {{u}_{1},{u}_{2}}) \in \R{Ker}{J}^* = \R{Im}{I}^*$, so we can find a class $u \in  H^m( {S}_{{U}_{1} \cup  {U}_{2}})$ 
+  with restriction ${u}_{\nu }$ to ${S}_{{U}_{\nu }}$. This class has integral 1 over all fibers ${\pi }^{-1}( p) \subseteq{S}_{{U}_{1} \cup  {U}_{2}}$ 
+  and ${U}_{1} \cup  {U}_{2}$ belongs to $\mathcal{U}$.
+  
+  Finally consider a sequence ${U}_{1},{U}_{2},\ldots$ of disjoint open sets in $\mathcal{U}$ with 
+  union $U = \mathop{\bigcup }_{i}{U}_{i}$. We have the isomorphism from Proposition \ref{proposition:13-4},
+  \[
+    H^m( {S}_{U})  \ra  \prod_{i}H^m( {S}_{{U}_{i}})
+  \]
+  
+  The family of orientation classes ${u}_{i} \in  H^m( {S}_{{U}_{i}})$ is the image of some $u \in  H^m( {S}_{U})$ 
+  with integral 1 over all fibers ${\pi }^{-1}( p)  \subseteq  {S}_{U}$. Hence $U \in  \mathcal{U}$. Now 
+  Theorem \ref{theorem:13-9} applies to show that $M \in  \mathcal{U}$.
+\end{proof}
+
+
+The above does not require $M$ to be compact, but if it is, we may apply Proposition \ref{proposition:13-11} 
+to the compact manifold pair $( {S( {\xi  \oplus  1}),{s}_{\infty }( M) })$. Since $S( {\xi  \oplus  1}) - {s}_{\infty }( M)  \cong  E$ 
+and ${s}_{\infty }( M)  \cong  M$ we obtain a long exact sequence
+\[
+  \cdots \overset{\delta }{ \ra  }H_c^{q}( E) 
+  \overset{{i}_{ * }}{ \ra  }{H}^{q}( {S( {\xi  \oplus  1}) }) 
+  \overset{{s}_{\infty }^*}{ \ra  }{H}^{q}( M) 
+  \overset{\delta }{ \ra  }H_c^{q + 1}( E)  
+  \ra \cdots.
+\]
+
+Now ${s}_{\infty }^* \circ  {\pi }^* = {( \pi  \circ  {s}_{\infty }) }^* = \mathrm{{id}}$, so that ${s}_{\infty }^*$ 
+is an epimorphism and $\delta  = 0$. By exactness ${i}_{ * }$ is a monomorphism, leading to the short exact sequence
+\begin{align}\label{eq:21-2}
+  0 \ra  H_c^*( E) \overset{{i}_{ * }}
+  { \ra  } H^*( {S( {\xi  \oplus  1}) }) 
+  \overset{{s}_{\infty }^*}
+  { \ra  } H^*(M) \ra  0.
+\end{align}
+
+
+\begin{theorem}[Thom isomorphism]\label{theorem:21-3}
+  Let $\xi$ be an oriented $m$-dimensional real vector bundle over a compact manifold $M$. There 
+  is a unique class $U \in  H_c^{m}( E)$ with integral 1 over each fiber ${\xi }_{p}$, and the map
+  \[
+    \Phi  : {H}^{q}( M) \overset{ \cong  }{ \ra  }H_c^{m + q}( E) ;\;\Phi ( x)  = ( {{\pi }^*x})  \land  U
+  \]
+  is an isomorphism. The class $U = \Phi ( 1)$ is called the \Index{Thom class}.
+\end{theorem}
+
+\begin{proof}
+  The exact sequence \eqref{eq:21-2} shows that the orientation class $u \in  H^m( {S( {\xi  \oplus  1}) })$ 
+  has the form $u = {i}_{ * }( U)$ for a uniquely determined $U \in  H_c^{m}( E)$. The first statement now follows 
+  from Theorem \ref{theorem:21-2}. The homomorphisms ${i}_{ * }$ and ${s}_{\infty }^*$ in \eqref{eq:21-2} 
+  are ${H}^*( M)$-linear and the last part of Theorem \ref{theorem:21-2} shows that $H_c^*( E)$ is a free ${H}^*( M)$-module 
+  generated by $U$. Thus $\Phi$ is an isomorphism.
+\end{proof}
+
+\begin{definition}\label{definition:21-4}
+  With the notation of the previous theorem, let $\hat{e}( \xi )  \in  H^m( M)$ be the class 
+  with $\Phi({\hat{e}( \xi ) }) = U \land  U$.
+\end{definition}
+
+
+The product in $H_c^*( E)$ is anti-commutative (since this is the case for the representing differential forms), 
+so $U \land  U = 0$ if $m$ is odd. Thus $\hat{e}( \xi )  = 0$ for odd-dimensional oriented vector bundles.
+
+\begin{lemma}\label{lemma:21-5}
+  Let $s : M \ra  E$ be an arbitrary smooth section of $E$. Then $\hat{e}( \xi )  =$  ${s}^*( U)$.
+\end{lemma}
+
+\begin{proof}
+  Since $s$ is a proper map, it induces a homomorphism
+  \[
+    H_c^*( E)  \ra  H_c^*( M)  = {H}^*( M)
+  \]
+  cf. Chapter 13. A closed form $\omega  \in  {\Omega }_{c}^{m}( E)$ that represents $U$ also defines 
+  a class $[  \omega ]   \in  H^m( E)$. Now $s \circ  \pi  : E \ra  E$ is 
+  homotopic to ${\R{id}}_{E}$ (use the linear structure in the fibers), so $[\omega] = [  {{\pi }^*{s}^*( \omega ) }]$. 
+  But then
+  \begin{align*}
+      \Phi ( {{s}^*( U) })  
+      & = ( {{\pi }^*{s}^*( U) })  \land  U = [  {{\pi }^*{s}^*( \omega ) }] \land  U \\
+      & = [  \omega ]   \land  U = U \land  U\text{. }
+  \end{align*}
+\end{proof}
+
+The next two lemmas show that $\hat{e}( \xi )$ satisfies the conditions of Theorem \ref{theorem:19-8}, 
+and hence that
+\begin{align}\label{eq:21-3}
+  \hat{e}( {\xi }^{m})  = {a}^{m/2}e( {\xi }^{m})
+\end{align}
+for even-dimensional oriented vector bundles over compact manifolds. We shall see later that $a = 1$.
+
+\begin{lemma}\label{lemma:21-6}
+  Let $f\colon N \ra  M$ be a smooth map of compact manifolds and $\xi$ an oriented vector bundle 
+  over $M$. Then $\hat{e}( {{f}^*\xi })  = {f}^*\hat{e}( \xi )$.
+\end{lemma}
+
+\begin{proof}
+  We have the pull-back diagram
+  \[\begin{tikzcd}
+    E'\rar{\hat f}\dar{} & E\dar{} \\
+    N\rar{f} & M
+  \end{tikzcd}\]
+  where $E$ and ${E}^{\prime }$ are the total spaces of $\xi$ and ${f}^*\xi$ respectively. 
+  The map $\hat{f}$ is proper, so the class $U \in  H_c^{m}( E)$ of Theorem \ref{theorem:21-3} pulls 
+  back to ${U}^{\prime } = {\hat{f}}^*( U)  \in$  $H_c^{m}( {E}^{\prime })$. Since $\hat{f}$ maps 
+  a fiber ${f}^*{\xi }_{p}$ to ${\xi }_{f( p) }$ by a linear oriented isomorphism, ${U}^{\prime }$ will 
+  have integral 1 over fibers. There is another commutative diagram
+  \[\begin{tikzcd}
+    E'\rar{\hat f} & E \\
+    N\rar{f}\uar{s'} & M\uar{s}
+  \end{tikzcd}\]
+  where $s$ and ${s}^{\prime }$ are the zero sections, and by Lemma \ref{lemma:21-5} we find
+    \begin{align*}
+      \hat{e}( {{f}^*\xi })  
+      & = {( {s}^{\prime }) }^*( {U}^{\prime })  
+        = {( {s}^{\prime }) }^* \circ  {\hat{f}}^*( U) \\
+      & = {( \hat{f} \circ  {s}^{\prime }) }^*( U)  
+        = {( s \circ  f) }^*( U) \\
+      & = {f}^* \circ  {s}^*( U)  = {f}^*( {\hat{e}( \xi ) }).
+    \end{align*}
+\end{proof}
+
+\begin{lemma}\label{lemma:21-7}
+  If ${\xi }_{1}$ and ${\xi }_{2}$ are oriented real vector bundles over the compact manifold $M$, 
+  then $\hat{e}( {{\xi }_{1} \oplus  {\xi }_{2}})  = \hat{e}( {\xi }_{1}) \hat{e}( {\xi }_{2})$.
+\end{lemma}
+
+
+\begin{proof}
+  Let ${\xi }_{\nu }$ have total space ${E}_{\nu }$, bundle projection ${\pi }_{\nu } : {E}_{\nu } \ra  M$ 
+  and fiber dimension ${m}_{\nu }$, and let ${U}_{\nu } \in  H_c^{{m}_{\nu }}( {E}_{\nu })$ be given 
+  by Theorem \ref{theorem:21-3}. The product map
+  \[
+    {\pi }_{1} \times  {\pi }_{2} : {E}_{1} \times  {E}_{2} \ra  M \times  M
+  \]
+  is the projection of an oriented $( {{m}_{1} + {m}_{2}})$-dimensional vector bundle $\xi$ over $M \times  M$ 
+  with ${\Delta }^*( \xi )  = {\xi }_{1} \oplus  {\xi }_{2}$, where $\Delta  : M \ra  M \times  M$ is the 
+  diagonal map. If ${\R{pr}}_{\nu } : {E}_{1} \times  {E}_{2} \ra  {E}_{\nu }$ is the projection 
+  and ${\omega }_{\nu } \in  {\Omega }_{c}^{{m}_{\nu }}( {E}_{\nu })$ is a closed form representing ${U}_{\nu }$, 
+  then we can form $U \in  H_c^{{m}_{1} + {m}_{2}}( {{E}_{1} \times  {E}_{2}})$ represented by
+  \[
+    \omega  = {\R{pr}}_{1}^*( {\omega }_{1})  \land  {\R{pr}}_{2}^*( {\omega }_{2}).
+  \]
+  
+  It follows from Fubini’s theorem that $\omega$ has integral 1 over each fiber in $\xi$. Let $s_\nu:M\ra E_\nu$ 
+  be the zero section. Then
+  \begin{align*}
+      \hat{e}( \xi ) 
+      & = { ({s}_{1} \times  {s}_{2}) }^*( U)  
+        = [ {{( {s}_{1} \times  {s}_{2}) }^*( \omega ) }] \\
+      & = [ {{( {s}_{1} \times  {s}_{2}) }^* \circ {\R{pr}}_{1}^*( {\omega }_{1}) }]  
+          [ {{( {s}_{1} \times  {s}_{2}) }^* \circ {\R{pr}}_{2}^*( {\omega }_{2}) }].  
+  \end{align*}
+  
+  If $p_\nu : M \times  M \ra  M$ denotes the projections, then
+  \[
+    [{{( {s}_{1} \times  {s}_{2}) }^* \circ  {\R{pr}}_{\nu }^*( {\omega }_{\nu }) }] 
+    = [  {p_\nu^* \circ  {s}_{\nu }^*( {\omega }_{\nu }) }] 
+    = p_\nu^*( {\hat{e}( {\xi }_{\nu }) })
+  \]
+  so $\hat{e}( \xi )  = {p}_{1}^*( {\hat{e}( {\xi }_{1}) })  \land  {p}_{2}^*( {\hat{e}( {\xi }_{2}) })$. 
+  Finally Lemma \ref{lemma:21-6} yields
+  \begin{align*}
+    \hat{e}( {{\xi }_{1} \oplus  {\xi }_{2}}) 
+    & = \hat{e}( {{\Delta }^*\xi }) = {\Delta }^*( {\hat{e}( \xi ) }) \\
+    & = {\Delta }^* \circ  {p}_{1}^*( {\hat{e}( {\xi }_{1}) })\cdot{\Delta }^* \circ  {p}_{2}^*( {\hat{e}( {\xi }_{2}) }) \\
+    & = {( {p}_{1} \circ  \Delta ) }^*( {\hat{e}( {\xi }_{1}) })\cdot{( {p}_{2} \circ  \Delta ) }^*( {\hat{e}( {\xi }_{2}) }) \\
+    & = \hat{e}( {\xi }_{1}) \hat{e}( {\xi }_{2}).
+  \end{align*}  
+\end{proof}
+
+In Chapter 11 we defined the local index of a tangent vector field with isolated singularities, and in Chapter 12 
+we proved the Poincaré-Hopf theorem, that the sum of the local indices is the Euler characteristic of the 
+manifold. We shall now extend these notions to sections of an arbitrary oriented vector bundle $\xi$ over a 
+compact, oriented smooth manifold $M$, provided $\dim \xi  = \dim M = m$. Let $E = E( \xi )$ be the total 
+space and $\pi  : E \ra  M$ the bundle projection. We let ${s}_{0} : M \ra  E$ be the zero section of $\xi$ 
+that to each $p \in  M$ associates the origin in the fiber ${\xi }_{p}$. Let $s : M \ra  E$ be a second smooth 
+section. The differentials ${D}_{p}s$ and ${D}_{p}{s}_{0}$ from ${T}_{p}M$ to ${T}_{q}E$ are monomorphisms 
+since $s$ and ${s}_{0}$ have one-sided inverses.
+
+\begin{definition}\label{definition:21-8}\index{transversality}
+  Let $p \in  M$ be a zero (singularity) for $s,s( p)  = {s}_{0}( p)$. Then $s$ is called transversal to ${s}_{0}$ at $p$ if
+  \begin{align}\label{eq:21-4}
+    {D}_{p}s( {{T}_{p}M})  \cap  {D}_{p}{s}_{0}( {{T}_{p}M})  = 0
+  \end{align}
+  and $s$ is called transversal to ${s}_{0}$ if this holds for all zeros of $s$.
+\end{definition}
+
+The tangent space ${T}_{{s}_{0}( p) }E$ is the direct sum of the tangent space ${D}_{p}{s}_{0}( {{T}_{p}M})$ to 
+the zero section ${s}_{0}( M)$ and the tangent space at ${s}_{0}( p)$ to the fiber ${\xi }_{p}$ which is naturally 
+identified with ${\xi }_{p}$ itself. In other words:
+\[
+  {T}_{{s}_{0}( p) }E \cong  {T}_{p}M \oplus  {\xi }_{p}.
+\]
+
+With this identification, \eqref{eq:21-4} is equivalent to the statement that ${D}_{p}s( {{T}_{p}M})$ is the graph of 
+a linear isomorphism $A : {T}_{p}M \ra  {\xi }_{p}$. Both vector spaces are oriented by assumption; we define 
+the \Index{local index}\index{index!local} $\iota ( {s;p})$ to be $+1$, if $A$ preserves the orientations, and $-1$ if not. In the special 
+case where $\xi  = {\tau }_{M}$ is the tangent bundle this is in agreement with Definition \ref{definition:11-16} 
+(cf. Lemma \ref{lemma:11-20}).
+
+Given an oriented local trivialization of $\xi$ over $U,{\xi }_{\mid U} \cong  U \times  {\RR}^{m}$, we can 
+identify the restriction of $s$ to $U$ with a smooth map $F\colon U \ra  {\RR}^{m}$. Then $A\colon {T}_{p}M \ra  {\xi }_{p}$ 
+corresponds to ${D}_{p}F\colon {T}_{p}M \ra  {\RR}^{m}$, and \eqref{eq:21-4} becomes the statement that ${D}_{p}F$ is an isomorphism. 
+Hence $\iota ( {s;p})  =  \pm  1$ depending on the orientation behavior of ${D}_{p}F$. The inverse function theorem 
+implies that $F$ is a local diffeomorphism at $p$. In particular \eqref{eq:21-4} forces $p$ to be an isolated zero of $s$. 
+If $s\colon M \ra  E$ is transversal to the zero section, then the number of zeros of $s$ is finite, since $M$ was 
+assumed compact.
+
+\begin{theorem}\label{theorem:21-9}
+  In the situation above, if $s$ is transverse to the zero section, then
+  \begin{align}\label{eq:21-5}
+    I({\hat{e}( \xi ) })  = \mathop{\sum }\limits_{p}\iota ( {s;p})
+  \end{align}
+  where we sum over the zeros of $s$, and where $I\!\!:\!\! H^m( M)  \ra  \RR$ is the integration 
+  homomorphism.
+\end{theorem}
+
+
+\begin{example}\label{example:21-10}
+  Let $H$ be the canonical complex line bundle over ${\CP}^{1},{H}^*$ its dual bundle, 
+  and $\xi  = {( {H}^*) }_{\B{R}}$ the underlying oriented real bundle. The bundle $H$ is a subbundle 
+  of the trivial 2-dimensional bundle
+  \[
+    E( H)  = \left\{  {( {L;\mathbf{z}})  \mid  L \in  {\CP}^{1},\mathbf{z} \in  L}\right\}  
+    \subset {\CP}^{2} \times  {\CC}^{2}
+  \]
+  (cf. Example \ref{example:17-2}). Dually there is an epimorphism from the dual product bundle 
+  onto ${H}^*$, and we let $s : {\CP}^{1} \ra E(H^*)$ be the section that is the image 
+  of the constant section in the dual product bundle given by the linear form
+  \[
+    \sigma: {\CC}^{2} \ra  \CC;\;\sigma ( {{w}_{0},{w}_{1}})  = {w}_{1}.
+  \]
+  
+  In terms of homogeneous coordinates on ${\CP}^{1},s( [  {{z}_{0},{z}_{1}}])$ is the restriction of $\sigma$ to 
+  the fiber ${\R{span}}_{\CC}( {{z}_{0},{z}_{1}})$ in $H$. The only zero of $s$ is ${p}_{0} = [  {1,0}]$. Over 
+  the coordinate chart ${U}_{0} = \{ [  {1,z}]   \mid  z \in  \CC\}$ in ${\CP}^{1}$ we have a trivialization 
+  of $H$ defined by 
+  \[
+    {U}_{0} \times  \CC \ra  H;\;( {[  {1,z}] ,a})\ma ([1, z], (a, az)).
+  \]
+  
+  In the dual trivialization of ${H}^*$ we find that ${s}_{\mid {U}_{0}}$ corresponds to the 
+  function ${U}_{0} \ra  \CC$, which maps $[  {1,z}]$ into $z$ ; thus in terms of local coordinates $s$ 
+  is the identity. It follows that $s$ is transversal to the zero section at ${p}_{0}$, and 
+  that $\iota ( {s;{p}_{0}}) = 1$. From Theorem \ref{theorem:21-9} we conclude that $I(\hat{e}(\xi)) = 1$.
+\end{example}
+
+
+\begin{theorem}\label{theorem:21-11}
+  For oriented vector bundles over compact manifolds, $\hat{e}( \xi )  = e( \xi )$.
+\end{theorem}
+
+\begin{proof}
+  We have already seen in \eqref{eq:21-3} above that $\hat{e}( {\xi }^{2m})  = {a}^{m}e( {\xi }^{2m})$ for 
+  some constant $a$ ; it remains to be shown that $a = 1$. For ${\xi }^{2} = {( {H}^*) }_{\B{R}}$, the 
+  previous example shows that $I(\hat{e}(\xi^2)) = 1$. On the other hand, $e(\xi^2) = c_1(H^*)$ 
+  by Theorem \ref{theorem:19-6}.(ii), and $I( {{c}_{1}( {H}^*) }) = 1$ by Theorem \ref{theorem:18-9}.(i) and 
+  Property \ref{property:18-11}.(b). Since $I$ is injective $e( {\xi }^{2})  = \hat{e}( {\xi }^{2})$ in this 
+  case, so $a = 1$.
+\end{proof}
+
+
+If the dimension $m$ is odd then we saw in the discussion following Definition \ref{definition:21-4} 
+that $\hat{e}( \xi ) = 0$, and consequently the index sum in \eqref{eq:21-5} will always vanish. If $\xi$ is 
+even-dimensional and admits a section $s$ without zeros, then the index sum is zero, and $\hat{e}(\xi) = 0$. 
+One often expresses this by saying that $\hat{e}( \xi )$ is the obstruction for $\xi$ to admit a non-zero 
+section. Note that a non-zero section is equivalent to a splitting $\xi\cong \xi'\oplus\varepsilon_{M}^{1}$. 
+Indeed, we may choose an inner product on $\xi$ and define ${\xi }^{\prime }$ to be the orthogonal complement 
+to the trivial subbundle of $\xi$ consisting of lines generated by $s$.
+
+\begin{theorem}\label{theorem:21-12}
+  For any oriented compact smooth manifold $M$,  
+  \[
+    I(e( {\tau }_{M})) = \chi(M).
+  \]
+\end{theorem}
+
+\begin{proof}
+  We simply apply Theorem \ref{theorem:21-9} to $\xi  = {\tau }_{M}$, taking for $s$ a gradient-like vector 
+  field $X$ w.r.t. some Morse function; cf. Definition \ref{definition:12-7}. The proof of Lemma \ref{lemma:12-8} shows 
+  that $X$ is transversal to the zero section, and that the sum in \eqref{eq:21-5} is equal to $\R{Index}( X)$. The 
+  Poincar\'e-Hopf theorem finishes the proof.
+\end{proof}
+
+We can combine the two previous theorems to give a generalization of the classical Gauss-Bonnet theorem 
+to even-dimensional compact, oriented smooth manifolds.
+
+\begin{theorem}[Generalized Gauss-Bonnet formula]\label{theorem:21-13}
+  \[
+    \int_M\R{Pf}( \frac{-F^\btd}{2\pi })  = \chi ( {M}^{2n}),
+  \]
+  where ${F}^{\btd }$ is the curvature associated to any metric connection on the tangent 
+  bundle of ${M}^{2n}$.\hfill$\square$
+\end{theorem}
+
+The rest of this chapter is devoted to a proof of Theorem \ref{theorem:21-9}. Let ${p}_{1},\ldots,{p}_{k}$ be the zeros 
+of $s$. First we construct a closed form $\omega  \in  {\Omega }_{c}^{m}( E)$ which represents $U \in  H_c^{m}( E)$, 
+and local trivializations of $\xi$ over disjoint open neighborhoods ${V}_{1},\ldots,{V}_{k}$ of the zeros. 
+Let ${E}_{V_i}$ be the inverse image of $V_i$ in $E$, and define $f_i : {E}_{V_i} \ra  {\RR}^{m}$ to be 
+the composition of a trivialization ${E}_{V_i}\overset{ \cong  }{ \ra  }V_i \times  {\RR}^{m}$ with the projection 
+on ${\RR}^{m}$.
+
+\begin{lemma}\label{lemma:21-14}
+  In the above, $V_i$ and $f_i$ may be chosen so that
+  \[
+    {\omega }_{\mid {E}_{V_i}} = f_i^*( {\omega }_{i}),\;1 \leq  i \leq  k
+  \]
+  where ${\omega }_{i} \in  {\Omega }_{c}^{m}( {\RR}^{m})$ are forms 
+  with ${\int }_{{\RR}^{m}}{\omega }_{i} = 1$.
+\end{lemma}
+
+\begin{proof}
+  Let $h : M \ra  M$ be a map such that
+  \begin{enumerate}
+    \item[($\alpha$)] $h$ is smoothly homotopic to ${\R{id}}_{M}$.
+    \item[($\beta$)] $h$ is constant with value ${p}_{i}$ on some open neighborhood $V_i$ of ${p}_{i},i =$  $1,\ldots,k$.
+  \end{enumerate}
+  
+  It follows from $( \alpha )$ and Theorem \ref{theorem:15-21} that ${\xi }^{\prime } = {h}^*( \xi )$ is isomorphic to $\xi$, so it 
+  suffices to construct the required trivializations and forms for ${\xi }^{\prime }$ instead of $\xi$. Consider 
+  the diagram
+  \[\begin{tikzcd}
+    E' \rar{\tilde{h}}\dar{\pi'} & E \dar{\pi} \\
+    M \rar{h} & M
+  \end{tikzcd}\]
+  where $E = E( \xi ),{E}^{\prime } = E( {\xi }^{\prime })$. Pick a closed form $\omega  \in  {\Omega }_{c}^{m}( E)$ 
+  with integral 1 over each fiber in $\xi$. Then ${\omega }^{\prime}={\widetilde{h}}^*( \omega) \in {\Omega}_{c}^{m}({E}^{\prime})$ 
+  has integral 1 over each fiber of ${\xi }^{\prime }$. Since $h(V_i)  = p_i,\widetilde{h}:{E}_{V_i}^{\prime } \ra  {\xi }_{{p}_{i}}$. 
+  We pick an oriented linear isomorphism ${\xi }_{{p}_{i}} \cong  {\RR}^{m}$, and let ${\omega }_{i} \in  {\Omega }_{c}^{m}( {\RR}^{m})$ 
+  correspond to ${\omega }_{\mid {\xi }_{{p}_{i}}} \in  {\Omega }_{c}^{m}( {\xi }_{p})$, and $f_i$ to $\widetilde{h}$ under 
+  this isomorphism. Then
+  \[
+    {\omega }_{\mid {E}_{V_i}^{\prime }}^{\prime } = f_i^*( {\omega }_{i}),\quad 
+    \int_{\RR^m}{\omega}_{i} = 1,\;1 \leq  i \leq  k
+  \]
+  as required. We have left to construct $h$ with the stated properties. To this end we use a smooth map $G:\RR^m\times\RR\ra\RR^m$ 
+  which satisfies:
+  \begin{align*}
+    G( {x,0})  & = 0\;\text{ for }x \in  \tfrac{1}{2}{D}^{m} \\
+    G( {x,1})  & = x\;\text{ for }x \in  \RR^{m} \\
+    G( {x,t})  & = x\;\text{ for }t \in  \RR\text{ and }x \in \RR^{m}- {D}^{m}.
+  \end{align*}
+  
+  For example we can take
+  \begin{align}\label{eq:21-6}
+    G( {x,t})  = ( {( {1- t}) \rho (\|x\|) + t}) x
+  \end{align}
+  where $\rho:\RR\ra\RR$ is a smooth function with
+  \[
+    \rho(y) = 
+    \left\{\begin{array}{ll} 
+      0 & \text{ for } y \leq  \frac{1}{2} \\  
+      1 & \text{ for } y \geq  1 
+    \end{array}\right.
+  \]
+  
+  Now construct a homotopy $F\colon M \times  \RR \ra  M$ as follows. Choose disjoint charts $W_i$, $1 \leq  i \leq  k$, 
+  and diffeomorphisms ${\varphi }_{i} : W_i \ra  {\RR}^{m}$ such that ${\varphi }_{i}( {p}_{i})  = 0$, and define
+  \[
+    F(p, t)  = 
+    \left\{\begin{array}{ll} 
+      {\varphi }_{i}^{-1} \circ  F( {{\varphi }_{i}( p),t}) & \text{ if }p \in  W_i \\  
+      p & \text{ if }p \notin  { \cup  }_{i}W_i. 
+    \end{array}\right.
+  \]
+  Then $( \alpha )$ holds for $h( p)  = F( {p,0})$ and $( \beta )$ holds 
+  for $V_i = {\varphi }_{i}^{-1}( {\frac{1}{2}{\mathring{D}}^{m}})$.
+\end{proof}
+
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:21-9}}}
+\begin{proof}
+  Pick data as in Lemma \ref{lemma:21-14}. Replacing $V_i$ with a smaller open neighborhood of ${p}_{i}$, 
+  we may assume that $f_i \circ({s}_{\mid V_i})$ maps $V_i$ diffeomorphically onto an open 
+  set in ${\RR}^{m}$. Pick an open neighborhood $W_i$ of ${p}_{i}$ with closure $\overline{W_i} \subseteq  V_i$. 
+  Since $M-\bigcup_{i}W_i$ and ${\R{supp}}_{E}( \omega )$ are compact, we can find a constant $c > 0$ 
+  such that the scaled section $\widetilde{s} = {cs}$ satisfies
+  \begin{align*}
+    {\R{supp}}_{\RR^m}( {\omega }_{i}) \subset f_i( {\widetilde{s}( V_i) }),\;1 \leq  i \leq k \\
+    \widetilde{s}( {M- \mathop{\bigcup }\limits_{i}W_i}) \cap {\R{supp}}_{E}( \omega )  = \varnothing.
+  \end{align*}
+
+  Now $e( \xi )  \in  H^m( M)$ is represented by the $m$-form ${\widetilde{s}}^*( \omega )$, which is 
+  identically zero on $M-\bigcup_i{\overline{W}}_{i}$. By Lemma \ref{lemma:21-14}
+  \[
+    {\widetilde{s}}^*{( \omega ) }_{\mid V_i} 
+    = {( f_i \circ  ( {\widetilde{s}}_{\mid V_i}) ) }^*( {\omega }_{i})
+  \]
+  where $f_i \circ  ( {\widetilde{s}}_{\mid V_i})$ is a diffeomorphism from $V_i$ to an open set 
+  in $\RR^m$ containing ${\R{supp}}_{\RR^m}( {\omega }_{i})$. This diffeomorphism preserves 
+  or reverses orientations depending on the value of $\iota(\widetilde{s}; p_i) =\iota(s; p_i) = \pm 1$. 
+  Formula \eqref{eq:21-5} follows by the computation:
+  \begin{align}\label{eq:21-7}
+    \begin{aligned}
+      I( {e( \xi ) }) 
+      & = \int_M{\widetilde{s}}^*( \omega )  
+        = \sum_{i = 1}^{k}\int_{V_i}{( f_i \circ  ( {\widetilde{s}}_{\mid V_i}) ) }^*( {\omega }_{i}) \\
+      & = \sum_{i = 1}^{k}\iota ( {s;{p}_{i}}) \int_{\RR^m}{\omega }_{i} 
+        = \sum_{i = 1}^{k}\iota ( {s;{p}_{i}}).
+    \end{aligned}  
+  \end{align}
+\end{proof}
+\endgroup

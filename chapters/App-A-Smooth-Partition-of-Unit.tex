@@ -1,0 +1,219 @@
+\chapter{Smooth Partition of Unit}
+The following technical theorem is a much used tool when working with smooth
+maps and smooth manifolds.
+For a function $f:U\to\RR$ with domain $U\subseteq\RR$ the \Index{support} of $f$ in $U$ is the set
+\begin{align*}
+  \R{supp}_U(f) = \overline{\{x\in U\mid f(x)\neq 0\}}
+\end{align*}
+
+where the bar denotes the closure of the set in the \Index{induced topology} on $U$. If $U$ is open 
+in $\RR^n$ then $U-\R{supp}_U(d)$ is the largest open subset of $U$ on which $f$ vanishes.
+
+\begin{theorem}\label{theorem:A.1}
+  If $U\subseteq\RR^n$ is open and $\C{V} = (V_i)_{i\in I}$ is a cover of $U$ by open sets $V_i$, then there exists 
+  smooth functions $\phi_i:U\to\ [0, 1]\; (i\in I)$, satisfying 
+  \begin{enumerate}[(i)]
+    \item $\R{supp}_U(\phi_i)\subseteq V_i$ for all $i\in I$.
+    \item Every $x\in U$ has a neighborhood $W$ on which only finitely many $\phi_i$ do not vanish.
+    \item For every $x\in U$ we have $\sum_{i\in I} \phi_i(x) = 1$.
+  \end{enumerate}
+  We say that $(\phi_i)_{i\in I}$ is a (smooth) \Index{partition of unity}, which only is subordinate to the 
+  cover $\C{V}$.
+\end{theorem}
+
+A family of functions $\phi_i:U\to\RR$ that satisfy (ii) is called \Index{locally finite}. Note that
+the sum $\sum_{i\in I}\phi_i$ in this case becomes a well-defined function $U\to\RR$. Moreover,
+it is smooth when all the $\phi_i$ are smooth. The proof of Theorem \ref{theorem:A.1} requires
+some preparations.
+
+\begin{lemma}\label{lemma:A.2}
+  The function $\omega:\RR\to\RR$ defined by 
+  \[
+    \omega(t) = \left\{\begin{aligned}
+      & 0 && \text{ if } t\le 0 \\
+      & \exp(-1/t) && \text{ if } t>0
+    \end{aligned}\right.
+  \]
+  is smooth.
+\end{lemma}
+
+\begin{proof}
+  It is only smoothness at $t = 0$ which causes difficulties. It is sufficient to see that
+  \[
+    \lim_{t\to 0^+} \frac{\omega^{(n-1)}(t)}{t} = 0
+  \]
+  for all $n\ge 1$. By induction there exsit polynomials $p_0, p_1, \ldots$, such that 
+  \[
+    \omega^{(n-1)}(t) = p_n(1/t)\exp(-1/t),
+  \]
+  for $t>0$ and $n\ge 0$. The result now follows because
+  \[
+    \lim_{t\to 0^+} \left((1/t)^k\exp(-1/t)\right) 
+    = \lim_{x\to\infty} \frac{x^k}{\exp(x)}
+    = 0
+  \]
+  for $k\ge 0$.
+\end{proof}
+
+\begin{corollary}\label{corollary:A.3}
+  For real numbers $a<b$ there exists a smooth function $\psi:\RR\to[0, 1]$
+  such that $\psi(t)=0$ for $t\le a$ and $\psi(t)=1$ for $t\ge b$.
+\end{corollary}
+
+\begin{proof}
+  Set $\psi(t) = \omega(t-a)/(\omega(t-a)+\omega(b-t))$.
+\end{proof}
+
+For $x\in\RR$ and $\epsilon>0$ let $D_\epsilon(x) = \{y\in\RR^n\mid \|y-x\|<\epsilon\}$.
+
+
+\begin{corollary}\label{corollary:A.4}
+  For $x\in\RR^n$ and $\epsilon>0$ there exists a smooth function $\phi:\RR^n\to[0, \infty)$, such that 
+  $D_\epsilon(x) = \phi^{-1}((0, \infty))$.
+\end{corollary}
+
+\begin{proof}
+  Define $\phi$ by the formula 
+  \[
+    \phi(y) = \omega(\epsilon^2-\|y-x\|^2)
+    = \omega(\epsilon^2 - \sum_{j=1}^n (y_j-x_j)^2).
+  \]
+  Note that the support of $\phi$ is the corresponding closed disc 
+  \[
+    \overline{D}_\epsilon(x) = \{y\in\RR^n\mid \|y-x\|\le\epsilon\}.
+  \]
+\end{proof}
+
+\begin{lemma}\label{lemma:A.5}
+  An arbitrary open set $U\subseteq\RR^n$ can be written in the form $U=\bigcup_{m=1}^\infty K_m$, where the sets $K_m$ 
+  are compact and $K_m\subseteq \mathring{K}_{m+1}$ (the interior of $K_{m+1}$) for $m\ge 1$.
+\end{lemma}
+
+\begin{proof}
+  The conditions hold for $K_m = \overline{D}_{2^m}(0) - \bigcup_{x\in\RR^n-U} D_{1/2^m}(x)$.
+\end{proof}
+
+
+\begin{proposition}\label{proposition:A.6}
+  For an arbitrary open set $U\subseteq\RR^n$ and a cover $\C V=(V_i)_{i\in I}$ of
+  $U$ by open sets, we can find a sequence $(x_j)$ in $U$ and a sequence $(\epsilon_j)$ of positive
+  real numbers' that satisfy the following conditions:
+  \begin{enumerate}
+    \item $U = \bigcup_{j=1}^\infty D_{\epsilon_j}(x_j)$.
+    \item For every $j$ there exists $i(j)\in I$ with $D_{3\epsilon_j}(x_j)\subseteq V_{i(j)}$.
+    \item Every $x\in U$ has a neighborhood $W$ that intersects only finitely many of the balls $D_{2\epsilon_j}(x_j)$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  We choose $K_m(m\ge 1)$ as in Lemma \ref{lemma:A.5}. Additionally we set $K_0=K_{-1} = \ns$. For $m\ge 1$ we introduce
+  the sets 
+  \[
+    B_m = K_m - \mathring{K}_{m-1}, \qquad U_m = \mathring{K}_{m+1} - K_{m-2}.
+  \]
+  Here $B_m$ is compact, $U_m$ is open, $B_m\subseteq U_m$ and $U = \bigcup_{m=1}^\infty B_m$. For $x\in B_m$
+  we can find $\epsilon(x) > 0$ such that $D_{2\epsilon(x)}(x)$ is contained in both $U_m$ and at least
+  one of the sets $V_i$, The Heine-Borel property for $B_m$ ensures the existence of
+  $x_{m,j}\in B_m$ and $\epsilon_{m,j}>0\; (1\le j\le d_m)$ such that
+  \begin{enumerate}
+    \item[($\alpha$)] $B_m\subseteq \bigcup_{j=1}^{d_m} D_{\epsilon, j}(x_{m, j})$.
+    \item[($\beta$)] Every $D_{2\epsilon_{m, j}}(x_{m, j})$ is contained in $U_m$ and in at least one of the sets $V_i$.
+  \end{enumerate}
+  The desired result is achieved by re-indexing the families $(x_{m, j})$ and $(\epsilon_{m, j})$, where 
+  $m\ge 1$ and $1\le j\le d_m$. From ($\alpha$) and ($\beta$) follows 
+  \[
+    U = \bigcup_{m=1}^\infty B_m 
+    \subseteq \bigcup_{m=1}^\infty\bigcup_{j=1}^{d_m} D_{\epsilon_{m, j}}(x_{m, j})
+    \subseteq \bigcup_{m=1}^\infty U_m 
+    \subseteq U,
+  \]
+  which yields (i). One obtains (ii) from ($\beta$). For $x\in U$ we choose $m_0\ge 1$ with 
+  $x\in U_{m_0}$. Since $U_{m_0}\cap U_m =\ns$ when $m\ge m_0+3$, we see that $U{m_0}$ can intersect 
+  $D_{2\epsilon}(x_{m, j})$ only when $m\le m_0+2$. This proves (iii).
+\end{proof}
+
+
+\begin{lemma}\label{lemma:A.7}
+  If $A\in\RR^n$ is closed and $U\sseq\RR^n$ is open with $A\sseq U$, then there exists 
+  a smooth function $\psi:\RR^n\to [0, 1]$ with $\supp_{\RR^n}(\psi)\sseq U$ and $\psi(x)=1$
+  for $x\in A$.
+\end{lemma}
+
+\begin{proof}
+  Apply Theorem \ref{theorem:A.1} to the cover of $\RR^n$ consisting of the open sets $V_1=U$
+and $V_2 = \RR^n - A$. Now $\psi = \phi_1$ has the desired properties.
+\end{proof}
+
+\begin{proposition}[Whitney]\label{proposition:A.8}\index{Whitney}
+  For an arbitary closed set $A\subseteq\RR^n$ there exists a smooth function $\phi:\RR^n\to[0, \infty]$ with $A=\phi^{-1}(0)$.
+\end{proposition}
+
+\begin{proof}
+  Apply Lemma \ref{lemma:A.5} to the open set $U=\RR^n-A$, and use Lemma \ref{lemma:A.7} to find smooth 
+  function $\psi_m:\RR^n\to[0, 1], m\ge 1$, with $\supp_{\RR^n}\subseteq\mathring{K}_{m+1}$ and $\psi_m(x)=1$ for $x\in K_m$.
+  Define 
+  \[
+    \phi(x) = \sum_{m=1}^\infty c_m\psi_m(x)
+  \]
+  for a suitably chosen sequence $(c_m)$ of positive numbers. Let
+  \[
+    D_i = \frac{\partial^{|\R i|}}{\partial x_1^{i_1}\partial x_2^{i_1}\ldots\partial x_n^{i_n}},
+  \]
+  where $\R i = (i_1, \ldots, i_n)$ and $|\R i| = \sum i_\nu$. We show that the series 
+  \begin{align}\label{eq:A.1}
+    \sum_{m=1}^\infty c_mD_{\R i}\psi_m
+  \end{align}
+  convenges uniformly on $\RR^n$. Since $\psi_m$ has compact support, we can find $b_m\in [1, \infty)$
+  with $\sup_{x\in\RR^n}|D_{\R i}\psi_m(x)|\le b_m$ for all $\R i$ with $|\R i|\le m$. If we set 
+  $c_m = (2^m b_m)^{-1}$ then $\sum_{m=1}^\infty 2^{-m}$ is a comparison series for formula \eqref{eq:A.1} from 
+  the $|\R i|$-th term onwards. This implies uniform convergence of the series \eqref{eq:A.1}. Hence $\phi$ is
+  smooth and $D_{\R i}\phi$ is given by \eqref{eq:A.1}. For all $x\in K_m$ we get $\phi(x)\ge c_m\psi_m(x)=c_m> 0$, 
+  and thus $A = \phi^{-1}(0)$.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:A.9}
+  Suppose that $A\sseq U_0\sseq U\sseq \RR^n$, where $U_0$ and $U$ are open in
+$\RR^n$ and $A$ is closed in $U$ (in the induced topology from $\RR^n$). Let $h:U\to W$ be
+a continuous map to an open set $W\sseq\RR^m$ with smooth restriction to $U_0$. For
+any continuous function $\epsilon:U\to (0, \infty)$ there exists a smooth map $f:U\to W$ that
+satisfies
+\begin{enumerate}[(i)]
+  \item $\|f(x)-h(x)\|\le \epsilon(x)$ for all $x\in U$.
+  \item $f(x) = h(x)$ for all $x\in A$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  If $W\neq \RR^m$ then $\epsilon(x)$ can be replaced by  
+  \begin{align*}
+    \epsilon_1(x) = \min(\epsilon(x), \frac12\dd(h(x), \RR^n-W))
+  \end{align*}
+  where $\dd(y, \RR^n-W) = \inf\{\|y-z\|\mid z\in\RR^n-W\}$. If $f:U\to W$ satisfies (i) with 
+  $\epsilon_1$ instead of $\epsilon$, we will automatically get $f(U)\sseq W$. Hence, without loas of generality,
+  we may assume that $W = \RR^m$.
+  
+  Using the continuity of $h$ and $\epsilon$, we can find for each $p\in U-A$ an open set 
+  $U_p$ with $p\in U_p\sseq U-A$, such that $\|h(x) - h(p)\|\le \epsilon(x)$ for all $x\in U_p$.
+  Apply Theorem \ref{theorem:A.1} to the open cover of $U$ consisting of the sets $U_0$ and $U_p, p\in U-A$.
+  This yields smooth functions $\phi_0$ and $\phi_p$ from $U$ into $[0,1]$, which satisfy Theorem
+  \ref{theorem:A.1}.(i), (ii) and (iii). By local finiteness, smoothness of $h$ on $U_0$ and the property
+  $\supp_U(\phi_0) \sseq U_0$, we can define a smooth function $f:U\to\RR^m$ by
+  \begin{align*}
+    f(x) = \phi_0(x)h(x) + \sum_{p\in U-A}\phi_p(x)h(p).
+  \end{align*}
+  From Theorem \ref{theorem:A.1}.(iii) one obtain $h(x) = \phi_0(x)h(x) + \sum_{p\in U-A}\phi_p(x)h(p)$ and 
+  thus 
+  \begin{align*}
+    f(x) - h(x) = \sum_{p\in U-A}\phi_p(x)(h(p)-h(x)).
+  \end{align*}
+  Now (ii) of the lemma follows because $\R{Supp}(\phi_p)\sseq U_p\sseq U-A$, and (i) follows from the calculation
+  \begin{align*}
+    \|f(x) - h(x)\|
+      & \le \sum_{p\in U-A}\phi_p(x)\|h(p)-h(x)\|
+        = \sum_{p\in U-A, x\in U_p}\phi_p(x)\|h(p)-h(x)\| \\
+      & \le \sum_{}^{}{\phi_p(x)\epsilon(x)} 
+        = \left(\sum_{}^{}{\phi_p(x)}\right)\cdot \epsilon(x)
+        \le \epsilon(x).
+  \end{align*}
+\end{proof}

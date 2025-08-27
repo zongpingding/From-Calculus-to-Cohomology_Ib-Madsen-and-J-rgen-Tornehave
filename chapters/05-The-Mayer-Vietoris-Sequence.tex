@@ -1,0 +1,252 @@
+\chapter{The Mayer-Vietoris Sequence}
+This chapter introduces a fundamental calculational technique for de Rham
+cohomology, namely the so-called Mayer-Vietoris sequence, which calculates
+$H^*(U_1\cup U_2)$ as a ``function'' of $H^*(U_1), H^*(U_2)$ and $H^*(U_1\cap U_2)$. Here UI and
+$U_2$ are open sets in $\RR^n$. By iteration we get a calculation of $H^*(U_1\cap\ldots\cap U_n)$ as
+a ``function'' of $H^*(u_\alpha)$, where 0: runs over the subsets of ${1,\ldots, n}$ and 
+$U_{i_1}\cap\ldots\cap U_{i_r}$ when $\alpha = {i_1,\ldots, i_r }$. Combined with the Poincar\'e lemma, this
+yields a \Index{principal} calculation of $H^*(U)$ for quite general open sets in $\RR^n$. If, for
+instance, $U$ can be covered by a finite number of convex open sets $U_i$, then every
+$U_\alpha$ will also be convex and $H^*(U_\alpha)$ thus known from the Poincar\'e lemma
+
+
+\begin{theorem}\label{theorem:5-1}
+Let $U_1$ and $U_2$ be open sets in $\RR^n$ with union $U = U_1\cup U_2$. For $\nu = 1, 2$, let 
+$i_\nu: U_\nu\to U$ and $j_\nu:U_1\cap U_2\to U_\nu$ be the corresponding inclusions. Then the sequence
+\begin{align*}
+  0\xra[]\Omega^p(U)\xra[I^p]\Omega^p(U_1)\oplus\Omega^p(U_2)\xra[J^p]\Omega^p(U_1\cap U_2)\xra[]\xra[]0
+\end{align*}
+
+is exact, where $I^p(\omega) = (i^*_1(\omega), i^*_2(\omega)), J^p(\omega_1, \omega_2) = j^*_1(\omega_1) - j^*_2(\omega_2)$.
+\end{theorem}
+
+\begin{proof}
+  For a smooth map $\phi:V\to W$ and a $p$-form $\omega = \sum f_I\dd x_I\in \Omega^p(W)$,
+  \begin{align*}
+    \Omega^p(\phi)(\omega)=\phi^*(\omega)=\sum (f_I\circ\phi)\dd\phi_{i_1}\wedge\ldots\wedge\dd\phi_{i_p}.    
+  \end{align*}
+
+  In particular, if $\phi$ is an inclusion of open sets in $\RR^n$, i.e., $\phi_i(x) = x_i$, then 
+  \begin{align*}
+    \dd \phi_{i_1}\wedge\ldots\wedge\dd\phi_{i_p} = \dd x_{i_1}\wedge\ldots\wedge\dd x_{i_p}.  
+  \end{align*}
+
+  Hence 
+  \begin{align}\label{eq:5-1}
+    \phi^*(\omega) = \sum f_I\circ\phi\dd x_I.
+  \end{align}
+
+  This will be used for $\phi = i_\nu, j_\nu, \nu=1, 2$. It follows from \eqref{eq:5-1} that $I^p$ is injective.
+  If namely $I^p(\omega) = 0$ then $i^*_1(\omega) = 0 = i^*_2(\omega)$, and 
+  \begin{align*}
+    i^*(\nu) = \sum (f_I\circ i_\nu)\dd x_I = 0
+  \end{align*}
+
+  If and only if $f_I\circ i_\nu = 0$ for all $I$. However $f_I\circ i_1 = 0$ and $f_I\circ i_2 = 0$ imply that
+  $f_I = 0$ on all of $U$, since $U_1$ and $U_2$ cover $U$. Similarly, we show that $\ker J^p = \im I^p$. First 
+  \begin{align*}
+    J^p\circ I^p(\omega) 
+    = j^*_2i^*_2(\omega) - j^*_1i^*_1(\omega) 
+    = j^*(\omega) - j^*_1(\omega) 
+    = 0
+  \end{align*}
+
+  where $j:U_1\cap U_2 \to U$ is the inclusion. Hence $\im I^p \subseteq \ker J^p$. To show the converse inclusion 
+  we start with two $p$-form $\omega_\nu\in \Omega^p(U_\nu)$.
+  \begin{align*}
+    \omega_1 = \sum f_I\dd x_I, \quad \omega_2 = \sum g_I\dd x_I.
+  \end{align*}
+
+  Since $J^p(\sum h_I\dd x_I) = (\omega_1, \omega_2)$, we have that $j_1^*(\omega_1) = j^*_2(\omega_2)$, which by 
+  \eqref{eq:5-1} translates into $f_I\circ j_1 = g_I\circ j_2$ or $f_I(x) = g_I(x)$ for $x\in U_1\cap U_2$. We define 
+  a smooth function $h_I:U\to \RR^n$ by
+  \begin{align*}
+    h_I(x) = \begin{cases}
+      f_I(x), & x\in U_1,\\
+      g_I(x), & x\in U_2.
+    \end{cases}  
+  \end{align*}
+  
+  Then  $I^p(\sum h_I\dd x_I) = (\omega_1, \omega_2)$. Finally we show that $J^p$ is surjective. To this end we use 
+  a partition of unity $\{p-1, p_2\}$ with support in $\{U_1, U_2\}$. i.e., smooth functions $h_I:U\to \RR^n$ by 
+  \begin{align*}
+    p_\nu: U\to \{0, 1\}, \quad \nu = 1, 2
+  \end{align*}
+
+  for which $\R{supp}_U(p_\nu)\subset U_\nu$, and such that $p_1(x) + p_2(x) = 1$ for $x\in U$ (cf.
+  Appendix A).
+
+  Let $f:U_1\cap U_2\to\RR$ be a smooth function. We use $\{p_1, p_2\}$ to extend $f$ to $U_1$ and
+  $U_2$. Since $\R{supp}_U(p_1)\cap U_2\subset U_1\cap U_2$, we can define a smooth function by
+  \begin{align*}
+    f_2(x) = \left\{\begin{aligned}
+      & -f(x)p_1(x) && \text{ if } x\in U_1\cap U_2 \\
+      & 0 && \text{ if } x\in U_2 - \R{supp}_U(p_1) 
+    \end{aligned}\right.
+  \end{align*}
+
+  Analogously we define 
+  \begin{align*}
+    f_1(x) = \left\{\begin{aligned}
+      & f(x)p_2(x) && \text{ if } x\in U_1\cap U_2 \\
+      & 0 && \text{ if } x\in U_1 - \R{supp}_U(p_2) 
+    \end{aligned}\right.
+  \end{align*}
+
+  Note that $f_1(x) - f_2(x) = f(x)$ when $x\in U_1\cap U_2$, because $p_1(x) + p_2(x) = 1$.
+  For a differential form $\omega\in \Omega^p(U_1\cap U_2)$, $\omega = \sum f_I\dd x_I$, we can apply 
+  the above to each of the functions $f_I:U_1\cap U_2\to\RR$. This yields the functions $f_{I\nu}:U_\nu\to\RR$,
+  and thus the differential form $\omega_\nu = \sum f_{I, \nu}\dd x_I\in\Omega^p(U_\nu)$. With this choice $J^p(\omega_1, \omega_2) 
+  = \omega$. 
+\end{proof}
+
+It is clear that
+\begin{align*}
+  & I{:}\Omega^{*}(U)\to\Omega^{*}(U_{1})\oplus\Omega^{*}(U_{2})\\
+  & J{:}\Omega^{*}(U_{1})\oplus\Omega^{*}(U_{2})\to\Omega^{*}(U_{1}\cap U_{2})
+\end{align*}
+
+are chain maps, so that Theorem \ref{theorem:5-1} yields a short exact sequence of chain
+complexes. From Theorem \ref{theorem:4-9} one thus obtains a long exact sequence of
+cohomology vector spaces. Finally Lemma \ref{lemma:4-13} tells us that
+\begin{align*}
+  H^p(U)(\Omega^*(U_1)\oplus\Omega^*(U_2)) = H^p(U_1)\oplus H^p(U_2)
+\end{align*}
+
+We have proved:
+
+\begin{theorem}[Mayer-Vietoris]\label{theorem:5-2}\index{sequence!Mayer-Vietoris}
+Let $U_1$ and $U_2$ be open sets in $\RR^n$ and $U = U_1\cup U_2$.
+There exists an exact sequence of cohomology vector spaces
+\begin{align*}
+  \cdots\xra[]H^p(U)\xra[I^*]H^p(U_1)\oplus H^p(U_2)\xra[J^*]H^p(U_1\cap U_2)\xra[\partial^*]H^{p+1}(U)\xra[]\cdots
+\end{align*}
+
+Here $I^*(\omega) = (i^*_1([\omega]), i^*_2([\omega]))$ and $J^*([\omega_1], [\omega_2]) = [j^*_1(\omega_1) - j^*_2(\omega_2)]$
+in the notation of Theorem \ref{theorem:5-1}.
+\end{theorem}
+
+\begin{corollary}\label{corollary:5-3}
+  If $U_1$ and $U_2$ are disjoint open sets in $\RR^n$ then
+  \begin{align*}
+    I^*:H^p(U_1\cup U_2)\to H^p(U_1)\oplus H^p(U_2)
+  \end{align*}
+
+  is an isomorphism.
+\end{corollary}
+
+\begin{proof}
+  It follows from the Theorem \ref{theorem:5-1} that 
+  \begin{align*}
+    I^p:\Omega^p(U_1\cup U_2)\to\Omega^p(U_1)\oplus\Omega^p(U_2)
+  \end{align*}
+
+  is an isomorphism, and Lemma \ref{lemma:4-13} gives that corresponding map on cohomology is also an isomorphism.
+\end{proof}
+
+\begin{example}\label{example:5-4}
+  We use Theorem \ref{theorem:5-2} to calculate the de Rham cohomology vector spaces of the punctured plane $\RR^n-\{0\}$. Let 
+  \begin{align*}
+    U_{1} & = \RR^2-\{(x_1,x_2)\mid x_1\geq0, x_2=0\}\\
+    U_{2} & = \RR^2-\{(x_1,x_2)\mid x_1\leq0, x_2=0\}.
+  \end{align*}
+
+  These are star-shaped open sets, such that $H^p(U_1) = H^p(U_2) = 0$ for $p>0$ and $H^0(U_1) = H^0(U_2) = \RR$. 
+  Their intersection 
+  \begin{align*}
+    U_1\cap U_2 = \RR^2-\RR = \RR^2_+\cup \RR^2_-
+  \end{align*}
+
+  is disjoint union of the open half-planes $x_2>0$ and $x_2<0$. Hence 
+  \begin{align}\label{eq:5-2}
+    H^p(U_1\cap U_2) = \left\{\begin{aligned}
+      & 0 && \text{ if } p>0.
+      & \RR\oplus\RR \text{ if} && p = 0
+    \end{aligned}\right.
+  \end{align}
+
+  by the Poincar\'e lemma and Corollary \ref{corollary:5-3}. From the \Index{Mayer-Vietoris sequence} we have
+  \begin{align*}
+    \cdots  & \xra[] H^p(U_1)\oplus H^p(U_2)\xra[J^*]H^p(U_1\cap U_2)\xra[\partial^*]\\
+            & H^{p+1}(\RR^2-\{0\})\xra[I^*] H^{p+1}(U_1)\oplus H^{p+1}(U_2)\xra[]\cdots
+  \end{align*}
+\end{example}
+
+For $p>0$, 
+\begin{align*}
+  0\xra[] H^p(U_1\cap U_2)\xra[\partial^*] H^{p+1}(\RR^2-\{0\})\xra[] 0
+\end{align*}
+
+is exact, i.e., $\partial^*$ is an isomorphism and $H^q(\RR^2-\{0\}) = 0$ for $q>0$ according 
+to \eqref{eq:5-2}.
+
+If $p=0$, one gets the exact sequence
+\begin{align}\label{eq:5-3}
+\begin{aligned}
+  H^{-1}(U_1\cap U_2)\xra[] H^0(\RR^2-\{0\}) \xra[I^0] H^0(U_1)\oplus H^0(U_2)\xra[J^0] \\
+  H^0(U_1\cap U_2)\xra[\partial^*] H^1(\RR^2-\{0\}) \xra[I^1]H^1(U_1)\oplus H^1(U_2)
+\end{aligned}
+\end{align}
+
+Since $H^{-1}(U) = 0$ for all open sets, and in particular $H^{-1}(U_\nu)$, $I^0$ is
+injective. Since $H^{-1}(U_\nu) = 0$, $\partial^*$ is surjective, and the sequence \eqref{eq:5-3} reduces to
+the exact sequence
+
+\begin{align*}
+  0\xra[] H^0(\RR^2-\{0\})\xra[I^0] H^0(U_1)
+  \hspace*{-1em}\overset{\substack{\displaystyle\RR\otimes\RR\\\big|\!\big|}}{\oplus}\hspace*{-1em} 
+  H^0(U_2)\xra[J^0] 
+  \overset{\substack{\displaystyle\RR\otimes\RR\\\big|\!\big|}}{H^0(U_1\cap U_2)}
+  \xra[\partial^*]H^1(\RR^2-\{0\})\xra[] 0
+\end{align*}
+
+However, $\RR^2-\{0\}$ is connected. Hence $H^0(\RR^2-\{0\}) \cong \RR$, and since $I^0$ is 
+injective we must have that $\im J^0\cong\RR$. Exactness gives $\ker J^0\cong\RR$, so that $J^0$
+has rank 1. Therefore $\im J^0\cong \RR$ and, once again, by exactness
+\begin{align*}
+  \partial^*: H^0(U_1\cap U_2)/\im J^0 \to H^1(\RR^2-\{0\})
+\end{align*}
+
+Since $H^0(U_1\cap U_2)/\im J^0\cong \RR$, we have shown
+\begin{align*}
+  H^p(\RR - \{0\}) = \left\{\begin{aligned}
+    & 0 && \text{ if } p>2,\\
+    & \RR && \text{ if } p = 1 \\
+    & \RR && \text{ if } p = 0
+  \end{aligned}\right.
+\end{align*}
+
+In the proof above we could alternatively have calculated
+\begin{align*}
+  J^0:H^0(U_1)\oplus H^0(U_2)\to H^0(U_1\cap U_2)
+\end{align*}
+
+by using Lemma \ref{lemma:3-9}: $H^0(U)$ consists of locally constant functions. If $f_i$ is a
+constant function on $U_i$, then
+\begin{align*}
+  J^0(f_1) = f_{1|U_1\cap U_2} \text{ and } J^0(f_2) = f_{2|U_1\cap U_2}
+\end{align*}
+
+so that $J^0(a, b) = a - b$.
+
+\begin{theorem}\label{theorem:5-5}
+  Assume that the open set $U$ is covered by convex open sets $U_1, \ldots, U_r$. Then $H^p(U)$ is finitely generated.
+\end{theorem}
+
+\begin{proof}
+  We use induction on the number of open sets. If $r = 1$ the assertion
+follows from the Poincar\'e lemma. Assume the assertion is proved for $r - 1$ and
+let $V = U_1\cup\ldots\cup U_{r-1}$, such that $U = V\cup U_r$. From Theorem \ref{theorem:5-2} we have 
+the exact sequence
+\begin{align*}
+  H^{p-1}(V\cup U_r) \xra[\partial^*] H^p(U) \xra[I^*] H^p(V)\oplus H^p(U_r)
+\end{align*}
+
+which by Lemma \ref{lemma:4-1} yields
+\begin{align*}
+  H^p(U) \backsimeq \im\partial^* \oplus \ker I^*.
+\end{align*}
+
+Now both $V$ and $V\cap U_r = (U_1\cap U_r)\cup\ldots\cup (U_{r-1}\cap U_r)$ are unions by $r-1$ convex open sets.
+Therefore Theorem \ref{theorem:5-5} holds for $H^*(V\cap U_r), H^*(V)$ and $H^*(U_r)$, and hence also for $H^*(U)$.
+\end{proof}

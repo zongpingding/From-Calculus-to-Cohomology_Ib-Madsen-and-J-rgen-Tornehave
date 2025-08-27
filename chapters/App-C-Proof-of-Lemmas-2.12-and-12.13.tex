@@ -1,0 +1,418 @@
+\chapter{Proof of Lemmas 12.12 and 12.13}
+In the proof of Lemma \ref{lemma:12-13} the diffeomorphism of (iv) is obtained by applying
+Lemma \ref{lemma:12-12} to a new Morse function $F:M\to\RR$, which coincides with $f$ outside
+small neighborhoods of the critical points $p_i$. The sets $U_i$ and $V_i$ from (ii) and
+(iii) together with $F$ in a neighborhood of $p_i$ are constructed by means of the
+following lemma applied to $f\circ k_i^{-1}$, where $k_i$ is a $C^\infty$-chart around $p_i$ given by
+Theorem \ref{theorem:12-6}. Without loss of generality we may assume $f\circ k_i^{-1}$ to be in the
+standard form of Example \ref{example:12-5}.
+
+\begin{lemma}\label{lemma:C.1}
+  Let $W\subseteq\RR^n$ be an open neighborhood of the origin in $\RR^n$ and let $f:W\to\RR^n$ be the function
+  \[
+    f(x) = a - \sum_{i=1}^\lambda x_i^2 + \sum_{i=\lambda+1}^{n }{x_i^2},
+  \]
+  where $a\in\RR,\lambda\in\ZZ$ and $0\le\lambda\le n$. Choose $\epsilon>0$ such that $W$ contains the set 
+  \[
+    E = \left\{x\in\RR^n\;\bigg|\; \sum_{i=1}^\lambda x_i^2 + \sum_{i=\lambda+1}^{n }{x_i^2}\le 2\epsilon\right\}.
+  \] 
+  Then there exists a Morse function $F:W\to\RR$ and contractible open sets $U\subseteq\RR^n$, $V\subseteq\RR^{n-\lambda+1}$
+  that satisfy:
+  \begin{enumerate}
+    \item $F(x) = f(x)$ when $x\in W- E$.
+    \item The only critical point of $F$ in $W$ is 0 and $F(0)<a-\epsilon$.
+    \item $F^{-1}((-\infty, a+\epsilon)) = f^{-1}((-\infty, a+\epsilon))$.
+    \item $F^{-1}((-\infty, a-\epsilon)) = f^{-1}((-\infty, a-\epsilon))\cup U$.
+    \item $f^{-1}((-\infty, a-\epsilon))\cap U$ is diffeomorphic with $S^{\lambda-1}\times V$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  We introduce the notation $\xi = \sum_{i=1 }^{\lambda }{x_i^2}$ and $\eta = \sum_{i=\lambda+1}^{n }{x_i^2}$. 
+  Then 
+  \begin{align}\label{eq:C.1}
+    f(x) = a - \xi + \eta
+  \end{align}
+  and we define $F\in C^\infty(W, \RR)$ to be 
+  \begin{align}\label{eq:C.2}
+    F(x) = a-\xi+\eta -\mu(\xi+2\eta),
+  \end{align}
+  where $\mu\in C^\infty(\RR, \RR)$ is chosen to have the properties:
+  \begin{enumerate}[(a)]
+    \item $-1\le \mu'(t)\le 0$ for all $t\in\RR$.
+    \item $\mu(t)=0$ when $t\ge 2\epsilon$.
+    \item $\mu$ is constant on an open interval around 0 with $\mu(0)>\epsilon$.
+  \end{enumerate}
+
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[width=.8\linewidth]{./pics/appC-1-o.pdf}
+    \caption{Figure 1}
+    \label{fig:C-1}
+  \end{figure}
+
+  If $x\in W-E$, then $\xi+2\eta>2\epsilon$ and $(b)$ implies that $\mu(\xi+2\eta) = 0$. This gives (i).
+  A simple calculation gives:
+  \begin{align}\label{eq:C.3}
+    \frac{\partial F }{\partial x_i } 
+    = \left\{\begin{aligned}
+      & 2x_i(-1-\mu'(\xi+2\eta)) && \text{if } 1\le i\le \lambda\\
+      & 2x_i(1-2\mu'(\xi+2\eta)) && \text{if } \lambda+1\le i\le n
+    \end{aligned}\right.
+  \end{align}
+  By (a) we have 
+  \begin{align}\label{eq:C.4}
+    -1-\mu'(\xi+2\eta) < 0, \quad 1-2\mu'(\xi+2\eta) > 0.
+  \end{align}
+  It follows from \eqref{eq:C.3} and \eqref{eq:C.4} that 0 is the only critical point of $F$. By (c), $F$
+  coincides with $f-\mu(0)$ on a neighborhood of 0 where $\mu(0)>\epsilon$. This shows that
+  $F$ is a Morse function and that (ii) is satisfied.
+
+  Since $\mu(t)\ge 0$ by (a) and (b), the formulas \eqref{eq:C.1} and \eqref{eq:C.2} show that $F(x)\le f(x)$
+  for all $x\in W$. Hence
+  \begin{align}\label{eq:C.5}
+  \begin{aligned}
+    & f^{-1}((-\infty, a+\epsilon)) \subseteq F^{-1}((-\infty, a+\epsilon))\\
+    & f^{-1}((-\infty, a-\epsilon)) \subseteq F^{-1}((-\infty, a-\epsilon)).
+  \end{aligned}
+  \end{align}
+  If (iii) were false, there would exist an $x\in W$ with $F(x) < a+\epsilon$ and $f(x)\ge a+\epsilon$.
+  By Equations \eqref{eq:C.1}, \eqref{eq:C.2} and (b) we conclude that $\xi+2\eta<2\epsilon$. This implies $\eta<\epsilon$,
+  which contradicts \eqref{eq:C.1}, because $f(x)\le a+\eta<a+\epsilon$. This proves (iii). Analogously
+  one sees that (iv) is satisfied for the open set $U$ defined by
+  \begin{align}\label{eq:C.6}
+    U = \{x\in W\mid \xi+2\eta<2\epsilon\text{ and } F(x) < a-\epsilon\}.
+  \end{align}
+
+  We shall show that $U$ is contractible. By (ii) we have $0\in U$. Let $\tilde{x}\in U$ be a point of the form 
+  $\tilde{x} = (x_1, \ldots, x_\lambda, 0,\ldots, 0)$ and let $\varphi_1:[0, 1]\to\RR$ be the function $\varphi_1(t)=F(t\tilde{x})$.
+  By Equation \eqref{eq:C.3} and \eqref{eq:C.4} we have 
+  \[
+    \varphi'_1(t) = \sum_{i=1 }^{\lambda}{x_i \frac{\partial F }{\partial x_i }(t\tilde{x})}\le 0,
+  \]
+  sp that $\varphi_1$ os decreasing. If $0\le t\le 1$ then 
+  \[
+    F(t\tilde{x}) = \varphi_1(t) \le \varphi_1(0) = F(0) \le a-\epsilon.
+  \]
+  Hence $U$ contains the line segment with endpoints $\tilde{x}$ and 0. Consider an arbitrary
+  $x\in U$ and let $\tilde{x}= (x_1, \ldots, x_\lambda, 0,\ldots, 0)$. Let $\varphi_2$ be 
+  \[
+    \varphi_2:[0, 1]\to \RR; \quad \varphi_2(t) = F(tx + (1-t)\tilde{x})
+    = F(x_1, \ldots, x_\lambda, tx_{\lambda+1}, \ldots, tx_n).
+  \]
+  It is increasing, because the formulas \eqref{eq:C.3} and \eqref{eq:C.4} give
+  \[
+    \varphi_2'(t) = \sum_{i=\lambda+1}^{n }{x_i \frac{\partial F }{\partial x_i }(tx + (1-t)\tilde{x})}\ge 0.
+  \]
+
+  If $0\le t\le 1$ then $F(tx + (1-t)\tilde{x}) = \varphi_2(t)\le \varphi_2(1)=F(x)<a-\epsilon$ from 
+  which we conclude that $U$ contains the line segement with endpoints $x$ and $\tilde{x}$. Example \ref{example:6-5}
+  and Lemma \ref{lemma:6-2} imply the contractibility of $U$.
+
+  If remains to construct $V$ and prove $(v)$. Set $B = f^{-1}((-\infty, a-\epsilon))\cap U$. By 
+  Equation \eqref{eq:C.5}, \eqref{eq:C.6} and \eqref{eq:C.1} we have 
+  \begin{align*}
+    B & = \{ x\in W \mid \xi+2\eta < 2\epsilon \text{ and } f(x) < a-\epsilon \} \\
+    & = \{ x\in W \mid \epsilon<\xi< 2\epsilon \text{ and } \eta < \min\{\xi-\epsilon,\epsilon-\xi/2\} \}.
+  \end{align*}
+  If $\lambda=0$ then $B=\ns$ and (v) is true (wth an arbitrary chosen $V$). If $\lambda>0$ we define the open set $V\in\RR^{n-\lambda+1}$
+  by 
+  \[
+    V = \{(s, x_{\lambda+1},\ldots,x_n)\mid \sqrt{\epsilon}<s<\sqrt{2\epsilon} \text{ and } \eta<\min\{s^2-\epsilon, \epsilon-s^2/2\}\}.
+  \]
+  To see that $V$ is contractible note that if $q=(s, x_{\lambda+1}, \ldots, x_n)\in V$, then $V$ contains the line segments from 
+  $q$ to $\tilde{q}=(s, 0,\ldots,0)$ and from $\tilde{q}$ to $(s_0, 0, \ldots, 0)$, where $s_0=\frac12(\sqrt{\epsilon} + \sqrt{2\epsilon})$.
+  Define finally a diffeomorphism 
+  \[
+    \Psi:S^{\lambda-1}\times V \to B;\qquad 
+    \Psi(y, s, x_{\lambda+1}, \ldots, x_n) 
+    = (s\cdot y, x_{\lambda+1}, \ldots, x_n),
+  \]
+  where $y\in S^{\lambda-1}\subseteq \RR^\lambda$ and $(s, x_{\lambda+1}, \ldots, x_n)\in V$.
+\end{proof}
+
+Some of the sets introduced in the proof above are indicated in Figure \ref{fig:C.2}. We note
+that Figure \ref{fig:C.2} only displays a quarter of the constructed sets; it should be reflected
+in both the $\sqrt{\xi}$ axis and the $\sqrt{\eta}$ axis for $n = 2$, and rotated correspondingly for
+$n>2$. In particular $E$ is reprensented by the quarter ellipse between $\sqrt{\epsilon}$ and $\sqrt{2\epsilon}$.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.8\linewidth]{./pics/appC-2-o.pdf}
+  \caption{$U$ hatched; $f^{-1}((-\infty, a-\varepsilon))\cap U$ double-hatched}
+  \label{fig:C.2}
+\end{figure}
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Lemma \ref{lemma:12-13}}}
+\begin{proof}
+  By Theorem \ref{theorem:12-6} we can choose a smooth chart $h_i:\tilde{W}_i\to W_i\subseteq\RR^n$ 
+  with $p_i\in \tilde{W}_i, h_i(p)=0$ and such that 
+  \[
+    f\circ h_i^{-1}(x) 
+    = a - \sum_{j=1}^{\lambda_i} x_j^2 + \sum_{j=\lambda_i+1}^{n }{x_j^2} 
+    \quad \text{ for } x\in W_i.
+  \]
+
+  The coordinate patches $W_i(1\le i\le r)$ can be assumed to be mutually disjoint.
+  Choose $\epsilon > 0$ such that a is the only critical value in $[a-\epsilon, a + \epsilon]$ and 
+  such that all $W_i$ contain the closed ball $\sqrt{2\epsilon}D_n$. We apply Lemma \ref{lemma:C.1} 
+  to $f\circ h_i^{-1}:W_i\to\RR$ and this $\epsilon$. We obtain new Morse functions $F_i:W_i\to\RR$ with $1\le i\le r$,
+  and an open set $U_i\subseteq \tilde{W}_i$ such that $h_i(U_i)$ is the open contractible subset of
+  $\RR^n$ given by Lemma \ref{lemma:C.1}. Thus we have satisfied Lemma \ref{lemma:12-13}.(i) and (ii), and
+  Lemma \ref{lemma:12-13}.(iii) follows from assertion (v) of Lemma \ref{lemma:C.1}. By assertion (i) we
+  get a Morse function
+  \[
+    F:M\to \RR;\quad 
+    F(q) = \left\{\begin{aligned}
+      & F_i\circ h_i(q) && \text{if } q\in \tilde{W}_i\\
+      & f(q) && \text{if } q\notin\bigcup_{i=1}^{r}{\tilde{W}_i}
+    \end{aligned}\right.
+  \]
+  and by Lemma \ref{lemma:C.1}.(iii) and (iv),
+  \begin{align*}
+    F^{-1}((-\infty, a+\epsilon)) & = M(a+\epsilon)\\
+    F^{-1}((-\infty, a-\epsilon)) & = M(a-\epsilon) \cup U_1\cup\ldots\cup U_r.
+  \end{align*}
+  We know from Lemma \ref{lemma:C.1}.(ii) that $F$ has the same critical points as $f$ and
+  furthermore that $F(p_i) < a-f (1\le i\le r)$. If $p$ is one of the other critical
+  points, then
+  \[
+    F(p) = f(p) \notin [a-\epsilon, a+\epsilon],
+  \]
+  and hence $[a-\epsilon, a+\epsilon]$ does not contain any critical value of $F$. Hence assertion (iv)
+  of Lemma \ref{lemma:12-13} follows from Lemma \ref{lemma:12-12} applied to $F$.
+\end{proof}
+\endgroup
+
+Lemma \ref{lemma:12-12} is a consequence of the following theorem, which will be proved
+later in this appendix.
+
+\begin{theorem}\label{theorem:C.2}
+  Let $N^n$ be a smooth manifold of dimension $n\ge 1$ and $f:N\to\RR$
+  a smooth function without any critical points. Let $J$ be an open interval $J\subseteq\RR$
+  with $f(N)\subseteq J$ and such that $j^{-1}([a, b])$ is compact for every bounded closed
+  interval $[a, b]\subset J$. There exists a compact smooth $(n-1)$-dimensional manifold
+  $Q^{n-1}$ and a diffeomorphism
+  \[
+    \Phi:Q\times J\to N
+  \]
+  such that $f\circ \Phi:Q\times J\to J$ is the projection onto $J$.
+\end{theorem}
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Lemma \ref{lemma:12-12}}}
+\begin{proof}
+  Choose $c_1<a_1$ and $c_2 > a_2$, so that the open interval $J=(c_1, c_2)$ does not contain 
+  any critical values of $f$. Since $M$ is compact, we can apply Theorem \ref{theorem:C.2} to $N = f^{-1}(J)$. 
+  We thus have a compact smooth manifold $Q$ and a diffeomorphism $\Phi:Q\times J\to N$ such that $f\circ\Phi(q, t) = t$ 
+  for $q\in Q, t\in J$. Consider a strictly increasing diffeomorphism $\rho: J\to J$, which
+  is the identity map outside of a closed bounded subinterval of $J$. Via $\rho$ we can
+  construct the diffeomorphism
+  \[
+    \Psi_p: M \to M;\quad 
+    \Psi_\rho(p) = \left\{\begin{aligned}
+      & \Phi\circ (i\dd_{Q}\times\rho)\circ\Phi^{-1}(p) && \text{ if } p\in N \\
+      & p && \text{ if } p\notin N.
+    \end{aligned}\right.
+  \]
+  If $a\in J$ then $\Psi_p$ maps $M(a)$ diffeomorphically onto $M(\rho(a))$. It suffices to
+  choose $\rho$ so that $\rho(a_1)=a_2$. One may choose
+  \begin{align}\label{eq:C.7}
+    \rho(t) = t + \int_{c_1}^t g(x)\dd x,
+  \end{align}
+  where $g\in C_c^\infty(\RR, \RR)$ satisfies the conditions:
+  \[
+    \supp(g)\subseteq J, 
+    g(x) > -1 \text{ for } x\in\RR,\enspace 
+    \int_{a_1}^{c_1} g(x)\dd x = a_2-a_1,\enspace
+    \int_{c_1}^{c_2} g(x)\dd x= 0.
+  \]
+  Now $g$ can be constructed easily via Corollary \ref{corollary:A.4}. See Figure \ref{fig:C.3} below.
+\end{proof}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.5\linewidth]{./pics/appC-3-o.pdf}
+  \caption{Figure 3}
+  \label{fig:C.3}
+\end{figure}
+\endgroup
+
+\begin{remark}\label{remark:C.3}
+  In the proof above, we proved more than claimed in Lemma \ref{lemma:12-12}. Indeed, we found a 
+  diffeomorphism $\Psi_\rho$ of $M$ to itself for which
+  \[
+    \Psi_\rho(M(a_1)) = M(a_2).
+  \]
+  Let $\rho_s:J\to J$ be the map $\rho_s(t) = s\rho(t)+(l - s)t$, where $s\in [0,1]$. Then $\Psi_{\rho_s}(p)$
+  is smooth as a function of both $s$ and $p$. Moreover, every $\Psi_{\rho_s}$ is a diffeomorphism
+  of $M$ onto itself. This gives a so-called \Index{isotopy} from $\Psi_{\rho_0} = \id_M$ to $\Psi_{\rho_1} = \Psi_{\rho}$
+\end{remark}
+
+It remains to prove Theorem \ref{theorem:C.2}. We first prove a few lemmas.
+
+\begin{lemma}\label{lemma:C.4}
+  There exists a smooth tangent vector field $X$ on $N^n$ such that $\dd_p f(X(p))=1$ for all $p\in M$.
+\end{lemma}
+
+\begin{proof}
+  We use Lemma \ref{lemma:12-8} to find a gradient-like vector field $Y$ on $M$, Now $\rho(p) = \dd_pf(Y(p))>0$
+  and we can choose $X(p)=\rho(p)^{-1}Y(p)$.
+\end{proof}
+
+We shall investigate the integral curves $\alpha:I\to N$ for $X$. They are smooth on
+open intervals $I\subset\RR$ and satisfy
+\begin{align}\label{eq:C.8}
+  \alpha'(t) = X(\alpha(t)).
+\end{align}
+
+By Lemma \ref{lemma:C.4} and \eqref{eq:C.8} we have $\frac{\dd }{\dd t}f\circ \alpha(t) = 1$, which gives 
+$f\circ \alpha(t) = t+c$ for a constant $c$.
+
+\begin{lemma}\label{lemma:C.5}
+  Assume $p_0\in N$ with $f(p_0)=t_0\in J$. Then 
+  \begin{enumerate}
+    \item $f^{-1}(t_0)$ is a compact $(n-1)$-dimensional smooth submanifold of $N$.
+    \item There exsits an open neighborhood $W_0\subseteq f^{-1}(t_0)$ of $p_0$, a $\delta >0$ with 
+      $(t_0-\delta, t_0+\delta)\subseteq J$ and a diffeomorphism
+      \[
+        \Phi_0:W_0\times (t_0-\delta, t_0+\delta)\to W,
+      \]
+      where $W$ is an open neighborhood of $p_0$ in $N$ such that the following conditions are satisfied:
+      \begin{enumerate}[(a)]
+        \item $\Phi_0(p, t_0)=p$ for all $p\in W_0$.
+        \item $f\circ\Phi_0$ is the projection onto $(t_0-\delta, t_0+\delta)$.
+        \item For fixed $p\in W_0$, the function $\Phi_0(p, t)$ is an integral curve of $X$. 
+          (We call $W$ a \Index{product neighborhood} of $p_0$.) 
+      \end{enumerate}
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Since to is a regular value, $f^{-1}(t_0)$ is a smooth submanifold of dimension $n-1$ (see Exercise \ref{exercise:9-6}). 
+  It is compact by the assumptions of Theorem \ref{theorem:C.2}. Choose a $C^\infty$-chart $h:U\to U'$ on $N$ 
+  with $h(p_0) = 0$ and
+  \[
+    h(U\cap f^{-1}(t_0)) = U'\cap (\{0\}\times \RR^{n-1}).
+  \]
+  Let us write $h_*(X_{|U}) = (F_1, \ldots, F_n)$ where $F_j\in C^\infty(U', \RR)$. Then $\alpha:I\to U$
+  is an interval curve of $X$ precisely when $h\circ \alpha(t)=(x_1(t),\ldots,x_n(t))$ satisfies the system of 
+  differential equations
+  \begin{align}\label{eq:C.9}
+    x_j'(t) = F_j(x_1(t),\ldots,x_n(t)),\quad 1\le j\le n.
+  \end{align}
+
+  For $y = (y_2,\ldots,y_n)\in \RR^{n-1}$ with $(0, y)\in U'$ there exists a uniquely determined
+  solution $x(t):I(y)\to U'$ for \eqref{eq:C.9}, which is defined on a open interval $I(y)$ around
+  to with boundary condition $x(t_0) = (0, y)$.
+
+  The general theory of ordinary differential equations shows that the solution is
+  smooth as a function of both $t$ and $y$. Specifically there exists an open ball D in
+  $\RR^{n-1}$ with center at 0, a $\delta>0$, and a smooth function $x:D\times(t_0-\delta, t_0+\delta)\to U'$
+  such that
+  \begin{enumerate}
+    \item[($\alpha$)] If $y\in D$ then the map $t\to x(y, t)$ is a solution of \eqref{eq:C.9}.
+    \item[($\beta$)] If $y\in D$ then $x(y, t_0) = (0, y)$.
+  \end{enumerate}
+  Then $W_0=h^{-1}(D)$ is an open neighborhood around $p_0$ in $f^{-1}(t_0)$, and we can define 
+  a smooth map
+  \[
+    \Phi_0:W_0\times (t_0-\delta, t_0+\delta)\to N;\quad 
+    \Phi_0(p, t) = h^{-1}(x(h(p), t)).
+  \]
+  Now ($\alpha$) implies (c) and (($\beta$) implies (a), while (b) follows from the remarks
+  preceeding the lemma. By (a) the differential of $\Phi_0$ at $(p_0, t_0)$ is the identity on
+  $T_{p_0}f^{-1}(t_0)$. By (c) $X(p_0)$ is the image of $\frac{\partial }{\partial t}$.
+
+  Hence $D_{(p_0, t_0)}\Phi_0$ is an isomorphism and the inverse function theorem implies that
+  $\Phi_0$ is a local diffeomorphism around $(p_0, t_0)$. For suitable sizing of $W_0$ and $\delta$, 
+  $\Phi_0$ becomes a diffeomorphism.
+\end{proof}
+
+\begin{lemma}\label{lemma:C.6}
+  Let $p_0$ be a point of $N$ such that $f(p_0) = t_0$. There exists a uniquely
+  determined integral curve $\alpha:J\to N$ of $X$ with $\alpha(t_0)=p_0$. Moreover, 
+  $f\circ\alpha(t) = t (t\in J)$.
+\end{lemma}
+
+\begin{proof}
+  The existence and uniqueness theorem for the system of equations in \eqref{eq:C.9}
+  shows that for suitable open interval $I$ around to there exists a uniquely determined
+  integral curve $\alpha:I\to N$ with $\alpha(t_0) = p_0$. The remark prior to Lemma \ref{lemma:C.5} 
+  shows that $f\circ\alpha(t) = t$ if $t\in I$. Hence $I\subseteq J$.
+
+  Assume that $I$ has a right endpoint $t_1\in J$. Since $f^{-1}([t_0, t_1])$ is compact,
+  we can find a sequence Sm in $[t_0, t_1)$ that converges towards $t_1$, such that the
+  sequence $(\alpha(s_m))$ in $N$ converges towards a point $p_1\in f^{-1}(t_1)$. We can apply
+  Lemma \ref{lemma:C.5} to find a product neighborhood $W_1$ of $p_1$. There will be some $s_m$
+  with $\alpha(s_m)\in W_1$, but now we are in a position to apply the uniqueness of the
+  integral curve, which starts at $\alpha(s_m)$, to extend a slightly past $t_1$. The analogous
+  extension can be performed if $I$ has a left endpoint $t_2\in J$. In total we see, again
+  via local uniqueness, that $\alpha$ can be extended uniquely to all of $J$.
+\end{proof}
+
+The image $\alpha(J)$ is a I-dimensional smooth submanifold of $N$ and $\alpha(J)$ intersects
+every fiber $f^{-1}(t)$ in exactly one point. For two points $t_1,t_1\in J$ we can define
+\[
+  \varphi_{t_1, t_2}:f^{-1}(t_1)\to f^{-1}(t_2)
+\]
+by mapping $p\in f^{-1}(t_1)$ to the point of intersection between $f^{-1}(t_2)$ and the integral curve 
+through $p$. We have 
+\begin{lemma}\label{lemma:C.7}
+  The maps $\varphi_{t_1, t_2}$ are diffeomorphisms.
+\end{lemma}
+
+\begin{proof}
+  It is sufficient to show the smoothness of $\varphi_{t_1, t_2}$ as $\varphi_{t_1, t_2}=\varphi^{-1}_{t_1, t_2}$ We
+  may assume that $t_2>t_1$. An arbitrary $p_1\in f^{-1}(t_1)$ determines an integral curve
+  $\alpha:J\to N$ with $\alpha(t_1) = p_1$.
+
+  We can find a subdivision $t_1=s_0<s_1<s_2<\ldots<s_{k-1}<s_k=t_2$ and product 
+  neighborhood $W_i,1\le i\le k$, of the type of Lemma \ref{lemma:C.5}, such that 
+  \[
+    \alpha(p[s_{i-1}, s_i])\subseteq W_i\quad (1\le i\le k)
+  \]
+  
+  For each of these we have a diffeomorphism, analogous to $\Phi_0$ in Lemma \ref{lemma:C.5}.
+  It follows that 
+  \[
+    \varphi_{s_{i-1},s_i}:f^{-1}(s_{i-1})\to f^{-1}(s_i)
+  \]
+  is smooth in a neighborhood of $\alpha(s_{i-1})$. Note that $\varphi_{s_{i-1},s_i}(\alpha(s_{i-1})) = \alpha(s_i)$.
+  Since 
+  \[
+    \varphi_{t_1, t_2} = \varphi_{s_{k-1}, s_k}\circ\varphi_{s_{k-2}, s_{k-1}}\circ\ldots\circ\varphi_{s_0, s_1},
+  \]
+  we can conclude that $\varphi_{t_1, t_2}$ is smooth at $p_1$.
+\end{proof}
+
+\begin{lemma}\label{lemma:C.8}
+  Let $t_0\in J$. Define $\pi:N\to f^{-1}(t_0)$ by $\pi(p)=\varphi_{t, t_0}(p)$ where 
+  $p\in f^{-1}(t)$. Then $\pi$ is smooth.
+\end{lemma}
+
+\begin{proof}
+  Let $W_0, W$ and $\Phi_0$ be given as in Lemma \ref{lemma:C.5}. Then $\pi_{|W} = \R{pr}_{W_0}\circ\Phi_0^{-1}$,
+  and $\pi$ is smooth on $W$. A $p_1\in N$ with $f(p_1) = t_1$ enables us to define $\pi_1:N\to f^{-1}(t_1)$ 
+  by $\pi_1(p)=\varphi_{t, t_1}(p)$. Then $\pi_1$ is smooth on a product neighborhood $W_1$, of $p_1$ and 
+  since $\pi=\varphi_{t_1, t_0}\circ\pi_1$, $\pi$ will be smooth on $W_1$; cf. Lemma \ref{lemma:C.7}.
+\end{proof}
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:C.2}}}
+\begin{proof}
+  Let $Q = f^{-1}(t_0)$. By Lemma \ref{lemma:C.8}
+  \[
+    \Psi:N\to Q\times J;\quad \Psi(p) = (\pi(p), f(p))
+  \]
+  is smooth. Let $p\in N$. Consider the differential 
+  \[
+    D_p\Psi:T_pN \to T_{\pi(p)}Q\times\RR.
+  \]
+  It follows from Lemmas \ref{lemma:C.7} and \ref{lemma:C.8} that the subspace $T_pf^{-1}(f(p))\subseteq T_pN$ 
+  is mapped isomorphically onto $T_{\pi(p)}Q\times\{0\}$ and that $D_p\Psi(X(p))=(0, 1)$. Hence
+  $D_p\Psi$ is an isomorphism. Since $\Psi$ is bijective by construction, we can conclude
+  that $\Psi$ is a diffeomorphism. The assertion follows by letting $\Phi$ be the inverse
+  diffeomorphism.
+\end{proof}
+\endgroup

@@ -1,0 +1,564 @@
+\chapter{de Rham Cohomolog}
+In this chapter $U$ will denote an open set in $\RR^n, {e_1,\ldots, e_n}$ the standard basis
+and ${E_1, \ldots,E_n}$ the dual basis of $\alt^1(\RR^n)$.
+
+\begin{definition}
+  A differential $p$-form\index{differential!{$p$-form}} on $U$ is a smooth map $w:U\to \alt^1(\RR^n)$.
+The vector space of all such maps is denoted by $\Omega^p(U)$.
+\end{definition}
+
+If $p = 0$ then $\alt^1(\RR^n) = \RR$ and $\Omega^0(U)$ is just the vector space of all smooth
+real-valued functions on $U$, $\Omega^0(U) = \Omega^0(U, \RR)$.
+
+The usual derivative of a smooth map $\omega:U\to\alt^p(\RR^n)$ is denoted $D\omega$ and its
+value at $x$ by $D_x\omega$. It is the linear map
+\begin{align*}
+  D_x\omega:\RR^n &\to \alt^p(\RR^n)
+\end{align*}
+
+with 
+\begin{align*}
+  (D_x\omega)(e_i) 
+  = \frac{\dd }{\dd t}\omega(x+te_i)\Big|_{t=0}
+  = \frac{\partial \omega}{\partial x_i}(x)
+\end{align*}
+
+In $\alt^p(\RR^n)$ we have the basis $\epsilon_1\wedge\ldots\wedge\epsilon_p$ where 
+$I$ runs over all sequences with $1\le i_1<i_2<\cdots<i_p\le n$. Hence every $\omega\in\Omega^p(U)$ 
+can be written in the form $\omega(x) = \sum_{}^{}{\omega_I(x)\epsilon_I}$, with $\omega_I(x)$ smooth 
+real-valued functions of $x\in U$. The differential $D_x\omega$ is the linear map
+
+\begin{align}\label{eq:3-1}
+  D_{x}\omega(e_{j})=\sum_{I}\frac{\partial\omega_{I}}{\partial x_{j}}(x)\epsilon_{I} , j=1,\ldots,n.
+\end{align}
+
+The function $x\mapsto D_x\omega$ is a smooth map from $U$ to the vector space of linear
+maps from $\RR^n$ to $\alt^p(\RR^n)$
+
+
+\begin{definition}\label{definition:3-2}
+  The exterior differential\index{exterior differential}\index{differential!exterior} $\dd:\Omega^p(U)\to \Omega^{p+1}(U)$ is 
+  the linear operator
+  \begin{align*}
+    \dd_x\omega(\xi_1,\ldots,\xi_{p+1})
+    = \sum_{l=1}^{p+1}\left(-1\right)^{l-1}D_x\omega(\xi_l)(\xi_1,\ldots,\hat{\xi}_l,\ldots,\xi_{p+1})
+  \end{align*}
+
+  with $(\xi_1,\ldots,\hat{\xi}_l,\ldots,\xi_{p+1}) = (\xi_1, \ldots, \xi_{l-1}, \xi_{l+1}, \ldots, \xi_{p+1})$.
+\end{definition}
+
+
+It follows from Lemma \ref{lemma:2-7} that $\dd_x\omega\in\alt^{p+1}\RR^n$. Indeed, if $\xi_i = \xi_{i+1}$, then 
+\begin{align*}
+    &\sum_{l=1}^{p+1}\left(-1\right)^{l-1}D_{x}\omega(\xi_{l})(\xi_{1},\ldots,\hat{\xi}_{l},\ldots,\xi_{p+1}) \\
+  = & (-1)^{i-1}D_{x}\omega(\xi_{i})(\xi_{1},\ldots,\hat{\xi}_{i},\ldots,\xi_{p+1}) \\
+    & +(-1)^{{i}}D_{{x}}\omega(\xi_{{i+1}})(\xi_{1},\ldots,\hat{\xi}_{{i+1}},\ldots,\xi_{{p+1}})
+\end{align*}
+
+
+because $(\xi_1, \ldots, \hat{\xi}_i, \ldots, \xi_{p+1}) = (\xi_1, \ldots, \hat{\xi}_{i+1}, \ldots, \xi_{p+1})$.
+
+\begin{example}\label{example:3-3}
+  Let $x_i:U\to \RR$ be the $i$-th projection. Then $\dd x_i \Omega^1(U)$ is the
+  constant map $\dd x_i:x\to \epsilon_i$. This follows from \eqref{eq:3-1}. In general, for $f\in\Omega^0(U)$,
+  \eqref{eq:3-1} shows that
+  \begin{align}\label{eq:3-2}
+    \dd_x f(\zeta) = \frac{\partial f }{\partial x_i }\zeta^1 + \cdots + \frac{\partial f}{\partial x_n}\zeta^n
+  \end{align}
+
+  with $(\zeta^1, \ldots, \zeta^n) = \zeta$. In other words, $\dd f = \sum{\frac{\partial f}{\partial x_i}\dd x_i}$.  
+\end{example}
+
+
+\begin{lemma}\label{lemma:3-4}
+  If $\omega(x) = f(x)\epsilon_I$ then $\dd_x\omega = \dd_xf\wedge\epsilon_I$.
+\end{lemma}
+
+\begin{proof}
+  By \eqref{eq:3-1} we have
+  \begin{align*}
+    D_x\omega(\zeta)
+    = (D_xf)(\zeta)\epsilon_I
+    = \left(\frac{\partial f}{\partial x_1}\zeta^1+\cdots+\frac{\partial f}{\partial x_n}\zeta^n\right)\epsilon_I
+    = \!\dd_xf(\zeta)\epsilon_I
+  \end{align*}
+
+  and Definition \ref{definition:3-2} gives
+  \begin{align*}
+    \dd_{x}\omega(\xi_{1},\ldots,\xi_{p+1}) 
+    & = \sum_{k=1}^{p+1}\left(-1\right)^{k-1}\dd_{x}f(\xi_{k})\epsilon_{I}\left(\xi_{1},\ldots,\hat{\xi}_{k},\ldots,\xi_{p+1}\right) \\
+    & = [\dd_{x}f\wedge\epsilon_{I}](\xi_{1},\ldots,\xi_{p+1}). 
+  \end{align*}
+\end{proof}
+
+Note for $\epsilon_I\in \alt^p(\RR^n)$ that
+\begin{align*}
+  \epsilon_k\wedge\epsilon_I 
+  = \left\{\begin{aligned}
+    &0 && \text{ if } k\in I \\
+    &(-1)^{r}\epsilon_{J} && \text{ if } k\not\in I
+  \end{aligned}\right.
+\end{align*}
+
+with $r$ the number determined by $i_r < k < i_{r+1}$ and $J=(i_1, \ldots, i_r, k, \ldots, i_p)$.
+
+
+\begin{lemma}\label{lemma:3-5}
+  For $p\ge 0$ the composition $\Omega^p(U)\to\Omega^{p+1}(U)\to\Omega^{p+2}(U)$ is 
+  indentity zero.
+\end{lemma}
+
+\begin{proof}
+  Let $\omega = f\epsilon_I$. Then 
+  \begin{align*}
+    \dd\omega 
+    = \dd f\wedge\epsilon_I
+    = \frac{\partial f }{\partial x_1}\epsilon_1\wedge\epsilon_I + \cdots + \frac{\partial f}{\partial x_n}\epsilon_n\wedge\epsilon_I
+  \end{align*}
+
+  Now use $\epsilon_i\wedge\epsilon_i=0$ and $\epsilon_i\wedge\epsilon_j=-\epsilon_j\wedge\epsilon_i$ to obtain that 
+  \begin{align*}
+      \dd^{2}\omega 
+      & = \sum_{i,j=1}^{n}\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}
+        \epsilon_{i}\wedge(\epsilon_{j}\wedge\epsilon_{I}) \\
+      & = \sum_{i<j}\left(\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}}-\frac{\partial^{2}f}{\partial x_{j}\partial x_{i}}\right)
+        \epsilon_{i}\wedge\epsilon_{j}\wedge\epsilon_{I}\\
+      & = 0.
+  \end{align*}
+\end{proof}
+
+The exterior product in $\alt^{*}(\RR^n)$, induces an exterior product on $\Omega^*(U)$ upon 
+defining
+\begin{align*}
+  (\omega_1\wedge\omega_2)(x) = \omega_1(x)\wedge\omega_2(x)
+\end{align*}
+
+The exterior product of a differential $p$-form and a differential $q$-fonn is a
+differential $(p + q)$-form, so we get a bilinear map
+\begin{align*}
+  \wedge: \Omega^p(U)\times\Omega^q(U)\to\Omega^{p+q}(U)
+\end{align*}
+
+For a smooth function $f\in C^\infty(U, \RR)$, we have that
+\begin{align*}
+  (f\omega_1)\wedge\omega_2 = f(\omega_1\wedge\omega_2) = \omega_1\wedge(f\omega_2)
+\end{align*}
+
+This just expresses the bilinearity of the product in $\alt^{*}(\RR^n)$. Also note that 
+$f\wedge\omega = f\omega$ when $f\in\Omega^0(U)$ and $\omega\in\Omega^p(U)$.
+
+\begin{lemma}\label{lemma:3-6}
+For $\omega_1\in\Omega^p(U)$ and $\omega_2\in\Omega^q(U)$,
+\begin{align*}
+  \dd(\omega_1\wedge\omega_2) = \dd\omega_1\wedge\omega_2 + (-1)^p\omega_1\wedge\dd\omega_2
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+  It is sufficient to show the formula when $\omega_1=f\epsilon_I$ and $\omega_2=g\epsilon_J$. But 
+  then $\omega_1\wedge\omega_2 = fg\;\epsilon_I\wedge\epsilon_J$, and 
+  \begin{align*}
+    \dd(\omega_1\wedge\omega_2) 
+    & = \dd(fg)\wedge\epsilon_{I}\wedge\epsilon_{J}=((\!\dd f)g+f\dd g)\wedge\epsilon_{I}\wedge\epsilon_{J} \\
+    & = \dd fg\wedge\epsilon_{I}\wedge\epsilon_{J}+f\dd g\wedge\epsilon_{I}\wedge\epsilon_{J} \\
+    & = \dd f\wedge\epsilon_{I}\wedge g\epsilon_{J}+(-1)^{p}f\epsilon_{I}\wedge \dd g\wedge\epsilon_{J} \\
+    & = \dd\omega_{1}\wedge\omega_{2}+(-1)^{p}\omega_{1}\wedge \dd\omega_{2}. 
+  \end{align*}
+\end{proof}
+
+Summing up, we have introduced an anti-commutative algebra $\Omega^*(U)$ with a \Index{differential},
+\begin{align*}
+  \dd:\Omega^*(U)\to\Omega^{*+1}(U), \qquad \dd\circ\dd = 0
+\end{align*}
+
+and $\dd$ is a \Index{derivation} (satisfies Lemma \ref{lemma:3-6}): $(\Omega^*(U), \dd)$ is a commutative \Index{DGA}
+(differential graded algebra\index{differential!graded algebra}). It is called the \Index{de Rham complex} of $U$.
+
+\begin{theorem}\label{theorem:3-7}
+There is precisely one linear operator $\dd:\Omega^0(U)\to\Omega^{p+1}(U), p = 0,1, \ldots,$ such that  
+\begin{enumerate}[(i)]
+  \item $f\in\Omega^*(U), \dd f = \frac{\partial f }{\partial x_i }\epsilon_1 + \cdots + \frac{\partial f}{\partial x_n}\epsilon_n$
+  \item $\dd\circ\dd = 0$
+  \item $\dd(\omega_1\wedge\omega_2) = \dd\omega_1\wedge\omega_2 + (-1)^p\dd\omega_1\wedge\dd\omega_1$ if $\omega_1\in\Omega^p(U)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We have already defined $\dd$ with the asserted properties. Conversely assume
+that $\dd'$ is a linear operator satisfying (i), (ii) and (iii). We will show that $\dd'$ is
+the exterior differential.
+
+The first property tells us that $\dd = \dd'$ on $\Omega^0(V)$. In particular $\dd' x_i = \dd x_i$ for the
+$i$-th projection $x_i:U\to\RR$. It follows from Example \ref{example:3-3} that $\dd' x_i = \epsilon_i$, 
+the constant function. Since $\dd'\circ\dd' = 0$ we have that $\dd'\epsilon_i$. Then (iii) gives $\dd'\epsilon_I = 0$. 
+Now let $\omega = f\epsilon_I = f\wedge\epsilon_I$. Again by using (iii),
+\begin{align*}
+  \dd'\omega = \dd'f\wedge\epsilon_I + f\wedge \dd'\epsilon_I
+  = \dd'f\wedge\epsilon_I
+  = \dd f\wedge\epsilon_I
+  = \dd\omega.  
+\end{align*}
+
+Since every $p$-form is the sum of such special $p$-forms, $\dd = \dd'$ on all of $\Omega^p(U)$.
+\end{proof}
+
+For an open set $V$ in $\RR^3$, $\dd:\Omega^1(U)\to\Omega^2(U)$ is given as 
+\begin{align*}
+  & \dd(f_1\epsilon_1+f_2\epsilon_2+f_3\epsilon_3)
+  = \dd f_1\wedge\epsilon_1+\dd f_2\wedge\epsilon_2+\dd f_3\wedge\epsilon_3 \\
+  = & \left(\frac{\partial f_{2}}{\partial x_{1}} - \frac{\partial f_{1}}{\partial x_{2}}\right)\epsilon_{1}\wedge\epsilon_{2}
+    + \left(\frac{\partial f_{3}}{\partial x_{2}} - \frac{\partial f_{2}}{\partial x_{3}}\right)\epsilon_{2}\wedge\epsilon_{3}
+    + \left(\frac{\partial f_{1}}{\partial x_{3}} - \frac{\partial f_{3}}{\partial x_{1}}\right)\epsilon_{3}\wedge\epsilon_{1}.
+\end{align*}
+
+The first equality follows from Theorem \ref{theorem:3-7}.(iii), as $\epsilon_i:U\to\alt^1(\RR^3)$ is the
+constant map, and hence $\dd\epsilon_i=0$, by \eqref{eq:3-1}. Alternatively, we have already noted
+that the 1-forms $\epsilon_i$ and $\dd x_i$ agree, and hence $\dd\epsilon_i = \dd\circ\dd(x_i) = 0$ 
+by Theorem \ref{theorem:3-7}.(ii). The second equality comes from the anti-commutativity, $\epsilon_i\wedge\epsilon_j = -\epsilon_j\wedge\epsilon_i$.
+and Theorem \ref{theorem:3-7}.(i).
+
+Quite analogously we can calculate that
+\begin{align*}
+  \dd(g_3\epsilon_1\wedge\epsilon_2+g_1\epsilon_2\wedge\epsilon_3+g_2\epsilon_3\wedge\epsilon_1)
+  = \left(\frac{\partial g_1}{\partial x_1}+\frac{\partial g_2}{\partial x_2}+\frac{\partial g_3}{\partial x_3}\right)
+    \epsilon_1\wedge\epsilon_2\wedge\epsilon_3.
+\end{align*}
+
+\begin{definition}\label{definition:3-8}
+The $p$-th (de Rham) cohomology group is the quotient vector space
+\begin{align*}
+  H^p(U) 
+  = \frac {\ker\big(\!\dd\colon\Omega^p(U)\to\Omega^{p+1}(U)\big)}
+          {\im(\!\dd\colon\Omega^{p-1}(U)\to\Omega^p(U))}.
+\end{align*}
+
+In particular $H^p(U) = 0$ for $p<0$, and $H^0(U)$ is the kernel of
+\begin{align*}
+  \dd:C^\infty(U)\to\Omega^1(U).
+\end{align*}
+
+and therefore is the vector space of maps $f\in C^\infty(U, \RR)$ with vanishing 
+derivatives. This is precisely the space of locally constant maps.
+
+Let $\sim$ be the equivalence relation on the open set $V$ such that $q_1\sim q_2$ if there
+exists a continuous curve $\alpha: [a, b]\to V$ with $\alpha(a) = q_1$ and $\alpha(b) = q_2$. The
+equivalence classes partition $V$ into disjoint open subsets, namely the connected components of $U$. 
+A connected component of $U$ is a maximal non-empty subset $W$ of $U$ that cannot be written as the 
+disjoint union of two non-empty open subsets of $W$ (in the topology induced by $\RR^n$). An open 
+set $U\subseteq\RR^n$ has at most countably many connected components (in each of them one can choose 
+a point with rational coordinates.)
+\end{definition}
+
+
+
+\begin{lemma}\label{lemma:3-9}
+  $H^0(U)$ is the vector space of maps $U\to \RR$ that are constant on each
+connected component of $U$.
+\end{lemma}
+
+\begin{proof}
+  A locally constant function $f:U\to\RR$ gives a partition of $U$ into the
+mutually disjoint open sets $f^{-1}(c), c\in\RR$. Consequently $f:U\to\RR$ is locally
+constant precisely when $f$ is constant on each connected component of $U$.
+\end{proof}
+
+It follows that $\dim_{\RR} H^0(U)$ (considered as a non-negative integer or $\infty$) is precisely
+the number of connected components of $U$.
+
+
+The elements in $\Omega^p(U)$ with $\dd\omega = 0$ are called the closed \Index{$p$-forms}. The elements
+of the image $\Omega^{p-1}(U)\subset\Omega^p(U)$ are the \Index{exact $p$-forms}. The $p$-th cohomology
+group thus measures whether every closed $p$-form is exact. This condition is
+satisfied precisely when $H^p(u) = 0$. A closed $p$-form $\omega\subset\Omega^p(U)$ gives a
+cohomology class, denoted by
+\begin{align*}
+  [\omega] = \omega + \dd\Omega^{p-1}(U) \in H^p(U),
+\end{align*}
+
+and $[\omega] = [\omega']$ if and only if $\omega-\omega'$ is exact. In general the vector space of \Index{closed $p$-form} 
+and the vector space of exact $p$-forms are infinite-dimensional. In contrast $H^p(U)$ usually has finite dimension.
+
+We can define a bilinear, associative and anti-commutative product 
+\begin{align}\label{eq:3-3}
+  H^p(U)\times H^q(U)\to H^{p+q}(U)
+\end{align}
+
+by setting $[\omega_1][\omega_2] = [\omega_1\wedge\omega_2]$. This is well-defined because
+\begin{align*}
+  (\omega_1+\dd\eta_1)\wedge(\omega_2+\dd\eta_2)
+  = \omega_1\wedge\omega_2 + \dd\eta_1\wedge\omega_2 + \dd\eta_1\wedge\omega_2 + \dd\eta_1\wedge\dd\eta_2 \\
+  = \omega_1\wedge\omega_2 + \dd(\eta_1\wedge\omega_2 + (-1)^p\omega_1\wedge\omega_2 + \eta_1\wedge\dd\eta_2)
+\end{align*}
+
+We want to make $U\to H^p(U)$ into a \Index{contravariant functor}. Thus to a smooth
+map $\phi:U_1\to U_2$ between open sets $U_1\subset\RR^n$ and $U_2\subset\RR^m$, we shall define
+a linear map
+\begin{align*}
+  H^p(\phi): H^p(U_2)\to H^p(U_1)
+\end{align*}
+
+such that 
+\begin{align}\label{eq:3-4}
+\begin{aligned}
+  & H^p(\phi_2\circ\phi_1) = H^p(\phi_1)\circ H^p(\phi_2)\\
+  & H^p(\id)  = \id
+\end{aligned}
+\end{align}
+
+We first make $\Omega^*(-)$ into a contravariant functor.
+
+\begin{definition}\label{definition:3-10}
+  Let $U_1\subset\RR^n$ and $U_2\subset\RR^m$ be open sets and $\phi:U_1\to U_2$ a 
+  smooth map. The induced morphism $\Omega^p(\phi):\Omega^p(U_2)\to \Omega^p(U_1)$ is defines by 
+  \begin{align*}
+    \Omega^p(\phi)(\omega)_x=\mathrm{Alt}^p(D_x\phi)\circ\omega(\phi(x)),\quad\Omega^0(\phi)(\omega)_x=\omega_{\phi(x)}.    
+  \end{align*}
+\end{definition}
+
+Frequently one writes $\phi^*$ instead of $\Omega^p(\phi)$. We note that the analogue of \eqref{eq:3-4} is 
+satisfied. Indeed,
+\begin{align*}
+  \phi^*(\omega)_x(\xi_1,\ldots,\xi_p)=\omega_{\phi(x)}(D_x\phi(\xi_1),\ldots,D_x\phi(\xi_p)),
+\end{align*}
+
+and using the chain rule $D_x(\phi\circ\phi) = D_{\phi(x)}\phi\circ D_x\phi$, for $\phi:U_1\to U_2$, 
+$\psi:U_2\to U_3$, it is easy to see that 
+\begin{align*}
+  \Omega^p(\psi\circ\phi) = \Omega^p(\phi)\circ\Omega^p(\psi),\qquad 
+  \Omega^p(\id_U) = \id_{\Omega^p(U)}.
+\end{align*}
+
+It should be noteed that $\Omega^p(i)(\omega) = \omega\circ i$ when $i:U_1\hookrightarrow U_2$ is an inclusion, since 
+then $D_xi = \id$.
+
+\begin{example}\label{example:3-11}
+  For the constant $1$-form $\epsilon_i\in\Omega^1(U_2)$, we have that
+  \begin{align*}
+    \phi^*(\epsilon_i) 
+    = \sum_{k=1}^{n }{\frac{\partial \phi_i }{\partial x_k }\epsilon_k} 
+    = \dd\phi_i
+  \end{align*}
+\end{example}
+
+With $\phi_i$ the $i$-th coordinate function. To see this, let $\zeta\in\RR^n$. Then 
+\begin{align*}
+  \phi^{*}(\epsilon_{i})(\zeta)
+  & = \epsilon_{i}(D_{x}\phi(\zeta))
+      = \epsilon_{i}\Bigg(\sum_{k=1}^{m}\Big(\sum_{l=1}^{n}\frac{\partial\phi_{k}}{\partial x_{l}}\zeta^{l}\Big)e_{k}\Bigg) \\
+  & = \sum_{l=1}^{n}\frac{\partial\phi_{i}}{\partial x_{l}}\zeta^{l}
+      =\sum_{l=1}^{n}\frac{\partial\phi_{i}}{\partial x_{l}}\epsilon_{l}(\zeta)=\dd\phi_{i}(\zeta).
+\end{align*}
+
+\begin{theorem}\label{theorem:3-12}
+With Definition \ref{definition:3-10} we have the relations
+\begin{enumerate}[(i)]
+  \item $\phi^*(\omega\wedge\tau) = \phi^*(\omega)\wedge\phi^*(\tau)$
+  \item $\phi^*(f) = f\circ\phi$ if $f\in\Omega^0(U_2)$
+  \item $\dd\phi^*(\omega) = \phi^*(\!\dd\omega)$
+\end{enumerate}
+
+Conversely, if $\phi':\Omega^*(U_2)\to\Omega^*(U_1)$ is a linear map satisfying three conditions, then $\phi'=\phi$.
+\end{theorem}
+
+\begin{proof}
+  Let $x\in U_1$ and let $\xi_1, \ldots, \xi_{p+q}$ be vectors in $\RR^n$. Then
+  \begin{align*}
+      & \phi^{*}(\omega\wedge\tau)_{x}(\xi_{1},\ldots,\xi_{p+q})
+      = (\omega\wedge\tau)_{\phi(x)}(D_{x}\phi(\xi_{1}),\ldots,D_{x}\phi(\xi_{p+q})) \\
+      & = \sum\mathrm{sign}(\sigma)\Big[\omega_{\phi(x)}\big(D_{x}\phi\big(\xi_{\sigma(1)}\big),\ldots,D_{x}\phi\big(\xi_{\sigma(p)}\big)\big) \\
+      &\hspace*{5em} \tau_{\phi(x)}(D_x\phi(\xi_{\sigma(p+1)}),\ldots,D_x\phi(\xi_{\sigma(p+q)}))\Big] \\
+      & = \sum\mathrm{sign}(\sigma)\phi^{*}(\omega)_{x}\big(\xi_{\sigma(1)},\ldots,\xi_{\sigma(p)}\big)
+          \phi^{*}(\tau)_{x}\big(\xi_{\sigma(p+1)},\ldots,\xi_{\sigma(p+q)}\big) \\
+      & = (\phi^{*}(\omega)_{x}\wedge\phi^{*}(\tau)_{x})(\xi_{1},\ldots,\xi_{p+q}).
+  \end{align*}
+
+  This shows (i) when $p > 0$ and $q > O$. If $p = 0$ or $q = 0$ the proof is quite
+analogous, but easier. Property (ii) is contained in the definition of $\phi^*$ for degree
+0. So we are left with (iii). We shall first show that $\dd\phi^*(f) = \phi^*(\!\dd f)$ when
+$f\in \Omega^0(U_2)$. We have that
+\begin{align*}
+  \dd f = \sum_{i=k}^{n}\frac{\partial f}{\partial x_k}\epsilon_k
+        = \sum_{i=k}^{n}\frac{\partial f}{\partial x_k}\wedge\epsilon_k,
+\end{align*}
+
+when $\epsilon_k$ is considered as the element in $\Omega^1(U_2)$ with constant value $\epsilon_k$. From
+(i) and (ii) we obtain
+\begin{align*}
+    \phi^{*}(\!\dd f)
+    & = \sum_{k=1}^m\phi^*\left(\frac{\partial f}{\partial x_k}\right)\wedge\phi^*(\epsilon_k)
+        = \sum_{k=1}^m\left(\frac{\partial f}{\partial x_k}\circ\phi\right)\wedge\left(\sum_{l=1}^n\frac{\partial\phi_k}{\partial x_l}\epsilon_l\right) \\
+    & = \sum_{k=1}^m\sum_{l=1}^n\left(\frac{\partial f}{\partial x_k}\circ\phi\right)\left(\frac{\partial\phi_k}{\partial x_l}\right)\epsilon_l
+        = \sum_{l=1}^n\left(\sum_{k=1}^m\left(\frac{\partial f}{\partial x_k}\circ\phi\right)\frac{\partial\phi_k}{\partial x_l}\right)\epsilon_l \\
+    & = \sum_{l=1}^n\frac{\partial(f\circ\phi)}{\partial x_l}\epsilon_l
+        = \dd(f\circ\phi) = \dd(\phi^*(f)).
+\end{align*}
+
+In more general case $\omega = f\epsilon_I = f\wedge\epsilon_I$, Lemma \ref{lemma:3-6} gives  
+$\dd\omega = \dd f\wedge\epsilon_I$, because $\dd\epsilon_I = 0$. Hence
+\begin{align*}
+  \phi^*(\!\dd\omega) 
+  & = \phi^*(\!\dd f)\wedge\phi^*(\epsilon_I)
+      = \dd(\phi^*(f))\wedge\phi^*(\epsilon_I) \\
+  & = \dd(\phi^*(f)\wedge\phi^*(\epsilon_I))
+    = \dd(\phi^*\omega)
+\end{align*}
+
+The second last equality uses Lemma \ref{lemma:3-6} and the fact that $\dd\epsilon_I = 0$:
+\begin{align*}
+  \dd\phi^{*}(\epsilon_{I})
+  & = \dd\big(\phi^{*}(\epsilon_{i_{1}})\wedge\ldots\wedge\phi^{*}(\epsilon_{i_{p}})\big) \\
+  & = \sum\left(-1\right)^{k-1}\phi^{*}(\epsilon_{i_{1}})\wedge\ldots\wedge\!\dd\phi^{*}(\epsilon_{i_{k}})\wedge\ldots\wedge\phi^{*}(\epsilon_{i_{p}})\\
+  & = 0
+\end{align*}  
+
+since $\dd\phi^*(\epsilon_{i_k}) = 0$ by Example \ref{example:3-11} and Lemma \ref{lemma:3-5}.
+\end{proof}
+
+
+In the following it will be convenient to use the notation of Example \ref{example:3-3} and write
+\begin{align*}
+  \dd x_I = \dd x_{i_1}\wedge\ldots\wedge\!\dd x_{i_p}
+\end{align*}
+
+instead of the (constant) $p$-form $\epsilon_{i_1}\wedge\ldots\wedge\epsilon_{i_p}$. An arbitrary 
+$p$-forrn can then be written as
+\begin{align*}
+  \omega(x) = \sum{\omega_I(x)\dd x_I}
+\end{align*}
+
+and Example \ref{example:3-11} becomes $\phi^*(\!\dd y_i) = \dd\phi_i$ when $y_i:U_2\to\RR$ is 
+the $i$-th coordinate function and $\phi_i = y_i\circ\phi$ the $i$-th coordinate of $\phi$; 
+cf. Theorem \ref{theorem:3-12}.(ii),(iii)
+
+\begin{example}\label{example:3-13}
+\begin{enumerate}[(i)]
+  \item Let $\gamma:(a, b)\to U$ be an smooth curve in $U$, $\gamma = (\gamma_1, \ldots, \gamma_n)$, and that 
+    \begin{align*}
+      \omega = f_1\dd x_1 + \cdots + f_n\dd x_n
+    \end{align*}
+    be a 1-form on $U$. Then we have that 
+    \begin{align*}
+      \gamma^{\star}(\omega)
+      & = \gamma^{*}(f_{1})\wedge\gamma^{*}(\!\dd x_{1})+\cdots+\gamma^{*}(f_{n})\wedge\gamma^{*}(\!\dd x_{n})\\
+      & = \gamma^{*}(f_{1})\dd(\gamma^{*}(x_{1}))+\cdots+\gamma^{*}(f_{n})\dd(\gamma^{*}(x_{n}))\\
+      & = (f_{1}\circ\gamma)\dd\gamma_{1}+\cdots+(f_{n}\circ\gamma)\dd\gamma_{n}\\
+      & = \left[(f_{1}\circ\gamma)\gamma_{1}^{\prime}+\cdots+(f_{n}\circ\gamma)\gamma_{n}^{\prime}\right]\dd t\\
+      & = \left\langle f(\gamma(t)),\gamma^{\prime}(t)\right\rangle\!\dd t.
+    \end{align*}
+    Here $\langle\cdot\rangle$ is the usual inner product. Compare Example \ref{example:1-8}
+  \item Let $\phi:U_1\to U_2$ be a smooth map between open sets in $\RR^n$. Then
+    \begin{align*}
+      \phi^*(\!\dd x_1\wedge\ldots\wedge\dd x_n) = \det (D_x\phi)\dd x_1\wedge\ldots\wedge\dd x_n.
+    \end{align*}
+    indeed, from Theorem \ref{theorem:3-12},
+    \begin{align*}
+      \phi^{*}(\!\dd x_{1}\wedge\ldots\wedge \dd x_{n})
+      & = \phi^*(\!\dd x_1)\wedge\ldots\wedge\phi^*(\!\dd x_n)
+          = \dd\phi^*(x_1)\wedge\ldots\wedge \dd\phi^*(x_n)\\
+      & = \dd\phi_1\wedge\ldots\wedge \dd\phi_n
+          = \det{(D_{x}\phi)}\dd x_1\wedge\ldots\wedge \dd x_n.
+    \end{align*}
+    The last equality is a consequence of Lemma \ref{lemma:2-13}.
+\end{enumerate}
+\end{example}
+
+\begin{example}\label{example:3-14}
+If $\phi:\RR^n\times\RR\to\RR^n$ is given by $\phi(x, t) = \psi(t)x$, where $\phi(t)$ is a smooth real 
+valued function, Then 
+\begin{align*}
+  \phi^*(\!\dd x_i) = x_i \psi'(t)\dd t + \psi(t) \dd x_i.
+\end{align*}
+
+To a smooth map $\phi:U_1\to U_2$ we can now associate a linear map
+\begin{align*}
+  H^p(\phi): H^p(U_2) \to H^p(U_1)
+\end{align*}
+
+by setting $H^p(\phi)[\omega] = [\Omega^p(\phi)(\omega)] (=\phi^*(\omega))$. The definition is independent of the
+choice of representative, since $\phi^*(\omega+\dd v) = \phi^*(\omega) + \phi^*(\omega) + \dd\phi^*(v)$. 
+
+Furthermore,
+\begin{align*}
+  H^{p+q}(\phi)([\omega_1][\omega_2]) = (H^p(\phi)[\omega_1])(H^q(\phi)[\omega_2]) 
+\end{align*}
+
+such that $H^*(\phi):H^*(U_2)\to H^*(U_1)$ is a homomorphism of graded algebras.
+\end{example}
+
+\begin{theorem}[Poincar\'e's Lemma]\label{theorem:3-15}
+If $U$ is a star-shaped open set then $H^p(U) = 0$ for $p > 0$, and $H^0(U) = \RR$.
+\end{theorem}
+
+\begin{proof}
+  We may assume $U$ to be star-shaped with respect to the origin $0\in\RR^n$,
+and wish to construct a linear operator
+\begin{align*}
+  S_p: \Omega^p(U) \to \Omega^{p-1}(U)
+\end{align*}
+
+such that $\dd S_p + S_{p+1}\dd = \id$ when $p > 0$ and $S_1\dd = \id - e$, where $e(\omega) = \omega(0)$
+for $\omega\in\Omega^0(U)$. Such an operator immediately implies our theorem, since
+$\dd S_p(\omega) = \omega$ for a closed $p$-form, $p > 0$, and hence $[\omega] = 0$. If $p = 0$ we
+have $\omega - \omega(0) = S_1\dd\omega = 0$, and $\omega$ must be constant.
+
+First we construct
+\begin{align*}
+  \hat{S}_p:\Omega^p(U\times\RR)\to\Omega^{p-1}(U).
+\end{align*}
+
+Every $\omega\in\Omega^p(U\times\RR)$ can be written in the form
+\begin{align*}
+  \omega = \sum_{}^{}{f_I(x, t)\dd x_I} + \sum_{}^{}{g_J(x, t)\dd x_J\wedge\dd t}
+\end{align*}
+
+where $I= (i_1, \ldots, i_p)$ and $J = (j_1, \ldots, j_{p-1})$. We define
+\begin{align*}
+  \hat{S}_p(\omega) = \sum\left(\int_{0}^{1}g_J(0, t)\dd t\right)\dd x_J
+\end{align*}
+
+Then we have that 
+\begin{align*}
+    \dd\hat{S}_{p}(\omega)+\hat{S}_{p+1}\dd(\omega)
+    & = \sum_{J,i}\biggl(\int_{0}^{1}\frac{\partial g_{J}(x,t)}{\partial x_{i}}\dd t\biggr)\dd x_{i}\wedge\dd x_{J} \\
+    & + \sum_{I}\biggl(\int_{0}^{1}\frac{\partial f_{I}(x,t)}{\partial t}\dd t\biggr)\dd x_{I}
+        - \sum_{J,i}\biggl(\int_{0}^{1}\frac{\partial g_{J}}{\partial x_{i}}\dd t\biggr)\dd x_{i}\wedge\dd x_{J} \\
+    & = \sum\biggl(\int_{0}^{1}\frac{\partial f_{I}(x,t)}{\partial t}\dd t\biggr)\dd x_{I} \\
+    & = \sum f_{I}(x,1)\dd x_{I}-\sum f_{I}(x,0)\dd x_{I}.
+\end{align*}
+
+We apply this result to $\phi^*(\omega)$, where 
+\begin{align*}
+  \phi:U \times \RR\to U, \quad \phi(x, t) = \psi(t)x.
+\end{align*}
+
+and $\psi(t)$ is a smooth function for which 
+\begin{align}
+  \left\{\begin{aligned}
+    & \psi(t) = 0, && \text{ if } t\le 0 \\
+    & \psi(t) = 1, && \text{ if } t\ge 1 \\
+    & 0\le\psi(t)\le 1, && \text{ otherwise }
+  \end{aligned}\right.
+\end{align}
+
+Define $S_p(\omega) = \hat{S}_p(\phi^*(\omega))$ with $\hat{S}_p:\Omega(U\times\RR)\to\Omega^{p-1}(U)$ as above. Assume 
+that $\omega = \sum h_I(x)\dd x_I$. Form Example \ref{example:3-14} we have 
+\begin{align*}
+  \phi^{*}(\omega)
+  = \sum h_{I}(\psi(t)x)(d\psi(t)x_{i_{1}}+\psi(t)dx_{i_{1}})
+    \wedge\ldots\wedge\left(d\psi(t)x_{i_{p}}+\psi(t)dx_{i_{p}}\right)  
+\end{align*}
+
+In the notation used above we then get that 
+\begin{align*}
+  \sum f_I(x, t)\dd x_I = \sum h_I(\psi(t)x)\psi(t)^p\dd x_I
+\end{align*}
+
+This implies that 
+\begin{align*}
+  \dd S_p(\omega) + S_{p+1}\dd\omega
+  = \left\{\begin{aligned}
+    & \sum h_I(x)\dd x_I = \omega &&  p > 0 \\
+    & \omega(x) - \omega(0) &&  p = 0
+  \end{aligned}\right.
+\end{align*}
+\end{proof}

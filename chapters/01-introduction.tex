@@ -1,0 +1,287 @@
+\chapter{Introduction}
+It is well-known that a continuous real function, that is defined on an open set of
+\RR has a primitive function. How about multivariable functions? For the sake of
+simplicity we restrict ourselves to smooth (or $C^\infty$-) functions, i.e. functions that
+have continuous partial derivatives of all orders.
+We begin with functions of two variables. Let $f:U\to \RR^2$ be a smooth function
+.defined on an open set of $\RR^2$ .
+
+\begin{question}\label{question:1-1}
+Is there a smooth function $F:U\to \RR$, such that:
+\begin{align}
+  \frac{\partial F }{\partial x_1 } = f_1 \text{ and }
+  \frac{\partial F }{\partial x_2 } = f_2, \text{ where } 
+  f = (f_1, f_2)?
+  \label{eq:1-1}
+\end{align}
+
+Since
+\begin{align*}
+  \frac{\partial ^2 F }{\partial x_2\partial x_1 } = 
+  \frac{\partial ^2 F }{\partial x_1\partial x_2 }
+\end{align*}
+
+we must have 
+\begin{align}
+  \frac{\partial f_1 }{\partial x_2 } = \frac{\partial f_2 }{\partial x_1}
+  \label{eq:1-2}
+\end{align}
+
+The correct question is therefore whether $F$ exists, assuming $f = (f_1, f_2)$ satisfies
+\eqref{eq:1-2}. Is condition \eqref{eq:1-2} also sufficient?
+\end{question}
+
+
+\begin{example}\label{example:1-2}
+Consider the function $f:\RR^2 \to \RR^2$ given by
+\begin{align*}
+  f(x_1, x_2) = \left(\frac{-x_2}{x_1^2 +x_2^2}, \frac{x_1}{x_1^2 +x_2^2},\right)
+\end{align*}
+\end{example}
+
+It is easy to show that \eqref{eq:1-2} is satisfied. However, there is no function $F:\RR^2-\{0\}\to \RR$
+that satisfies \eqref{eq:1-1}. Assume there were; then
+
+\begin{align*}
+  \int_{0}^{2\pi}{\frac{\dd }{\dd\theta} F(\cos\theta, \sin\theta)\;\mathrm{d}\theta}
+  = F(1, 0) - F(1, 0) = 0
+\end{align*}
+
+On the other hand the chain rule gives
+\begin{align*}
+  \frac{\dd }{\dd\theta} F(\cos\theta, \sin\theta) 
+  & = \frac{\dd F}{\dd x}\cdot (-\sin\theta) + \frac{\dd F}{\dd y}\cdot \cos\theta \\
+  & = -f_1 (\cos\theta, \sin\theta)\cdot\sin\theta + f_2(\cos\theta, \sin\theta)\cdot \cos\theta\\
+  & = 1
+\end{align*}
+
+This contradiction can only be explained by the non-existence of $F$.
+
+\begin{definition}
+  A subset $X\subseteq \RR^n$ is said to be star-shaped with respect to the point $x_0\in X$ if
+  the line segemtn $\{tx_0+(1-t)x\mid t\in[0,1]\}$ is contained in $X$ for all $x\in X$.
+\end{definition}
+
+\begin{theorem}\label{theorem:1-4}
+  Let $U\subseteq \RR^2$ be star-shaped\index{star-shape set}. Then for any smooth function $f:U\to \RR^2$ that satisfies
+  \eqref{eq:1-2}, Question \ref{question:1-1} has a solution.
+\end{theorem}
+
+\begin{proof}
+  For the sake of simplicity we assume that $x_0=0\in\RR^2$. Consider the function $F:U\to \RR$.
+  \begin{align*}
+    F(x_1, x_2) = \int_{0}^{1}{\left[ x_1f_1(tx_1, tx_2) + x_2f_2(tx_1, tx_2) \right] \;\mathrm{d}t}.
+  \end{align*}
+Then one has
+
+\begin{align*}
+  \frac{\partial F}{\partial x_1} 
+  = \int_{0}^{1}{\left[ f_1(tx_1, tx_2) + tx_1\frac{\partial f_1}{\partial x_1}(tx_1, tx_2) + tx_2\frac{\partial f_2}{\partial x_1}(tx_1, tx_2) \right] \;\mathrm{d}t}
+\end{align*}
+
+and 
+\begin{align*}
+  \frac{\dd }{\dd t} tf_1(tx_1, tx_2) 
+  = f_1(tx_1, tx_2) + tx_1\frac{\partial f_1}{\partial x_1}(tx_1, tx_2) + tx_2\frac{\partial f_2}{\partial x_1}(tx_1, tx_2)
+\end{align*}
+
+Substituting this result into the formula, we get
+\begin{align*}
+  \frac{\partial F}{\partial x_1}(x_1, x_2)
+  & = \int_{0}^{1}{\left[\frac{\dd }{\dd t}tf_1(tx_1, tx_2) + tx_2\left(\frac{\partial f_2}{\partial x_1}(tx_1, tx_2) - \frac{\partial f_1}{\partial x_2}(tx_1, tx_2) \right)\right] \;\mathrm{d}t}\\
+  & = f_1(tx_1, tx_2)\big|_{t=0}^1\\
+  & = f_1(x_1, x_2)
+\end{align*}
+
+Analogously, $\frac{\partial F }{\partial x_2} = f_2(x_1, x_2)$.
+\end{proof}
+
+Example \ref{example:1-2} and Theorem \ref{theorem:1-4} suggest that the answer to Question \ref{question:1-1} depends on the ``shape'' of
+``topology'' of $U$. Instead of searching for a further examples or counterexamples of set $U$ and fucntion $f$, we
+define an invariant of $U$, which tells us or not the question has an affirmative answer (for all $f$), assuming the 
+necessary condition \eqref{eq:1-2}.
+
+Give the open set $U\subseteq \RR^2$, let $C^\infty(U, \RR^k)$ denote the set of smooth functions $\phi:U\to\RR^k$. This 
+is a vecter space. If $k=2$ one may consider $\phi:U\to\RR^k$ as a vecter filed on $U$ by plotting $\phi(u)$ from the
+point $u$. We define the \Index{gradient} and \Index{rotation}:
+\begin{align*}
+  \grad: C^\infty(U, \RR) \to C^\infty(U, \RR^2), &&
+  \grad: C^\infty(U, \RR^2) \to C^\infty(U, \RR) 
+\end{align*}
+
+by 
+\begin{align*}
+  \grad(\phi) = \left(\frac{\partial \phi}{\partial x_1}, \frac{\partial \phi}{\partial x_2}\right), &&
+  \rot(\phi) = \frac{\partial \phi_1}{\partial x_2} - \frac{\partial \phi_2}{\partial x_1}
+\end{align*}
+
+Note that $\rot\circ \grad = 0$. Hence the kernel of rot contains the image of grad,
+\begin{align*}
+  \ker(\rot)  & = \text{Kernel of rot} \\
+  \im(\grad)  & = \text{Image of grad}
+\end{align*}
+
+Since both rot and grad are linear operators, $\im(\grad)$ is a subspace of $\ker(\rot)$.
+Therefore we can consider the quotient vector space, i.e. the vector space of
+cosets 0: $\alpha + \im(\grad)$ where 0: $\alpha\in\ker(\rot)$:
+\begin{align}\label{eq:1-3}
+  H^1(U) = \ker(\rot)/\im(\grad).
+\end{align}
+
+Both $\ker(\rot)$ and $\im(\grad)$ are infinite-dimensional vector spaces. It is remarkable 
+that the quotient space $H^1(U)$ is usually finite-dimensional. We can now reformulate 
+Theorem \ref{theorem:1-4} as
+\begin{align}\label{eq:1-4}
+  H^1(U) = 0 \text{ where } U\subseteq \RR^2 \text{ is star-shaped}.
+\end{align}
+
+On the other hand, Example \ref{example:1-2} tells us that $H^1(\RR^2 - \{0\})\neq 0$. Later on we shall
+see that $H^1(\RR^2 - \{0\})$ is 1-dimensional, and that $H^1(\RR^2 - \cup_{i=1}^k\{x_i\}) \cong \RR^k$. 
+The dimension of $H^1(U)$ is the number of ``holes'' in $U$.
+
+In analogy with \eqref{eq:1-3} we introduce
+\begin{align}\label{eq:1-5}
+  H^0(U) = \ker(\grad)
+\end{align}
+
+This definition works for open sets $U$ of $\RR^k$ with $k\ge1$, when we define
+\begin{align*}
+  \grad(f) = \left(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\right)
+\end{align*}
+
+\begin{theorem}\label{theorem:1-5}
+  An open set $U\subseteq\RR^k$ is connected if and only if $H^0(U) = \RR$.
+\end{theorem}
+
+\begin{proof}
+  Assume that $\grad(f) = 0$. Then f is locally constant: each $x_0\in U$ has
+a neighborhood $V(x_0)$ with $f(x) = f(x_0)$ when $x\in V(x_0)$. If $U$ is connected,
+then every locally constant function is constant. Indeed, for $x_0\in U$ the set
+\begin{align*}
+  \{x\in U|f(x) = f(x_0) = f^{-1}(f(x_0))\}
+\end{align*}
+
+is closed because $f$ is continuous, and open since $f$ is locally constant. Hence
+it is equal to $U$, and $H^0(U) = \RR$. Conversely, if $U$ is not connected, then there
+exists a smooth, surjective function $f:U\to \{0, 1\}$. Such a function is locally
+constant, so $\grad(f) = 0$. It follows that $\dim H^0(U) > 1$.
+\end{proof}
+
+The reader may easily extend the proof of Theorem \ref{theorem:1-5} to show that $\dim H^0(U)$
+is precisely the number of connected components of $U$.
+
+
+We next consider functions of three variables. Let $U\subseteq\RR^3$ be an open set. A real
+function on $U$ has three partial derivatives and \eqref{eq:1-2} is replaced by three equations.
+We introduce the notation\index{divergence}\index{rotation}
+\begin{align*}
+  \grad: C^\infty(U, \RR) & \to C^\infty(U, \RR^3) \\
+  \rot: C^\infty(U, \RR^3) & \to C^\infty(U, \RR^3) \\
+  \div: C^\infty(U, \RR^3) & \to C^\infty(U, \RR)
+\end{align*}
+
+for the linear operators defined by
+\begin{align*}
+  \grad(f) & = \left(\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \frac{\partial f}{\partial x_3}\right) \\
+  \rot(f) & = \left(\frac{\partial f_3}{\partial x_2} - \frac{\partial f_2}{\partial x_3}, \frac{\partial f_1}{\partial x_3} - \frac{\partial f_3}{\partial x_1}, \frac{\partial f_2}{\partial x_1} - \frac{\partial f_1}{\partial x_2}\right) \\
+  \div(f) & = \frac{\partial f_1}{\partial x_1} + \frac{\partial f_2}{\partial x_2} + \frac{\partial f_3}{\partial x_3}
+\end{align*}
+
+Note that $\rot\circ\grad = 0$ and $\div\circ\rot = 0$. We define $H^0(U)$ and set $H^1(U)$ as in 
+Equations \eqref{eq:1-3} and \eqref{eq:1-5} and
+\begin{align*}
+  H^2(U) = \ker(\div)/\im(\rot)
+\end{align*}
+
+
+\begin{theorem}\label{theorem:1-6}
+  For an open star-shaped set in $\RR^3$ we have that $H^0(U) = R, H^1(U) = 0$ and $H^2(U) = 0$.
+\end{theorem}
+
+\begin{proof}
+  The values of $H^0(U)$ and $H^1(U)$ are obtained as above, so we shall
+restrict ourselves to showing that $H^2(U) = 0$. It is convenient to assume that $U$
+is star-shaped with respect to 0. Consider a function $F:U\to\RR^3$ with $\div F = 0$,
+and define $G:U\to\RR^3$ by 
+\begin{align*}
+  G(x) = \int_{0}^{1}{(F(tx)\times tx ) \;\mathrm{d}t}
+\end{align*}
+
+where the $\times$ denotes the cross product.
+\begin{align*}
+  (f_1, f_2, f_2)\times (x_1, x_2, x_3) 
+  = \begin{vmatrix}
+      e_1 & f_1 & x_1 \\
+      e_2 & f_2 & x_2 \\
+      e_3 & f_3 & x_3
+    \end{vmatrix}
+  = (f_2x_3 - f_3x_2, f_3x_1 - f_1x_3, f_1x_2 - f_2x_1)
+\end{align*}
+
+Straightforward calculations give
+\begin{align*}
+  \rot(F(tx)\times tx) = \frac{\dd }{\dd t} (t^2F(tx))
+\end{align*}
+
+Hence
+\begin{align*}
+  \rot G(x) 
+  = \int_{0}^{1}{\frac{\dd }{\dd t} (t^2F(tx)) \;\mathrm{d}t} 
+  = F(x)
+\end{align*}
+\end{proof}
+
+If $U\in\RR^3$ is not star-shaped both $H^1(U)$ and $H^2(U)$ may be non-zero.
+
+\begin{example}\label{example:1-7}
+  Let $S = \{(x_1, x_2, x_3)\in \RR^3\mid x_1^2 + x_2^2 = 1, x_3 = 0\}$ be the unit circle
+in the $(x_1, x_2)$-plane. Consider the function
+
+\begin{align*}
+  f(x_1,x_2,x_3)
+  & = \left(\frac{-2x_1x_3}{x_3^2+\left(x_1^2+x_2^2-1\right)^2},\frac{-2x_2x_3}{x_3^2+\left(x_1^2+x_2^2-1\right)^2},\frac{x_1^2+x_2^2-1}{x_3^2+\left(x_1^2+x_2^2-1\right)^2}\right)
+\end{align*}
+
+on the open set $U = \RR^3 - S$.
+\end{example}
+
+One finds that $\rot(f) = 0$. Hence $f$ defines an element $[f] \in H^1(U)$. By
+integration along a curve $\gamma$ in $U$, which is linked to $S$ (as two links in a chain),
+we shall show that $[f] \neq 0$. The curve in question is
+\begin{align*}
+  \gamma(t) = \left(\sqrt{1+\cos t}, 0, \sin t\right), -\pi\le t\le \pi
+\end{align*}
+
+Assume $\grad(F) = f$ as a function on $U$. We can determine the integral of 
+$\frac{\dd }{\dd t}F(\gamma(t))$ in two ways. On the hand we have
+\begin{align*}
+  \int_{\pi-\epsilon}^{-\pi+\epsilon}{\frac{\dd }{\dd t}F(\gamma(t)) \;\mathrm{d}t}
+  = F(\gamma(-\pi+\epsilon)) - F(\gamma(\pi-\epsilon))
+  \to 0\qquad \text{ for } \epsilon\to 0
+\end{align*}
+
+and on the other hand the chain rule gives
+\begin{align*}
+  \frac{d}{dt}F(\gamma(t))
+  & = f_{1}(\gamma(t)) \cdot\gamma_{1}^{\prime}(t)+f_{2}(\gamma(t))\cdot\gamma_{2}^{\prime}(t)+f_{3}(\gamma(t))\cdot \gamma_{3}^{\prime}(t) \\
+  & = \sin^{2}t+0+\cos^{2}\mathrm{t}=1.
+\end{align*}
+
+Therefore the integral also converges to $2\pi$, which is a contradiction.
+
+\begin{example}\label{example:1-8}
+  Let $U$ be an open set in $\RR^k$ and $X: U\to \RR^k$ a smooth function (a smooth vector field). 
+Recall that the \Index{energy} $A_\gamma(X)$, of $X$ along a smooth curve $\gamma: [a, b]\to U$ is 
+defined by the integral
+\begin{align*}
+  A_\gamma(X) = \int_{a}^{b}{\langle X\circ \gamma(t), \gamma'(t)\rangle\;\mathrm{d}t}
+\end{align*}
+
+where $\langle\cdot\rangle$ denotes the standard product. If $X = \grad(\Phi)$ and $\Phi_\gamma(a) = \Phi_\gamma(b)$,
+then the energy is zero, since 
+\begin{align*}
+  \langle X\circ \gamma(t), \gamma'(t)\rangle = \frac{\dd }{\dd t}\Phi(\gamma(t))
+\end{align*}
+
+by the rule; compare Example \ref{example:1-2}.
+\end{example}

@@ -1,0 +1,443 @@
+\chapter{Chain Complexes and their Cohomology}
+In this chapter we present some general algebraic definitions and viewpoints,
+which should illuminate some of the constructions of Chapter 3. The algebraic
+results will be applied later to de Rham cohomology in Chapters 5 and 6.
+
+A sequence of vector spaces and linear maps
+\begin{align}\label{eq:4-1}
+  A \xra[f] B \xra[g] C
+\end{align}
+
+is said to be \Index{exact}\index{sequence!exact} when $\im f = \ker g$, where as above
+\begin{align*}
+  \ker g & = \{b\in B \mid g(b) = 0\}\qquad \text{(the kernel of $g$)} \\
+  \im f  & = \{f(a) \mid a\in A\}\qquad \text{(the image of $f$)}
+\end{align*}
+
+Note that $A\xra[f]B\xra[]0$ is exact precisely when $f$ is surjective and that $0\xra[]B\xra[g]C$ is exact
+precisely when $g$ is injective. A sequence $A^* = \{A^i, \dd^i\}$,
+\begin{align}\label{eq:4-2}
+  \cdots \xra[] A^{i-1}\xra[\dd^{i-1}] A^i \xra[\dd^i] A^{i+1} \xra[\dd^{i+1}] A^{i+2}\xra[]\cdots
+\end{align}
+
+of vector spaces and linear maps is called a \Index{chain complex} provided $\dd^{i+1}\circ\dd^i = 0$
+for all $i$. It is exact if
+\begin{align*}
+  \ker \dd^i = \im \dd^{i-1}
+\end{align*}
+
+for all $i$. An exact sequence of the form
+\begin{align}\label{eq:4-3}
+  0\xra[]A\xra[f]B\xra[g]C\xra[]0
+\end{align}
+
+is called \Index{short exact}\index{sequence!short exact}. This is equivalent to requiring that
+\begin{align*}
+  \text{$f$ is injective,\quad $g$ is surjective\quad and\quad $\im f = \ker g$}
+\end{align*}
+
+The \Index{cokernel} of a linear map $f:A\to B$ is
+\begin{align*}
+  \cok(f) = B/\im(f).
+\end{align*}
+
+For a short exact sequence, $g$ induces an isomorphism
+\begin{align*}
+  g:\cok(f) \xra[\cong] C.
+\end{align*}
+
+Every (long) exact sequence, as in \eqref{eq:4-2}, induces short \Index{exact sequences} (which can
+be used to calculate $A^i$)
+\begin{align*}
+  0\xra[] \im\dd^{i-1} \xra[] \im\dd^i \xra[] 0
+\end{align*}
+
+Furthennore the isomorphisms
+\begin{align*}
+  A^{i-1}/\im\dd^{i-1} {\cong} A^{i-1}/\ker\dd^{i-1} \xra[\cong]{\dd^{i-1}} \im\dd^{i-1}
+\end{align*}
+
+are frequently applied in concrete calculations.
+
+The \Index{direct sum} of vector spaces A and B is the vector space
+\begin{align*}
+  & A\oplus B  = \{(a,b) \mid a\in A, b\in B\}                       \\
+  & \lambda(a, b)  = (\lambda a, \lambda b), \qquad \lambda\in\RR \\
+  & (a_1, b_1) + (a_2, b_2)  = (a_1 + a_2, b_1 + b_2)
+\end{align*}
+
+If $\{a_i\}$ and $\{b_j\}$ are bases of $A$ and $B$, respectively, then $\{(a_i, 0), (0, b_j)\}$ is a
+basis of $A\oplus B$. In particular
+\begin{align*}
+  \dim(A\oplus B) = \dim A + \dim B
+\end{align*}
+
+\begin{lemma}\label{lemma:4-1}
+  Suppose $0\xra[]A\xra[f]B\xra[g]C\xra[]0$ is a short exact sequence ofvector
+  spaces. Then $B$ is finite-dimensional if both $A$ and $C$ are, and $B\cong A\oplus C$.
+\end{lemma}
+
+\begin{proof}
+  Choose a basis $\{a_i\}$ of $A$ and $\{c_j\}$ of\, $C$. Since $g$ is surjective there
+  exist $b_j\in B$ with $g(b_j) = c_j$. Then $\{f(a_i), b_j\}$ is a basis of $B$: For $b\in B$
+  we have $g(b) = \sum_{}^{}{\lambda_ic_j}$. Hence $b - \sum_{}^{}{\lambda_ib_i}\in\ker g$. Since
+  $\ker g= \im f$, $b - \sum_{}^{}{\lambda_ib_i} = f(a)$, so
+  \begin{align*}
+    b-\sum\lambda_jb_j=f\left(\sum\mu_ia_i\right)=\sum\mu_if(a_i).
+  \end{align*}
+
+  This shows that $b$ can be written as a linear combination of $\{b_j\}$ and $\{f(a_i)\}$. It
+  is left to the reader to show that $\{b_j, f(a_i)\}$ are linearly independent.
+\end{proof}
+
+\begin{definition}\label{definition:4-2}
+  For a chain complex $A^* = \{\cdots\xra[] A^{p-1}\xra[\dd^{p-1}] A^p\xra[\dd^p] A^{p+1}\xra[]\cdots\}$, we define
+  the $p$-th cohomology vector space to be
+  \begin{align*}
+    H^p(A^*) = \ker\dd^p/\im\dd^{p-1}.
+  \end{align*}
+
+  The elements of Ker $\dd^p$ are called $p$-cycles\index{cycle}\index{$p$-cycle} (or are said to be closed) and the
+  elements of $\im\dd^{p-1}$ are called $p$-boundaries\index{boundary}\index{$p$-boundary} (or said to be exact). The elements
+  of $H^p(A^*)$ are called \Index{cohomology classes}.
+
+  A chain map $f:A^*\to B^*$ between chain complexes consists of a family $f^p: A^p\to B^p$ of linear maps, satisfying
+  $\dd_B^p\circ f^p = f^{p+1}\circ\dd^p_A$. A chain map is illustrated as the commutative diagram
+
+
+  \begin{center}
+    \begin{tikzcd}
+      \cdots \arrow[r] & A^{p-1} \arrow[r, "\dd^{p-1}"] \arrow[d, "f^{p-1}"]      & A^p \arrow[r, "\dd^p"] \arrow[d, "f^p"] & A^{p+1} \arrow[r] \arrow[d, "f^{p+1}"] & \cdots \\
+      \cdots \arrow[r] & B^{p-1} \arrow[r, "\dd^{p-1}"] & B^p \arrow[r, "\dd^p"]  & B^{p+1} \arrow[r] & \cdots
+    \end{tikzcd}
+  \end{center}
+\end{definition}
+
+\begin{lemma}\label{lemma:4-3}
+  A chain map $f:A^*\to B^*$ induces a linear map
+  \begin{align*}
+    f^* = H^*(f): H^p(A^*)\xra[] H^p(B^*), \text{ for all } p
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  Let $\alpha\in A^p$ be a cycle ($\dd^pa = 0$) and $[a] = a + \im\dd^{p-1}$ its corresponding
+  cohomology class in $H^p(A^*)$. We define $f^*([a]) = [f^p(a)]$. Two remarks are
+  needed. First, we have $\dd^p_B f^p(a) = f^{p+1}\dd^p_A(a) = f^{p+1}(0) = 0$. Hence $f^p(a)$ is
+  a cycle. Second, $[f^p(a)]$ is independent of which cycle $a$ we choose in the class
+  $[a]$. If $[a_1] = [a_2]$ then $a_1-a_2\in\im\dd^{p-1}_A$, and $f^p(a_1-a_2) = f^p\dd^{p-1}_A(x)
+    = \dd^{p-1}_Bf^{p-1}(x)$. Hence $f^p(a_1) - f^p(a_2) \in\im\dd^{p-1}_B$, and $f^p(a_1), f^p(a_2)$ define the
+  same cohomology class.
+\end{proof}
+
+A \Index{category}\, $C$ consists of ``objects'' and ``morphisms'' between them, such that
+``composition'' is defined. If $f:C_1\to C_2$ and $g:C_2\to C_3$ are morphisms, then
+there exists a morphism $g\circ f: C_1\to C3$. Furthermore it is to be assumed that
+$\id_C: C\to C$ is a morphism for every object $C$ of $C$. The concept is best illustrated
+by examples:
+
+\begin{itemize}
+  \item The category of open sets in Euclidean spaces, where the morphisms are
+        the smooth maps.
+  \item The category of vector spaces, where the morphisms are the linear maps.
+  \item The category of abelian groups, where the morphisms are homomor phisms.
+  \item The category of chain complexes, where the morphisms are the chain maps.
+  \item A category with just one object is the same as a semigroup, namely the semigroup of morphisms of the object.
+  \item Every partially ordered set is a category with one morphism from $c$ to $d$, when $c\le d$.
+\end{itemize}
+
+A contravariant functor\index{functor!contravariant} $F:\C{C}\to \C{V}$ between two categories maps every object
+$C\in\ob\C{C}$ to an object $F(C)\in\ob\C{V}$, and every morphism $f:C_1\to C_2$ in $\C{C}$ to
+a morphism $F(f):F(C_2)\to F(C_1)$ in $\C{V}$, such that
+\begin{align*}
+  F(g\circ f)=F(f)\circ F(g),\quad F(\id_C)=\id_{F(C)}.
+\end{align*}
+
+A \Index{covariant functor}\index{functor!covariant} $F:\C{C}\to\C{V}$ is an assignment in which $F(f):F(C_1)\to F(C_2)$, and
+\begin{align*}
+  F(g\circ f)=F(g)\circ F(f),\quad F(\id_C)=\id_{F(C)}.
+\end{align*}
+
+Functors thus are the ``structure-preserving'' assignments between categories. The
+contravariant ones change the direction of the arrows, the covariant ones preserve
+directions. We give a few examples:
+
+\begin{itemize}
+  \item Let $A$ be a vector space and $F(C) = \hom(C, A)$, the linear maps from
+        $C$ to $A$. For $\phi:C_1\to C_2$, $\hom(\phi, A):\hom(C_2, A)\to \hom(C_2,A)$ is
+        given by $\hom(\phi, A)(\psi) = \psi\circ\phi$. This is a contravariant functor from the
+        category of vector spaces to itself.
+  \item $F(C) = \hom(C, A), F(\phi):\psi \to\phi\circ\psi$. This is a covariant functor from the
+        category of vector spaces to itself.
+  \item Let $\C{U}$ be the category of open sets in Euclidean spaces and smooth maps,
+        and \Index{Vect} the category of vector spaces. The vector space of differential
+        $p$-forms on $U\in\C{U}$ defines a contravariant functor
+        \begin{align*}
+          \Omega^p(U):\C{U}\to \R{Vect}.
+        \end{align*}
+  \item Let Vect* be the category of chain complexes. The de Rham complex
+        defines a contravariant functor $\Omega^*:\C{U}\to\R{Vect}^*$.
+  \item For every $p$ the homology $H^p:\R{Vect}^*\to\R{Vect}$ is a covariant functor.
+  \item The composition of the two functors above is exactly the de Rham
+        cohomology functor $H^p:\C{U}\to\R{Vect}$. It is contravariant.
+\end{itemize}
+
+A short exact sequence of chain complexes
+\begin{align*}
+  0\xra[] A^*\xra[f] B^*\xra[g] C^*\xra[] 0
+\end{align*}
+
+consists of chain maps $f$ and $g$ such that $0\xra[]A^p\xra[f]B^p\xra[g]C^p\xra[]0$ is exact
+for every $p$.
+
+\begin{lemma}\label{lemma:4-4}
+  For a short exact sequence of chain complexes the sequence
+  \begin{align*}
+    H^p(A^*)\xra[f^*] H^p(B^*)\xra[g^*] H^p(C^*)
+  \end{align*}
+
+  is exact.
+\end{lemma}
+
+\begin{proof}
+  Since $g^p\circ f^p=0$, we have
+  \begin{align*}
+    g^*\circ f^*([ a ])=g^*([f^p(a)])=[g^p(f^p(a))]=0
+  \end{align*}
+
+  for every cohomology class $[a]\in H^p(A^*)$. Conversely, assume for $[b]\in H^p(B)$ that
+  $g^*[b] = 0$. Then $g^p(b) = \dd^{p-1}_C(c)$. Since $g^{p-1}$ is surjective, there exists
+  $b_1\in B^{p-1}$ with $g^{p-1}(b_1) = c$. It follows that $g^p(b-\dd^{p-1}_B(b_1)) = 0$. Hence
+  there exists $a\in A^p$ with $f^p(a) = b-\dd^{p-1}_B(b_1)$. We will show that $a$ ia a $p$-cycle.
+  Since $f^{p+1}$ is injective, it is sufficient to note that $f^{p+1}(\!\dd^p_A(a)) = 0$. But
+  \begin{align*}
+    f^{p+1}\big(d_A^p(a)\big)=d_B^p\big(f^p(a)\big)=d_B^p\big(b-d_B^{p-1}(b_1)\big) = 0
+  \end{align*}
+
+  since $b$ is a $p$-cycle and $\dd^p\circ\dd^{p-1} = 0$. We have thus found a cohomology class
+  $[a]\in H^p(A)$, and $f^*([a]) = [b - \dd^{p-1}_B(b_1)]$.
+\end{proof}
+
+
+One might expect that the sequence of Lemma \ref{lemma:4-4} could be extended to a short
+exact sequence, but this is not so. The problem is that, even though $g^p:B^p\to C^p$
+is surjective, the pre-image $(g^p)^{-1}(c)$ of a $p$-cycle with $c\in C^p$ need not contain
+a cycle. We shall measure when this is the case by introducing.
+
+
+\begin{definition}\label{definition:4-5}
+  For a short exact sequence of chain complexes $0\xra[]A^*\xra[f]B^*\xra[g]C^*\xra[]0$, we define
+  \begin{align*}
+    \partial^*: H^p(C^*) \to H^{p+1}(A^*)
+  \end{align*}
+
+  to be the linear map given by
+  \begin{align*}
+    \partial^*([c]) = \left[\left(f^{p+1}\right)^{-1} \left(\!\dd^p_B\left((g^p)^{-1}(c)\right)\right)\right]
+  \end{align*}
+\end{definition}
+
+There are several things to be noted. The definition expresses that for every $b\in (g^p)^{-1}(c)$ we have
+$\dd^p_B(b)\in\im(f^{p+1})$, and that the uniquely determined $a\in A^{p+1}$ with $f^{p+1}(a) = \dd^p_B(b)$ is a
+$p+1$-cycle. Finally it is postulated that $[a]\in H^{p+1}(A^*)$ is independent of the choice of $b\in (g^b)^{-1}(c)$.
+
+In order to prove these assertions it is convenient to write the given short exact
+sequence in a diagram:
+
+
+\begin{center}
+\tikzcdset{
+  arrow style=tikz,
+  % diagrams={>=Latex}
+}
+\begin{tikzcd}
+            & \arrow[d]                                               &   \arrow[d]                                               &   \arrow[d]                                       &   \\
+0\arrow[r]  & A^{p-1} \arrow[r, "f^{p-1}"] \arrow[d, "\dd^{p-1}_A"]   &   B^{p-1} \arrow[r, "g^{p-1}"] \arrow[d, "\dd^{p-1}_B"]   &   C^{p-1} \arrow[r] \arrow[d, "\dd^{p-1}_C"]      & 0 \\
+0\arrow[r]  & A^p \arrow[r, "f^p"] \arrow[d, "\dd^p_A"]               &   B^p \arrow[r, "g^p"] \arrow[d, "\dd^p_B"]               &   C^p \arrow[r] \arrow[d, "\dd^p_C"] \arrow[dll]  & 0 \\
+0\arrow[r]  & A^{p+1} \arrow[r, "f^{p+1}"] \arrow[d]                  &   B^{p+1} \arrow[r, "g^{p+1}"] \arrow[d]                  &   C^{p+1} \arrow[r] \arrow[d]                     & 0 \\
+\mbox{}     &  \mbox{}                                                &   \mbox{}                                                 &   \mbox{}                                          & \mbox{}  \\
+\end{tikzcd}
+\end{center}
+
+The slanted arrow indicates the definition of $\partial^*$. We shall now prove the necessary
+assertions which, when combined, make $\partial^*$ well-defined. Namely:
+\begin{enumerate}[(i)]
+  \item If $g^p(b) = c$  and $\dd^p_C(c) = 0$, then $\dd^p_B(b) \in f^{p+1}$.
+  \item If $f^{p+1}(a) = \dd^p_B(b)$, then $\dd^{p+1}_A(a) = 0$.
+  \item If $g^p(b_1)  g^p(b) = c$ and $f^{p+1}(a_i) = \dd^p_B(b_i)$, then $[a_1]=[a_2] \in H^{p+1}(A^*)$.
+\end{enumerate}
+
+
+
+The first assertion follows, because $g^{p+1}\dd^p_B(b) = \dd^p_C(c) = 0$, and $\ker g^{p+1} = \im f^{p+1}$;
+(ii) uses the injectivity of $f^{p+2}$ and that $f^{p+2}\dd^{p+1}_A(a) = \dd^{p+1}_Bf^{p+1}(a) = \dd^{p+1}_B\dd^p_B(b) = 0$;
+(iii) follows since $b_1-b_2 = f^p(a)$ so that $\dd^p_B(b_1) - \dd^p_B(b_2) = \dd^p_Bf^p(a) = f^{p+1}\dd^p_A(a)$, 
+and therefore $(f^{p+1})^{-1}(\!\dd^p_B(b_1)) = (f^{p+1})^{-1} (\!\dd^p_B(b_2)) + \dd^p_A(a)$.
+
+\begin{example}\label{exampl:4-6}
+  Here is a short exact sequence of chain complexes (the dots indicate
+  that the chain groups are zero) with $\partial^*\neq 0$:
+
+\begin{center}
+  \begin{tikzcd}
+    & \vdots\dar & \vdots\dar             & \vdots\dar  &     \\
+  0\rar & 0 \rar\dar & \RR\dar{\id}\rar{\id}  & \RR\dar\rar &  0  \\
+  0\rar & \RR\rar{\id}\dar & \RR\rar\dar & 0\rar\dar & 0  \\
+    & \vdots  & \vdots & \vdots  & 
+\end{tikzcd}
+\end{center}
+
+One can easily verify that $\partial^*:\RR\to\RR$ is an isomorphism.
+\end{example}
+
+
+\begin{lemma}\label{lemma:4-7}
+  The sequence $H^p(B^*)\xra[g^*] H^p(C^*)\xra[\partial^*]H^{p+1}(A^*)$ is exact.
+\end{lemma}
+
+\begin{proof}
+  We have $\partial^*g^*([b]) = \partial^*g^p([b]) = [(f^{p+1})^{-1} (\!\dd_B(b))] = 0$. Conversely assume 
+  that $\partial^*([c]) = 0$. Choose $b\in B^p$ with $g^p(b) = c$ and $a\in A^p$, such that 
+  \begin{align*}
+    \dd^p_B(b) = f^{p+1}(\!\dd^p_Aa).
+  \end{align*}
+
+  Now we have $\dd^p_B(b - f^p(a)) = 0$ and $g^p(b-f^p(a)) = c$. Hence $g^*[b-f^p(a)] = [c]$.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:4-8}
+  The sequence $H^p(C^*)\xra[\partial^*] H^{p+1}(A^*)\xra[f^*] H^{p+1}(B^*)$ is exact.
+\end{lemma}
+
+\begin{proof}
+  We have $f^*\partial^*([c]) = [\dd^p_B(b)] = 0$, where $g^p(b) = c$. Conversely assume that $f^*([a]) = 0$.
+i.e., $f^{p+1}(a) = \dd^p_B(b)$. Then $\dd^p_C(g^p(b)) = g^{p+1}f^{p+1}(a) = 0$, and $\partial^*[g^p(b)] = [a]$.
+\end{proof}
+
+We can sum up Lemmas \ref{lemma:4-4}, \ref{lemma:4-7} and \ref{lemma:4-8} in the important.
+
+
+\begin{theorem}[Long exact homology sequence]\label{theorem:4-9}
+Let $0\xra[]A^*\xra[f]B^*\xra[g]C^*\xra[]0$ be a short exact sequence of chain complexes. Then the sequence
+\begin{align*}
+  \cdots\xra[]H^p(A^*)\xra[f^*]H^p(B^*)\xra[g^*]H^p(C^*)\xra[\partial^*]H^{p+1}(A^*)\xra[f^*]H^{p+1}(B^*)\xra[] \cdots
+\end{align*}
+
+is exact.
+\end{theorem}
+
+
+\begin{definition}\label{definition:4-10}
+  Two chain maps $f, g:A^*\to B^*$ are said to be \Index{chain homotopic} if there exists a linear map
+$s:A^p\to B^{p-1}$ satisfying
+\begin{align*}
+  \dd_{B}s + s\dd_A = f - g: A^p\xra[]B^p
+\end{align*}
+
+for every $p$.
+\end{definition}
+
+In the form of a diagram, a chain homotopy is given by the slanted arrows.
+\begin{center}
+  \begin{tikzcd}
+    \cdots\rar & A^{p-1}\dar{f-g}\rar & A^p \dlar\dar{f-g}\rar & A^{p+1}\dlar\dar{f-g}\rar & A^{p+2}\dlar\dar\rar & \cdots \\
+    \cdots\rar & B^{p-1}\rar & B^p \rar & B^{p+1} \rar & B^{p+2} \rar & \cdots
+  \end{tikzcd}
+\end{center}
+
+
+The name \Index{chain homotopy} will be explained in Chapter 6.
+
+
+\begin{lemma}\label{lemma:4-11}
+  For two chain-homotopic chain maps $f,g:A^*\to B^*$ we have that
+  \begin{align*}
+    f^* = g^*: H^p(A^*)\xra[]H^p(B^*).
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  If $[a]\in H^p(A^*)$, then 
+  \begin{align*}
+    (f^* - g^*)[a] = [f^p(a) - g^p(a)] = [(\!\dd_B^{p-1}s(a) + s\dd^p_A(a)] 
+    = [\dd^{p-1}_Bs(a)] 
+    = 0.
+  \end{align*}
+\end{proof}
+
+
+\begin{remark}\label{remark:4-12}
+  In the proof of the Poincare lemma in Chapter 3 we constructed
+linear maps
+\begin{align*}
+  S^p: \Omega^p(U)\to\Omega^{p-1}(U)
+\end{align*}
+
+with $\dd^{p-1}S^p + S^{p+1}\dd^p = \id$ for $p>0$. Hence $\id=0$ on $H^p(U)$, and $H^p(U) = 0$
+when $p>0$.
+\end{remark}
+
+\begin{lemma}\label{lemma:4-13}
+  If $A^*$ and $B^*$ are chain complexes then 
+  \begin{align*}
+    H^p(A^*\otimes B^*) = H^p(A^*)\otimes H^p(B^*).
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  It is obvious that 
+  \begin{align*}
+    \ker(\!\dd^p_{A\otimes B}) & = \ker\dd^p_A\otimes \ker\dd^p_B \\
+    \im(\!\dd^{p-1}_{A\otimes B}) & = \im\dd^{p-1}_A\otimes \im\dd^{p-1}_B.
+  \end{align*}
+
+  and the lemma follows.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

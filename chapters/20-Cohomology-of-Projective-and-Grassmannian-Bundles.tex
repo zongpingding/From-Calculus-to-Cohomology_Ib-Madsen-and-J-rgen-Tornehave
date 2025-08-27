@@ -1,0 +1,705 @@
+\chapter[Cohomology of Projective and Grassmannian Bundles]{Cohomology of Projective and\\ Grassmannian Bundles}
+In this chapter we calculate the cohomology of the total space of certain smooth fiber bundles, 
+associated to vector bundles, as a module over the cohomology of the base manifold. 
+As corollaries we obtain the splitting principles for complex and oriented vector 
+bundles used in Chapters 18 and 19.
+
+Let $\pi:E\ra M$ be a smooth fiber bundle over $M$ with fiber $F$. There is a product
+\[
+  H^{i}( M)  \otimes  H^{j}( E)  \ra  H^{i + j}( E)
+\]
+given by the formula
+\begin{align}\label{eq:20-1}
+  a.e = {\pi }^*( a)  \land  e\;\text{ for }a \in  H^{i}( M),e \in  H^{j}( E).
+\end{align}
+
+Thus $H^*( E)$ becomes a (graded) module over the (graded) algebra $H^*( M)$. We shall examine 
+this module structure in the particular simple case where we suppose given classes ${e}_{\alpha } \in  H^{{n}_{\alpha }}( E)$ 
+for $\alpha \in  A$ with the property that for every $p \in  M$,
+\begin{align}\label{eq:20-2}
+  \left\{  {{i}_{p}^*( {e}_{\alpha })  \mid  \alpha  \in  A}\right\}  
+  \quad
+  \text{ is a basis for the vector space }H^*( {F}_{p}).
+\end{align}
+
+Here ${F}_{p} = {\pi }^{-1}( p)$ is the fiber over $p$ and ${i}_{p}$ is the inclusion of ${F}_{p}$ into $E$.
+
+\begin{theorem}\label{theorem:20-1}
+  In the above situation $H^*( E)$ is a free $H^*( M)$-module with basis $\left\{  {{e}_{\alpha } \mid  \alpha  \in  A}\right\}$.  
+\end{theorem}
+
+\begin{proof}
+  The proof follows the pattern used to prove Poincaré duality in Chapter 13. Let $\mathcal{V}$ be the cover 
+  consisting of open sets $V \subset  M$, such that $E$ is trivial over $V$. Let $\mathcal{U}$ be the 
+  cover of $M$ by open sets, so that the theorem is satisfied with $M$ replaced by $U \in  \mathcal{U}$ and $E$ 
+  replaced by ${\pi }^*( U)$. We must verify the conditions of Theorem \ref{theorem:13-9}. We leave conditions (i), (ii) 
+  and (iv) to the reader and prove condition (iii). So suppose
+  \[
+    U = {U}_{1} \cup  {U}_{2},\;{U}_{12} = {U}_{1} \cap  {U}_{2}
+  \]
+  and let ${E}_{1},{E}_{2}$ and $E_{12}$ denote the restriction of the bundle $E$ over ${U}_{1},{U}_{2}$ 
+  and ${U}_{12}$. The classes ${e}_{\alpha } \in  H^{{n}_{\alpha }}( E)$ restrict to classes which again 
+  satisfy condition \eqref{eq:20-2}, and we denote the restricted classes by the same letters. We suppose that the theorem 
+  is true for $H^*( {E}_{1}),H^*( {E}_{2}),H^*( E_{12})$, and want to conclude it is 
+  true for $H^*( {E}_{U})$. This employs the two Mayer-Vietoris sequences
+  \begin{align*}
+    & \cdots \overset{{J}^*}
+      { \ra  }H^{*- 1}( E_{12}) \overset{{\delta }^*}
+      { \ra  }H^*( E) \overset{{I}^*}
+      { \ra  }H^*( {E}_{1})  \oplus  H^*( {E}_{2}) \overset{{J}^*}
+      { \ra  }\cdots\\
+    & \cdots \overset{{J}^*}
+      { \ra  }H^{*- 1}( {U}_{12}) \overset{{\delta }^*}
+      { \ra  }H^*( U) \overset{{I}^*}
+      { \ra  }H^*( {U}_{1})  \oplus  H^*( {U}_{2}) \overset{{J}^*}
+      { \ra  }\cdots
+  \end{align*}
+  where we write $E$ instead of ${E}_{U}$. We must show that every element $e \in  H^*( E)$ has a unique 
+  representation of the form $e = \sum {m}_{\alpha }{e}_{\alpha }$ with ${m}_{\alpha } \in  H^*( U)$. 
+  We give the existence proof and leave uniqueness to the reader. By assumption we know that
+  \[
+    {i}_{\nu }^*( e)  = \sum {m}_{\alpha }^{( \nu ) } \cdot  {e}_{\alpha },\quad\nu  = 1,2
+  \]
+  where ${i}_{\nu } : {E}_{\nu } \ra  E$ is the inclusion. Since ${J}^*{I}^* = 0$,
+  \[
+    \sum {j}_{1}^*( {m}_{\alpha }^{( 1) }) {e}_{\alpha } 
+    = \sum {j}_{2}^*( {m}_{\alpha }^{( 2) }) {e}_{\alpha }
+  \]
+  in $H^*( E_{12})$, where ${j}_{\nu } : E_{12} \ra  {E}_{\nu }$ is the inclusion.
+
+  Uniqueness of representations for $H^*(E_{12})$ shows that ${j}_{1}^*( {m}_{\alpha }^{( 1) })= {j}_{2}^*( {m}_{\alpha }^{( 2) })$ 
+  for each $\alpha  \in  A$, and the Mayer-Vietoris sequence for the base spaces implies elements ${m}_{\alpha } \in  H^*( U)$ 
+  with ${I}^*( {m}_{\alpha })  = ( {{m}_{\alpha }^{( 1) },{m}_{\alpha }^{( 2) }})$, so that
+  \[
+    {I}^*( {e- \sum {m}_{\alpha }{e}_{\alpha }})  = 0.
+  \]
+
+  It thus suffices to argue that every element of $\R{Ker}{I}^* = \R{Im}{\delta }^*$ has 
+  a representation as asserted. This in turn is an easy consequence of the theorem for $H^*( E_{12})$ 
+  and the formula
+  \begin{align}\label{eq:20-3}
+    {\delta }^*( {m \cdot  {i}_{12}^*( e) })  = {\delta }^*( m)  \cdot  e,
+  \end{align}
+  valid for any $m \in  H^*( U)$ and $e \in  H^*( E)$, with ${i}_{12} : E_{12} \ra  E$ the inclusion. 
+  We leave the proof of \eqref{eq:20-3} as an exercise.
+\end{proof}
+
+We are now ready to prove the complex splitting principle, as stated in Theorem \ref{theorem:18-10}. 
+Let $\xi$ be a complex vector bundle over $M$ with ${\dim }_{\B{C}}\xi  = n + 1$. We form an associated 
+fiber bundle $P( \xi )$ over $M$ with total fiber space
+\[
+  E( {P( \xi ) })  = \left\{  {( {p,L})  \mid  p \in  M,L \in  P( {\xi_p}) }\right\} .
+\]
+
+Here $P( {\xi_p})$ denotes the projective space of complex lines in the vector space ${\xi_p}$. Projection 
+onto the first factor
+\[
+  \pi: E( {P( \xi ) })  \ra  M
+\]
+makes $P( \xi )$ into a fiber bundle over $M$. We leave the reader to show that $P( \xi )$ is a smooth manifold 
+and that $\pi$ is a proper smooth map. There is a complex line bundle $H( \xi )$ over $P( \xi )$ with total space
+\[
+  E( {H( \xi ) })  = \{ ( {p,L,v})  \mid  ( {p,L})  \in  P( \xi ),v \in  L\}.
+\]
+
+If $M$ consists of a single point then $P( \xi )$ is the complex projective $n$-space ${\CP^n}$ and $H( \xi )$ 
+is the canonical line bundle of Example \ref{example:15-2}. If more generally $\xi  = M \times  {\B{C}}^{n + 1}$ is the trivial 
+bundle then $P( \xi )  = M \times  {\CP^n}$ and $H( \xi )  = {\R{pr}}_{2}^*( H_{n})$. Let us give $\xi$ 
+an inner product. Then ${\pi }^*( \xi )$ has an inner product, and we can form the fiberwise orthogonal 
+complement $H{( \xi ) }^{ \bot  }$ of the subbundle $H( \xi )  \subset  {\pi }^*( \xi )$, i.e.
+\[
+  H{( \xi ) }^{ \bot  } = \left\{  {( {p,L,v})  \mid  ( {p,L})  \in  P( \xi ),v \in  {L}^{ \bot  }}\right\}
+\]
+where the orthogonal complement ${L}^{ \bot  }$ is calculated in the fiber ${\xi_p}$. 
+Clearly $L \oplus  {L}^{ \bot  } = {\xi_p} = {\pi }^*{( \xi ) }_{p}$. So that we have 
+an isomorphism of vector bundles
+\begin{align}\label{eq:20-4}
+  {\pi }^*( \xi )  = H( \xi )  \oplus  H{( \xi ) }^{ \bot  }
+\end{align}
+
+Let $e$ be the first Chern class of $H( \xi ),e = {c}_{1}( {H( \xi ) })$. We want to apply Theorem \ref{theorem:20-1} 
+to the classes
+\begin{align}\label{eq:20-5}
+  1,e,{e}^{2},\ldots,{e}^{n} \in  H^*( {P( \xi ) }).
+\end{align}
+
+Property \eqref{eq:20-2} is satisfied because the fiber of $\pi: P( \xi )  \ra  M$ over $p \in  M$ is the projective 
+space $P( {\xi_p})  = {\CP^n}$, and because the restriction of $H( \xi )$ to $P( {\xi_p})$ is the canonical 
+line bundle $H_{n}$ over ${\CP^n}$. Now ${i}_{p}^*( e)  = {c}_{1}( H_{n})  \neq  0$ and the powers ${e}^{i}$ 
+restrict by ${i}_{p}^*$ to ${c}_{1}{( H_{n}) }^{i}$ which are non-zero in $H^{2i}( {\CP^n})$, and hence a basis
+as long as $i \leq  n$, by Theorem \ref{theorem:14-3}.
+
+In the situation of Theorem \ref{theorem:20-1} one has in particular that ${\pi }^* : H^*( M)  \ra  H^*( E)$ is injective. 
+Indeed ${\pi }^*( m)  = {m.1}$, and 1 is an $\B{R}$-linear combination of basis elements ${e}_{\alpha }$. 
+We have proved:
+
+\begin{theorem}\label{theorem:20-2}
+  For any complex $n$-dimensional vector bundle $\xi$ over $M,H^*( {P( \xi ) })$ is a free $H^*(M)$-module with basis
+  \[
+    1,{c}_{1}( {H( \xi ) }),\ldots,{c}_{1}{( H( \xi ) ) }^{n- 1}.
+  \]
+  In particular, ${\pi }^* : H^*( M)  \ra  H^*( {P( \xi ) })$ is injective.
+\end{theorem}
+
+We may now prove the splitting principle for complex vector bundles.
+
+\begingroup
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:18-10}}} 
+\begin{proof}
+  Starting with $\xi$ over $M$ with ${\dim }_{\mathrm{C}}\xi  = n + 1$, we consider the composition
+  \[
+    P( {\xi }_{n- 1}) \overset{{\pi }_{n- 1}}
+    { \ra } \cdots  
+    { \ra }  P( {\xi }_{1}) \overset{{\pi }_{1}}
+    { \ra  }P( \xi ) \overset{{\pi }_{0}}
+    { \ra  }M
+  \]
+  where ${\xi }_{1} = H{( \xi ) }^{ \bot  }$ was defined above and where ${\xi }_{2},H( {\xi }_{1})$ are 
+  the corresponding bundles over $P( {\xi }_{1})$, i.e. ${\xi }_{2} \oplus  H( {\xi }_{1})  = {\pi }_{1}^*( {\xi }_{1})$ 
+  etc. Thus if we let $f = {\pi }_{0} \circ  \ldots  \circ  {\pi }_{n- 1}$, ${f}^*( \xi )$ is the sum of 
+  the pull-backs of the line bundles $H( {\xi }_{i})$ over $P( {\xi }_{i})$, and ${f}^* = {\pi }_{n- 1}^* \circ  \ldots  \circ  {\pi }_{0}^*$ 
+  is injective by Theorem \ref{theorem:20-2}.
+\end{proof}
+\endgroup
+
+The above discussion contains no statement about the class ${e}^{n + 1} = {c}_{1}{( H( \xi ) ) }^{n + 1}$ in $H^{{2n} + 2}( {P( \xi ) })$ 
+except of course that
+\[
+  {c}_{1}{( H( \xi ) ) }^{n + 1} 
+  = {\lambda }_{0}( \xi ) {\cdot 1} 
+    + {\lambda }_{1}( \xi )\cdot e 
+    + \cdots  
+    + {\lambda }_{n}( \xi )\cdot {e}^{n}
+\]
+for some uniquely determined classes
+\[
+  {\lambda }_{i}( \xi )  \in  H^{{2n} + 2- {2i}}( M).
+\]
+
+We assert that
+\begin{align}\label{eq:20-6}
+  {\lambda }_{i}( \xi )  = {(-1) }^{i + 1}{c}_{n + 1- i}( \xi ).
+\end{align}
+
+To see this we use that ${\pi }_{1}^*( \xi )  = H( \xi )  \oplus  {\xi }_{1}$ and the exponential 
+property of the total Chern class so that $c( {H( \xi ) }) c( {\xi }_{1})  = c( {{\pi }_{1}^*( \xi ) })$. 
+Hence
+\[
+  c( {\xi }_{1})  
+  = {\pi }^*( {c( \xi ) })  \land  c{( H( \xi ) ) }^{-1} 
+  = c( \xi )  \cdot  {( 1 + {c}_{1}( H( \xi ) ) ) }^{-1}.
+\]
+
+In $H^{{2n} + 2}( {P( \xi ) })$ we get the formula
+\[
+  {c}_{n + 1}( {\xi }_{1})  
+  = \mathop{\sum }\limits_{{i = 0}}^{{n + 1}}{(-1) }^{i}{c}_{n + 1- i}( \xi )  \cdot  {c}_{1}{( H( \xi ) ) }^{i}
+\]
+which is equivalent to \eqref{eq:20-6}, because ${\dim }_{\B{C}}{\xi }_{1} = n$ and thus ${c}_{n + 1}( {\xi }_{1})  = 0$.
+
+\begin{remark}\label{remark:20-3}
+  One can turn the above argument upside down and use \eqref{eq:20-6} to define the Chern classes, 
+  once ${c}_{1}( L)$ is defined for a line bundle. One then must show that the Chern classes 
+  so defined satisfy the two last conditions of Theorem \ref{theorem:18-10}. This treatment of Chern classes is 
+  due to A. Grothendieck. It is useful in numerous situations and gives for example Chern classes 
+  in singular cohomology, in $K$-theory and in \'etale cohomology.  
+\end{remark}
+
+The rest of this chapter is about the splitting principle for oriented real vector bundles. The construction 
+is similar in spirit to the case of complex bundles, but the details are somewhat harder. The projectivized 
+bundle $P( \xi )$ is replaced by the bundle $\widetilde{G}_{2}( \zeta )$ of fiberwise oriented 2-planes 
+in the oriented real vector bundle $\zeta$ over $M$, and the canonical line bundle $H( \xi )$ over $P( \xi )$ 
+is replaced by the oriented 2-plane bundle ${\gamma }_{2} = {\gamma }_{2}( \zeta )$ over $\widetilde{G}_{2}( \zeta )$ 
+whose fiber over an oriented plane in ${\zeta }_{p}$ is that plane itself. If $\zeta$ has an inner product 
+then ${\pi }^*( \zeta )  = {\gamma }_{2}( \zeta )  \oplus  {\gamma }_{2}{( \zeta ) }^{ \bot  }$ as oriented 
+bundles, so that the procedure may be iterated. The analogue of \eqref{eq:20-5} is a set of classes 
+in $H^*( {\widetilde{G}_{2}( \zeta ) })$, namely the classes
+\begin{align}\label{eq:20-7}
+  1, e( {\gamma }_{2}), e{( {\gamma }_{2}) }^{2}, 
+  \ldots, e{( {\gamma }_{2}) }^{{2n}- 2}, e( {\gamma }_{2}^{ \bot  })  
+  \in  H^*( {\widetilde{G}_{2}( \zeta ) })
+\end{align}
+where ${\gamma }_{2} = {\gamma }_{2}( \zeta ),{\dim }_{\RR}\zeta  = {2n}$ and where $e(-)$ is the 
+Euler class of the previous chapter. In order to apply Theorem \ref{theorem:20-1} we must show that the classes in \eqref{eq:20-7} 
+are a basis for $H^*( {\widetilde{G}_{2}( {\B{R}}^{2n}) })$. We now give the details, starting with a proper 
+definition of $\widetilde{G}_{2}( {\B{R}}^{2n})$ and then proceeding with the somewhat cumbersome calculation 
+of its cohomology.
+
+Let ${V}_{2}( {\RR^m})$ denote the set of orthonormal pairs $(x, y)$ of vectors in ${\RR^m}$. We 
+view $x \in  {S}^{m- 1}$ and $y$ as a unit tangent vector in ${T}_{x}{S}^{m- 1}$. Thus ${V}_{2}( {\RR^m})$ 
+becomes the unit vectors in the tangent bundle $T{S}^{m- 1}$. It is a smooth submanifold of ${\B{R}}^{2m}$ 
+via the embedding
+\[
+  {V}_{2}( {\RR^m})  \subset  T{S}^{m- 1} \subset  T( {\RR^m})  = {\B{R}}^{2m}.
+\]
+
+It is better for our own purpose however to consider the embedding
+\begin{align}\label{eq:20-8}
+  \varphi: {V}_{2}( {\RR^m})  \ra  {S}^{{2m}- 1} \subset  {\B{C}}^{m},\quad
+  \varphi ( {x,y})  = \frac{1}{\sqrt{2}}( {x- {iy}}).
+\end{align}
+
+The manifold ${V}_{2}( {\RR^m})$ is called the \Index{Stiefel manifold} of (orthogonal) 2-frames 
+in ${\RR^m}$ ; it is evidently compact. The group ${SO}(2)$ of rotation matrices
+\[
+  {R}_{\theta } = \begin{pmatrix} 
+    \cos \theta & -\sin \theta \\  
+    \sin \theta & \cos \theta  
+  \end{pmatrix}
+\]
+acts (smoothly) on ${V}_{2}( {\RR^m})$ by
+\[
+  (x, y).R_\theta = ( 
+      ( {\cos \theta }) x + ( {\sin \theta }) y,
+    - ( {\sin \theta }) x + ( {\cos \theta }) y
+  ).
+\]
+
+The orbit space $V_2(\RR^m)/{SO}(2)$ is identified with the space $\widetilde{G}_2(\RR^m)$ 
+of oriented 2-dimensional linear subspaces of ${\RR^m}$ by associating to $( {x,y})  \in  {V}_{2}( {\RR^m})$ 
+the subspace they span, oriented so as to make $(x, y)$ a positively oriented orthonormal basis. We leave it to the 
+reader as an exercise to specify a smooth manifold structure on $\widetilde{G}_{2}( {\RR^m})$. The resulting 
+manifold is the \Index{Grassmann manifold} of oriented 2-dimensional subspaces of $\RR^m$.
+
+It is clear from \eqref{eq:20-8} that
+\[
+  \varphi ( {( {x,y}) {R}_{\theta }})  
+  = ( {\cos \theta  + i\sin \theta }) \varphi ( {x,y})
+\]
+so when we identify ${S}^{1} \subset  \B{C}$ with ${SO}( 2)$, the action of ${SO}( 2)$ on ${V}_{2}( {\RR^m})$ 
+and the action of ${S}^{1}$ on ${S}^{{2m}- 1}$ correspond under $\varphi$. This gives a commutative diagram \eqref{eq:20-9}
+\begin{equation}\label{eq:20-9}
+  \begin{tikzcd}
+    V_2(\RR^m)\dar{\pi_0}\rar{\varphi} & S^{2m-1}\dar{\pi_1}\rar{} & \CC^m-\{0\}\dar{\pi}\\
+    \widetilde{G}_2(\RR^m)\rar{\tilde{\varphi}} & \CP^{m-1}\rar{\text{id}} & \CP^{m-1}
+  \end{tikzcd}
+\end{equation}
+where ${\pi }_{0}( {x,y})  = {\R{span}}_{\RR}( {x,y})$ and ${\pi }_{1}$ is the restriction of 
+the canonical map
+\[
+  \pi: {\B{C}}^{m}- \{ 0\}  \ra  {\CP}^{m- 1}
+\]
+
+If we use homogeneous coordinates on ${\CP}^{m- 1}$ then
+\begin{align}\label{eq:20-10}
+  \widetilde{\varphi }( {{\pi }_{0}( {x,y}) })  = [  {x- {iy}}].
+\end{align}
+
+It is not difficult to see that $\widetilde{\varphi }$ is injective and that its image is a smooth 
+submanifold of ${\CP}^{m- 1}$ of (real) dimension ${2m}- 4$ ; cf. Exercise \ref{exercise:20-3}. We note that ${\pi }_{0}$ 
+is a fiber bundle; cf. Example \ref{example:15-2}. Complex conjugation on the homogeneous coordinates for ${\CP}^{m-1}$ 
+is an involution, whose fixed set is the real projective space ${\CP}^{m- 1}$, all of whose homogeneous 
+coordinates are real. Since in \eqref{eq:20-10}, $x$ and $y$ are linearly independent, $\widetilde{\varphi }( {{\pi }_{0}( {x,y}) })$ 
+is never fixed under conjugation, so
+\begin{align}\label{eq:20-11}
+  \widetilde{\varphi } : \widetilde{G}_{2}( {\RR^m})  \ra  {\CP}^{m- 1}- \B{RP}^{m- 1} = {W}_{m}.
+\end{align}
+
+We show below that this map is a homotopy equivalence, so that
+\[
+  H^*( {\widetilde{G}_{2}( {\RR^m}) })  \cong  H^*( {{\CP}^{m- 1}- \B{RP}^{m- 1}}),
+\]
+and use this to calculate $H^*( {\widetilde{G}_{2}( {\RR^m}) })$.
+
+We begin with a discussion of the group $\R{GL}_{2}^{ + }( \B{R})$ of real $2 \times  2$ matrices with positive 
+determinant. The action of the multiplicative group ${\B{C}}^*$ on $\B{C} = {\B{R}}^{2}$ by complex multiplication 
+identifies ${\B{C}}^*$ with a subgroup of $\R{GL}_{2}^{ + }( \B{R})$, where $a + {ib} \in  {\B{C}}^*$ corresponds to
+\begin{align}\label{eq:20-12}
+  \begin{pmatrix} 
+    a & - b \\  
+    b & a 
+  \end{pmatrix} 
+  \in  \R{GL}_{2}^{ + }( \B{R})
+\end{align}
+
+Let $Q \subset  \R{GL}_{2}^{ + }( \B{R})$ be the subset of positive definite symmetric matrices with 
+determinant 1. The subgroup ${SO}( 2)  \subset  {\R{GL}_2^+}( \B{R})$ acts on $Q$ by conjugation.
+
+
+\begin{lemma}\label{lemma:20-4}
+  The map
+  \[
+    \psi: Q \times  {\B{C}}^* \ra  {\R{GL}_2^+}( \B{R}) ;\;( {A,a + {ib}}) 
+    \mapsto  A\cdot\begin{pmatrix} a & - b \\  b & a \end{pmatrix}
+  \]
+  is a homeomorphism
+\end{lemma}
+
+\begin{proof}
+  Let $B \in  {\R{GL}_2^+}( \B{R})$ with transpose ${B}^*$. Then $B{B}^*$ is positive definite, 
+  and by the spectral theorem it has a unique square root ${( B{B}^*) }^{1/2}$ which commutes with $B{B}^*$. 
+  This gives the polar decomposition
+  \[
+    B = {( B{B}^*) }^{1/2} \cdot  R,\;R = {( B{B}^*) }^{-1/2} \cdot  B,
+  \]
+  and $R{R}^* = I$, so $R = {R}_{\theta } \in  {SO}( 2)$. For $d = \det B = \det {( B{B}^*) }^{1/2}$
+  and $A =$  ${d}^{-1}{( B{B}^*) }^{1/2} \in  Q$, we obtain $B = \psi ( {A,d{e}^{i\theta }})$. The polar 
+  decomposition is unique. Indeed if ${B}_{1}{R}_{1} = {B}_{2}{R}_{2}$ with ${B}_{i}$ symmetric 
+  and ${R}_{i} \in  {SO}( 2)$ then ${B}_{1}^{2} = {B}_{2}^{2}$, and square roots are unique. Hence $\psi$ 
+  is a bijection. Its inverse is continuous, since $A,d$ and $R$ depend continuously on $B$.
+\end{proof}
+
+
+For symmetric, positive definite matrices one can form powers ${A}^{t}$ for any $t \in  \B{R}$, and we have
+
+\begin{lemma}\label{lemma:20-5}
+  The space $Q$ is contractible by the homotopy
+  \[
+    F:Q \times [0, 1] \ra Q;\;F( {A,t})  = {A}^{t}.
+  \]
+\end{lemma}
+
+\begin{proof}
+  This is again a consequence of the spectral decomposition. A matrix $A \in  Q$ has positive 
+  eigenvalues $\lambda,{\lambda }^{-1}$ with say $\lambda  \geq  1$. Then $\lambda$ depends 
+  continuously on $A$. The case $\lambda  = 1$ occurs only for the identity matrix $I$. If $A \neq  I$ 
+  we can write
+  \[
+    A = {\lambda P} + {\lambda }^{-1}( {I- P})  = {\lambda }^{-1}I + ( {\lambda - {\lambda }^{-1}}) P,
+  \]
+  where $P$ is the orthogonal projection on the (1-dimensional) $\lambda$-eigenspace of $A$. Here $P$ depends 
+  continuously on $A \in  Q- \{ I\}$. We define $F$ on $( {Q-\{ I\} })  \times  [  {0,1}]$ by
+  \[
+    F( {A,t})  = {\lambda }^{t}P + {\lambda }^{-t}( {I- P})  = {\lambda }^{-t}I + ( {{\lambda }^{t}- {\lambda }^{-t}}) P.
+  \]
+  
+  Observing that each matrix entry in $( {{\lambda }^{t}- {\lambda }^{-t}}) P$ has numerical value 
+  at most $\lambda - {\lambda}^{-1}$, we see that $F$ extends continuously to $Q \times [0,1]$ 
+  by $F( {I,t})  = I$.
+\end{proof}
+
+
+\begin{proposition}\label{proposition:20-6}
+  The map
+  \[
+    \widetilde{\varphi } : \widetilde{G}_{2}( {\RR^m})  \ra  {\CP}^{m- 1}- \B{RP}^{m- 1}
+  \]
+  from \eqref{eq:20-11} is a homotopy equivalence.
+\end{proposition}
+
+\begin{proof}
+  We write ${W}_{m} = {\CP}^{m- 1}- \B{RP}^{m- 1}$, and consider the smooth map (cf. \eqref{eq:20-11})
+  \begin{align*}
+    \Phi  : {V}_{2}( {\RR^m})  \times  {\R{GL}_2^+}( \B{R})  \ra  {\pi }^{-1}( {W}_{m})\\
+    \Phi \left(x, y, \begin{pmatrix} a & c \\  b & a \end{pmatrix}\right) = ( {{ax} + {by}}) - i( {{cx} + {dy}}).
+  \end{align*}
+  
+  A point in ${\pi }^{-1}( {W}_{m})$ has the form $z = v- {iw}$, where $v$ and $w$ are linearly independent 
+  vectors in ${\RR^m}$. The fiber ${\Phi }^{-1}( z)$ is in 1-1 correspondence with the orthonormal 
+  bases $(x, y)$ of ${\R{span}}_{\RR}( {v,w})$ which determine the same orientation as $(v, w)$. There is a 
+  global smooth section $S$ of $\Phi$, constructed using the Gram-Schmidt orthonormalization process. 
+  The fibers of $\Phi$ are the orbits of the ${SO}( 2)$-action,
+  \[
+    (x, y, B)  \cdot  {R}_{\theta} = ( {( {x,y})  \cdot  {R}_{\theta },{R}_{\theta }^{-1}B}),
+  \]
+  so $\Phi$ induces a bijection from the set of orbits
+  \[
+    {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }{\R{GL}_2^+}( \B{R})  \ra  {\pi }^{-1}( {W}_{m}).
+  \]
+  
+  This bijection commutes with the ${\B{C}}^*$-actions, if we let ${\B{C}}^*$ act on the domain 
+  by right multiplication in ${\R{GL}_2^+}( \B{R})$ and on ${\pi }^{-1}( {W}_{m})  \subset  {\B{C}}^{m}$ 
+  by scalar multiplication. 
+  
+  This gives a commutative diagram where the horizontal maps are bijections
+  \[\begin{tikzcd}
+    V_2(\RR^m)\times_{SO(2)}\R{GL}_2^+(\RR)\dar{}\rar{} & \pi^{-1}(W_m)\dar{}\\
+    (V_2(\RR^m))\times_{SO(2)}\R{GL}_2^+(\RR)/\CC^*\rar{} & W_m
+  \end{tikzcd}\]
+
+  Lemma \ref{lemma:20-4} gives a bijection $Q \cong  {\R{GL}_2^+}( \B{R}) /{\B{C}}^*$, so we may identify 
+  the lower left-hand corner of the diagram with the quotient space
+  \[
+    X = {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }Q
+  \]  
+  for the ${SO}( 2)$-action on ${V}_{2}( {\RR^m})  \times  Q$ defined by
+  \[
+    ( {x,y,A})\cdot{R}_{\theta } = ( {( {x,y})\cdot{R}_{\theta },{R}_{\theta }^{-1}A{R}_{\theta }}).
+  \]
+  
+  Altogether we obtain a bijection $\Phi  : X \ra  {W}_{m}$ given by
+  \begin{align}\label{eq:20-13}
+    \widetilde{\Phi}\left(\left[(x, y), \begin{pmatrix}\alpha & \beta\\ \beta & \gamma\end{pmatrix}\right] \right)  
+    = [ (\alpha x + \beta y) - i(\beta x + \gamma y)] .
+  \end{align}
+  
+  Evidently $\widetilde{\Phi }$ is continuous in the quotient topology on $X$, in fact it is a homeomorphism. 
+  In a neighborhood $V$ of any given point in ${W}_{m}$ the inverse ${\widetilde{\Phi }}^{-1}$ can be 
+  written as the composition
+  \[
+    V\overset{s}
+    { \ra  }{\pi }^{-1}( {W}_{m}) \overset{S}
+    { \ra  }{V}_{2}( {\RR^m})  \times  {\R{GL}_2^+}( \B{R}) 
+    \overset{\mathrm{{id}} \times  {\psi }^{-1}}
+    { \ra  }{V}_{2}( {\RR^m})  \times  Q \times  {\B{C}}^*
+    \overset{\rho\circ \text{pr}}
+    { \ra  }X
+  \]
+  where $s$ is a local section given by Lemma \ref{lemma:14-4}, $S$ the global section of $\Phi$ mentioned above, 
+  and ${\psi }^{-1}$ given by Lemma \ref{lemma:20-4}. Each map in the sequence is continuous, so ${\widetilde{\Phi }}^{-1}$ 
+  is continuous. As a byproduct we find that the canonical map $\rho  : {V}_{2}( {\RR^m})  \times  Q \ra  X$ 
+  has continuous local sections defined on open sets covering $X$.
+  
+  The conjugation action of ${SO}( 2)$ on $Q$ fixes the identity matrix $I \in  Q$, so one has the subspace
+  \begin{align}\label{eq:20-14}
+    \widetilde{G}_{2}( {\RR^m}) 
+    \xla[\pi_0](\simee)
+    {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }\{ I\}  
+    \subset  X
+  \end{align}
+  (cf. \eqref{eq:20-9}). Comparing \eqref{eq:20-10} and \eqref{eq:20-13}, we see that $\widetilde{\Phi } \circ  {\pi }_{0}^{-1}$ 
+  is precisely equal to $\widetilde{\varphi }$. It remains to be shown that the inclusion map ${i}_{0}$ in \eqref{eq:20-14} is 
+  a homotopy equivalence. There is an obvious retraction induced by the constant map $Q \ra  \{ I\}$
+  \[
+    r: X \ra  {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }\{ I\}  \subseteq  X.
+  \]
+  
+  Finally the required homotopy $H : X \times  [  {0,1}]   \ra  X$ between ${i}_{0} \circ  r$ and ${\R{id}}_{X}$ is induced by
+  \[
+    {\R{id}}_{{V}_{2}( {\RR}^{m}) } \times  F\colon {V}_{2}( {\RR}^{m})  \times  Q \times  [  {0,1}]   \ra  {V}_{2}( {\RR}^{m})  \times  Q,
+  \]
+  where $F$ is defined in Lemma \ref{lemma:20-5}. Observe that $H$ is well-defined 
+  because $F( {{R}_{\theta }^{-1}A{R}_{\theta },t}) = {R}_{\theta }^{-1}F( {A,t}) {R}_{\theta }$. 
+  Continuity of $H$ can be shown with use of local sections of $\rho$.
+\end{proof}
+
+
+\begin{remark}\label{remark:20-7}
+  We can offer the following more conceptual explanation of the construction in the previous proof. 
+  Consider the set ${G}_{2}^{\B{C}}( {\RR^m})$ of pairs $(V, J)$ where $V \subseteq  {\RR^m}$ is a 2-dimensional 
+  real oriented linear subspace and $J$ a complex structure on $V$ compatible with the orientation, i.e. 
+  an $\B{R}$-linear map $J:V \ra V$ with ${J}^{2} = - \mathrm{{id}}$ and such that $(x, Jx)$ for $x \in  V,x \neq  0$ 
+  is a positively oriented basis for $V$. One forms the complexifications ${V}_{\B{C}} = V\,{ \otimes  }_{\B{R}}\,\B{C} 
+  \subset  {\B{C}}^{m}$ and ${J}_{\B{C}} = J\,{ \otimes  }_{\B{R}}\,{\R{id}}_{\B{C}} : {V}_{\B{C}} \ra  {V}_{\B{C}}$. 
+  Then ${V}_{\B{C}} = {V}_{ + } \oplus  {V}_{- }$, where ${V}_{ \pm  }$ are the $( {\pm i})$- eigenspaces of ${J}_{\B{C}}$. 
+  These are 1-dimensional over $\B{C}$. In fact for $x \in  V- \{ 0\}$,
+  \[
+    {V}_{ + } = {\R{span}}_{\B{C}}( {x- {iJx}}),\;{V}_{- } = {\R{span}}_{\B{C}}( {x + {iJx}})
+  \]
+  
+  The pair $(V, J)$ may be recovered from ${V}_{ + }$ since ${V}_{- }$ is complex conjugate to $V_+$, $V= (V_+-V_{-})\cap \RR^m$ 
+  and since $J$ is the restriction of the $\B{C}$-linear endomorphism of ${V}_{ + } \oplus  {V}_{- }$ which acts on ${V}_{ \pm  }$ 
+  by multiplication with $\pm  i$. This gives an identification of ${G}_{2}^{\B{C}}( {\RR^m})$ with ${W}_{m}$ in which $(V, J)$ 
+  corresponds to ${V}_{ + }$ considered as a point in ${W}_{m}\subseteq {\CP}^{m-1}$.
+  
+  The space $Q \cong  {\R{GL}_2^+}( \B{R}) /{\B{C}}^*$ parametrizes the complex structures on ${\B{R}}^{2}$ 
+  compatible with the standard orientation (cf. Exercise \ref{exercise:20-5}) so $X = {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }Q$ is 
+  another model for ${G}_{2}^{\mathrm{C}}( {\RR^m})$. The homeomorphism $\widetilde{\Phi }$ in \eqref{eq:20-13} is the natural 
+  identification of the two models.
+  
+  Each $V \in  \widetilde{G}_{2}( {\RR^m})$ has a canonical complex structure ${J}_{0}$ such that any unit 
+  vector $x \in  V$ leads to a positively oriented orthonormal basis $( {x,{J}_{0}x})$ for $V$. The 
+  inclusion $\widetilde{G}_{2}( {\RR^m})  \ra  {G}_{2}^{\B{C}}( {\RR^m})$, which sends $V$ to $( {V,{J}_{0}})$, 
+  corresponds exactly to the embedding $\widetilde{\varphi }$ in \eqref{eq:20-10}.
+\end{remark}
+
+
+We shall now use Proposition \ref{proposition:20-6} to calculate the cohomology of $\widetilde{G}_{2}( {\RR^m})$. 
+First we apply Poin’caré duality to evaluate $H^*( {W}_{m})$. Consider the inclusions
+\[
+  i : {W}_{m} \ra  {\CP}^{m- 1},\;j : \B{RP}^{m- 1} \ra \B{CP}^{m- 1}.
+\]
+
+When $m = 2,{S}^{2}\overset{ \cong  }{ \ra  }{\CP}^{1}$ by Example \ref{example:14-1}, and $\B{RP}^{1} \subset  {\CP}^{1}$ 
+becomes identified with a great circle in ${S}^{2}$ so that ${W}_{2}$ becomes the disjoint union of two open 
+hemispheres in ${S}^{2}$.
+
+\begin{lemma}\label{lemma:20-8}
+  The map ${i}_{ * }\!: H_{c}^{q}( {W}_{m})  \ra  H^{q}( {\CP}^{m- 1})$ is an isomorphism except in 
+  possibly two cases: for $q = 0$, and, if $m$ is even, for $q = m$. In fact $H_{c}^{0}( {W}_{m})  = 0$, 
+  and for $m$ even there is a short exact sequence
+  \[
+    0 \ra  \B{R} \ra  H_{c}^{m}( {W}_{m}) \overset{{i}_{ * }}{ \ra  }H^{m}( {\CP}^{m- 1})  \ra  0.
+  \]
+\end{lemma}
+
+\begin{proof}
+  The exact sequence of Proposition \ref{proposition:13-11} for the pair $( {{\CP}^{m- 1}, \B{RP}^{m- 1}})$ takes the form
+  \[
+    \cdots \overset{{j}^*}
+    { \ra  }H^{q- 1}( \B{RP}^{m- 1}) 
+    \overset{\delta }{ \ra  }
+    H_{c}^{q}( {W}_{m}) 
+    \overset{{i}_{ * }}{ \ra  }
+    H^{q}( {\CP}^{m- 1}) 
+    \overset{j * }{ \ra  }H^{q}( \B{RP}^{m- 1}) 
+    \overset{\delta }{ \ra  }
+    \cdots
+  \]
+  
+  The terms involving $\B{RP}^{m-1}$ and ${\CP}^{m- 1}$ have been calculated in Example \ref{example:9-31} and Theorem \ref{theorem:14-2}, 
+  respectively. Note that $H^{0}({\CP}^{m- 1})\cong\B{R}$ maps isomorphically to $H^{0}( \B{RP}^{m- 1})\cong\B{R}$ 
+  under ${j}^*$, whereas ${j}^* = 0$ in other degrees.
+\end{proof}
+
+\begin{proposition}\label{proposition:20-9}
+  The cohomology $H^{{2p}- 1}( {W}_{m})  = 0$ for all $p$, and
+  \[
+    H^{2p}( {W}_{m})  \cong  
+    \left\{\!\!\begin{array}{ll} 
+      {\B{R}}^{2} & \text{ if }{2p} = m- 2 \\  
+      \B{R} & \text{ if }{2p} \neq  m- 2\text{ and }0 \leq  {2p} \leq  {2m}- 4 \\ 
+      0 & \text{ if }{2p} \geq  {2m}- 2. 
+    \end{array}\right.
+  \]
+  
+  Moreover $H^{q}( i)  : H^{q}( {\CP}^{m- 1})  \ra  H^{q}( {W}_{m})$ is a monomorphism if $q \neq  {2m}- 2$, and 
+  is zero if $q = {2m}- 2$.
+\end{proposition}
+
+\begin{proof}
+  We apply Poincaré duality to the oriented $(2m- 2)$-dimensional manifold ${\CP}^{m- 1}$ and to ${W}_{m}$. 
+  Lemma \ref{lemma:13-6} gives a commutative diagram
+  \[\begin{tikzcd}
+    H^p(\CP^{m-1})\dar{\simee}\rar{H^p(i)} & H^p(W_m)\dar{\simee}\\
+    H_{c}^{2m-2-p}(\CP^{m-1})\rar{i^!} & H_{c}^{2m-2-p}(W_m)^*
+  \end{tikzcd}\]
+  
+  The previous lemma implies that $H^{p}( i)$ is an isomorphism except if $p = {2m}- 2$, or 
+  if $p = m- 2$ and $m$ is even, because ${i}^{!}$ is the vector space dual of ${i}_{ * }$. 
+  In the first case
+  \[
+    H^{{2m}- 2}( {W}_{m})  \cong  H_{c}^{0}{( {W}_{m}) }^* = 0
+  \]
+  but $H^{{2m}- 2}( {\CP}^{m- 1})  \cong  \B{R}$. In the second case, the exact sequence of Lemma \ref{lemma:20-8} 
+  dualizes to the exact sequence
+  \[
+    0 \ra  H^{m- 2}( {\CP}^{m- 1}) \overset{H^{m- 2}( i) }{ \ra  }H^{m- 2}( {W}_{m})  \ra  \B{R} \ra  0,
+  \]
+  and the proposition follows from Theorem \ref{theorem:14-2}.
+\end{proof}
+
+We have the two canonical bundles ${\gamma }_{2}$ and ${\gamma }_{2}^{ \bot  }$ over $\widetilde{G}_{2}( {\RR^m})$ 
+with total spaces
+\begin{align*}
+  E( {\gamma }_{2}) & = \left\{  {( {V,v})  \in  \widetilde{G}_{2}( {\RR^m})  \times  {\RR^m} \mid  v \in  V}\right\}\\
+  E( {\gamma }_{2}^{ \bot  }) & = \left\{  {( {V,v})  \in  \widetilde{G}_{2}( {\RR^m})  \times  {\RR^m} \mid  v \in  {V}^{ \bot  }}\right\}  
+\end{align*}
+and with ${\gamma }_{2} \oplus  {\gamma }_{2}^{ \bot  } = {\varepsilon }^{m}$. Alternatively $E( {\gamma }_{2})  = {V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }{\B{R}}^{2}$, 
+the orbit space of the ${SO}( 2)$-action given by $( {x,y,v}) {R}_{\theta } = ( {( {x,y}) {R}_{\theta },{R}_{\theta }^{-1}v})$. 
+The embedding of ${V}_{2}( {\RR^m}) { \times  }_{{SO}( 2) }{\B{R}}^{2}$ into $\widetilde{G}_{2}( {\RR^m})  \times  {\RR^m}$ 
+sends $[  {x,y,v}]$ into $( {{\pi }_{0}( {x,y}),x{v}_{1} + y{v}_{2}})$ where $v = ( {{v}_{1},{v}_{2}})$.
+
+There is a bundle map over $\widetilde{\varphi }$ from ${\gamma }_{2}$ to the underlying real bundle $H_{\mathrm{R}}$ of 
+the canonical line bundle over ${\CP}^{m- 1}$,
+\[\begin{tikzcd}
+  V_2(\RR^m)\times_{SO(2)}\RR^2\rar{\varphi\times\id}\dar{} & S^{2m-1}\times_{S^1}\CC\dar{}\\
+  \widetilde{G}_2(\RR^m)\rar{\tilde{\varphi}} & \CP^{m-1}
+\end{tikzcd}\]
+
+Since ${c}_{1}( H)  = e( H_{\RR})$ by Theorem \ref{theorem:19-6}.(ii), naturality of the Euler class 
+gives $e( {\gamma }_{2})  = {\widetilde{\varphi }}^*( {{c}_{1}( H) })$
+
+Let $c \in  H^{2}( {\widetilde{G}_{2}( {\RR^m}) })$ be the Euler class of ${\gamma }_{2},c = e( {\gamma }_{2})$. 
+If $m$ is even, we let $e = e(\gamma_{2}^\bot)$ be the Euler class in $H^{m-2}(\widetilde{G}_{2}(\RR^m))$.
+
+\begin{theorem}\label{theorem:20-10}
+  With the notation above
+  \begin{enumerate}
+    \item For $m$ odd and $m \geq  3,H^*( {\widetilde{G}_{2}( {\RR^m}) })  = \B{R}[  c]  /( {c}^{m- 1})$
+    \item For $m$ even and $m \geq  4$,
+      \[
+        H^*( {\widetilde{G}_{2}( {\RR^m}) })  = \B{R}[  {c,e}]  /( {{c}^{m- 1},{ce},{e}^{2} + {(-1) }^{m/2}{c}^{m- 2}})
+      \]
+      with $\deg c = 2$ and $\deg e= m-2$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  We already know the additive structure by Propositions \ref{proposition:20-6} and \ref{proposition:20-9}, 
+  and also that
+  \[
+    H^*( \widetilde{\varphi })  : H^*( {\CP}^{m- 1})  \ra  H^*( {\widetilde{G}_{2}( {\RR^m}) })
+  \]
+  has kernel $H^{{2m}- 2}( {\CP}^{m- 1})$ and is onto for odd $m$. Since
+  \[
+    H^*( {\CP}^{m- 1})  = \RR[  {{c}_{1}( H) }]  /( {{c}_{1}{( H) }^{m}})
+  \]
+  and $c = H^*( \widetilde{\varphi }) ( {{c}_{1}( H) })$, this proves (i).
+  
+  Suppose now $m = {2n} \geq  4$. We first establish the relations:
+  \begin{align}\label{eq:20-15}
+    {c}^{m- 1} = 0,\;{ce} = 0,\;{e}^{2} + {(-1) }^{n}{c}^{m- 2} = 0.
+  \end{align}
+  
+  Indeed, the first one follows from Proposition \ref{proposition:20-9}, since $c$ and hence any power of $c$ is in the image of
+  \[
+    H^*( {\CP}^{m- 1}) 
+    \overset{H^*( i) }{ \ra  }
+    H^*( {W}_{m}) 
+    \overset{H^*( \widetilde{\varphi }) }{ \ra  }
+    H^*( {\widetilde{G}_{2}( {\RR}^{m}) }).
+  \]
+  
+  The second relation is a consequence of Theorem \ref{theorem:19-6}.(ii),
+  \[
+    {ec} 
+    = e( {\gamma }_{2}) e( {\gamma }_{2}^{ \bot  })  
+    = e( {{\gamma }_{2} \oplus  {\gamma }_{2}^{ \bot  }})  
+    = e( {\varepsilon }^{m})  
+    = 0.
+  \]
+  
+  For the third relation we use that the total Pontryagin class is exponential (cf. (18.\ref{eq:18-14})) so that
+  \[
+    ( {1 + {p}_{1}( {\gamma }_{2}) }) 
+    ( 
+      {1 + {p}_{1}( {\gamma }_{2}^{ \bot  })  
+      + \ldots  + {p}_{n- 1}( {\gamma }_{2}^{ \bot  }) }
+    ) = 1
+  \]
+  and hence ${p}_{j}( {\gamma }_{2}^{ \bot  })  = {(-1) }^{j}{p}_{1}{( {\gamma }_{2}) }^{j}$ for $j \leq  n- 1$. 
+  Moreover by Proposition \ref{proposition:19-9}
+  \[
+    {e}^{2} 
+    = e{( {\gamma }_{2}^{ \bot  }) }^{2} 
+    = {p}_{n- 1}( {\gamma }_{2}^{ \bot  })  
+    = {(-1) }^{n- 1}{p}_{1}{( {\gamma }_{2}) }^{n- 1}.
+  \]
+  
+  Since ${\gamma }_{2} = {\widetilde{\phi }}^*( H_{\RR})$ and $H_{\RR\CC} = H \oplus  H^*$,
+  \[
+    {p}_{1}( {\gamma }_{2})  
+    = - {\widetilde{\phi }}^*( {{c}_{2}( {H \oplus  H^*}) })  
+    = {\widetilde{\phi }}^*( {{c}_{1}{( H) }^{2}})  
+    = {c}^{2}
+  \]
+  so ${e}^{2} = {(-1) }^{n- 1}{c}^{m- 2}$, which is the last equation of \eqref{eq:20-15}. From Proposition \ref{proposition:20-9} 
+  and the non-triviality of ${c}_{1}{( H) }^{m- 2}$ we know that ${c}^{m- 2} \neq  0$, so by \eqref{eq:20-15} also 
+  that $e \neq  0$. The vector space $H^{m- 2}( {\widetilde{G}_{2}( {\RR^m}) })$ is 2-dimensional, 
+  and ${c}^{n- 1} = {\lambda e},\lambda  \in  \RR- \{ 0\}$ gives ${c}^{n} = {\lambda ec} = 0$, which contradicts 
+  that $m-$  $2 \geq  n$ and ${c}^{m- 2} \neq  0$. We have proved that the set $\left\{  {1,c,\ldots,{c}^{m- 2},e}\right\}$ 
+  is a vector space basis for $H^*( {\widetilde{G}_{2}( {\RR^m}) })$, but this is also a basis for the 
+  ring $\B{R}[  {c,e}]  /( {{c}^{m- 1},{ce},{e}^{2} + {(-1) }^{n}{c}^{m- 2}}).$
+\end{proof}
+
+
+Let $\zeta$ be a smooth $m$-dimensional oriented real vector bundle over $M$, and suppose $\zeta$ has an 
+inner product. Consider the associated smooth fiber bundle $\widetilde{G}_{2}( \zeta )$ over $M$ with total space
+\[
+  E( {\widetilde{G}_{2}( \zeta ) })  = \left\{  {( {p,V})  \mid  p \in  M,V \in  \widetilde{G}_{2}( {\zeta }_{p}) }\right\}
+\]
+and with $\pi  : \widetilde{G}_{2}( \zeta )  \ra  M$ being the projection onto the first factor. There are 
+two oriented vector bundles over $\widetilde{G}_{2}( \zeta )$ with total spaces
+\begin{align*}
+  E( {{\gamma }_{2}( \zeta ) })  
+    & = \left\{  {( {p,V,v})  \mid  ( {p,V})  \in  \widetilde{G}_{2}( \zeta ),v \in  V}\right\}\\
+  E( {{\gamma }_{2}^{ \bot  }( \zeta ) })  
+    & = \left\{  {( {p,V,v})  \mid  ( {p,V})  \in  \widetilde{G}_{2}( \zeta ),v \in  {V}^{ \bot  }}\right\}
+\end{align*}
+and ${\gamma }_{2}( \zeta )  \oplus  {\gamma }_{2}^{ \bot  }( \zeta )  \cong  {\pi }^*( \zeta )$. The orientation 
+of ${\gamma }_{2}^{ \bot  }( {\zeta }_{p})$ is such that ${\gamma }_{2}( {\zeta }_{p})  \oplus  {\gamma }_{2}^{ \bot  }( {\zeta }_{p})$ 
+has the same orientation as ${\zeta }_{p}$. An application of Theorem \ref{theorem:20-1} gives
+
+
+\begin{theorem}\label{theorem:20-11}
+  For any oriented $m$-dimensional real vector bundle $\zeta,H^*( {\widetilde{G}_{2}( \zeta ) })$ is 
+  a free $H^*( M)$ module with basis
+  \[
+    \left\{  \begin{array}{ll} 1,e( {{\gamma }_{2}( \zeta ) }),\ldots,e{( {\gamma }_{2}( \zeta ) ) }^{m- 2},e( {{\gamma }_{2}^{ \bot  }( \zeta ) }) & \text{ if }m = {2n} \geq  4 \\  1,e( {{\gamma }_{2}( \zeta ) }),\ldots,e{( {\gamma }_{2}( \zeta ) ) }^{m- 2} & \text{ if }m = {2n} + 1 \geq  3 \end{array}\right.
+  \]
+  In particular ${\pi }^* : H^*( M)  \ra  H^*( {\widetilde{G}_{2}( \zeta ) })$ is injective.
+\end{theorem}
+
+Given this result, the proof of the real splitting principle, Theorem \ref{theorem:19-7}, is precisely analogous to the 
+proof of the complex splitting principle, treated earlier in this chapter.

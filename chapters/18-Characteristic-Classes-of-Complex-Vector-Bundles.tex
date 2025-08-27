@@ -1,0 +1,610 @@
+\chapter[Characteristic Classes of Complex Vector Bundles]{Characteristic Classes of Complex\IfFontTimesTF{\\}{} Vector Bundles}
+In this chapter $\xi$ will be an $n$-dimensional complex smooth vector bundle over a smooth compact 
+manifold $M$, and ${\Omega }^*( {M;\CC})$ will denote the de Rham complex with complex 
+coefficients. Connections in this chapter will always be complex.
+
+Let $P( A)  = P(\ldots,A_{ij},\ldots)$ be a homogeneous invariant polynomial of ${n}^{2}$ variables 
+displayed as an $n \times  n$ matrix; cf. Appendix B. The most important examples are
+\begin{align}\label{eq:18-1}
+  P( A)  = {\sigma _k}( A) \enspace\text{ and }\enspace P(A)  = {s_k}( A)  = \R{Tr}( {A}^{k})
+\end{align}
+where ${\sigma _k}( A)$ is the coefficient of ${t}^{k}$ in the characteristic polynomial
+\[
+  \det ( {I + {tA}})  = \sum\limits_{{k = 0}}^{n}{\sigma_k}( A) {t}^{k}.
+\]
+
+They both have degree $k$. Since the wedge product is commutative on even-dimensional forms, we can 
+replace the variables $A = (A_{ij})$ by differential 2- forms, ${A_{ij}} \in  {\Omega }^{2}( {M;\CC})$, 
+and thus obtain a ${2k}$-form $P( A)\in{\Omega }^{2k}( {M;\CC})$. More generally we define a map
+\begin{align}\label{eq:18-2}
+  P: {\Omega }^{2}(\hom_\CC(\xi,\xi))  \ra  {\Omega }^{2k}( {M;\CC}).
+\end{align}
+
+Let $\mathbf{e}$ be a frame of $\xi_{\mid U}$; it induces an isomorphism onto the trivial bundle,
+\[
+  \hom_\CC( \xi,\xi )_{|U}\ra  U \times  {M_n}( \CC)
+\]
+and hence an isomorphism
+\[
+  {\Omega }^{2}( {{{\hom}_\CC}{( \xi,\xi ) _{| U}}})  
+  \ra {\Omega }^{2}( {U;{M_n}( \CC) }) \overset{ \simee  }
+  \ra {M_n}( {{\Omega }^{2}( {U;\CC}) }).
+\]
+
+Thus a 2-form $R$ of ${{\hom}_\CC}( {\xi,\xi })$ gives a matrix of 2-forms $R( \mathbf{e})  = (R_{ij})$. 
+Apply $P$ and get an element $P( {R( \mathbf{e}) })  \in  {\Omega }^{2k}( {U;\CC})$. Since $P$ is invariant, 
+and since for any other choice of frame $R( \mathbf{e})  = {gR}( {\mathbf{e}}^{\prime }) {g}^{-1}$ 
+with $g \in  {\Omega }^{0}( {U;{M_n}( \CC) })$ invertible, we have
+\[
+  P( {R( \mathbf{e}) })  = P( {R( {\mathbf{e}}^{\prime }) }).
+\]
+
+It follows that we have defined a global ${2k}$-form on $M$ which we denote $P(R)$. 
+For example we have (locally)
+\begin{align}\label{eq:18-3}
+  {s_1}( R)  = \sum {R_{ii}},\;{s_2}( R)  = \sum {R_{ij}} \land  {R_{ji}},\;{\sigma _2}( R)  = \frac{1}{2}( {{s_1}{( R) }^{2}- {s_2}( R) }).
+\end{align}
+
+Choose a complex connection $\btd$ on $\xi$ and apply the above with $R = {F}^{\btd }$ to get a ${2k}$-form
+\begin{align}\label{eq:18-4}
+  P( {F}^{\btd })  \in  {\Omega }^{2k}( {M;\CC}).
+\end{align}
+
+Here are two fundamental lemmas:
+\begin{lemma}\label{lemma:18-1}
+  For each invariant polynomial and connection $\btd, P({F^\btd  })$ is a closed form.
+\end{lemma}
+
+\begin{lemma}\label{lemma:18-2}
+  The cohomology class $[P(F^\btd)]$ in $H^*( {M;\CC})$ is 
+  independent of the choice of connection.
+\end{lemma}
+
+The first lemma follows from Theorems \ref{theorem:17-13} and \ref{theorem:17-14} and results of Appendix B, 
+but there is also the following attractive alternative proof ([Milnor-Stasheff]\supercite{Milnor-Stasheff}).
+
+
+\begingroup
+\def\proofname{\textup{\bfseries Proof of Lemma \ref{lemma:18-1}}} 
+\begin{proof}
+Choose a frame for $\xi$ over $U$, and let $\btd$ have the connection matrix $A = ( {A_{ij}})$, so that
+\[
+  {F}^{\btd } = {\dd A}- A \land  A = ({F_{ij}}).
+\]
+
+In local terms Bianchi’s identity is $\dd{F}^{\btd } = A \land  {F}^{\btd }- {F}^{\btd } \land  A$, cf. (17.\ref{eq:17-17}), so
+\begin{align}\label{eq:18-5}
+  {\!\dd P}( {F}^{\btd })  
+  = \sum \frac{\partial P}{\partial {A_{ij}}}( {F}^{\btd }) \land \!\dd{F_{ij}} 
+  = \R{Tr}( {{P}^{\prime }( {F}^{\btd }) \land \!\dd{F}^{\btd }})
+\end{align}
+where ${P}^{\prime }( A)$ is the transpose of the matrix of partial derivatives
+\[
+  {P}^{\prime }( A)  = {( \frac{\partial P}{\partial {A_{ij}}}) }^{t}.
+\]
+
+For an invariant polynomial $P$ one has
+\begin{align}\label{eq:18-6}
+  {P}^{\prime }( A) A = A{P}^{\prime }( A).
+\end{align}
+
+This is seen by applying the operator $\frac{\dd }{\dd t}$ to the equation
+\[
+  P( {( {I + t{E_{ij}}}) A})  = P( {A( {I + t{E_{ij}}}) })
+\]
+
+where ${E_{ij}}$ is the basic matrix with 1 in the $(i, j)$-th entry and zero elsewhere. Now \eqref{eq:18-6} 
+yields the relation
+\begin{align}\label{eq:18-7}
+  {P}^{\prime }( {F}^{\btd })  \land  {F}^{\btd } = {F}^{\btd } \land  {P}^{\prime }( {F}^{\btd }),
+\end{align}
+and using \eqref{eq:18-5} and the Bianchi identity we get
+\begin{align*}
+  - {\dd P}( {F}^{\btd })  
+  & = \R{Tr}( {{P}^{\prime }( {F}^{\btd })  \land  {F}^{\btd } \land  A 
+    - {P}^{\prime }( {F}^{\btd })  \land  A \land  {F}^{\btd }}) \\
+  & = \R{Tr}( {{F}^{\btd } \land  ( {{P}^{\prime }( {F}^{\btd })  \land  A})  
+    - ( {{P}^{\prime }( {F}^{\btd })  \land  A})  \land  {F}^{\btd }})  = 0.
+\end{align*}
+\end{proof}
+\endgroup
+
+
+\begingroup
+\def\proofname{\textup{\bfseries Proof of Lemma \ref{lemma:18-2}}} 
+\begin{proof}
+Let ${\btd _0},{\btd _1}$ be two connections on $\xi$, and $\pi  : M \times  \RR \ra  M$ the projection 
+onto the first factor. Let ${\widehat{\btd }_\nu } = {\pi }^*( {\btd _\nu })$ be the induced connections
+on ${\pi }^*( \xi )$ ; cf. Lemma \ref{lemma:17-10}. Define a new connection on ${\pi }^*( \xi )$ by
+\[
+  \widehat{\btd }( s) ( {p,t})  
+  = ( {1- t}) {\widehat{\btd }_0}( s) ( {p,t})  
+  + t{\widehat{\btd }_1}( s) ( {p,t})
+\]
+where $( {p,t})  \in  M \times  \RR$. Apply Lemma \ref{lemma:17-10} to see that
+\[
+  i_0^\ast( \widehat{\btd })  = \btd_0,\;i_1^*( \widehat{\btd })  = \btd_1
+\]
+where ${i_\nu } : M \ra  M \times  \RR$ are the two inclusions in respectively top and bottom. 
+From (17.\ref{eq:17-11}) it follows that
+\[
+  i_0^*( {F}^{\widehat{\btd }})  
+  = {F}^{{\btd _0}},\;i_1^*( {F}^{\widehat{\btd }})  
+  = {F}^{{\btd _1}}
+\]
+and hence ${i_\nu }^*( {P( {F}^{\widehat{\btd }}) })  = P( {F}^{{\btd _\nu }}),\nu  = 0,1$. 
+Since $i_0 \simeq  i_1$ and $P( {F}^{\widehat{\btd}})$ is closed, we have that $i_0^*( [P( {F}^{\widehat{\btd }}) ]) 
+= i_1^*( [P( {F}^{\widehat{\btd }})])$.
+\end{proof}
+\endgroup
+
+Note that isomorphic vector bundles define identical cohomology classes $[P( {F^\btd }) ]$, 
+since a smooth fiberwise isomorphism $\hat{f}: \xi  \ra  {\xi }^{\prime }$ induces isomorphisms between section 
+spaces, and since we can choose connections to make the diagram
+\[\begin{tikzcd}
+  \Omega^0(\xi)\dar{\hat f_*}\rar{\btd} & \Omega^1(\xi)\dar{\hat f_*} \\
+  \Omega^0({\xi'} )\rar{\btd'} & \Omega^1({\xi'} )
+\end{tikzcd}\]
+commute. Thus the matrices for ${F}^{\btd }$ and ${F}^{{\btd }^{\prime }}$ are identical with respect to corresponding 
+frames for $\xi$ and ${\xi }^{\prime }$, and $P( {F}^{\btd })  = P( {F}^{{\btd }^{\prime }})$.
+
+In particular, if $\xi$ is a trivial vector bundle, then $[P( \xi ) ] = [P( \varepsilon_\CC^n) ] = 0$. Indeed, 
+we just use the flat connection ${\btd _0}$ on $\varepsilon_\CC^n$.
+
+
+\begin{definition}\label{definition:18-3}
+  \begin{enumerate}
+    \item The $k$-th \Index{Chern class} of the complex vector bundle $\xi$ is
+      \[
+        {c_k}( \xi )  = \left[{\sigma _k}\left( {\frac{-1}{{2\pi }\sqrt{-1}}{F}^{\btd }}\right) \right]   \in  H^{2k}( {M;\CC}).
+      \]
+    \item The $k$-th \Index{Chern character class} is
+      \[
+        {\R{ch}_k}(\xi )  = \frac{1}{k!}\left[{s_k}\left( {\frac{-1}{{2\pi }\sqrt{-1}}{F}^{\btd }}\right) \right] \in  H^{2k}( {M;\CC}).
+      \]
+  \end{enumerate}
+  Here $\btd$ is any complex connection on $\xi$. If $k = 0$ then ${c_0}( \xi )  = 1$ and ${\R{ch}_0}( \xi )  = \dim \xi$.
+\end{definition}
+
+
+The reader may check that Definition \ref{definition:18-3}.(ii) agrees with Definition \ref{definition:17-15}. We shall prove some properties of 
+these classes. First note that they determine each other, since
+\[
+  {\R{ch}_k}( \xi )  = \frac{1}{k!}{s_k}( \xi ),\quad
+  {s_k}( \xi )  = {Q_k}( {{c_1}( \xi ),\ldots,{c_k}( \xi ) }),\quad
+  {c_k}( \xi )  = {P_k}( {{s_1}( \xi ),\ldots,{s_k}( \xi ) })
+\]
+for certain polynomials ${P_k}$ and ${Q_k}$ ; cf. Appendix B. For example we have
+\[
+  {\R{ch}_1}( \xi )  = {c_1}( \xi ) 
+  \enspace\text{ and }\enspace
+  {\R{ch}_2}( \xi )  = \frac{1}{2}{c_1}{( \xi ) }^{2}- {c_2}( \xi )
+\]
+
+The integration homomorphism
+\[
+  I: H^{2}( {{\CP}^{1};\CC})  \ra  \CC
+\]
+is an isomorphism by Corollary \ref{corollary:10-14}, and the inclusion $j : {\CP}^{1} \subset{\CP}^{n}$ induces 
+an isomorphism
+\[
+  {j}^* : H^{2}( {{\CP}^{n};\CC})  \ra  H^{2}( {{\CP}^{1};\CC})
+\]
+by Theorem \ref{theorem:14-3}. We now chose $c \in  H^{2}( {{\CP}^{n};\CC})$ once and for all with the property that
+\begin{align}\label{eq:18-8}
+  I( {{j}^*( c) })  = - 1.
+\end{align}
+
+It follows from Example \ref{example:14-10} that $- {\pi c}$ is the cohomology class of the volume form of ${\CP}^{1}$ 
+with the Fubini-Study metric (cf. Theorem \ref{theorem:14-8}) and if we identify ${S}^{2}$ with ${\CP}^{1}$ via $\Psi$ 
+then $- {4\pi c}$ corresponds to the volume form of ${S}^{2}$ in its natural metric as the unit sphere and with its 
+complex orientation.
+
+Let $H_{n}$ be the canonical line bundle on ${\CP}^{n}$ with total space
+\[
+  E( H_{n})  = \left\{  {( {L,u})  \in  {\CP}^{n} \times  {\CC}^{n + 1} \mid  u \in  L}\right\} .
+\]
+
+Then ${j}^*( H_{n})  = H_{1}$ is the canonical line bundle of Example \ref{example:15-2}.
+
+\begin{theorem}\label{theorem:18-4}
+  The integration homomorphism maps ${c_1}(H_{1})$ to $-1$.
+\end{theorem}
+
+\begin{proof}
+  Apply the two positively oriented stereographic charts ${\psi _- }$ and ${\bar{\psi }_ + }$ 
+  on ${S}^{2} = {\CP}^{1}$ from Example \ref{example:14-1}. In Example \ref{example:17-9} we calculated the pre-image of the 
+  curvature form ${F}^{\btd }$ under $g = {( {\psi _- }) }^{-1}$ to be
+  \[
+    {g}^*( {F}^{\btd })  = \frac{2i}{( 1 + {\left| z\right| }^{2}) }{\dd x} \land  {\!\dd y}.
+  \]
+
+  We integrate this form by changing to polar coordinates $( {x,y})  = ( {r\cos \theta,r\sin \theta })$. Since
+  \[
+    {\!\dd x} = \cos {\theta \!\dd r}- r\sin {\theta \!\dd \theta }
+    \enspace\text{ and }\enspace
+    {\!\dd y} = \sin {\theta \!\dd r} + r\cos \theta \!\dd\theta
+  \]
+  we see that ${\!\dd x} \land  {\!\dd y} = {r\dd r} \land  {\!\dd \theta }$, and
+  \begin{align*}
+    \int_{\RR^2}{g}^*( {F}^{\btd })  
+    & = {2i}\int_0^{2\pi}\!\!\int_0^\infty\frac{{r\dd r} \land  {\!\dd \theta }}{{( 1 + {r}^{2}) }^{2}} 
+      = {4\pi i}{\int _0}^{\infty }\frac{r\dd r}{{( 1 + {r}^{2}) }^{2}}\\
+    & = 2\pi i\int _0^\infty\frac{\dd s}{(1 + s)}^2 
+      = - 2\pi i\left[\frac{1}{1 + s}\right]_{s = 0}^\infty 
+      = 2\pi i.
+  \end{align*}
+
+  This calculation implies that
+  \[
+    \int_{{\CP}^{1}}{F}^{\btd } = {2\pi i}
+  \]
+
+  Indeed we can apply a partition of unity $1 = {\rho _0} + {\rho _1}$ with $\R{supp}{\rho _0}$ an arbitrarily 
+  large ${\epsilon }^{-1}$-sphere in the chart $g$ and supp ${\rho _1}$ a correspondingly small $\epsilon$-sphere 
+  in the other chart. In the limit $\epsilon  \ra  0$ the integral of ${g}^*( {F}^{\btd })$ (over all of ${\RR}^{2}$ ) 
+  is equal to the integral of $F^\btd$ over ${\CP}^{1}$.
+\end{proof}
+
+
+\begin{theorem}\label{theorem:18-5}
+  Let $f\colon N \ra  M$ be a smooth map and $\xi$ a complex vector bundle on $M$. For every invariant polynomial 
+  we have ${f}^*[P( \xi ) ]   = [P( {{f}^*( \xi ) }) ]$.
+\end{theorem}
+
+\begin{proof}
+  We give ${f}^*( \xi )$ the connection ${f}^*( \btd )$ of Lemma \ref{lemma:17-10}. By formula (17.\ref{eq:17-13}), ${f}^*( {F}^{\btd }) = {F}^{{f}^*( \btd ) }$. 
+  Hence ${f}^*( {P( {F}^{\btd }) })  = P( {F}^{{f}^*( \btd ) }).$
+\end{proof}
+
+For a line bundle $L,{\Omega }^{2}( {{\hom}( {L,L}) })  = {\Omega }^{2}( {M;\CC})$ 
+so that ${F}^{\btd } \in  {\Omega }^{2}( {M;\CC})$, and
+\[
+  {s_k}( {F}^{\btd })  = {F}^{\btd } \land  \ldots  \land  {F}^{\btd }.
+\]
+
+This gives
+\begin{align}\label{eq:18-9}
+  {\R{ch}_k}( L)  = \frac{1}{k!}{\R{ch}_1}{( L) }^{k} = \frac{1}{k!}{c_1}{( L) }^{k}
+\end{align}
+so that ${\R{ch}_k}( L)$ becomes the $k$-th term in the power series $\exp ( {{c_1}( L) })$.
+
+\begin{theorem}\label{theorem:18-6}
+  For a sum of complex vector bundles,
+  \begin{enumerate}
+    \item ${\R{ch}_k}( {{\xi _0} \oplus  {\xi _1}})  = {\R{ch}_k}( {\xi _0})  + {\R{ch}_k}( {\xi _1})$
+    \item ${c_k}( {{\xi _0} \oplus  {\xi _1}})  = \sum\limits_{{\nu  = 0}}^{k}{c_\nu }( {\xi _0}) c_{k-\nu}( {\xi _1})$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Choose complex connections ${\btd _\nu }$ on ${\xi _\nu }$. We identify ${\Omega }^{i}( {{\xi _0} \oplus  {\xi _1}})$ 
+  with ${\Omega }^{i}( {\xi _0})  \oplus  {\Omega }^{i}( {\xi _1})$ ; then
+  \[
+    {\btd _0} \oplus  {\btd _1} : {\Omega }^{0}( {{\xi _0} \oplus  {\xi _1}})  \ra  {\Omega }^{1}( {{\xi _0} \oplus  {\xi _1}})
+  \]
+  is a connection on ${\xi _0} \oplus  {\xi _1}$ with curvature
+  \[
+    {F}^{{\btd _0}} \oplus  {F}^{{\btd _1}} \in  {\Omega }^{2}( {{\hom}( {{\xi _0} \oplus  {\xi _1},{\xi _0} \oplus  {\xi _1}}) }).
+  \]
+
+  For direct sum of matrices
+  \[
+    {A_0} \oplus  {A_1} = 
+    \begin{pmatrix} 
+      {A_0} & 0 \\  
+      0 & {A_1} 
+    \end{pmatrix} \in M_{n + m}( \CC)
+  \]
+  formula \eqref{eq:18-3} of Appendix B gives the equations
+  \[
+    {s_k}( {{A_0} \oplus  {A_1}}) 
+      = {s_k}( {A_0})  + {s_k}( {A_1}) 
+    \enspace\text{ and }\enspace
+    {\sigma _k}( {{A_0} \oplus  {A_1}}) 
+      = \sum\limits_{{\nu  = 0}}^{k}{\sigma _\nu }(A_0) \cdot\sigma _{k- \nu }( {A_1}),
+  \]
+  which prove the assertions.
+\end{proof}
+
+\begin{theorem}\label{theorem:18-7}
+  For a tensor product of complex vector bundles,
+  \[
+    {\R{ch}_k}( {{\xi _0} \otimes  {\xi _1}})  
+    = \sum\limits_{{\nu  = 0}}^{k}{\R{ch}_\nu }( {\xi _0})\R{ch}_{k- \nu }( {\xi _1})
+  \]
+  where ${\R{ch}_0}( {\xi _\nu })  = {\dim _\CC}{\xi _\nu }$.
+\end{theorem}
+
+\begin{proof}
+  The tensor product of linear maps, applied fiberwise, defines a map of vector bundles
+  \[
+    {\hom}( {{\xi _0},{\xi _0}})  \otimes  {\hom}( {{\xi _1},{\xi _1}})  
+    \ra  
+    {\hom}( {{\xi _0} \otimes  {\xi _1},{\xi _0} \otimes  {\xi _1}})
+  \]
+  and thus a product
+  \[
+    \land: {\Omega }^{i}( {{\hom}( {{\xi _0},{\xi _0}}) })  \otimes  {\Omega }^{j}( {{\hom}( {{\xi _1},{\xi _1}}) })  
+    \ra  
+    {\Omega }^{i + j}( {{\hom}( {{\xi _0} \otimes  {\xi _1},{\xi _0} \otimes  {\xi _1}}) }).
+  \]
+
+  For connections ${\btd _0},{\btd _1}$ on ${\xi _0},{\xi _1}$, we have the 
+  connection $\btd$ on ${\xi _0} \otimes  {\xi _1}$ from (17.\ref{eq:17-15}):
+  \[
+    \btd( {{s_0} \otimes  {s_1}})  = { \btd  _0}( {s_0}) \land  {s_1} + {s_0} \land  { \btd  _1}( {s_1}).
+  \]
+
+  The corresponding curvature form becomes ${F}^{\btd } = {F}^{{\btd _0}} \land  \mathrm{{id}} + \mathrm{{id}} \land  {F}^{{\btd _1}}$ 
+  where id $\in  {\Omega }^{0}( {{\hom}( {{\xi _\nu },{\xi _\nu }}) })$ is the section that maps $p \in  M$ to id: ${\xi _p} \ra  {\xi _p}$. 
+  It follows that
+  \begin{align}\label{eq:18-10}
+    {F}^{\btd } \land  \ldots  \land  {F}^{\btd } = \sum_{i = 1}^{k}\binom{k}{i}  {( {F}^{{\btd _0}}) }^{\land i} \land  {( {F}^{{\btd _1}}) }^{\land ( {k- i}) }.
+  \end{align}
+
+  There is a commutative diagram:
+  \begin{equation}\label{eq:18-11}
+    \begin{tikzcd}
+      \Omega^i(\hom(\xi_0, \xi_0))\otimes\Omega^j(\hom(\xi_1, \xi_1))\rar{\land}\dar{\R{Tr}\otimes\R{Tr}}
+      & \Omega^{i+j}(\hom(\xi_0\otimes\xi_1, \xi_0\otimes\xi_1))\dar{\R{Tr}} \\
+      \Omega^i(M;\CC)\otimes\Omega^j(M;\CC)\rar{\land} & \Omega^{i+j}(M;\CC)
+    \end{tikzcd}
+  \end{equation}
+
+  From \eqref{eq:18-10} and \eqref{eq:18-11} we get
+  \[
+    {s_k}( {F}^{\btd })  = \sum\limits_{{i = 0}}^{k}\binom{k}{i} {s_i}( {F}^{{\btd _0}}) {s_k- i}( {F}^{{\btd _1}})
+  \]
+  which is equivalent to the statement of the theorem.
+\end{proof}
+
+Let $H^{2 * }( {M;\CC})$ denote the graded algebra
+\[
+  H^{2 * }( {M;\CC})  = \bigoplus _{i \geq  0}H^{2i}( {M;\CC}).
+\]
+
+For a complex smooth vector bundle $\xi$, we define the \Index{Chern character} by
+\[
+  \R{ch}( \xi )  = \sum {\R{ch}_i}( \xi )  \in  H^{2 * }( {M;\CC}).
+\]
+
+This defines a homomorphism ch: ${\R{Vect}}^{\CC}( M)  \ra  H^{2 * }( {M;\CC})$, which by 
+Theorem \ref{theorem:18-6}.(ii) and the universal property of the Grothendieck construction can 
+be extended to a homomorphism
+\[
+  \R{ch}:K(M)\ra  H^{2 * }( {M;\CC}) .
+\]
+
+An application of Theorem \ref{theorem:18-7} shows that ch is a multiplicative map, when the product in $K( M)$ is defined by
+\[
+  ( [\xi_0] - [\eta_0])( {[\xi_1]  - [\eta _1]  })  
+  = [{\xi _0} \otimes  {\xi _1}]   + [{\eta _0} \otimes  {\eta _1}]  
+  - [{\xi _0} \otimes  {\eta _1}]  - [{\eta _0} \otimes  {\xi _1}] .
+\]
+
+Without proof we state:
+\begin{theorem}\label{theorem:18-8}
+  The Chern character induces an isomorphism of algebras
+  \[
+    \R{ch}:K( M) \;{\otimes_\ZZ}\;\CC \ra  H^{2 * }({M;\CC}).
+  \]
+  \hfill$\square$
+\end{theorem}
+
+\begin{theorem}\label{theorem:18-9}
+There exists precisely one set of cohomology classes ${c_k}( \xi )  \in$  $H^{2k}( {M;\CC})$, depending only on the 
+isomorphism class of $\xi$, and such that
+\begin{enumerate}
+  \item $I( {{c_1}( H_{1}) })  = - 1,{c_k}( H_{n})  = 0$ when $k > 1$, and ${c_0}( H_{n})  = 1$
+  \item ${f}^*{c_k}( \xi )  = {c_k}( {{f}^*( \xi ) })$
+  \item ${c_k}( {{\xi _0} \oplus  {\xi _1}})  = \sum_{{i = 0}}^{k}{c_i}( {\xi _0}) c_{k- i}( {\xi _1})$.
+\end{enumerate}
+\end{theorem}
+
+The uniqueness part of Theorem \ref{theorem:18-9} rests on the so-called splitting principle, whose proof is 
+deferred to Chapter 20.
+
+\begin{theorem}[Splitting principle]\label{theorem:18-10}\index{splitting principle}
+  For any complex vector bundle $\xi$ on $M$ there exists a manifold $T = T( \xi )$ and a proper smooth 
+  map $f: T \ra  M$ such that
+  \begin{enumerate}
+    \item ${f}^* : H^{k}( M)  \ra  H^{k}( T)$ is injective
+    \item ${f}^*( \xi )  \simee  {\gamma _1} \oplus  \ldots  \oplus  {\gamma _n}$ 
+  \end{enumerate}
+  for certain complex line bundles ${\gamma _1},\ldots,{\gamma _n}$.
+\end{theorem}
+
+
+\begingroup
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:18-9}}} 
+\begin{proof}
+  The Chern classes of Definition \ref{definition:18-3} satisfy the three conditions, so it remains to consider 
+  the uniqueness part.
+
+  From (i) it follows that ${c_1}( H_{1})  = c$ in the notation of \eqref{eq:18-8}. Let $L$ be an arbitrary line bundle 
+  and ${L}^{ \bot  }$ a complement to $L$, with
+  \[
+    L \oplus  {L}^{ \bot  } = M \times  {\CC}^{n + 1}
+  \]
+
+  We can define
+  \[
+    \pi: M \ra  {\CP}^{n};\;x \mapsto  {\R{proj}_2}( {L_x})
+  \]
+  where ${\R{proj}_2} : M \times  {\CC}^{n + 1} \ra  {\CC}^{n + 1}$. There is an obvious diagram
+  \[\begin{tikzcd}
+    L \dar{}\rar{\hat\pi} & H_n\dar{} \\
+    M \rar{\pi} & \CP^n 
+  \end{tikzcd}\]
+  with ${\widehat{\pi }_p}$ an isomorphim for every $p \in  M$. Hence ${\pi }^*( H_{n})\simee L$. 
+  From (ii) it follows that
+  \[
+    {c_1}( L)  = {\pi }^*( c)
+  \]
+
+  Since ${c_k}( H_{n})  = 0$ when $k > 1$, the same holds for any line bundle. Therefore (i) and (ii) 
+  determine the Chern classes of an arbitrary line bundle. Inductive application of (iii) shows that for 
+  a sum of line bundles, ${c_k}( {{L_1} \oplus  \ldots  \oplus  {L_n}})$ is determined 
+  by ${c_1}( {L_1}),\ldots,{c_1}( {L_n})$. Finally we can apply Theorem \ref{theorem:18-10} to see that ${c_k}( \xi )$ 
+  is uniquely determined for every complex vector bundle.
+\end{proof}
+\endgroup
+
+The graded class, called the \textit{total}\index{Chern total class} Chern class,
+\begin{align}\label{eq:18-12}
+  c( \xi )  = 1 + {c_1}( \xi )  + {c_2}( \xi )  + \cdots  \in  H^*( {M;\CC})
+\end{align}
+is exponential by Theorem \ref{theorem:18-9}.(iii), and $c( L)  = 1 + {c_1}( L)$ for a line bundle. Hence
+\[
+  c( {{L_1} \oplus  \ldots  \oplus  {L_k}})  
+  = \prod_{\nu  = 1}^{k}( {1 + {c_1}( {L_\nu }) }) 
+  = \sum {\sigma _i}( {{c_1}( {L_1}),\ldots,{c_1}( {L_k}) })
+\]
+and it follows that ${c_i}( {{L_1} \oplus  \ldots  \oplus  {L_k}}) = {\sigma _i}( {{c_1}( {L_1}),\ldots,{c_1}( {L_k}) })$. 
+We have additional calculational rules for Chern classes:
+
+\begin{property}\label{property:18-11}
+\begin{enumerate}[(a)]
+  \item ${c_k}( \xi )  = 0$ if $k > \dim \xi$
+  \item ${c_k}( {\xi }^*)  = {(-1) }^{k}{c_k}( \xi ),\;{\mathrm{{ch}}_k}( {\xi }^*)  = {(-1) }^{k}{\mathrm{{ch}}_k}( \xi )$
+  \item $c_{2k+1}( {\eta _\CC})  = 0$ and $\R{ch}_{2k+ 1}( {\eta _\CC})  = 0$ for a real vector bundle $\eta$.
+\end{enumerate}
+\end{property}
+
+\begin{proof}
+  For a line bundle, (a) follows from assertions (i) and (ii) of Theorem \ref{theorem:18-9}, because every line bundle $\xi$ 
+  has the form ${\pi }^*( H_{n})$. If $\xi  = {\gamma _1} \oplus  \ldots  \oplus  {\gamma _n}$ is a sum of 
+  line bundles, then
+  \[
+    c( \xi )  = \prod ( {1 + {c_1}( {\gamma _j}) })
+  \]
+  and it follows that ${c_k}( \xi )  = 0$ when $k > n$. For an arbitrary $\xi$ we can apply Theorem \ref{theorem:18-10}. 
+  The proof of (b) is analogous: if ${\dim _\CC}\xi  = 1$ then ${\xi }^* \otimes  \xi  = {\hom}( {\xi,\xi })$ is trivial 
+  and Theorem \ref{theorem:18-7} gives that ${\R{ch}_1}( {\xi }^*)  + {\R{ch}_1}( \xi )  = 0$, hence ${c_1}( {\xi }^*) =- {c_1}( \xi )$. 
+  For a sum of line bundles,
+  \begin{align}\label{eq:18-13}
+    c( {\xi }^*)  = \prod ( {1 + {c_1}( {\gamma _j}^*) })  = \prod ( {1- {c_1}( {\gamma _j}) }).
+  \end{align}
+
+  This shows that ${c_k}( {\xi }^*)  = {(-1) }^{k}{c_k}( \xi )$, and the splitting principle implies (b) in 
+  general. For a real vector bundle $\eta,{\eta }^* \simee  \eta$, as we can choose a metric $\langle,\rangle$ on $\eta$ 
+  and use the isomorphism
+  \[
+    a: \eta  \ra  {\hom}( {\eta,\RR}) ;\;a( v)  = \langle u,- \rangle.
+  \]
+
+  Then $(\eta_\CC)^* = (\eta^*_\CC$ so that ${c_k}(\eta_\CC^*) = {c_k}(\eta_\CC)$. Now (c) 
+  follows from (b). 
+  
+  Note that (c) implies that $\R{ch}( {\eta _\CC})$ is a graded cohomology class, which can 
+  only be non-zero in the dimensions ${4k}$.
+
+  One defines \textit{Pontryagin classes}\index{Pontryagin!classes} and \textit{Pontryagin character classes} for real vector bundles by the equations:
+  \begin{align}\label{eq:18-14}
+    {p_k}( \eta )  = {(-1) }^{k}{c_2k}( {\eta _\CC}),\;{\mathrm{{ph}}_k}( \eta )  = \R{ch}_{2k}( {\eta _\CC}).
+  \end{align}
+
+  We leave to the reader to check that the total Pontryagin class $p( \eta )  = 1 + {p_1}( \eta )  + \cdots$ is 
+  exponential.
+\end{proof}
+
+
+\begin{remark}\label{remark:18-12}
+  Definition \ref{definition:18-3} gives cohomology classes in $H^*( {M;\CC})$, but actually all classes 
+  lie in real cohomology. This follows from Theorem \ref{theorem:18-9}.(i) for $H_{n}$, and for a sum of line bundles 
+  from (ii) and (iii). The general case is a consequence of Theorem \ref{theorem:18-10}. Theorem \ref{theorem:18-8} actually 
+  gives isomorphisms
+  \begin{align*}
+    \text{ ch: }K( M)\; { \otimes  _\ZZ}\;\RR  & \overset{ \simee  }{ \ra  }H^{2 * }( M) \\
+    \text{ ph: }{KO}( M)\; { \otimes_\ZZ}\;\RR  & \overset{ \simee  }{ \ra  }H^{4 * }( M) .
+  \end{align*}
+\end{remark}
+
+\begin{example}\label{example:18-13}
+  Given a line $L \subset  {\CC}^{n + 1}$, consider the map
+  \[
+    {g_L} : {\hom}( {L,{L}^{ \bot  }})  \ra  \CC{\mathbb{P}}^{n}
+  \]
+  which maps an element $\phi  \in  {\hom}( {L,{L}^{ \bot  }})$ into the graph of $\phi$. Its image 
+  is the open set ${U_L} \subseteq  {\CP}^{n}$ of lines not orthogonal to $L$. The functions $H_{j}^{-1}$ of (14.\ref{eq:14-2}) 
+  are equal to ${g_{L_j}}$ where ${L_j}$ is the line that contains the basis vector ${e_j} = ( {0,\ldots,1,0,\ldots,0})$. 
+  Each $( {U_L, g_L^{-1}})$ is a holomorphic coordinate chart on ${\CP}^{n}$.
+
+  Let $H^{ \bot  }$ be the $n$-plane bundle over ${\CP}^{n}$ with total space
+  \[
+    E( H^{ \bot  })  = \left\{  {( {L,u})  \in  {\CP}^{n} \times  {\CC}^{n + 1} \mid  u \in  {L}^{ \bot  }}\right\} .
+  \]
+
+  Then $H \oplus  H^{ \bot  }$ is the trivial $( {n + 1})$-dimensional vector bundle where $H = H_{n}$, and
+  \begin{align}\label{eq:18-15}
+    {\hom}( {H,H^{ \bot  }})  \simee  \tau_{\CP^{n}}.
+  \end{align}
+
+  Indeed, the fiber of ${\hom}( {H,H^{ \bot  }})$ at $L \in  {\CP}^{n}$ is the vector space ${\hom}( {L,{L}^{ \bot  }})$, 
+  and the differential
+  \[
+    {( D{g_L}) _0} : {\hom}( {L,{L}^{ \bot  }})  \ra  {T_L}{\CP}^{n}
+  \]
+  defines the required fiberwise isomorphism.
+
+  One can use \eqref{eq:18-15} to evaluate the Chern classes of the complex $n$-plane 
+  bundle $\tau_{\CP^n}$. Indeed, $\hom(H,H)\simee \varepsilon_\CC^{1}$, so
+  \[
+    \tau_{\CP^n} \oplus \varepsilon_\CC^{1} 
+    \simee  {\hom}( {H,H^{ \bot  }})  \oplus  {\hom}( {H,H})  
+    \simee  {\hom}( {H,H \oplus  H^{ \bot  }}) 
+    = ( {n + 1}) H^*.
+  \]
+
+  Hence the total Chern class can be calculated from Theorem \ref{theorem:18-9} and Properties \ref{property:18-11},
+  \[
+    c( \tau_{\CP^n})  
+    = c( \tau_{\CP^n}\oplus \varepsilon_\CC^1)  
+    = c{( H^*) }^{n + 1} 
+    = {( 1- {c_1}( H) ) }^{n + 1},
+  \]
+  and the binomial formula gives
+  \begin{align}\label{eq:18-16}
+    {c_k}(\tau_{\CP^n})  = {(-1) }^{k}\binom{n+1}{k}  {c_1}{( H) }^{k}.
+  \end{align}
+
+  The class ${c_1}( H)  \in  H^{2}( {\CP}^{n})$ is a generator, and Theorem \ref{theorem:14-3} shows that ${c_k}(\tau_{\CP^n})$ 
+  is non-zero for all $k \leq  n$.
+\end{example}
+
+\begin{example}\label{example:18-14}
+  One of the main applications of characteristic classes is to the question of whether a given closed manifold 
+  is (diffeomorphic to) the boundary of a compact manifold. We refer the reader to [Milnor-Stasheff] for the 
+  general theory and just present an example. We show that ${\CP}^{2n}$ is not the boundary of any ${4n} + 1$-dimensional 
+  manifold ${R}^{{4n} + 1}$. Indeed, suppose this was the case. By Stokes's theorem,
+  \begin{align}\label{eq:18-17}
+    \int _{\partial R}\omega  = {\int _R}{\dd\omega } = 0
+  \end{align}
+  for any closed form $\omega  \in  {\Omega }^{4n}( R)$. But we can exhibit a closed ${4n}$-dimensional form 
+  on $R$ which contradicts this as follows. The tangent bundle of $\partial R$ satisfies the 
+  equation $\tau _{\partial R} \oplus \varepsilon_\RR^1 = {i}^*( {\tau _R})$, so 
+  when $\partial R = {\CP}^{2n}$ we get after complexification
+  \[
+    (\tau_{\CP^{2n}})_{\B{RC}} \oplus \varepsilon_\CC^{1} = {i}^*( {{\tau _R} \otimes  \CC})
+  \]
+  and from the above together with Lemma \ref{lemma:16-10},
+  \[
+    (\tau_{\CP^{2n}})_{\B{RC}}  \oplus  \varepsilon_\CC^{2} 
+    = ( {{2n} + 1}) H_{2n}^* \oplus  ( {{2n} + 1}) H_{2n}.
+  \]
+
+  The total Chern class of the right hand side is
+  \[
+    c = {( 1- {c_1}( H_{2n}) ) }^{{2n} + 1}{( 1 + {c_1}( H_{2n}) ) }^{{2n} + 1} 
+    = {( 1- {c_1}{( H) }^{2}) }^{{2n} + 1}
+  \]
+  so that
+  \[
+    c_{2k}(\tau_{\CP^{2n}})_{\B{RC}} 
+    = (-1)^k\binom{2n+1}{k}{c_1}(H)^{2k}.
+  \]
+
+  Now take $\omega$ in \eqref{eq:18-17} to be the $2n$-th Chern form 
+  of ${\tau_R}\otimes\CC$.
+\end{example}

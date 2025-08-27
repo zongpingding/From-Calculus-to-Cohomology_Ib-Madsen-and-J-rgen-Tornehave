@@ -1,0 +1,277 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{CustomBook}[2019/12/01 Custom Book Class]
+\usepackage[
+  paperwidth=15.6cm, 
+  paperheight=24.04cm,
+  left = .75in, right = .68in,
+  top = 1in, bottom = 1in,
+]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+% blank page
+\newcommand*{\blankpage}{%
+  \vspace*{\fill}
+  {\centering This page intentionally left blank.\par}
+  \vspace{\fill}
+}
+\renewcommand*{\cleardoublepage}{%
+  \clearpage\if@twoside\ifodd\c@page\else
+  \blankpage
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+
+% --> head and foot  settings
+\usepackage{fancyhdr}
+\def\headrule{}
+\fancyhead[ER, OL]{\thepage}
+\fancyhead[C]{\IfFontTimesTF{}{\scalebox{.85}}{\bfseries\scriptsize\MakeUppercase{\leftmark}}}
+\fancyfoot[C]{}
+\fancypagestyle{plain}{
+  \fancyhead[OR, EL]{\thepage}
+  \fancyhead[OL, ER]{}
+  \fancyhead[C]{}
+  \fancyfoot[C]{}
+}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{%
+    \ifnum\c@secnumdepth>\m@ne
+      \thechapter.\ %
+    \fi
+  #1%
+  }{}%
+}
+\let\ori@mainmatter\mainmatter 
+\renewcommand{\mainmatter}{
+  \ori@mainmatter
+  \pagestyle{fancy}
+}
+\newcommand{\appmatter}{
+  \cleardoublepage
+  \@mainmattertrue
+  \setcounter{chapter}{0}
+  \def\thechapter{\Alph{chapter}}
+  \renewcommand\theHchapter{Appendix-\thechapter}
+  \addtocontents{toc}{\def\protect\cftchappresnum{Appendix\ }}
+}
+\renewcommand{\backmatter}{
+  \cleardoublepage
+  \@mainmattertrue
+  \pagestyle{plain}
+}
+
+
+% --> chapter style
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\Large\bfseries}
+  {\thechapter.\MakeUppercase}
+  {8pt}{\Large\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{*-1.5}{*4}
+
+
+% --> toc settings
+\usepackage[titles]{tocloft}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftdot}{\ensuremath{\cdot}}
+\setlength{\cftparskip}{-0.5em}
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftchappagefont}{}
+\renewcommand{\cftchapnumwidth}{6em}
+\renewcommand{\cftchappresnum}{Chapter\ }
+
+
+% --> optional
+\setlength{\parindent}{0pt}
+% \RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
+\setlist[enumerate,1]{label=(\roman*)}
+% \setlength\parskip{1.5em plus 0.3em minus 0.4em}
+
+% --> commutative diagram
+\RequirePackage{tikz-cd}
+\usetikzlibrary{arrows.meta}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},cells={nodes={scale=#1}}}}
+
+
+% --> typeset math 
+\RequirePackage{amsmath}
+% \RequirePackage{bm}
+\RequirePackage{amssymb}
+\let\ss\S
+\newcommand{\C}[1]{\ensuremath{\mathcal{#1}}}
+\renewcommand{\S}[1]{\ensuremath{\mathscr{#1}}}
+\newcommand{\B}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\FF}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\F}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\R}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\K}[1]{\ensuremath{\mathfrak{#1}}}
+\ExplSyntaxOn
+% extend text arrow
+\cs_new:Npn \ext_arrow_set:nn #1#2 
+  { \exp_args:Nee \NewDocumentCommand{\use:c {#1}}{sO{}D(){}}
+      {
+        \IfBooleanTF{##1}
+          {#2[\text{##3}]{\text{##2}}}
+          {#2[##3]{##2}}
+      }
+  }
+\keyval_parse:NNn \use_none:n \ext_arrow_set:nn 
+  {
+    xla  = \xleftarrow,
+    Xla  = \xLeftarrow,
+    xxla = \xLongleftarrow,
+    xra  = \xrightarrow,
+    Xra  = \xRightarrow,
+    xxra = \xLongrightarrow,
+    hla  = \xhookleftarrow,
+    hra  = \xhookrightarrow,
+  }
+\ExplSyntaxOff
+\let\ra\rightarrow
+\newcommand{\se}{\ensuremath{\backsimeq}}
+\newcommand{\btd}{\bigtriangledown}
+
+
+
+% Math Operator
+\let\ker\relax
+\let\div\relax
+\let\hom\relax
+\let\Re\relax
+\DeclareMathOperator{\alt}{Alt}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\cok}{Cok}
+\DeclareMathOperator{\ker}{Ker}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\hom}{Hom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\supp}{supp}
+
+
+% --> especially for this book
+\RequirePackage{mathtools, amsthm}
+\newcommand\RR{{\B{R}}}
+\newcommand\NN{{\B{N}}}
+\newcommand\CC{{\B{C}}}
+\newcommand\QQ{{\B{Q}}}
+\newcommand\ZZ{{\B{Z}}}
+\newcommand\CP{\mathbb{CP}}
+\newcommand\sseq{\subseteq}
+\newcommand\mrg[1]{\mathring{#1}}
+\newcommand\sime{\backsimeq}
+\newcommand\simee{\cong}
+\newcommand{\equ}{\ensuremath{\Longleftrightarrow}\,}
+\newcommand{\ma}{\ensuremath{\longmapsto}}
+\newcommand{\ns}{\ensuremath{\varnothing}}
+\newcommand{\A}{\ensuremath{\forall}}
+\newcommand{\dd}{\ensuremath{\mathchoice{\:}{\mspace{1.5mu}}{}{}\mathrm{d}}}
+
+
+% --> math thm
+\renewcommand{\theequation}{\arabic{equation}}
+\newtheoremstyle{CustomBookMath}%
+  {8pt}{8pt}{}{0pt}%
+  {\bfseries}{}{.25em}%
+  {\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
+\theoremstyle{CustomBookMath}
+\newtheorem{question}{Question}[chapter]
+\newtheorem{example}[question]{Example}
+\newtheorem{theorem}[question]{Theorem}
+\newtheorem{lemma}[question]{Lemma}
+\newtheorem{remark}[question]{Remark}
+\newtheorem{definition}[question]{Definition}
+\newtheorem{corollary}[question]{Corollary}
+\newtheorem{proposition}[question]{Proposition}
+\newtheorem{addendum}[question]{Addendum}
+\newtheorem{property}[question]{Property}
+% proof env
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{\upshape\textbf{\oldproofname}}
+
+
+% --> index and reference
+\RequirePackage[backend=biber]{biblatex}
+\addbibresource{ref.bib}
+\RequirePackage{makeidx}
+\newcommand{\Index}[1]{\textit{#1}\index{#1}}
+\let\ori@printindex\printindex
+\renewcommand{\printindex}{
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Index}
+  \ori@printindex
+}
+\let\ori@printbibliography\printbibliography
+\renewcommand{\printbibliography}{
+  \addtocontents{toc}{\def\protect\cftchappresnum{}}
+  \phantomsection
+  \addcontentsline{toc}{chapter}{References}
+  \nocite{*}
+  \ori@printbibliography
+}
+
+
+% --> font config
+\long\def\IfFontTimesTF#1#2{#2}
+\ExplSyntaxOn
+\keys_define:nn { CustomBook / option }{
+  font          .choice:,
+  font / times  .code:n = {
+    \usepackage{newtxtext}
+    % \usepackage{newtxmath}
+    \long\def\IfFontTimesTF##1##2{##1}
+  },
+  font / euler  .code:n = {
+    \usepackage[OT1]{eulervm}
+    \DeclareSymbolFont{cmmlargesymbols}{OMX}{cmex}{m}{n}
+    \DeclareSymbolFont{greekletters}{OML}{cmm}{m}{it}
+    \DeclareMathDelimiter{\Newint}{\mathop}{cmmlargesymbols}{"52}{cmmlargesymbols}{"5A}
+    % \DeclareMathDelimiter{\sum}{\mathop}{cmmlargesymbols}{"50}{cmmlargesymbols}{"58}
+    \AddToHook{begindocument}{
+      \renewcommand{\int}{\Newint\nolimits}
+      \DeclareMathSymbol{\kappa}{\mathord}{greekletters}{"14}  
+      \DeclareMathSymbol{\tau}{\mathord}{greekletters}{"1C}
+      \DeclareMathSymbol{\omega}{\mathord}{greekletters}{"21}
+    }
+  },
+  font / ncmr     .code:n = {
+    \usepackage[default]{fontsetup}% use 'xelatex' to compile
+    %% WARNING:'\ra' becomes '!' in 'ncmr' math font
+    %% Possible solution: use right 'binhex.tex' in USERS' texmf.
+  },
+  font / cmr      .code:n = { },
+  font / unknown  .code:n = {
+    \msg_warning:nnn {CustomBook} {unknown-font-option, use CMR instead.} {#1}
+  },
+}
+\ProcessKeyOptions[ CustomBook / option ]
+\ExplSyntaxOff
+
+
+% --> hyperref
+\RequirePackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+  bookmarksnumbered,
+  colorlinks = true,
+  linkcolor = teal,
+  urlcolor = red,
+  citecolor = blue,
+  pdfauthor = {Eureka},
+  pdftitle = {From Calculus to Cohomology -- Ib Madsen and Jørgen Tornehave},
+}
+\providecommand\phantomsection{}
+
+
+% --> make index
+\makeindex

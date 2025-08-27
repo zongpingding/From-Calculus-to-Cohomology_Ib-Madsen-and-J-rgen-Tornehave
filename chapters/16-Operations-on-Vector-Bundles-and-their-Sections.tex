@@ -1,0 +1,511 @@
+\newcommand{\otr}[1][R]{\otimes_#1}%
+\chapter{Operations on Vector Bundles and their Sections}
+The main operations to be considered are tensor products and exterior products.
+We begin with a description of these operations on vector spaces, then apply them
+fiberwise to vector bundles, and end with the relation between the constructions
+on bundles and their equivalent constructions on spaces of sections.
+
+
+Let $R$ be a unital commutative ring and let $V$ and $W$ be $R$-modules. In the simplest
+applications $R = \RR$ or $C$ and $V$ and $W$ are $R$-vector spaces, but we present the
+definitions in the general setting. Denote by $R[V\times W]$ the free $R$-module with
+basis the set $V\times W$, i.e. the space of maps from the set $V\times W$ to $R$ that are
+zero except for a finite number of points in $V\times W$. In $R[V\times W]$, we consider
+the submodule $R(V, W)$ which is generated (via finite linear combinations) by
+elements of the form
+\begin{align}\label{eq:16-1}
+  \begin{aligned}
+    & (v_1+v_2, w) - (v_1, w) - (v_2, w) \\
+    & (v, w_1+w_2) - (v, w_1) - (v, w_2) \\
+    & (rv, w) - r(v, w)\\
+    & (v, rw) - r(v, w)
+  \end{aligned}
+\end{align}
+where $v_i\in V, w_i\in W$ and $r\in R$.
+
+\begin{definition}\label{definition:16-1}
+  The \Index{tensor product} $V\otimes_{R} W$ of two $R$-modules is the quotient module $R[V\times W]/R(V, W)$.
+\end{definition}
+
+Let $\pi: R[V\times W]\to V \otimes_\RR W$ be the canonical projection and write $v\otimes_R w$ for
+the image of $(v, w)\in R[V\times W]$. It is clear from \eqref{eq:16-1} that $\pi:V\times W\to V\otimes_R W$
+is $R$-bilinear. Moreover, it is universal with this property in the following sense:
+
+\begin{lemma}\label{lemma:16-2}
+  Let $V, W$ and $U$ be $R$-modules, and let $f: V\times W\to U$ be any
+  $R$-bilinear map. Then there exists a unique $R$-linear map $\overline{f}:V\otimes_R W\to U$, with
+  $f = \overline{f}\circ \pi$.
+\end{lemma}
+
+\begin{proof}
+  Since the set $V\times W$ is a basis for the $R$-module $R[V\times W]$, f extends
+  to an $R$-linear map $\hat f: R[V\times W]\to U$. The bilinearity of $f$ implies that
+  $\hat f(R(V, W)) = 0$, so that $\hat f$ induces a map $\overline{f}$ from the quotient $V\otimes_R W$ to
+  $U$. By construction $f = \overline{f}\circ \pi$, $\overline{f}$ is R-linear and since $\pi(V\times W)$ 
+  generates the $R$-module $V\otimes_R W$, $\overline{f}$ is uniquely determined by $f$.
+\end{proof}
+
+It is immediate from Lemma \ref{lemma:16-2} that tensor product is a functor. Indeed, if
+$\varphi:V\to V'$ and $\psi:W\to W'$ are $R$-linear maps then the composition
+\[
+  V\times W \xra[\varphi\times\psi] V'\times W'\xra[\pi'] V'\otimes_R W'
+\]
+is bilinear, so induces a unique map 
+\begin{align}\label{eq:16-2}
+  \varphi\otimes_R\psi: V\otimes_R W\to V'\otimes_R W'
+\end{align}
+
+The uniqueness guarantees that $(\varphi'\otimes_R\psi')\circ(\varphi\otimes_R\psi) 
+= \varphi'\circ\varphi\otimes_R\psi'\circ\psi$ when $\varphi':V'\to V'', \psi':W'\to W''$.
+
+In the general setting of modules over a commutative ring, not every $R$-module
+$V$ has a basis, i.e. is of the form $R[B]$ for a subset $B\subset V$, but if it does we
+say that $V$ is a free $R$-module.
+
+\begin{lemma}\label{lemma:16-3}
+  Let $V$ and $V'$ befree $R$-modules with bases $B$ and $B'$. Then $V\otr V'$
+  is a free $R$-module with basis $\{b\otr b'\mid b\in B, b'\in B'\}$.
+\end{lemma}
+
+\begin{proof}
+  The bilinearity of $\pi:V\times V'\to V\otr V'$ shows that the stated set generates $V\otr V'$; 
+  so suppose that
+  \begin{align}\label{eq:16-3}
+    \sum r_{ij}b_i\otr b_j' = 0
+  \end{align}
+  is a (finit) relation. Let $\varphi_0:V\to R$ and $\varphi_0':V'\to R$ be the linear maps with 
+  \[\begin{matrix}
+    \varphi_0(b_i) = 0 \text{ if } i\neq i_0, \varphi_0(b_{i_0}) = 1 \\
+    \varphi_0'(b_j') = 0 \text{ if } j\neq j_0, \varphi_0'(b_{j_0}') = 1
+  \end{matrix}\]
+  where $(i_0, j_0)$ is a pair of indices that appear in \eqref{eq:16-3}. The composition
+  \[
+    V\otr V' \xra[\varphi_0\otimes\varphi_0'] R\otr R \xra*[mult] R
+  \]
+  maps the left-hand side in \eqref{eq:16-3} into $r_{i_0j_0}$ which must therefore be zero.
+
+  We note the general relations
+  \begin{align}\label{eq:16-4}
+    \begin{aligned}
+      \text{(i)}\qquad & R\otr V \simee V \simee V\otr R \\
+      \text{(ii)}\qquad & V_1\otr V_2 \simee V_2\otr V_1 \\
+      \text{(iii)}\qquad & V_1\otr(V_2\otr V_3)\simee (V_1\otr V_2)\otr V_3 \\
+      \text{(iv)}\qquad & (V_1\otr V_2)\otr V_3 \simee V_1\otr V_2 \oplus V_1\otr V_3.
+    \end{aligned}
+  \end{align}
+
+  They all follow from the universal property of Lemma \ref{lemma:16-2}. For example, scalar
+  multiplication defines an $R$-bilinear map from $R\times V$ into $V$, and hence a map
+  from $R\otr V$ into $V$ whose inverse is the map that sends $v\in V$ into $1\otr v$. The
+  other cases are equally simple.
+
+
+  There is an obvious generalization of Definition \ref{definition:16-1} to $k$-variable tensor products
+  $V_1\otr\ldots\otr V_k$ and a corresponding generalization of Lemma \ref{lemma:16-2}, namely
+
+  \begin{lemma}\label{lemma:16-4}
+    For every $R$-multilinear map $f:V_1\times\ldots\times V_k\to W$ there exists a unique $R$-linear map 
+    $\overline{f}:V_1\otr\ldots\otr V_k\to W$ such that the following diagram commutes.
+    \[\begin{tikzcd}
+    V_1\times\ldots\times V_k \arrow[rr, "f"], \arrow[dr, "\pi"] &  & W \\
+    & V_1\otr\cdots\otr V_k \arrow[ur, "\overline{f}"'] & 
+    \end{tikzcd}\]
+  \end{lemma}
+\end{proof}
+
+It is easy to see that the $k$-variable tensor product is isomorphic to the iteration
+of the two-variable ones,
+\[
+  (\ldots((V_1\otr V_2)\otr V_3)\otr\ldots\otr V_k) \simee V_1\otr V_2\otr\ldots\otr V_k.
+\]
+
+Let us specialize to $V_1=\ldots=V_k=V$. Consider the sub-$R$-module $A^k(V)\subseteq \bigotimes_R^k V$
+generated by the set 
+\[
+  \{v_1\otr\ldots\otr v_k\mid v_i\in V \text{ and } v_{i_0}=v_{i_0+1} \text{ for some } i_0\}.
+\]
+
+\begin{definition}\label{definition:16-5}
+  The quotient module 
+  \[
+    \Lambda_R^k = \bigotimes_R^k (V) / A^k(V)
+  \]
+  is called the \Index{exterior {$k$}-th power}.
+\end{definition}
+
+The image of $v_1\otr\ldots\otr v_k$ in $A_R^k(V)$ under the canonical projection  
+\[
+  \pi_1: \bigotimes_R^k (V) \to \Lambda_R^k (V)
+\]
+is denoted $v_1\wedge_R\ldots\wedge_R v_k$. Then for a permutation $\sigma$
+\begin{align}\label{eq:16-5}
+  v_1\wedge_R\ldots\wedge_R v_k
+  = \sign(\sigma) v_{\sigma(1)}\wedge_R\ldots\wedge_R v_{\sigma(k)}
+\end{align}
+as in Lemma \ref{lemma:2-2} and Lemma \ref{lemma:2-7}, so that the composition 
+\begin{align}\label{eq:16-6}
+  \rho = \pi_1\circ\pi:V\times\ldots\times V \to \Lambda_R^k(V)
+\end{align}
+is an alternating map, i.e. an $R$-multilinear map with $\rho(v_1,\ldots,v_k)=0$ when 
+$v_i=v_j$ for some $i<j$. With these definitions we get from Lemma \ref{lemma:16-4}:
+
+\begin{lemma}\label{lemma:16-6}
+  For any $R$-alternating map $\omega: V \times\ldots \times V\to W$ there is a unique $R$-linear 
+  map $\overline{\omega}:\Lambda_R^k\to W$ such that $\omega = \overline{\omega}\circ\rho$.\hfill $\square$
+\end{lemma}
+
+In the special case where $R = \RR$ (or $\CC$) and where we restrict attention to finite 
+dimensional vector spaces the exterior powers $\Lambda_R^k(V)$ are dual to the alternating
+power $\alt^k(V)$ introduced in Chapter 2. To simplify notation we drop the subscript $\RR$ and write
+$\otimes^k(V), \Lambda^k(V), V\otimes W, \hom(V, W)$ instead of $\otimes_\RR^k(V), \Lambda_\RR^k(V), 
+V\otr[\RR] W, \hom_\RR(V, W)$.
+
+Let $V^*=\hom_\RR(V, \RR)$ be the dual vector space. The exterior product introduced in Definition \ref{definition:2-5}
+defines an alternating map 
+\[
+  \varphi:V^*\times\ldots\times V^*\to \alt^k(V)
+\]
+and thus by Lemma \ref{lemma:16-6} a linear map 
+\[
+  \overline{\varphi}:\Lambda^k V^*\to \alt^k(V).
+\]
+
+\begin{theorem}\label{theorem:16-7}
+  \begin{enumerate}
+    \item The map $\overline{\varphi}$ is an isomorphism.
+    \item If $\{e_i\}_{i=1}^n$ is a basis for $V$ then $\{e_{i_1}\wedge\ldots\wedge e_{i_k}\mid i_1<\ldots<i_k\}$
+      is a basis for $\Lambda^k V$.
+    \item There is a natural isomorphism $\Lambda^k(V^*)\simee\Lambda^k(V)^*$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The map $\overline{\varphi}$ is surjective by Theorem \ref{theorem:2-15}, and hence $\dim\Lambda^k(V^*)\ge \binom{n}{k}$.
+  On the other hand Lemma \ref{lemma:16-3} and \eqref{eq:16-5} imply that the set in (ii) generates $\Lambda^k V$, so that 
+  $\dim\Lambda^k V\le \binom{n}{k}$. Since $\dim\Lambda^k V = \dim\alt^k(V^*)$, the common dimension is $\binom{n}{k}$.
+  Thus $\overline{\varphi}$ is an isomorphism. This proves (i) and (ii). For each fixed $\omega\in\alt^k(V), \omega(v_1, \ldots, v_k)$
+  is an alternating map, and so defines by Lemma \ref{lemma:16-6} a linear map from $\Lambda^k V^*$ to $\RR$. This gives a map 
+  \[
+    \overline{\psi}:\alt^k(V)\to \Lambda^k(V)^*
+  \]
+  which is linear and injective. Since the dimensions on both sides agree, $\overline{\psi}$ is an
+  isomorphism, and (iii) follows from (i).
+\end{proof}
+
+Consider the bilinear pairing
+\[
+  \wedge:\Lambda^k(V)\times\Lambda^l(V)\to \Lambda^{k+l}(V)
+\]
+which takes $(v_1\wedge\ldots\wedge v_k, w_1\wedge\ldots\wedge w_l)$ 
+into $v_1\wedge\ldots\wedge v_k\wedge w_1\wedge\ldots\wedge w_l$. Then 
+\[
+  \overline{\varphi}:\Lambda^k (V^*)\to \alt^k(V)
+\]
+becomes multiplicative, $\overline{\varphi}(\omega_1\wedge\omega_2)=\overline{\omega_1}\wedge\overline{\varphi}(\omega_2)$, where 
+the product on the range is the one from Definition \ref{definition:2-5}. The composition
+\[
+  \psi:\Lambda^k(V^*)\otimes \Lambda^l(V) \xra[\overline{\varphi}\otimes 1] 
+  \alt^k(V)\otimes \Lambda^k(V) \xra*[ev] \RR
+\]
+with $\R{ev}(\omega, v_1\wedge\ldots\wedge v_k) = \omega(v_1,\ldots,v_k)$ induces the 
+isomorphism $\overline{\psi}:\Lambda^k(V^*)\simee \Lambda^k(V)^*$
+in Theorem \ref{theorem:16-7}.(iii) On the other hand, Lemma \ref{lemma:2-13} gives that 
+\begin{align}\label{eq:16-7}
+  \psi((\epsilon_1\wedge\ldots\wedge\epsilon_{i_k})\otimes (v_1\wedge\ldots\wedge v_k))
+  = \det((\epsilon_i(v_j))_{i,j=1}^k).
+\end{align}
+In particular, if $V$ has an inner product $\langle\, ,\,\rangle$, then we may identity $V$ with $V^*$ by 
+sending $v$ to $\langle v, -\rangle$, and $\psi$ becomes the map 
+\[
+  \psi(w_1\wedge\ldots\wedge w_k, v_1\wedge\ldots\wedge v_k) 
+  = \det\left(\langle w_i, v_j\rangle_{i,j=1}^k\right)
+\]
+
+Theorem \ref{theorem:16-7}.(iii) then translates into 
+\begin{addendum}[Grassmann inner product]\label{addendum:16-8}\index{Grassmann inner product}
+  For an inner product space $V$, the formula
+  \[
+    \langle w_1\wedge\ldots\wedge w_k, v_1\wedge\ldots\wedge v_k\rangle
+    = \det\left(\langle w_i, v_j\rangle_{i,j=1}^k\right)
+  \]
+  defines an inner product on $\Lambda^k(V)$.\hfill $\square$
+\end{addendum}
+
+For vector spaces $V$ and $W$ there is an obvious linear map
+\[
+  V^*\otimes W\to \hom(V, W)
+\]
+which takes $f\otimes w$ into the linear map $v\ma f(v)w$. It follows from Lemma \ref{lemma:16-3}
+that this is an isomorphism
+\begin{align}\label{eq:16-8}
+  V^*\otimes W \simee \hom(V, W);\quad \dim W< \infty.
+\end{align}
+
+The above constructions on vector spaces induce constructions on vector bundles
+(over the same base space) by applying them fiberwise. So if $\xi$ and $\eta$ are (smooth)
+vector bundles over $X$ then we get new (smooth) vector bundles over $X$:
+\begin{align}\label{eq:16-9}
+  \xi\otimes\eta, \qquad \hom(\xi, \eta), \qquad \otimes^k(\xi), \qquad \Lambda^k(\xi), 
+  \qquad \xi^*, \qquad \alt^k(\xi)
+\end{align}
+and so forth. The fiber over $x\in X$ in each case is the associated construction
+on $\xi_x, \eta_x$. To be more specific, let us run through the definition in one of the
+cases, say $\hom(\xi, \eta)$. We define
+\[
+  E = E(\hom(\xi, \eta)) = \coprod_{x\in X} \hom(\xi_x, \eta_x)
+\]
+with the obvious projection map $\pi$ onto $X$, which maps the entire vector space
+$\hom(\xi_x, \eta_x)$ to $x\in X$. The problem is to define a topology on $E$ that makes
+this the total space of a vector bundle.
+
+Let $\{U_j\}_{j\in J}$ be an open cover of $X$ for which both $\xi|_{U_j}$ and $\eta|_{U_j}$ are trivial.
+Choose isomorphisms
+\[
+  h_j:\xi_{|U_j}\simee U_j\times\RR^{n}, \qquad
+  k_j:\eta_{|U_j}\simee U_j\times\RR^{m}
+\] 
+They induce inclusions
+\[
+  U_j\times \hom(\RR^n, \RR^m)\xra[H_j] E(\hom(\xi, \eta))
+\]
+(which depend on $h_j$ and $k_j$). We can use $\{h_j\}$ to define a topology on $E$:
+\begin{align}\label{eq:16-10}
+  A\subset E \text{ open } \Leftrightarrow H_j^{-1}(A) \text{ open for all } j.
+\end{align}
+where the topology on $U_j\times \hom(\RR^n, \RR^m)$ is the product topology. It is left
+to the reader to show that \eqref{eq:16-10} defines a topology and that it is independent of
+the choice of cover and isomorphisms $h_j, k_j$. This uses that $\hom(V, W)$ is a
+continuous functor, i.e. that the maps
+\[
+  \begin{aligned}
+    & T:\hom(V, V_1)\times \hom(W_1, W)\to \hom(\hom(V_1, W_1), \hom(V, W));\\[.25em]
+    & T(f, g)(\phi) = g\circ\phi\circ f
+  \end{aligned}
+\]
+are continuous. In particular note that $\xi\simee X\times V$ and $\eta\simee X\times W$ give $\hom(\xi, \eta)\simee X\times \hom(V, W)$.
+
+All of constructions in \eqref{eq:16-9} produce smooth vector bundles when $\xi$ and $\eta$ are smooth.
+
+\begin{lemma}\label{lemma:16-9}
+  For (smooth) vector bundles $\xi$ and $\eta$ there are isomorphisms $\xi\simee \xi^{**}$ and $\xi^*\otimes \eta\simee\hom(\xi, \eta)$.
+\end{lemma}
+
+\begin{proof}
+  For finite-dimensional vector spaces there are natural isomorphisms 
+  \[
+    V\to V^{**}, \qquad V^*\otimes W\to\hom(V, W)
+  \]
+  defined without any reference to basis. This gives maps of vector bundles (over the identity)
+  \[
+    \xi\to \xi^{**}, \qquad \xi^*\otimes\eta\to\hom(\xi, \eta)
+  \]
+  which are isomorphisms on each fiber, and we can apply Lemma \ref{lemma:15-10}.
+\end{proof}
+
+For finite-dimensional vector spaces $V\simee V*$, since the dimensions agree. However, 
+it is not true in general that $\xi\simee\xi^*$; cf. Properties \ref{property:18-11} below. The above
+proof breaks down because there is no isomorphism from $V$ to $V^*$ defined independently of choice of basis. 
+As a result one cannot define a homomorphism from $\xi$ to $\xi^*$.
+
+The isomorphisms of Theorem \ref{theorem:16-7}.(iii) are again defined without reference to a
+basis, and so give isomorphisms
+\begin{align}\label{eq:16-11}
+  \Lambda^k(\xi^*)\simee \alt^k(\xi)
+\end{align}
+for all vector bundles $\xi$.
+
+We have in Theorem \ref{theorem:16-7}, Addendum \ref{addendum:16-8}, Lemma \ref{lemma:16-9}, and \eqref{eq:16-11} 
+concentrated on real vector spaces and vector bundles, and leave the reader to formulate and
+prove the corresponding results for the complex cases.
+
+
+Every complex vector bundle $\xi$ gives rise to a real vector bundle $\xi_\RR$ upon forgetting
+part of the structure. On the other hand, every real vector bundle induces a
+complex vector bundle $\eta_\CC$ upon complexifying each fiber, $\eta_\CC=\eta\otr[\RR] \varepsilon_\CC^1$ 
+where $\varepsilon_\CC^1$ denotes the trivial complex line bundle. There are the following relations
+between these operations.
+
+\begin{lemma}\label{lemma:16-10}
+  \begin{enumerate}
+    \item For a real vector bundle $\eta$, $(\eta_\CC)_\RR\simee \eta\oplus\eta$.
+    \item For a complex vector bundle $\xi$, $(\xi_\RR)_\CC\simee \xi\oplus\xi^*$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  We leave (i) to the reader and prove (ii). Given a complex vector space $V$ we get a new 
+  one $V\otr[\RR]\CC$ where scalar multiplication is in the second factor. The map
+  \[
+    \varphi:V\otr[\RR]\CC\to V\oplus V;\qquad 
+    \varphi(v\otimes z) = (zv, \overline{z}v)
+  \]
+  defines an isomorphism of the underlying real vector spaces, and $\varphi$ becomes
+  complex linear if, in the second summand of the target, we replace $V$ by its
+  conjugate vector space $\overline{V}$, in which multiplication by $z\in\CC$ is replaced by
+  multiplication with the complex conugate $\overline{z}$. Suppose that $V$ has a hermitian
+  product. Then we may identify $\overline{V}$ with the complex dual vector space $V^*$ via the
+  map $v\ma \langle -, v\rangle$, and $\varphi$ gives a complex linear isomorphism
+  \[
+    \varphi:V\otr[\RR]\CC \to V\oplus V^*.
+  \]
+  We choose a hermitian product on $\xi$, and apply $\varphi$ fiberwise to prove (ii).
+\end{proof}
+
+We next consider spaces of sections. We shall primarily be interested in the space
+of smooth sections $\Omega^0(\xi)$ of smooth vector bundles; cf. Definition \ref{definition:15-15}. 
+For the tangent bundle $\tau_M$,
+\begin{align}\label{eq:16-12}
+  \Omega^0(\alt^k(\tau_M)) = \Omega^k(M).
+\end{align}
+Indeed, an element of the left-hand side associates to each $x\in M$ an element $\omega_x\in \alt^k(T_xM)$, 
+and sine $\Omega^0(-)$ denotes the space of smooth sections, $\{\omega_x\}_{x\in M}$ is a smooth $k$-form in nthe sense of 
+Definition \ref{definition:9-15}. Similarly $\Omega^0(\tau_M)$ is the space of smooth tangent vector fields on $M$.
+
+The section space $\Omega^0(\xi)$ of a smooth vector $M$ is always a module over the ring $\Omega^0(M)=C^\infty(M, \RR)$;
+if $s\in\Omega^0(\xi)$ and $f\colon M\to\RR$ is a smooth map then $(fs)(x)=f(x)s(x), x\in M$ is a new smooth section of $\xi$. We can 
+apply Definition \ref{definition:16-1} and \ref{definition:16-5} with $R = \Omega^0(M)$ and $V, W=\Omega^0(\xi), \Omega^0(\eta)$, eta.
+
+The $\Omega^0(M)$-module $\Omega^0(\xi)$ is not in general a free module. Indeed, if it is then a choice of $\Omega^0(M)$-basis
+$e_1, \ldots, e_k\in \Omega^0(\xi)$ has the property that $e_1(p), \ldots, e_k(p)$ is a basis for $\xi_p$ for every $p\in M$ and $\xi$
+must be trivial.
+
+
+\begin{lemma}\label{lemma:16-11}
+  For every smooth vector bundle $\xi$ over a compact smooth manifold $M, \Omega^0(\xi)$ is 
+  a direct $\Omega^0(M)$-summand in afinitely generatedfree $\Omega^0(M)$-module.
+\end{lemma}
+
+
+\begin{proof}
+  By Theorem \ref{theorem:15-18} there is a complement $\eta$ to $\xi$, $\xi\oplus\eta\simee \varepsilon^{k+l}$. Then 
+  \[
+    \Omega^0(\xi)\oplus\Omega^0(\eta) \simee 
+    \Omega^0(\xi\oplus\eta)\simee 
+    \Omega^0(\varepsilon^{k+l})
+  \]
+  and $\Omega^0(\varepsilon^{k+l})$ is a free $\Omega^0(M)$-module (of dimension $k+l$).
+\end{proof}
+
+Direct summands in free modules are called projective modules\index{projective module}, so the above
+lemma tells us that $\Omega^0(\xi)$ is always a finitely generated projective $R$-module,
+with $R = \Omega^0(M)$.
+
+\begin{lemma}\label{lemma:16-12}
+  Let $P_1$ and $P_2$ be finitely generated projective $R$-modules. Then there are isomorphisms
+  \[
+    P_1\simee P_1^{**}, \qquad \hom_R(P_1, P_2)\simee P_1^*\otr P_2
+  \]
+  where $P_1^*=\hom_R(P_1, R)$.
+\end{lemma}
+
+\begin{proof}
+  One first proves the assertions for finitely generated free modules, where
+  the argument is completely similar to the case of vector spaces. The general case
+  follows easily upon choosing complements $P_1\oplus Q_1=R^{n_1}, P_2\oplus Q_2=R^{n_2}$.
+  Details are left as an exercise.
+\end{proof}
+
+\begin{theorem}\label{theorem:16-13}
+  There are the following isomorphisms
+  \begin{enumerate}
+    \item $\Omega^0(\hom(\xi, \eta))\simee \hom_{\Omega^0(M)}(\Omega^0(\xi), \Omega^0(\eta))$.
+    \item $\Omega^0(\xi\otimes\eta) \simee \Omega^0(\xi)\otimes_{\Omega^0(M)}\Omega^0(\eta)$.
+    \item $\Omega^0(\xi^*)\simee \hom_{\Omega^0(M)}(\Omega^0(\xi), \Omega^0(M))$.
+    \item $\Omega^0(\Lambda^i\xi) \simee \Lambda^i_{\Omega^0(M)}(\Omega^0(\xi))$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  By definition, $\Omega^0(\hom(\xi, \eta))$ is the space of smooth fiberwise homomorphisms $\hat{\varphi}:\xi\to\eta$,
+  and we define an $\Omega^0(M)$-linear homomorphism
+  \[
+    F:\Omega^0(\hom(\xi, \eta))\to \hom_{\Omega^0(M)}(\Omega^0(\xi), \Omega^0(\eta))
+  \]
+  by $F(\hat{\varphi})(s)=\hat{\varphi}\circ s, s\in \Omega^0(\xi)$. Suppose $F(\hat\varphi) = 0$. 
+  To check injectivity of $F$ we must show that $\hat\varphi_x:\xi_x\to\eta_x$ is the zero homomorphism for every $x\in M$.
+  Fix $x\in M$ and $v\in\xi_x$. There is a section $s_v\in\Omega^0(\xi)$ with $s_v(x) = v$. Indeed,
+  such an $s_v$ can always be defined in a neighborhood $U$ of $x\in M$ where $\xi_{|U}$ is
+  trivial, and we can obtain a global section upon choosing a smooth function $f$ on $M$ with $\supp(f)\subset U$ 
+  and $f(x) = 1$ (cf. Appendix A) and replace the local section $s_v$ by $fs_v$, giving it the value zero outside $U$.
+
+  Now $F(\hat\varphi)(s_v)=0$ implies that $\hat\varphi(v)=0$. Since $x$ and $v$ were arbitrary. $F$ is injective.
+
+  Let $\Phi\in\hom_{\Omega^0(M)}(\Omega^0(\xi), \Omega^0(\eta))$. We wish todefine a fiberwise smooth homomorphism 
+  $\hat\varphi:\xi\to \eta$ by setting $\hat\varphi(v)=\Phi(s_v)(x)$ where $s_v\in\Omega^0(\xi)$ is a section with $s_v(x)=v$. 
+  This requires that one has
+  \[
+    \Phi(s_v)(x) = \Phi(s_v')(x)
+  \]
+  for two sections of $\xi$ with $s_v(x)=s_v'(x)$, or in other words that 
+  \begin{align}\label{eq:16-13}
+    \text{if}\quad s(x) = 0 \text{ then } \Phi(s)(x) = 0.
+  \end{align}
+  Choose sections $e_1, \ldots, e_k\in\Omega^0(\xi)$ such that $e_1(p), \ldots, e_k(p)$ form a basis for 
+  $\xi_p$ for $p$ in some neighborhood $U$ of $x$. Again this can be done locally, and the local sections can be extended
+  to global ones as above. Now
+  \[
+    s(p) = \sum f_i(p)e_i(p)\qquad \text{for } p\in U
+  \]
+  for smooth functions $f_i$ defined on $U$. Let $\lambda\in\Omega^0(M)$ have $\R{Supp}(\lambda)\subset U$ 
+  and $\lambda(x)=1$. Then 
+  \[
+    \Phi(s) = \Phi(\lambda s + (1-\lambda)(s))
+    = \Phi(\lambda s) + (1-\lambda)\Phi(s)
+  \]
+  so that $\Phi(s)(x) = \Phi(\lambda s)(x)$. But $\lambda s=\sum (\lambda f_i)e_i$ and $\lambda f_i$ extends to a smooth 
+  function $g_i$ defined on all of $M$ with $g_i(x) = f_i(x)=0$. Since $\Phi$ is $\Omega^0(M)$-linear,
+  \[
+    \Phi(\lambda s) = \sum g_i\Phi(e_i)\in \Omega^0(\eta).
+  \]
+  But $g_i(x)=0$ so $\Phi(\lambda s)(x) = 0$. This proves (i).
+
+  assertion (iii) is the special case of (i) corresponding to $\eta=\varepsilon^1$, the trivial line bundle, 
+  and (ii) follows from Lemma \ref{lemma:16-9} and (i):
+  \begin{align*}
+    \Omega^0(\xi\otimes\eta)
+    & \simee \Omega^0(\hom(\xi^*, \eta)) 
+      \simee \hom_{\Omega^0(M)}(\Omega^0(\xi^*), \Omega^0(\eta)) \\
+    & \simee \hom_{\Omega^0(M)}(\hom_{\Omega^0(M)}(\Omega^0(\xi), \Omega^0(M)), \Omega^0(\eta))\\
+    & \simee \Omega^0(\xi)\otimes_{\Omega^0(M)}\Omega^0(\eta)
+  \end{align*}
+  where the last isomorphism is from Lemma \ref{lemma:16-11} and Lemma \ref{lemma:16-12}. Finally there 
+  is a commutative diagram
+  \[\begin{tikzcd}
+    \Omega^0(\bigotimes^i\xi)\dar{}\rar{} & \bigotimes_{\Omega^0(M)}(\Omega^0(\xi))\dar{} \\
+    \Omega^0(\Lambda^i\xi)\rar{} & \Lambda^i_{\Omega^0(M)}(\Omega^0(\xi))
+  \end{tikzcd}\]
+  By (ii), the upper horizontal map is an isomorphism. To see that the bottom
+  homomorphism is also an isomorphism, one can use Theorem \ref{theorem:16-7}.(ii), and local
+  sections as in the proof of (i). The details are left as an exercise.
+\end{proof}
+
+We close with a weaker form of the universal property of tensor products, stated
+in Lemma \ref{lemma:16-2}. Let $R$ be a unital commutative ring and $S$ an $R$-algebra. In our
+applications in the next chapter $R = \RR$ and $S = \Omega^0(M)$, the smooth functions
+on $M$, or their complex versions $R = \CC$ and $S = \Omega^0(M; \CC)$. Suppose that $V$
+and $W$ are $R$-modules and that $S$ operates from the right on $V$ and from the
+left on $W$, e.g.
+\[
+  V = \Omega^i(M), \qquad W = \Omega^0(\xi).
+\]
+
+\begin{definition}\label{definition:16-14}
+  The \Index{balanced product} (or tensor product) $V\otr[S] W$ is the cokenel of the $R$-linear homomorphism
+  \[
+    V\otr S\otr W \xra[\beta] V\otr W
+  \]
+  given by $\beta(v\otr s\otr w) = vs\otr w - v\otr sw$.
+\end{definition}
+
+When $S$ is commutative, and this will be the case in our applications, then there
+are no distinctions between left and right actions of $S$, and $V\otr[S] W$ becomes an
+$S$-module upon defining $s(v\otr[S] w) = vs\otr[S] w$.
+
+
+This $S$-module is obviously isomorphic to the one defined in Definition \ref{definition:16-1}. We
+record for later use the obvious
+\begin{lemma}\label{lemma:16-15}
+  Let $f:V\otr W\to U$ be an $R$-linear map which is $S$-balanced in the sense that $f(vs\otr w)=f(v\otr sw)$ 
+  for $f\in V, w\in W$ and $s\in S$. Then there is an induced $R$-linear map $\overline{f}:V\otr[S] W\to U$.
+  \hfill $\square$
+\end{lemma}

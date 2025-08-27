@@ -1,0 +1,63 @@
+\documentclass[leqno]{book}
+\usepackage[font=times]{CustomBook}
+% mathpazo-var math font
+\usepackage{mathptmx}
+\makeatletter
+\DeclareSymbolFont{letters}{OML}{ntxmi}{m}{it}
+\DeclareMathAlphabet{\mathbf}{OT1}{ntxtlf}{b}{it}
+\DeclareSymbolFont{CMMletters}{OML}{cmm}{m}{it}
+\DeclareSymbolFont{CMMsymbols}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFont{CMMlargesymbols}{OMX}{cmex}{m}{n}
+\DeclareMathSymbol{\new@pi}{0}{CMMletters}{"19}
+\DeclareMathSymbol{\new@jmath}{0}{CMMletters}{"7C}
+\DeclareMathSymbol{\new@amalg}{0}{CMMsymbols}{"71}
+\DeclareMathSymbol{\new@coprod}{1}{CMMlargesymbols}{"61}
+\AddToHook{begindocument}{
+  \let\pi\new@pi
+  \let\jmath\new@jmath
+  \let\amalg\new@amalg
+  \let\coprod\new@coprod
+}
+\makeatother
+
+
+\begin{document}
+\frontmatter
+\input{chapters/cover.tex}
+\input{chapters/copyright.tex}
+\input{chapters/preface.tex}
+\tableofcontents
+
+\mainmatter
+\input{chapters/01-introduction.tex}
+\input{chapters/02-The-Alternating-Algebra.tex}
+\input{chapters/03-de-Rham-Cohomolog.tex}
+\input{chapters/04-Chain-Complexes-and-their-Cohomology.tex}
+\input{chapters/05-The-Mayer-Vietoris-Sequence.tex}
+\input{chapters/06-Homotopy.tex}
+\input{chapters/07-Applications-of-de-Rham-Cohomology.tex}
+\input{chapters/08-Smooth-Manifolds.tex}
+\input{chapters/09-Differential-Forms-on-Smooth-Manifolds.tex}
+\input{chapters/10-Integration-on-Manifolds.tex}
+\input{chapters/11-Degree-Linking-Numbers-and-Index-of-Vector-Fields.tex}
+\input{chapters/12-The-Poincare-Hopf-Theorem.tex}
+\input{chapters/13-Poincare-Duality.tex}
+\input{chapters/14-The-Complex-Projective-Space-CPn.tex}
+\input{chapters/15-Fiber-Bundles-and-Vector-Bundle.tex}
+\input{chapters/16-Operations-on-Vector-Bundles-and-their-Sections.tex}
+\input{chapters/17-Connections-and-Curvature.tex}
+\input{chapters/18-Characteristic-Classes-of-Complex-Vector-Bundles.tex}
+\input{chapters/19-The-Euler-Class.tex}
+\input{chapters/20-Cohomology-of-Projective-and-Grassmannian-Bundles.tex}
+\input{chapters/21-Thom-Isomorphism-and-the-General-Gauss-Bonnet-Formula.tex}
+
+\appmatter
+\input{chapters/App-A-Smooth-Partition-of-Unit.tex}
+\input{chapters/App-B-Invariant-Polynomials.tex}
+\input{chapters/App-C-Proof-of-Lemmas-2.12-and-12.13.tex}
+\input{chapters/App-D-Exercises.tex}
+
+\backmatter
+\printbibliography
+\printindex
+\end{document}

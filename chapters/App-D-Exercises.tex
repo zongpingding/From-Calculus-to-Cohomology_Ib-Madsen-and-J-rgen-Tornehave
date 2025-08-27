@@ -1,0 +1,1357 @@
+\chapter{Exercises}
+\newcounter{exercise}
+\setcounter{exercise}{1}
+\newcommand{\newchap}[1][1]{\setcounter{exercise}{#1}\setcounter{enumi}{0}}
+\let\oriITEM\item
+\newcommand{\NewItem}{%
+  \oriITEM{\hspace*{-5.5pt}.\;\,}\label{exercise:\theexercise-\arabic{enumi}}%
+  % \textcolor{red}{[exercise:\theexercise-\arabic{enumi}]\;}%
+}
+% \AddToHook{cmd/item/after}[exercise-label]{\label{exercise:\theexercise.\arabic{enumi}}}
+
+\begin{enumerate}[\theexercise.1]
+% \makeatletter
+% \renewcommand\theenumi{\theexercise.\@arabic\c@enumi.}
+% \def\labelenumi{\theenumi}
+% \makeatother
+  \NewItem Perform the calculations of Theorem \ref{theorem:1-6}.
+  \NewItem Let $W\subseteq\RR^3$ be the open set
+    \begin{align*}
+      W = \{(x_1, x_2, x_3)\in\RR^3\mid \text{ either } x_3\neq 0 \text{ or } x_1^2 + x_2^2<1\}.
+    \end{align*}
+    Prove the existence and uniqueness of a function $f\in C^\infty(W, \RR)$ such that
+    $\grad(F)$ is the vector field considered in Example \ref{example:1-8} and $F(0)= 0$.
+    Find a simple expression for $F$ valid when $x_1^2 + x_2^2 < 1$. ( Hint: First note that $F$ is
+    constant on the open disc in the $x_1, x_2$-plane bounded by the unit circle $S$. Then integrate
+    along lines parallel to the $x_3$-axis.) 
+  \newchap[2]
+  \NewItem Prove the formula in Remark \ref{remark:2-10}.
+  \NewItem Find an $\omega\in\alt^2\RR^4$ such that $\omega\wedge\omega\neq 0$.
+  \NewItem Show that there exist isomorphisms
+    \begin{align*}
+      \RR^3 \xra[i] \alt^1\RR^3, &  & \RR^3 \xra[j]\alt^2\RR^3
+    \end{align*}
+    given by
+    \begin{align*}
+      i(v)(w) = \langle v, w \rangle, &  & j(v)(w_1, w_2) = \det(v, w_1, w_2)
+    \end{align*}
+    where $\langle, \rangle$ is the usual inner product. Show that for $v_1, v_2\in\RR^2$, we have
+    \begin{align*}
+      i(v_1)\wedge i(v_2) = j(v_1\times v_2).
+    \end{align*}
+  \NewItem Let $V$ be a finite-dimensional vector space over $\B{R}$ with inner product $\langle, \rangle$, and let
+    \[
+      i : V \ra  {V}^* = {\alt}^{1}( V)
+    \]
+    be the $\B{R}$-linear map given by
+    \[
+      i( v) ( \omega )  = \langle \omega,v\rangle.
+    \]
+    Show that if $\left\{  {b_1,\ldots,{b}_{n}}\right\}$ is an orthonormal basis of $V$, then
+    \[
+      i( {b}_{k})  = {b}_{k}^*,
+    \]
+    where $\left\{  {b_1^*,\ldots,{b}_{k}^*}\right\}$ is the dual basis. Conclude
+    that $i$ is an isomorphism.
+  \NewItem Assumptions as in Exercise \ref{exercise:2-4}. Show the existence of an inner product on ${\alt}^{p}( V)$
+    such that
+    \[
+      \langle  {{\omega }_{1} \land  \ldots  \land  {\omega }_{p}, {\tau }_{1} \land  \ldots  \land  {\tau }_{p}}\rangle
+      = \det ( \langle  {{\omega }_{i},{\tau }_{j}}\rangle  ),
+    \]
+    whenever ${\omega }_{i},{\tau }_{j} \in  {\alt}^{1}( V)$, and
+    \[
+      \langle \omega,\tau \rangle  = \langle  {{i}^{-1}( \omega ),{i}^{-1}( \tau ) }\rangle .
+    \]
+    Let $\left\{  {b_1,\ldots,{b}_{n}}\right\}$ be an orthonormal basis of $V$, and let ${\beta }_{j} = i( {b}_{j})$.
+    Show that
+    \[
+      \left\{  {{\beta }_{\sigma ( 1) } \land  \ldots  \land  {\beta }_{\sigma ( p) } \mid  \sigma  \in  S( {p,n- p}) }\right\}
+    \]
+    is an orthonormal basis of ${\alt}^{p}( V)$.
+  \NewItem Suppose $\omega  \in  {\alt}^{p}( V)$. Let ${v}_{1},\ldots,{v}_{p}$ be vectors in $V$ and let $A = ( {a}_{ij})$ be
+    a $p \times  p$ matrix. Show that for ${w}_{i} = \sum_{{j = 1}}^{p}{a}_{ij}{v}_{j}( {1 \leq  i \leq  p})$
+    we have
+    \[
+      \omega ( {{w}_{1},\ldots,{w}_{p}})  = \det {A\omega }( {{v}_{1},\ldots,{v}_{p}}).
+    \]
+    (Try $p = 2$ first.)
+  \NewItem Show for $f\colon V \ra  W$ that
+    \[
+      {\alt}^{p + q}( f) ( {{\omega }_{1} \land  {\omega }_{2}})  = {\alt}^{p}( f) ( {\omega }_{1})  \land  {\alt}^{q}( f) ( {\omega }_{2}),
+    \]
+    where ${\omega }_{1} \in  {\alt}^{p}( W),{\omega }_{2} \in  {\alt}^{q}( W)$.
+  \NewItem Show that the set
+    \[
+      \{ f \in  \R{End}( V)  \mid  \exists g \in  {GL}( V): {gf}{g}^{-1}\text{ a diagonal matrix }\}
+    \]
+    is everywhere dense in $\R{End}( V)$, assuming that $V$ is a finite-dimensional complex vector space.
+  \NewItem Let $V$ be an $n$-dimensional vector space with inner product $\langle,\rangle$. From
+    Exercise \ref{exercise:2-5} we obtain an inner product on ${\alt}^{p}( V)$ for all $p$, in particular on ${\alt}^{n}( V)$.
+    A volume element of $V$ is a unit vector vol $\in  {\alt}^{n}( V)$. \Index{Hodge's star operator}
+    \[
+      *:{\alt}^{p}( V)  \ra  {\alt}^{n- p}( V)
+    \]
+    is defined by the equation $\langle * \omega,\tau \rangle \R{vol} = \omega  \land  \tau$. Show that $*$ is
+    well-defined and linear.
+    Let $\left\{  {{e}_{1},\ldots,{e}_{n}}\right\}$ be an orthonormal basis of $V$ with $\R{vol}( {{e}_{1},\ldots,{e}_{n}}) = 1$
+    and $\left\{  {{\epsilon }_{1},\ldots,{\epsilon }_{n}}\right\}$ the dual orthonormal basis of ${\alt}^{1}( V)$.
+    Show that
+    \[
+      * ( {{\epsilon }_{1} \land  \ldots  \land  {\epsilon }_{p}})
+      = {\epsilon }_{p + 1} \land  \ldots  \land  {\epsilon }_{n}
+    \]
+    and in general that
+    \[
+      * ( {{\epsilon }_{\sigma ( 1) } \land  \ldots  \land  {\epsilon }_{\sigma ( p) }})
+      = \R{sign}( \sigma ) {\epsilon }_{\sigma ( {p + 1}) } \land  \ldots  \land  {\epsilon }_{\sigma ( n) }
+    \]
+    with $\sigma  \in  S( {p,n- p})$. Show that $*\circ *= {(-1) }^{p( {n- p}) }$ on ${\alt}^{p}( V)$.
+  \NewItem Let $V$ be a 4-dimensional vector space and $\left\{  {{\epsilon }_{1},\ldots,{\epsilon }_{4}}\right\}$ a
+    basis of ${\alt}^{1}( V)$. Let $A = ( {a}_{ij})$ be a skew-symmetric matrix and define
+    \[
+      \alpha  = \sum_{{i < j}}{a}_{ij}{\epsilon }_{i} \land  {\epsilon }_{j}
+    \]
+    Show that
+    \[
+      \alpha  \land  \alpha  = 0 \Leftrightarrow  \det ( A)  = 0.
+    \]
+    Say $\alpha  \land  \alpha  = \lambda  \cdot  {\epsilon }_{1} \land  {\epsilon }_{2} \land  {\epsilon }_{3} \land  {\epsilon }_{4}$. What is the relation between $\lambda$ and $\det ( A)$ ? Let $V$ be an $n$-dimensional vector space with inner product $\langle$, $\rangle {andvolume}$ element vol $\in  {\alt}^{n}( V)$, as in Exercise \ref{exercise:2-9}. Let $v \in  {\alt}^{1}( V)$ and
+    \[
+      {F}_{v} : {\alt}^{p}( V)  \ra  {\alt}^{p + 1}( V)
+    \]
+    be the map
+    \[
+      {F}_{v}( \omega )  = v \land  \omega
+    \]
+    Show that the map
+    \[
+      {F}_{v}^* = {(-1) }^{np} *  \circ  {F}_{v} \circ   *  : {\alt}^{p + 1}( V)  \ra  {\alt}^{p}( V)
+    \]
+    is adjoint to ${F}_{v}$, i.e. $\langle  {{F}_{v}\omega,\tau }\rangle   = \langle  {\omega,{F}_{v}^*\tau }\rangle$.
+    Let $\left\{  {{e}_{1},\ldots,{e}_{n}}\right\}$ be an orthonormal basis of $V$ with $\R{vol}( {{\epsilon }_{1},\ldots,{\epsilon }_{n}}) = 1$
+    and $\left\{  {{\epsilon }_{1},\ldots,{\epsilon }_{n}}\right\}$ the dual (orthonormal) basis of ${\alt}^{1}( V)$;
+    see Exercise \ref{exercise:2-5}. Show that
+    \[
+      {F}_{v}^*( {{\epsilon }_{1} \land  \ldots  \land  {\epsilon }_{p + 1}})
+      = \sum_{i=1}^{p + 1}{(-1) }^{i + 1}\langle  {v,{\epsilon }_{i}}\rangle  {\epsilon }_{1}
+      \land  \ldots  \land  \widehat{{\epsilon }_{i}}
+      \land  \ldots  \land  {\epsilon }_{p + 1}.
+    \]
+    Show that ${F}_{v}{F}_{v}^* + {F}_{v}^*{F}_{v} : {\alt}^{p}( V)  \ra  {\alt}^{p}( V)$ is multiplication
+    by $\|v\|^2$. \par(Hint: Suppose that $v = \lambda.{\epsilon }_{1}$ and show that the general
+    case follows from the special case.)
+  \NewItem Let $V$ be an $n$-dimensional vector space. Show for a linear map $f\colon V \ra  V$ the existence of a
+    number $d( f)$ such that
+    \[
+      {\alt}^{n}( f) ( \omega )  = d( f) \omega
+    \]
+    for $\omega  \in  {\alt}^{n}( V)$. Verify the product rule
+    \[
+      d( {g \circ  f})  = d( g) d( f)
+    \]
+    for linear maps $f,g\colon V \ra  V$ using the functoriality of ${\mathrm{{Alt}}}^{n}$.
+    Prove that $d(f)  = \det ( f)$.
+    \par(Hint: Pick a basis ${e}_{1},\ldots,{e}_{n}$ for $V$, let ${\epsilon }_{1},\ldots,{\epsilon }_{n}$ be the dual
+    basis for ${\alt}^{n}( V)$ and evaluate ${\alt}^{n}( f) ( {{\epsilon }_{1} \land  \ldots  \land  {\epsilon }_{n}})$
+    on $( {{e}_{1},\ldots,{e}_{n}})$ in terms of the matrix for $f$ with respect to the chosen basis.)
+  \newchap[3]
+  \NewItem Show for an open set in ${\B{R}}^{2}$ that the de Rham complex
+    \[
+      0 \ra  {\Omega }^{0}( U)  \ra  {\Omega }^{1}( U)  \ra  {\Omega }^{2}( U)  \ra  0
+    \]
+    is isomorphic to the the complex
+    \[
+      0 \ra  {C}^{\infty }( {U,\B{R}}) \overset{\text{ grad }}{ \ra  }{C}^{\infty }( {U,{\B{R}}^{2}}) \overset{\text{ rot }}{ \ra  }{C}^{\infty }( {U,\B{R}})  \ra  0.
+    \]
+    Analogously, show that for an open set in ${\B{R}}^{3}$ the de Rham complex is isomorphic to
+    \[
+      0 \ra  {C}^{\infty }( {U,\RR})
+      \overset{\text{ grad }}{ \ra  }{C}^{\infty }( {U,{\RR}^{3}})
+      \overset{\text{ rot }}{ \ra  }{C}^{\infty }( {U,{\B{R}}^{3}})
+      \overset{\text{ div }}{ \ra  }{C}^{\infty }( {U,\B{R}})  \ra  0
+    \]
+    defined in Chapter 1.
+  \NewItem Let $U \subseteq  {\B{R}}^{n}$ be an open set and $\dd{x}_{1},\ldots,\dd{x}_{n}$ the usual constant 1-forms $( {\dd{x}_{i} = {\epsilon }_{i}})$. Let $\R{vol} = \dd{x}_{1} \land  \ldots  \land  \dd{x}_{n} \in  {\Omega }^{n}( U)$.
+    Use $*  : {\alt}^{p}( {\RR}^{n})  \ra  {\alt}^{n- p}( {\RR}^{n})$ (from Exercise \ref{exercise:2-9}) to define a linear operator (Hodge's star operator)
+    \[
+      *  : {\Omega }^{p}( U)  \ra  {\Omega }^{n- p}( U)
+    \]
+    and show that $* ( {\dd{x}_{1} \land  \ldots  \land  \dd{x}_{p}})  = \dd{x}_{p + 1} \land  \ldots  \land  \dd{x}_{n}$ and $*  \circ   *  =$  ${(-1) }^{n( {n- p}) }$. Define ${\dd}^* : {\Omega }^{p}( U)  \ra  {\Omega }^{p- 1}( U)$ by
+    \[
+      {\dd}^*( \omega )  = {(-1) }^{{np} + n- 1} *  \circ  \dd \circ   * ( \omega ).
+    \]
+    Show that ${\dd}^* \circ  {\dd}^* = 0$.
+    Verify the formula
+    \[
+      {\dd}^*( {f{\dd}{x}_{1} \land  \ldots  \land  \dd{x}_{p}})  = \sum_{{j = 1}}^{p}{(-1) }^{j}\frac{\partial f}{\partial {x}_{j}}\dd{x}_{1} \land  \ldots  \land  {\widehat{\dd x}}_{j} \land  \ldots  \land \dd{x}_{p}
+    \]
+    and more generally for $1 \leq  {i}_{1} < {i}_{2} < \ldots  < {i}_{p} \leq  n$ that
+    \[
+      {\dd}^*( {{f \dd}{x}_{{i}_{1}} \land  \ldots  \land  \dd{x}_{{i}_{p}}})  = \sum_{{\nu  = 1}}^{p}{(-1) }^{\nu }\frac{\partial f}{\partial {x}_{{i}_{\nu }}}\dd{x}_{{i}_{1}} \land  \ldots  \land  {\widehat{\dd x}}_{{i}_{\nu }} \land  \ldots  \land  \dd{x}_{{i}_{p}}.
+    \]
+  \NewItem With the notation of Exercise \ref{exercise:3-2}, the \Index{Laplace operator} $\Delta  : {\Omega }^{p}( U)  \ra  {\Omega }^{p}( U)$ is defined by
+    \[
+      \Delta  = \dd \circ  {\dd}^* + {\dd}^* \circ  \dd
+    \]
+    Let $f \in  {\Omega }^{0}( U)$. Show that $\Delta ( {{f\dd}{x}_{1} \land  \ldots  \land  \dd{x}_{p}})  = \Delta ( f) \dd{x}_{1} \land  \ldots  \land  \dd{x}_{p}$
+    where
+    \[
+      - \Delta ( f)  = \frac{{\partial }^{2}f}{\partial {x}_{1}^{2}} + \cdots  + \frac{{\partial }^{2}f}{\partial {x}_{n}^{2}}.
+    \]
+    \par(Hint: Try the case $p = 1,n = 2$ first. What can one say about $\Delta ( {f \cdot  \dd{x}_{I}})$ where $I = ( {{i}_{1},\ldots,{i}_{p}})$ ?)
+    A $p$-form $\omega  \in  {\Omega }^{p}( U)$ is said to be harmonic if $\Delta ( \omega )  = 0$. Show that
+    \[
+      *  : {\Omega }^{p}( U)  \ra  {\Omega }^{n- p}( U)
+    \]
+    maps harmonic forms into harmonic forms.
+  \NewItem Let ${\alt}^{p}( {{\B{R}}^{m},\B{C}})$be the $\B{C}$-vector space of alternating $\B{R}$-multilinear maps
+    \[
+      \omega  : {\B{R}}^{n} \times  \cdots  \times  {\B{R}}^{n} \ra  \B{C}
+    \]
+    ( $p$ factors). Note that $\omega$ can be written uniquely
+    \[
+      \omega  = \Re\,\omega  + i\,\im\,\omega
+    \]
+    where $\Re\omega  \in  {\alt}^{p}( {\B{R}}^{m}),\im\omega  \in  {\alt}^{p}( {\B{R}}^{n})$.
+    Extend the wedge product to a $\B{C}$-bilinear map
+    \[
+      {\alt}^{p}( {{\B{R}}^{n},\B{C}})  \times  {\alt}^{q}( {{\B{R}}^{n},\B{C}}) \overset{ \land  }{ \ra  }{\alt}^{p + q}( {{\B{R}}^{n},\B{C}})
+    \]
+    and show that we obtain a graded anti-commutative $\B{C}$-algebra ${\alt}^*( {{\B{R}}^{n},\B{C}})$.
+  \NewItem Introduce $\B{C}$-valued differential $p$-forms on an open set $U \subseteq  {\B{R}}^{n}$ by setting (see Exercise \ref{exercise:3-4})
+    \[
+      {\Omega }^{p}( {U,\B{C}})  = {C}^{\infty }( {U,{\alt}^{p}( {{\B{R}}^{n},\B{C}}) }).
+    \]
+    Note that $\omega  \in  {\Omega }^{p}( {U,\B{C}})$ can be written uniquely
+    \[
+      \omega  = \Re\omega  + i\im\omega,
+    \]
+    where $\Re\omega  \in  {\Omega }^{p}( U)$. Extend $\dd$ to a $\B{C}$-linear operator
+    \[
+      \dd: {\Omega }^{p}( {U,\B{C}})  \ra  {\Omega }^{p + 1}( {U,\B{C}})
+    \]
+    and show that Theorem \ref{theorem:3-7} holds for $\B{C}$-valued differential forms. Generalize Theorem \ref{theorem:3-12} to the case of $\B{C}$-valued differential forms
+  \NewItem Take $U = \B{C}- \{ 0\}  = {\B{R}}^{2}- \{ 0\}$ in Exercise \ref{exercise:3-5} and let $z \in  {\Omega }^{0}( {U,\B{C}})$ be the inclusion map $U \ra  \B{C}$. Write $x = \Re z,\; y = \im z$. Show that
+    \[
+      \Re( {{z}^{-1}{\dd z}})  = \dd \log r
+    \]
+    where $r : U \ra  \RR$ is defined by $r( z)  = \left| z\right|  = \sqrt{{x}^{2} + {y}^{2}}$. Show that
+    \[
+      \im( {{z}^{-1}{\dd z}})  = \frac{-y}{{x}^{2} + {y}^{2}}{\dd x} + \frac{x}{{x}^{2} + {y}^{2}}{\dd y}.
+    \]
+    (Observe that this is the 1-form corresponding to the vector field of Example \ref{example:1-2}.)
+  \NewItem Prove for the complex exponential map $\exp  : \B{C} \ra  {\B{C}}^*$ that
+    \[
+      {\dd }_{z}\exp  = \exp ( z) {\dd z}\;\text{ and }\;{\exp }^*( {{z}^{-1}{\dd z}})  = {\dd z}.
+    \]
+  \newchap[4]
+  \NewItem Consider a commutative diagram of vector spaces and linear maps with exact rows
+    \[\begin{tikzcd}
+        A_1\dar{f_1}\rar{} & A_2\dar{f_2}\rar{} & A_3\dar{f_3}\rar{} & A_4\dar{f_4}\rar{} & A_5\dar{f_5} \\
+        B_1\rar{} & B_2\rar{} & B_3\rar{} & B_4\rar{} & B_5
+      \end{tikzcd}\]
+    Suppose that $f_4$ is injective, $f_1$ is surjective and $f_2$ is injective. Show that
+    $f_3$ is injective. Suppose that $f_2$ is surjective, $f_4$ is surjective and $f_5$ is
+    injective. Show that $f_3$ is surjective. In particular we have that if $f_1, f_2, f_4$
+    and $f_5$ are isomorphisms, then $f_3$ is an isomorphism. (This assertion is called the 5-lemma.)
+  \NewItem Consider the following commutative diagram
+    \[\begin{tikzcd}
+      0\rar{} & A_1\rar{}\dar{f_1} & A_2\rar{}\dar{f_2} & A_3\rar{}\dar{f_3} & 0 \\
+      0\rar{} & B_1\rar{} & B_2\rar{} & B_3\rar{} & 0
+    \end{tikzcd}\]
+    where the rows are exact sequences. Show that there exists a exact sequence
+    \begin{align*}
+      0 & \ra {\ker}{f}_{1} \ra {\ker}{f}_{2} \ra {\ker}{f}_{3} \ra \\
+        & \ra {\cok}{f}_{1} \ra {\cok}{f}_{2} \ra {\cok}{f}_{3} \ra  0.
+    \end{align*}
+    \par(Hint: Try the long exact cohomology sequence). 
+  \NewItem In the commutative diagram 
+    \[\begin{tikzcd}[scale cd=.75]
+              & 0\dar{}               & 0\dar{}               & 0\dar{}               & 0\dar{}         & \\
+      0\rar{} & A^{0, 0}\rar{}\dar{}  & A^{1, 0}\rar{}\dar{}  & A^{2, 0}\rar{}\dar{}  & A^{3, 0}\dar{}\rar{}  & \cdots \\
+      0\rar{} & A^{0, 1}\rar{}\dar{}  & A^{1, 1}\rar{}\dar{}  & A^{2, 1}\rar{}\dar{}  & A^{3, 1}\dar{}\rar{}  & \cdots \\
+      0\rar{} & A^{0, 2}\rar{}\dar{}  & A^{1, 2}\rar{}\dar{}  & A^{2, 2}\rar{}\dar{}  & A^{3, 2}\dar{}\rar{}  & \cdots \\
+      0\rar{} & A^{0, 3}\rar{}\dar{}  & A^{1, 3}\rar{}\dar{}  & A^{2, 3}\rar{}\dar{}  & A^{3, 3}\dar{}\rar{}  & \cdots \\
+              & \vdots                & \vdots                & \vdots                & \vdots          &
+    \end{tikzcd}\]
+    the horizontal $( {A}^{*,q})$ and the vertical $( {A}^{p, * })$ are chain complexes   where ${A}^{p,q} = 0$ if either $p < 0$ or $q < 0$. Suppose that
+    \[
+    \begin{aligned}
+      {H}^{p}( {A}^{*,q})  & = 0\text{ for }q \neq  0\text{ and all }p\\
+      {H}^{q}( {A}^{p, * })  & = 0\text{ for }p \neq  0\text{ and all }q.
+    \end{aligned}
+    \]
+    Construct isomorphisms ${H}^{p}( {A}^{*,0})  \ra  {H}^{p}( {A}^{0, * })$ for all $p$.
+  \NewItem Let $0 \ra  {A}^{0}\overset{{d}^{0}}{ \ra  }{A}^{1}\overset{{d}^{1}}{ \ra  }\cdots \overset{{d}^{n- 1}}{ \ra  }{A}^{n} \ra  0$ be a chain complex and assume that ${\dim }_{\RR}{A}^{i} < \infty$. The \Index{Euler characteristic} is defined by
+    \[
+      \chi ( {A}^*)  = \sum_{{i = 0}}^{n}{(-1) }^{i}\dim {A}^{i}.
+    \]
+    Show that $\chi ( {A}^*)  = 0$ if ${A}^*$ is exact. Show that the sequence
+    \[
+      0 \ra  {H}^{i}( {A}^*)  \ra  {A}^{i}/\im{d}^{i- 1}\overset{{d}^{i}}{ \ra  }\im{d}^{i} \ra  0
+    \]
+    is exact and conclude that
+    \[
+      {\dim }_{\RR}{A}^{i}- {\dim }_{\RR}\im{d}^{i- 1} = {\dim }_{\RR}{H}^{i}( {A}^*)  + {\dim }_{\RR}\im{d}^{i}.
+    \]
+    Show that $\chi ( {A}^*)  = \sum_{{i = 0}}^{n}{(-1) }^{i}{\dim }_{\RR}{H}^{i}( {A}^*)$.
+  \NewItem Associate to two composable linear maps
+    \[
+      f\colon {V}_{1} \ra  {V}_{2},\;g\colon {V}_{2} \ra  {V}_{3}
+    \]
+    an exact sequence
+    \[
+    \begin{aligned}
+      0 & \ra  {\ker}( f)  \ra  {\ker}( {g \circ  f})  \ra  {\ker}( g)  \ra \\
+        & \ra  {\cok}( f)  \ra  {\cok}( {g \circ  f})  \ra  {\cok}( g)  \ra  0.
+    \end{aligned}
+    \]
+  \newchap[5]
+  \NewItem Adopt the notation of Example \ref{example:5-4}. A point $( {x,y})  \in  {U}_{1}$ can be uniquely described in terms of polar coordinates $( {r,\theta })  \in  ( {0,\infty })  \times  ( {0,{2\pi }})$. Let ${\arg }_{1} \in  {\Omega }^{0}( {U}_{1})$ be the function mapping $(x, y)$ into $\theta  \in  ( {0,{2\pi }})$ (why is $\arg {}_{1}$ smooth?).
+    Define similarly ${\arg }_{2} \in  {\Omega }^{0}( {U}_{2})$ using polar coordinates with $\theta  \in  ( {-\pi,\pi })$ and prove the existence of a closed 1-form $\tau  \in  {\Omega }^{1}( {{\B{R}}^{2}-\{ 0\} })$ such that
+    \[
+      {\tau }_{\mid {U}_{\nu }} = {i}_{\nu }^*( \tau )  = \dd\;{\arg }_{\nu }\;( {\nu  = 1,2}).
+    \]
+    Show that the connecting homomorphism
+    \[
+      {\partial }^{0} : {H}^{0}( {{U}_{1} \cap  {U}_{2}})  \ra  {H}^{1}( {{\B{R}}^{2}-\{ 0\} })
+    \]
+    carries the locally constant function with values $\{ 0,{2\pi }\}$ on the upper and lower half-planes respectively into $[  \tau ]$.
+  \NewItem Show that the 1-forms $\tau  \in  {\Omega }^{1}( {{\B{R}}^{2}-\{ 0\} })$ of Exercise \ref{exercise:5-1} and $\im( {{z}^{-1}{\dd z}})$ of Exercise \ref{exercise:3-6} are the same.
+  \NewItem Can ${\B{R}}^{2}$ be written as ${\B{R}}^{2} = U \cup  V$ where $U,V$ are open connected sets such that $U \cap  V$ is disconnected?
+  \NewItem (Phragmen-Brouwer property of ${\B{R}}^{n}$)\index{Phragmen-Brouwer} Suppose $p \neq  q$ in ${\B{R}}^{n}$. A closed set $A \subseteq  {\B{R}}^{n}$ is said to separate $p$ from $q$, when $p$ and $q$ belong to two different connected components of ${\RR}^{n}- A$.\par
+    Let $A$ and $B$ be two disjoint closed subsets of ${\B{R}}^{n}$. Given two distinct points $p$ and $q$ in ${\B{R}}^{n}- ( {A \cup  B})$. Show that if neither $A$ nor $B$ separates $p$ from $q$, then $A \cup  B$ does not separate $p$ from $q$. (Apply Theorem \ref{theorem:5-2} to ${U}_{1} = {\B{R}}^{n}- A,{U}_{2} = {\B{R}}^{n}- B.)$
+  \newchap[6]
+  \NewItem Show that ``homotopy equivalence'' is an equivalence relation in the class of topological spaces.
+  \NewItem Show that all continuous maps $f\colon U \ra  V$ that are homotopic to a constant map induce the 0-map $f^*: {H}^{p}( V)  \ra  {H}^{p}( U)$ for $p > 0$.
+  \NewItem Let ${p}_{1},\ldots,{p}_{k}$ be $k$ different points in ${\B{R}}^{n},n \geq  2$. Show that
+    \[
+      {H}^{d}( {{\B{R}}^{n}- \left\{  {{p}_{1},\ldots,{p}_{k}}\right\}  })  \cong  \left\{\!\!\begin{array}{ll} {\B{R}}^{k} & \text{ for }d = n- 1 \\  \B{R} & \text{ for }d = 0 \\  0 & \text{ otherwise. } \end{array}\right.
+    \]
+  \NewItem Suppose $f,g\colon X \ra  {S}^{n}$ are two continuous maps, such that $f( x)$ and $g( x)$ are never antipodal. Show that $f \simeq  g$.
+    Show that every non-surjective continuous map $f\colon X \ra  {S}^{n}$ is homotopic to a constant map.
+  \NewItem Show that ${S}^{n- 1}$ is homotopy equivalent to ${\RR}^{n}- \{ 0\}$. Show that two continuous maps
+    \[
+      {f}_{0},{f}_{1} : {\B{R}}^{n}- \{ 0\}  \ra  {\B{R}}^{n}- \{ 0\}
+    \]
+    are homotopic if and only if their restrictions to ${S}^{n- 1}$ are homotopic.
+  \NewItem Show that ${S}^{n- 1}$ is not contractible.
+  \newchap[7]
+  \NewItem Show that $\RR^n$ does not contain a subset homeomorphic to $D^m$ when $m > n$.
+  \NewItem Let $\Sigma\subseteq\RR^n$ be homeomorphic
+    to $S^k\; (1\le k\le n-2)$. Show that
+    \begin{align*}
+      H^p(\RR^n-\Sigma) \simee \left\{\begin{aligned}
+                                        & \RR &  & \text{ for } p=0, n-k-1, n-1 \\
+                                        & 0   &  & \text{ otherwise }.
+                                      \end{aligned}\right.
+    \end{align*}
+  \NewItem Show that there is no continuous map $g:D^n\to S^{n-1}$ with $g|_{S^{n-1}}\sime \id_{S^{n-1}}$.
+  \NewItem Let $f\colon {D}^{n} \ra  {\B{R}}^{n}$ be a continuous map, and let $r \in  ( {0,1})$ be given. Suppose for all $x \in  {S}^{n- 1}$ that $\| f( x) - x\|  \leq  1- r$. Show that $\im f( {D}^{n})$ contains the closed disc with radius $r$ and center 0.\par
+    \par(Hint: Modify the proof of Brouwer's fixed point theorem and use Exercises \ref{exercise:6-4} and \ref{exercise:7-3}.)
+  \NewItem Assume given two injective continuous maps $\alpha,\beta  : [  {0,1}]   \ra  {D}^{2}$ such that
+    \[
+    \begin{aligned}
+      \alpha ( 0)  & = ( {-1,0}),\;\alpha ( 1)  = ( {1,0}) \\
+      \beta ( 0)  & = ( {0,- 1}),\;\beta ( 1)  = ( {0,1}).
+    \end{aligned}
+    \]
+    Prove that the curves $\alpha$ and $\beta$ intersect (apply both parts of Theorem \ref{theorem:7-10}).
+  \newchap[8]
+  \NewItem Fill in the details of Remark \ref{remark:8-2}.
+  \NewItem Let $\varphi  : N \ra  M$ be a continuous map from a smooth manifold $N$ to a smooth submanifold $M$ of ${\B{R}}^{k}$. Let $i : M \ra  {\B{R}}^{k}$ be the inclusion. Show that $\varphi$ is smooth if and only if $i \circ  \varphi$ is smooth.
+  \NewItem Suppose that $M \subseteq  {\B{R}}^{k}$ (with the induced topology from ${\B{R}}^{k}$ ) is an $n$- dimensional topological manifold. Include $M$ in ${\B{R}}^{k + n}$. Show that $M$ is locally flat in ${\B{R}}^{k + n}$.
+  \NewItem Set ${\mathbf{T}}^{n} = {\B{R}}^{n}/{\B{Z}}^{n}$, i.e. the set of cosets for the subgroup ${\B{Z}}^{n}$ of ${\B{R}}^{n}$ with respect to vector addition. Let $\pi\colon  {\B{R}}^{n} \ra  {\B{T}}^{n}$ be the canonical map and equip ${\mathbf{T}}^{n}$ with the quotient topology (i.e. $W \subseteq  {\mathbf{T}}^{n}$ is open if and only if ${\pi }^{-1}( W)$ is open in ${\B{R}}^{n}$ ).\par
+    Show that ${\mathbf{T}}^{n}$ is a compact topological manifold of dimension $n$ (the $n$- dimensional torus). Construct a differentiable structure on ${\mathbf{T}}^{n}$, such that $\pi$ becomes smooth and every $p \in  {\B{R}}^{n}$ has an open neighborhood that is mapped diffeomorphically onto an open set in ${\mathbf{T}}^{n}$ by $\pi$. Prove that ${\mathbf{T}}^{1}$ is diffeomorphic to ${S}^{1}$.
+  \NewItem Define $\hat{A} : {\B{R}}^{2} \ra  {\B{R}}^{2}$ by $\hat{A}( {x,y})  = ( {x + \frac{1}{2},- y})$. Show that there exists a smooth map $A : {\mathbf{T}}^{2} \ra  {\mathbf{T}}^{2}$ satisfying $A \circ  \pi  = \pi  \circ  \hat{A}$. (Consult Exercise \ref{exercise:8-4}.) Show that $A$ is a diffeomorphism, that $A = {A}^{-1}$ and that $A( q)  \neq  q$ for all $q \in  {\mathrm{T}}^{2}$.\par
+    Let ${\mathbf{K}}^{2}$ be the set of pairs $\{ q,A( q) \},q \in  {\mathbf{T}}^{2}$. Show that ${\mathbf{K}}^{2}$ with the quotient topology from ${\mathbf{T}}^{2}$ is a 2-dimensional topological manifold (Klein's bottle).
+    Construct a differentiable structure on ${\mathbf{K}}^{2}$.
+  \NewItem Let ${p}_{0} \in  {S}^{n}$ be the ``north pole'' ${p}_{0} = ( {0,\ldots,0,1})$. Show that ${S}^{n}- \left\{  {p}_{0}\right\}$ is diffeomorphic to ${\B{R}}^{n}$ under stereographic projection, i.e. the map ${S}^{n}-$  $\left\{  {p}_{0}\right\}   \ra  {\B{R}}^{n}$ that carries $p \in  {S}^{n}$ into the point of intersection between the line through ${p}_{0}$ and $p$ and the equatorial hyperplane ${\B{R}}^{n} \subseteq  {\B{R}}^{n + 1}$.
+  \newchap[9]
+  \NewItem Let $M\sseq\RR^l$ be a differentiable submanifold and assume the points
+    $p\in \RR^l$ and $p_0\in M$ are such that $\|p-p_0\|\le \|p-q\|$ for all $q\in M$. Show that
+    $p-p_0\in T_{p_0}M^\perp$.
+  \NewItem A smooth map $\varphi:M^m\to N^n$ between smooth manifolds is called \textit{immersive}\index{immersive map} at $p\in M$, when
+    \begin{align*}
+      D_p\varphi:T_pM\to T_{q}N, \qquad q\in\varphi(p)
+    \end{align*}
+    is \Index{injective}. Show that there exists smooth charts $(U, h)$ in $M$ with $p\in U$, $h(p)=0$, and
+    $(V, k)$ in $N$ with $q\in V$, $k(q)=0$ such that
+    \begin{align*}
+      k\circ\varphi\circ h^{-1}(x_1, \cdots, x_m) = (x_1, \cdots, x_m, 0, \cdots, 0).
+    \end{align*}
+    in a neighborhood of 0.\par
+    \par(Hint: Reduce the problem to the case where $\varphi:W\to\RR^n$ is on an open neighborhood $W$ in $\RR^n$
+    of 0 with $\varphi(0) = 0$, and
+    \begin{align*}
+      \left(\frac{\partial \varphi_i(0)}{\partial x_j}\right)_{1\le i,j\le m}
+    \end{align*}
+    is an invertiable $m\times m$ matrix. Apply the inverse function theorem to
+    \begin{align*}
+      F:W\times \RR^{n-m}\to & \RR^n;                       \\
+      F(x_1, \cdots, x_n)
+      = (
+      \varphi_1(x_1, \cdots, x_m),
+      \cdots,
+                            & \varphi_m(x_1, \cdots, x_m),
+      x_{m+1},
+      \cdots,
+      x_n
+      ).)
+    \end{align*}
+  \NewItem The smooth map $\varphi: {M}^{m} \ra  {N}^{n}$ from Exercise \ref{exercise:9-2} is an \Index{immersion}, when it is immersive at every $p \in  M$. We say that $\varphi$ is \textit{closed}\index{closed map} if $\varphi ( A)$ is closed in ${N}^{n}$ for every closed set $A \subseteq  {M}^{m}$. Show that an injective closed immersion is a smooth embedding.
+  \NewItem Let $\omega$ be an irrational real number. Using the notation of Exercise \ref{exercise:8-4}, define the map $\alpha  : \B{R} \ra  {\mathbf{T}}^{2}$ by $\alpha ( t)  = \pi ( {t,{\omega t}})$. Show that $\alpha$ is an injective immersion and that the image $\alpha ( \B{R})$ is everywhere dense in ${\mathbf{T}}^{2}$. Conclude that $\alpha$ is not a smooth embedding.
+    \par(Hint: The additive group $\B{Z} + \B{Z}\omega  \subseteq  \B{R}$ is dense in $\B{R}$.)
+  \NewItem A smooth map $\varphi:M^m\to N^n$ between smooth manifolds is called \Index{submersive}
+    at $p\in M$, when
+    \[
+      D_p\varphi:T_pM\to T_qN, \enspace q = \varphi(p)
+    \]
+    is surjective. Show that there exist smooth charts $(U, h)$ in $M$ with $p\in U$,
+    $h(p) = 0$, and $(V, k)$ in $N$ with $q\in V, k(q) = 0$, such that
+    \[
+      k\circ\varphi\circ h^{-1}(x_1, \ldots, x_m) = (x_1, \ldots, x_n)
+    \]
+    \par(Hint: Imitate Exercise \ref{exercise:9-2}.)
+  \NewItem Suppose $\varphi:M^m\to N^n$ is a smooth map between smooth manifolds. Let
+    $q\in N^n$ and assume that $\varphi$ is submersive at every point of the fiber
+    $\varphi^{-1}(q)$ (see Exercise \ref{exercise:9-5}). Show that $\varphi^{-1}(q)$ is an $(m- n)$-dimensional
+    differentiable submanifold of $M$. Note that the result holds for all nonempty fibers $\varphi^{-1}(q)$, when $\varphi$
+    is a submersion, i.e. $\varphi$ is submersive at every $p\in M$.
+  \NewItem Construct a smooth embedding of the $n$-dimensional torus ${\mathbf{T}}^{n}$ in ${\B{R}}^{n + 1}$.
+  \NewItem Let ${a}_{1},{a}_{2},{a}_{3}$ be three distinct real numbers and define $f\colon {\B{R}}^{3} \ra  {\B{R}}^{4}$ by
+    \[
+      f( {{x}_{1},{x}_{2},{x}_{3}})  = ( {{x}_{2}{x}_{3},{x}_{1}{x}_{3},{x}_{1}{x}_{2},{a}_{1}{x}_{1}^{2} + {a}_{2}{x}_{2}^{2} + {a}_{3}{x}_{3}^{2}}).
+    \]
+    The restriction ${f}_{\mid {S}^{2}}$ takes the same values at antipodal points and therefore $f$ induces a map $\tilde{f} : {\B{{RP}}}^{2} \ra  {\B{R}}^{4}$. Show that $\tilde{f}$ is a smooth embedding.
+  \NewItem In the vector space $M = {M}_{n}( \B{R})$ of real-valued $n \times  n$ matrices we have the subspace of symmetric matrices ${S}_{n}$. Define a smooth map $\varphi  : M \ra  {S}_{n}$ by
+    \[
+      \varphi ( A)  = {A}^{t}A
+    \]
+    where ${A}^{t}$ is the transpose of $A$. Note that the pre-image ${\varphi }^{-1}( I)$ of the identity matrix is exactly the set of orthogonal matrices ${O}_{n}$. Show that for $A \in  M$ and $B \in  M$ we have
+    \[
+      {D}_{A}\varphi ( B)  = {B}^{t}A + {A}^{t}B.
+    \]
+    \par(Hint: Use the curve $A + {sB},s \in  \B{R}$, through $A$.)
+    Apply Exercise \ref{exercise:9-6} to show that ${O}_{n}$ is a differentiable submanifold of ${M}_{n}( \B{R})$.
+  \NewItem A \Index{Lie group} $G$ is a smooth manifold, which is also a group, such that both
+    \[
+      \mu  : G \times  G \ra  G;\;\mu ( {{g}_{1},{g}_{2}})  = {g}_{1}{g}_{2}
+    \]
+    and
+    \[
+      i : G \ra  G;\;i( g)  = {g}^{-1}
+    \]
+    are smooth. Show that the group ${O}_{n}$ of orthogonal $n \times  n$ matrices is a a Lie group. (Apply Exercise \ref{exercise:9-9}.)
+  \NewItem Let $\varphi  : M \ra  N$ be a smooth map between smooth manifolds. Show that
+    \[
+      {\varphi }^* : {\Omega }^*( N)  \ra  {\Omega }^*( M)
+    \]
+    is a chain map.
+  \NewItem The usual inner product on ${\B{R}}^{n}$ induces an inner product on ${\alt}^{n}( {\B{R}}^{n})$ (see Exercise \ref{exercise:2-5}). Show that $\omega  \in  {\alt}^{n}( {\B{R}}^{n})$ is a unit vector if and only if $\omega ( {{v}_{1},\ldots,{v}_{n}})  =  \pm  1$ for every orthonormal basis $\left\{  {{v}_{1},\ldots,{v}_{n}}\right\}$ of ${\RR}^{n}$.
+  \NewItem Show that Klein's bottle (Exercise \ref{exercise:8-5}) is non-orientable.
+  \NewItem Let ${M}^{n}$ be a Riemannian manifold and $f \in  {C}^{\infty }( {M,\RR})$. Define the gradient vector field $\R{grad}f$ on $M$ by demanding that ${\R{grad}}_{p}f \in  {T}_{p}M$ satisfies
+    \[
+      {\langle  {\R{grad}}_{p}f,v\rangle  }_{p} = {\dd}_{p}f( v)
+    \]
+    for all $v \in  {T}_{p}M$. Show that for a local parametrization, $h : W \ra  M$, we
+    have
+    \[
+      {\R{grad}}_{h( x) }f = \sum_{{j = 1}}^{n}{a}_{j}( x) \frac{\partial }{\partial {x}_{j}},
+    \]
+    where ${a}_{j} \in  {C}^{\infty }( {W,\B{R}}),1 \leq  j \leq  n$ is determined by the set of linear equations
+    \[
+      \sum_{i=1}^{n}{g}_{ij}( x) {a}_{j}( x)  = \frac{\partial f}{\partial {x}_{i}}( x) \quad( {1 \leq  i \leq  n}).
+    \]
+    Show that the map grad $f\colon M \ra  {TM}$ is smooth.\par
+    Let $p \in  M$ with ${\R{grad}}_{p}f \neq  0$. Set $c = f( p)$. Show that ${f}^{-1}( c)$ in a neighborhood of $p$ is an $(n- 1)$-dimensional smooth submanifold, and that ${\R{grad}}_{p}f$ is a normal vector to ${f}^{-1}( c)$ at $p$.
+  \NewItem Let $M$ be a smooth $n$-dimensional manifold and let if denote the set of
+    pairs $(p, o_p)$, where $p\in M$ and $o_p$ is either of the two orientations of $T_pM$. The projection
+    $\pi:\hat M\to M$ sends $(p, o_p)$ to $p$.\par
+    For an open oriented set $W\subseteq M$ with orientation form $\omega\in\Omega^n(W)$ we let
+    $\hat W\subseteq\hat M$ if be the set of pairs $(p, o_p)$, where $p\in W$ and $o_p$ is the orientation
+    of $T_pM$ determined by $\omega_p\in\alt^nT_pM$.\par
+    Show that if has a topology such that $\hat W$ is open and $\pi$ maps $\hat W$
+    homeomorphically onto $W$ for every open oriented set $W\subseteq M$. Note
+    that $\hat M$ is a topological manifold.\par
+    Show that $\hat M$ has a uniquely determined differentiable structure such that
+    $\pi$ maps Wdiffeomorphically onto $W$ for every oriented open set $W\subseteq M$.
+    Show that $\hat M$ has a canonical orientation. The pair consisting of $\hat M$ and
+    $\pi$ is called the \Index{oriented double covering} of $M$.
+  \NewItem Let $M$ be a connected smooth manifold. Show that if (see Exercise \ref{exercise:9-15})
+    consists of at most two connected components, and that $M$ is orientable if and only if $\hat M$ is not connected.
+  \NewItem Let $V\subseteq\RR^{n+k}$ be an open tubular neighborhood of the smooth submanifold
+    $M^n\subseteq \RR^{n+k}$ with the associated projection $r:V\to M$ (see Theorem \ref{theorem:9-23}).
+    Define a smooth map $f:V-M\to \RR$ by
+    \[
+      f(x) = \|x-r(x)\| = \min_{y\in M}\|x-y\|.
+    \]
+    Show that $f$ is a solution to the differential equation
+    \[
+      \sum_{j=1}^{n+k }{\left(\frac{\partial f }{\partial x_j }\right)^2} = 1
+    \]
+    (the eikonal equation from geometrical optics).\par
+    Suppose that $k = 1$, and that $M^n$ is oriented by the Gauss map $Y$. We can define the signed distance
+    from $M$, $\varphi: V\to \RR$ by requiring
+    \[
+      \varphi(x)Y(r(x)) = x-r(x)\qquad (x\in V).
+    \]
+    Show that $\varphi$ is a smooth solution to the eikonal equation
+    \[
+      \sum_{j=1}^{n+1}{\left(\frac{\partial \varphi }{\partial x_j }\right)^2} = 1.
+    \]
+  \NewItem Let $\pi:\hat{M}\to M$ be the oriented double covering of Exercise \ref{exercise:9-15}.
+    Let $A:\hat M\to \hat M$ be the map that for $p\in M$ interchanges the two points in $\pi^{-1}(p)$. Show that $A$
+    is a diffeomorphism of order 2 and that
+    \[
+      \Omega^r(\hat M) = \Omega^r(\hat M)_+\oplus \Omega^r(\hat M)_-,
+    \]
+    where $\Omega^r(\hat M)_{\pm}$ is the eigenspace associated to $\pm 1$ for the isomorphism
+    \[
+      A^*:\Omega^r(\hat M)\to\Omega^r(\hat M).
+    \]
+    Show that the de Rham complex $(\Omega^*(\hat M), \dd)$ decomposes into the direct sum of two subcomplexes
+    \[
+      (\Omega^*(\hat M)_+, \dd) \enspace\text{ and }\enspace (\Omega^*(\hat M)_-, \dd).
+    \]
+    Show that $\pi^*$ maps the de Rham complex $(\Omega^*(M), \dd)$ isomorphically onto $(\Omega^*(\hat M)_+, \dd)$.
+    Show that for every $k\in\ZZ$ we have that
+    \[
+      H^k(\pi):H^k(M)\to H^k(\hat M)
+    \]
+    maps $H^k(M)$ isomorphically onto the $(+1)$-eigenspace in $H^k(\hat M)$ of $H^k(A)$.
+  \newchap[10]
+  \NewItem Let $\pi\colon  {\B{R}}^{2} \ra  {\B{T}}^{2}$ be as in Exercise \ref{exercise:8-4}, and let
+    \[
+      {U}_{1} = \pi ( {\B{R} \times  ( {0,1}) }),\;{U}_{2} = \pi ( {\B{R} \times  ( {-\frac{1}{2},- \frac{1}{2}}) }).
+    \]
+    Show that ${U}_{1}$ and ${U}_{2}$ are diffeomorphic to ${S}^{1} \times  \B{R}$, and that ${U}_{1} \cap  {U}_{2}$ has 2 connected components, which are both diffeomorphic to ${S}^{1} \times  \B{R}$. Note that ${U}_{1} \cup  {U}_{2} = {\mathbf{T}}^{2}$.
+    Use the exact Mayer-Vietoris sequence and Corollary \ref{corollary:10-14} to show that
+    \[
+      {H}^{0}( {\mathbf{T}}^{2})  \cong  {H}^{2}( {\mathbf{T}}^{2})  \cong  \B{R}\text{ and }{H}^{1}( {\mathbf{T}}^{2})  \cong  {\B{R}}^{2}.
+    \]
+  \NewItem In the notation of Exercise \ref{exercise:10-1} we have smooth manifolds
+    \[
+      {C}_{1} = \pi ( {\B{R}\times \{ a\} }),\;{C}_{2} = \pi ( {\{ b\}  \times  \B{R}}) \;( {a,b \in  \B{R}})
+    \]
+    of ${\mathbf{T}}^{2}$ which are diffeomorphic to ${S}^{1}$. They are given the orientations induced by $\B{R}$. Show that the map
+    \[
+      {\Omega }^{1}( {\mathbf{T}}^{2})  \ra  {\B{R}}^{2};\;\omega  \mapsto  \left( {\int_{{C}_{1}}\omega,\int_{{C}_{2}}\omega }\right)
+    \]
+    induces an isomorphism ${H}^{1}( {\mathbf{T}}^{2})  \ra  {\B{R}}^{2}$. Show that this isomorphism is independent of $a$ and $b$.
+  \NewItem Using the notation of Exercise \ref{exercise:8-4}, we have smooth submanifolds in the $n$-dimensional torus ${\mathbf{T}}^{n} = {\B{R}}^{n}/{\B{Z}}^{n}$, which are diffeomorphic to ${S}^{1}$
+    \[
+      {C}_{j} = \{ \pi ( {0,\ldots,0,s,0,\ldots,0})  \mid  s \in  \RR\},
+    \]
+    where $s$ is in the $j$-th place, $1 \leq  j \leq  n$. They are given the canonical orientation. Let $\omega  \in  {\Omega }^{1}( {\mathbf{T}}^{n})$ be a closed 1-form with
+    \[
+     \int_{{C}_{j}}\omega  = 0\text{ for }1 \leq  j \leq  n.
+    \]
+    Show that $\omega$ is exact.
+    \par(Hint: Find an $f \in  {C}^{\infty }( {{\B{R}}^{n},\B{R}})$ such that ${df} = {\pi }^*( \omega )$, and show that $f$ is periodic with period 1 in all $n$ variables.)
+    Also show that the map
+    \[
+      {\Omega }^{1}( {\mathbf{T}}^{n})  \ra  {\B{R}}^{n};\;\omega  \mapsto  \left( {\int_{{C}_{1}}\omega,\ldots,\int_{{C}_{n}}\omega }\right)
+    \]
+    induces an isomorphism ${H}^{1}( {\mathbf{T}}^{n})  \ra  {\B{R}}^{n}$.)
+  \NewItem Show that for every connected compact, non-orientable smooth $n$-dimensional
+    manifold $M$ we have that $H^n(M) = 0$.\par \par(Hint: Use Exercise \ref{exercise:9-18}.)
+  \NewItem Calculate the de Rham cohomology of Klein's bottle.
+    \par(Hint: The oriented double covering can be identified with the map ${\mathbf{T}}^{2} \ra  {\mathbf{K}}^{2}$ from Exercise \ref{exercise:8-5}.)
+  \NewItem (Partial integration). Let $R$ be a compact domain with smooth boundary in an oriented $n$-dimensional smooth manifold $M$. Show that for for $\omega  \in  {\Omega }^{p- 1}( M),\tau  \in  {\Omega }^{n- p}( M)$ we have
+    \[
+      \int_{R}{\dd\omega } \land  \tau  =\int_{\partial R}\omega  \land  \tau  + {(-1) }^{p}\int_{R}\omega  \land  {\dd\tau }.
+    \]
+  \NewItem (Divergence theorem)\index{divergence theorem} Suppose that $R$ is a compact domain with smooth boundary in ${\RR}^{3}$. Let $N : \partial R \ra  {S}^{2}$ be the outward directed Gauss map and let $F \in  {C}^{\infty }( {U,{\B{R}}^{3}})$ be a smooth vector field on an open set $U \subseteq  {\B{R}}^{3}$ with $R \subseteq  U$. Show that
+    \[
+      \int_{R}\R{div}{F}\dd{\mu }_{{\RR}^{3}} =\int_{\partial R}\langle F,N\rangle \dd{\mu }_{\partial R}.
+    \]
+    \par(Hint: Consider $\omega  \in  {\Omega }^{2}( U)$ given by ${\omega }_{p}( {{w}_{1},{w}_{2}})  = \det ( {F( p),{w}_{1},{w}_{2}})$.)
+  \NewItem (Classical Stokes)\index{Stokes' Theorem!classical} Let $S \subseteq  {\B{R}}^{3}$ be a regular surface, oriented by the Gauss map $N : S \ra  {S}^{2}$, and let $R \subseteq  S$ be a compact domain with smooth boundary $\partial R$. Along $\partial R$ we have a unit vector field $V$ pointing in the positive direction. Let $F \in  {C}^{\infty }( {U,{\B{R}}^{3}})$ be a smooth vector field on an open set $U \subseteq  {\B{R}}^{3}$ with $S \subseteq  U$. Show that
+    \[
+      \int_{R}\langle \R{rot}F,N\rangle \dd{\mu }_{S} =\int_{\partial R}\langle F,V\rangle \dd{\mu }_{\partial R}.
+    \]
+  \NewItem Let ${M}^{n}$ be a Riemannian manifold and $\pi\colon  \hat{M} \ra  M$ the oriented double covering from Exercise \ref{exercise:9-15}. Let $\hat{M}$ be given a Riemannian metric such that
+    \[
+      {D}_{q}\pi\colon  {T}_{q}\hat{M} \ra  {T}_{\pi ( q) }M
+    \]
+    is an isometry for all $q \in  \hat{M}$.
+    Show (by means of Riesz' representation theorem) that there exists a positive measure ${\mu }_{M}$ on $M$ such that for all $f \in  {C}_{c}^{0}( {M,\B{R}})$
+    \[
+      \int_{M}{f}\dd{\mu }_{M} = \frac{1}{2}\int_{\hat{M}}f \circ  \pi {\R{vol}}_{\hat{M}}.
+    \]
+    Assume that $f \in  {C}_{c}^{0}( {M,\B{R}})$ has support contained in an oriented open subset $W \subseteq  M$. Show that
+    \[
+      \int_{M}{f}\dd{\mu }_{M} =\int_{W}f{\R{vol}}_{ W}
+    \]
+  \NewItem Define ${i}_{j} : {\B{R}}^{n- 1} \ra  {\B{R}}^{n}( {1 \leq  j \leq  n})$ by
+    \[
+      {i}_{j}( {{x}_{1},\ldots,{x}_{n- 1}})  = ( {{x}_{1},\ldots,0,\ldots,{x}_{n- 1}})
+    \]
+    with 0 at the $j$-th entry. Let
+    \[
+      {Y}_{n} = \left\{  {x \in  {\B{R}}^{n} \mid  {x}_{i} \geq  0,1 \leq  i \leq  n}\right\} .
+    \]
+    and $\omega  \in  {\Omega }^{n- 1}( {\B{R}}^{n})$ with $\R{supp}( \omega )  \cap  {Y}_{n}$ compact. Show that we have
+    \[
+      \int_{{Y}_{n}}{\dd\omega } = \sum_{{j = 1}}^{n}{(-1) }^{j}\int_{Y_{n- 1}}{i}_{j}^*( \omega ).
+    \]
+  \NewItem Let $\omega \in  {\Omega }^{r}( {M}^{n})$. Suppose that
+    \[
+      \int_{\Sigma }\omega  = 0
+    \]
+    for every oriented smooth manifold $\Sigma \subseteq  {M}^{n}$ that is diffeomorphic to ${S}^{r}$. Show that ${\dd\omega } = 0$.
+  \NewItem Let $P$ be a smooth manifold and
+    \[
+      \widetilde{\dd}: {\Omega }^{n- 1}( P)  \ra  {\Omega }^{n}( P)
+    \]
+    a linear operator such that
+    \[
+      \int_{R}\widetilde{\dd}\omega  =\int_{\partial R}\omega
+    \]
+    for every $\omega  \in  {\Omega }^{n- 1}( P)$ and every compact domain with smooth boundary $R$ in an $n$-dimensional oriented submanifold ${M}^{n} \subseteq  P$. Show that $\widetilde{\dd} = \dd$.
+  \NewItem Let $M$ be a smooth manifold. A piecewise ${C}^{1}$-curve on $M$ is a continuous parametrized curve $\alpha  : [  {a,b}]   \ra  M$ for which there exists a partition
+    \[
+      a = {t}_{0} < {t}_{1} < \ldots  < {t}_{k- 1} < {t}_{k} = b,
+    \]
+    such that the restrictions ${\alpha }_{[  [  {t}_{i- 1},{t}_{i}]  ]  }( {1 \leq  i \leq  k})$ are continuously differentiable (from one side at the endpoints). For $\omega  \in  {\Omega }^{1}( M)$ we define the path integral of $\omega$ along $\alpha$ by
+    \[
+      \int_{\alpha }\omega  = \sum_{i=1}^{k}\int_{{t}_{i- 1}}^{{t}_{i}}\omega ( {{\alpha }^{\prime }( t) }) {\dd t}
+    \]
+    Suppose that
+    \[
+      \int_{\alpha }\omega  = 0
+    \]
+    for every closed piecewise ${C}^{1}$-curve $\alpha$ on $M$. Show that $\omega$ is exact.
+  \NewItem (Green's identity) Show for real-valued functions on an open set $U \subseteq  {\B{R}}^{n}$ that
+    \[
+      \dd ( {f \land   * {\dd g}})  = ( {\langle \R{grad}f,\R{grad}g\rangle - {f\Delta g}}) \dd {x}_{1} \land  \ldots  \land  \dd {x}_{n}
+    \]
+    (see Exercises \ref{exercise:3-2} and \ref{exercise:3-3} for definitions of $*$ and $\Delta$ ).
+    Conclude for a compact domain with smooth boundary $R \subseteq  U$ that
+    \[
+     \int_{\partial R}f \land   * {\dd g} =\int_{\partial R}\langle \R{grad}f,\R{grad}g\rangle \dd {\mu }_{n}-\int_{R}{f\Delta g\dd}{\mu }_{n},
+    \]
+    where ${\mu }_{n}$ is the Lebesgue measure on ${\B{R}}^{n}$. Derive the identity
+    \[
+     \int_{R}{f\Delta g\dd }{\mu }_{n}-\int_{R}{g\Delta f\dd }{\mu }_{n} =\int_{\partial R}g \land   * {\dd f}-\int_{\partial R}f \land   * {\dd g}.
+    \]
+  \NewItem Define $\rho  : {\B{R}}^{n}- \{ 0\}  \ra  \B{R}$ for $n \geq  2$ by
+    \[
+      \rho ( x)  = \phi ( {\| x\| })
+    \]
+    where $\phi ( r)$ for $r > 0$ is given by
+    \[
+      \phi ( r)  = \begin{cases} \log r & \text{ if }n = 2 \\  \frac{1}{2- n}{r}^{2- n} & \text{ if }n \geq  3. \end{cases}
+    \]
+    Show for the closed form $\omega$ defined by equation \eqref{eq:9-19} of Example \ref{example:9-18} that $*{\dd\rho } = \omega$, and conclude that $\rho$ is harmonic (i.e. ${\Delta \rho } = 0$ ). Apply the last identity of Exercise \ref{exercise:10-14} to $f = \rho,g \in  {C}_{c}^{\infty }( {{\B{R}}^{n},\B{R}})$ and ${R}_{\epsilon } =$  $\left\{  {x \in  {\B{R}}^{n} \mid  \epsilon  \leq  \| x\|  \leq  a}\right\}$, where $\epsilon  > 0$ and $a$ is suitably large, to obtain
+    \[
+     \int_{{\RR}^{n}- \epsilon {\mathring{D}}^{n}}{\rho \Delta g} =\int_{\epsilon {S}^{n- 1}}\rho\land *{\dd g}-\int_{\epsilon {S}^{n- 1}}g \land  \omega,
+    \]
+    where $\epsilon {\mathring{D}}^{n}$ is the open disc of radius $\epsilon$ around 0 and $\epsilon {S}^{n- 1}$ is its boundary sphere. Show that
+    \[
+      \mathop{\lim }\limits_{{\epsilon  \ra  {0}_{ + }}}\int_{\epsilon {S}^{n- 1}}\rho  \land   * {\dd g} = 0\;\text{ and }\;\mathop{\lim }\limits_{{\epsilon  \ra  {0}_{ + }}}\int_{\epsilon {S}^{n- 1}}g \land  \omega  = \R{Vol}( {S}^{n- 1}) g( 0).
+    \]
+    \par(Hint: The pull-back of $\omega$ to $\epsilon {S}^{n- 1}$ is ${\epsilon }^{1- n}{\R{Vol}}_{\epsilon {S}^{n- 1}}$.) Conclude that
+    \[
+      g( 0)  = \frac{-1}{\R{Vol}( {S}^{n- 1}) }\int_{{\RR}^{n}}{\rho \Delta g\dd}{\mu }_{n}
+    \]
+    for every $g \in  {C}_{c}^{\infty }( {{\B{R}}^{n},\B{C}})$, where the right hand side is the Lebesgue integral.
+  \newchap[11]
+  \NewItem Generalize the concept of degree to the case of continuous maps in such a way that Corollary \ref{corollary:11-2} holds for $f$ continuous.
+    Show that Corollary \ref{corollary:11-3}, the statement $\deg ( f)  \in  \B{Z}$ of Theorem \ref{theorem:11-9}, Corollary \ref{corollary:11-10} and Proposition \ref{proposition:11-11} generalize to the case of continuous maps.
+  \NewItem Prove the formula of Theorem \ref{theorem:11-9} under the following assumptions:
+  \begin{enumerate}[(i)]
+    \item $f$ is continuous.
+    \item $f$ is smooth outside a closed set $A \subseteq  N$.
+    \item $p \in  M-f( A)$ is a regular value of $f$ restricted to $N- A$.
+  \end{enumerate}\par(Hint: Lemma \ref{lemma:11-8} holds with $U \subseteq  M- f( A),{V}_{i} \subseteq  N- A$. Construct a homotopy $F$ from $f$ to a smooth map such that ${F}_{t}( {0 \leq  t \leq  1})$ is the identity near the points ${q}_{i} \in  {f}^{-1}( p)$.)
+  \NewItem Let ${N}^{n}$ be an oriented closed (i.e. compact) manifold. Show that every integer occurs as the degree of some smooth map ${N}^{n} \ra  {S}^{n}$ (Use Exercise \ref{exercise:11-2}.)
+  \NewItem (The fundamental theorem of algebra)\index{fundamental theorem of algebra} Suppose
+    \[
+      P( z)  = {z}^{n} + Q( z)  = {z}^{n} + \sum_{{j = 0}}^{{n- 1}}{a}_{j}{z}^{j}
+    \]
+    is a complex polynomial of degree $n \geq  1$ without any complex root. This leads to a contradiction as follows: Regarding ${S}^{1}$ as the unit circle in $\B{C}$ define for any $r \geq  0$ a smooth map
+    \[
+      {f}_{r} : {S}^{1} \ra  {S}^{1};\;{f}_{r}( w)  = \frac{P( {rw}) }{\left| P( rw) \right| }.
+    \]
+    Show that $\deg ( {f}_{r})$ is independent of $r$ and then (by taking $r = 0$ ) that $\deg ( {f}_{r})  = 0$. Prove for $r$ chosen suitably large that the expression
+    \[
+      F( {w,t})  = \frac{{( rw) }^{n} + {tQ}( {rw}) }{\left| {( rw) }^{n} + tQ( rw) \right| },\;0 \leq  t \leq  1
+    \]
+    defines a homotopy ${S}^{1} \times  [  {0,1}]   \ra  {S}^{1}$ between ${f}_{r}$ and the map $w \mapsto  {w}^{n}$ and conclude from this that $\deg ( {f}_{r})  = n$.
+  \NewItem Let $\Sigma \subseteq  {\B{R}}^{n}$ be a smooth submanifold diffeomorphic to ${S}^{n- 1},n \geq  2$, and let ${U}_{1},{U}_{2}$ be the open sets given by the Jordan-Brouwer separation Theorem \ref{theorem:7-10}. For ${x}_{0} \in  {\B{R}}^{n}- \Sigma$ define
+    \[
+      f\colon \Sigma  \ra  {S}^{n- 1};\;F( x)  = \frac{x- {x}_{0}}{\begin{Vmatrix}x- {x}_{0}\end{Vmatrix}}.
+    \]
+    Show that
+    \[
+      \deg ( F)  = \left\{  \begin{array}{ll} 0 & \text{ if }{x}_{0} \in  {U}_{2} \\   \pm  1 & \text{ if }{x}_{0} \in  {U}_{1} \end{array}\right.
+    \]
+    where the sign depends only on the orientation of $\Sigma$.
+  \NewItem Prove the case $n < m$ of Theorem \ref{theorem:11-5} (reduce to the case of equal dimensions).
+    Apply this to show that every map $f\colon {N}^{n} \ra  {S}^{m}$ from a smooth manifold of dimension $n < m$ is homotopic to a constant.
+  \NewItem Let $U \subseteq  {\B{R}}^{n}$ be a bounded open set and $A$ a compact subset of $U$. Prove the existence of a compact domain with smooth boundary $R$ such that $A \subseteq  R \subseteq  U$.
+    \par(Hint: Try $R = {\psi }^{-1}( {\lbrack c,\infty }) )$ where $\psi$ is given by Lemma \ref{lemma:A.7} and $c > 0$ is a regular value of $\psi$.)
+  \NewItem Let $B$ be the set of boundary points of a bounded open set $U \subseteq  {\B{R}}^{n}( {n \geq  2})$, and let $f\colon B \ra  {\B{R}}^{n}- \{ 0\}$ be a continuous vector field on $B$ without zeros. Show the existence of $X : U \cup  B \ra  {\B{R}}^{n}$ with the following properties:
+    \begin{enumerate}
+      \item $X$ is a continuous extension of $F$.
+      \item $X$ is smooth on $U$.
+      \item $X$ has only finitely many zeros in $U$.
+    \end{enumerate} \par(Hint: (a) and (b) can be achieved by the proof of Lemma \ref{lemma:7-4}, and (c) from the proof of Lemma \ref{lemma:11-25}.)
+    Prove that the integer
+    \[
+      \gamma ( {F,U})  = \sum_{{p \in  U,X( p)  = 0}}\iota ( {X;p})
+    \]
+    is independent of the choice of $X$ satisfying (a), (b), (c).
+    \par(Hint: Use Exercise \ref{exercise:11-7} and Theorem \ref{theorem:11-22}.)
+    Find an example in ${\B{R}}^{2}$ to show that $\gamma ( {F,U})$ actually depends on $U$ and not only on $B$ and $F$.
+  \NewItem Suppose under the assumptions of Exercise \ref{exercise:11-8} that $f\colon B \ra  {\B{R}}^{n}- \{ 0\}$ is homotopic to $G\colon B \ra  {\B{R}}^{n}- \{ 0\}$. Prove that $\gamma ( {F,U})  = \gamma ( {G,U})$.
+    \NewItem With $U$ and $B$ given as in Exercise \ref{exercise:11-8} assume $f\colon U \cup  B \ra  {\B{R}}^{n}$ to be continuous without any zeros on $B$. Prove that if $\gamma ( {{F}_{\mid B},U})  \neq  0$, then $F$ has at least one zero in $U$.
+    \par(Hint: Otherwise find $X$ with properties (a) and (b) of Exercise \ref{exercise:11-8} such that $X$ has no zeros in $U$.)
+  \NewItem Show that the condition defining a non-degenerate zero of a vector field is independent of the choice of chart.
+  \NewItem Let $F \in  {C}^{\infty }( {{\B{R}}^{n},{\B{R}}^{n}})$ and $G \in  {C}^{\infty }( {{\B{R}}^{m},{\B{R}}^{m}})$ be vector fields both with the origin as the only zero. Show that $F \times  G$ is a vector field on ${\B{R}}^{n + m}$ with the same property, and that
+    \[
+      \iota ( {F \times  G;0})  = \iota ( {F;0}) \iota ( {G;0}).
+    \]
+  \newchap[12]
+  \NewItem Show that $f\colon {\B{R}}^{n} \ra  \B{R}$ given by
+    \[
+      f( x)  = \sum_{{j = 1}}^{n}{\sin }^{2}( {\pi {x}_{j}})
+    \]
+    is a Morse function. Determine all the critical points and their indices. Show with the notation of Exercise \ref{exercise:8-4} that there is a Morse function $\tilde{f}$ on ${T}^{n}$ such that $f = \tilde{f} \circ  \pi$. Prove that the number of critical points of index $\lambda$ for $\tilde{f}$ is $\binom{n}{\lambda}$.
+  \NewItem Let $f$ be a Morse function on a Riemannian manifold. Prove that all zeros of $\R{grad}( f)$ are non-degenerate (see Exercise \ref{exercise:9-14}).
+  \NewItem Show for any smooth map $f\colon {M}^{m} \ra  {\B{R}}^{n}$ and $p \in  M$ that there is a map (non-linear in general)
+    \[
+      {\dd}_{p}^{2}f\colon {\ker}{D}_{p}f \ra  {\cok}{D}_{p}f
+    \]
+    such that
+    \[
+      {\dd}_{p}^{2}f( {{\alpha }^{\prime }( 0) })  = {( f \circ  \alpha ) }^{\prime \prime }( 0)  + \im{D}_{p}f
+    \]
+    whenever $\alpha  : ( {-\delta,\delta })  \ra  M$ is smooth with $\alpha ( 0)  = p$ and ${\alpha }^{\prime }( 0)  \in  {\ker}{D}_{p}f$.
+  \NewItem Let $f$ be a Morse function on a closed connected manifold with at least two critical points of index 0. Prove that $f$ has a critical point of index 1.
+    \par(Hint: With notation as in the proof of Theorem \ref{theorem:12-16} study $\dim {H}^{0}( {M( {b}_{j}) })$ as a function of $j$.)
+  \NewItem Is it possible for a Morse function on ${\B{R}}^{2}$ to have only two critical points both of index 0 ?
+    \NewItem With the notation and assumptions of Lemma \ref{lemma:12-13} we put
+    \[
+      {W}_{\nu } = M( {a- \epsilon })  \cup  \mathop{\bigcup }\limits_{i=1}^{\nu }{U}_{i}\quad 
+      ( {0 \leq  \nu  \leq  r}).
+    \]
+    Show that ${W}_{\nu }$ has finite-dimensional de Rham cohomology and that one of the following two cases occurs for each $\nu,1 \leq  \nu  \leq  r$:\\
+    Case 1: $\dim {H}^{p}( {W}_{\nu }) - \dim {H}^{p}( {W}_{\nu - 1})  = \begin{cases} 0 & \text{ if }p \neq  {\lambda }_{\nu } \\  1 & \text{ if }p = {\lambda }_{\nu } \end{cases}$\\
+    Case 2: $\dim {H}^{p}( {W}_{\nu }) - \dim {H}^{p}( {W}_{\nu - 1})  = \begin{cases} 0 & \text{ if }p \neq  {\lambda }_{\nu }- 1 \\  - 1 & \text{ if }p = {\lambda }_{\nu }- 1. \end{cases}$
+  \NewItem (The Morse inequalities)\index{Morse inequalities} For a smooth manifold ${M}^{n}$ with finite-dimensional de Rham cohomology we define the \Index{Poincar\'e polynomial}
+    by
+    \[
+      {P}_{M}( t)  = \sum_{{j = 0}}^{n}{b}_{j}{t}^{j}
+    \]
+    where ${b}_{j}$ is the $j$-th Betti number of $M,{b}_{j} = {\dim }_{\RR}{H}^{j}( M)$. Let $f\colon M \ra  \B{R}$ be a Morse function with ${c}_{\lambda }$ critical points of index $\lambda ( {{c}_{\lambda } < \infty })$. Define the polynomial
+    \[
+      {C}_{M}( t)  = {C}_{M,f}( t)  = \sum_{{\lambda  = 0}}^{n}{c}_{\lambda }{t}^{\lambda }.
+    \]
+    Prove for any closed manifold $M$ that
+    \[
+      {C}_{M}( t) - {P}_{M}( t)  = ( {t + 1}) {R}_{M}( t),
+    \]
+    where ${R}_{M}( t)$ is a polynomial with non-negative integral coefficients. \par(Hint: Prove by induction a similar statement for each set ${W}_{\nu }$ introduced in Exercise \ref{exercise:12-6}.)
+    Derive the Morse inequalities
+    \[
+      \sum_{{k = 0}}^{j}{(-1) }^{j- k}{c}_{j} \geq  \sum_{{k = 0}}^{j}{(-1) }^{j- k}{b}_{j}\;( {0 \leq  j \leq  n}).
+    \]
+    Observe that the Morse inequalities imply
+    \[
+      {c}_{j} \geq  {b}_{j}\quad( {0 \leq  j \leq  n}).
+    \]
+  \NewItem (Morse's lacunary principle)\index{Morse's lacunary principle} Continuing with the assumptions and notation of Exercise \ref{exercise:12-7}, suppose for each $\lambda ( {1 \leq  \lambda  \leq  n})$ that either ${c}_{\lambda - 1} = 0$ or ${c}_{\lambda } = 0$. Prove that ${b}_{j} = {c}_{j}$ for every $j$.
+  \NewItem Let ${\R{pr}}_{i} : {\mathbf{T}}^{n} = {\B{R}}^{n}/{\B{Z}}^{n} \ra  \B{R}/\B{Z}$ be the $i$-th projection (see Exercise \ref{exercise:8-4}). Pick $\omega  \in  {\Omega }^{1}( {\B{R}/\B{Z}})$ representing a generator of ${H}^{1}( {\B{R}/\B{Z}})  \cong  {H}^{1}( {S}^{1})  \cong  \B{R}$ and define ${\omega }_{i} = {\R{pr}}_{i}^*( \omega )  \in  {\Omega }^{1}( {\mathbf{T}}^{n})$. To an increasing sequence $I : 1 \leq  {i}_{1} <$  ${i}_{2} < \ldots  < {i}_{p} \leq  n$ we associate the closed $p$-form
+    \[
+      {\omega }_{I} = {\omega }_{{i}_{1}} \land  \ldots  \land  {\omega }_{{i}_{p}} \in  {\Omega }^{p}( {\mathbf{T}}^{n}).
+    \]
+    Prove that the resulting classes $[  {\omega }_{I}]   \in  {H}^{p}( {\mathbf{T}}^{n})$ are linearly independent. \par(Hint: Consider integrals of linear combinations $\sum_{I}{a}_{I}{\omega }_{I}$ over subtori.)
+    Prove with the help of Exercises \ref{exercise:12-1} and \ref{exercise:12-7} that
+    \[
+      \dim {H}^{p}( {\mathbf{T}}^{n})  = \binom{n}{p},
+    \]
+    and conclude that there is an isomorphism
+    \[
+      {H}^*( {\mathbf{T}}^{n})  \cong  {\alt}^*( {\B{R}}^{n})
+    \]
+    of graded algebras.
+  \NewItem Let $\pi: {\tilde{M}}^{n} \ra  {M}^{n}$ be a $d$-fold covering of closed manifolds $\tilde{M}$ and $M$, i.e. ${M}^{n}$ can be covered by open sets $U$ with the property that ${\pi }^{-1}( U)$ is a disjoint union of $d$ open sets ${U}_{1},\ldots,{U}_{d}$ such that ${\pi }_{\mid {U}_{i}} : {U}_{i} \ra  U$ is a diffeomorphism for $1 \leq  i \leq  d$. Show that $\chi ( \tilde{M})  = {d\chi }( M)$.
+  \NewItem Assume $f$ and $g$ are Morse functions on the closed manifolds $M$ and $N$ respectively. Show that a Morse function $h$ on $M \times  N$ can be defined by
+    \[
+      h( {p,q})  = f( p)  + g( q).
+    \]
+    Describe the critical points and indices for $h$ in terms of similar data for $f$ and $g$. Derive the product formula for Euler characteristics
+    \[
+      \chi ( {M \times  N})  = \chi ( M) \chi ( N).
+    \]
+  \newchap[13]
+  \NewItem A \Index{symplectic space} $( {V,\omega })$ is a real vector space equipped with an alternating 2-form $\omega  \in  {\alt}^{2}( V)$. A linear subspace $W \subseteq  V$ is said to be \textit{non-degenerate}\index{non-degenerate space} if for every $e \in  W- \{ 0\}$ we can find $f \in  W$ such that $\omega ( {e,f})  \neq  0$. Assume from now on that $V$ is non-degenerate of finite dimension.
+    Let $W \subseteq  V$ be a non-degenerate subspace. Show that
+    \[
+      {W}^{ \bot  } = \{ x \in  V \mid  \omega ( {x,y})  = 0\text{ for every }y \in  W\}
+    \]
+    is a non-degenerate subspace with $W \oplus  {W}^{ \bot  } = V$. Prove that $V$ has a basis $\left\{  {{e}_{1},{f}_{1},{e}_{2},{f}_{2},\ldots,{e}_{n},{f}_{n}}\right\}$ such that
+    \[
+      \omega ( {{e}_{i},{e}_{j}})  = \omega ( {{f}_{i},{f}_{j}})  = 0,\;\omega ( {{e}_{i},{f}_{j}})  = 
+      \begin{cases}
+        1 & \text{ if } i = j \\  
+        0 & \text{ if } i \neq  j 
+      \end{cases}
+    \]
+    This is called a \Index{symplectic basis}. Note that $\dim V$ must be even.
+    \par(Hint: Pick ${e}_{1} \neq  0$ arbitrarily. Then find ${f}_{1}$ and apply induction to ${W}^{ \bot  }$, where $W$ is spanned by ${e}_{1}$ and ${f}_{1}$.)\par
+    Let ${\omega }_{1},{\tau }_{1},{\omega }_{2},{\tau }_{2},\ldots,{\omega }_{n},{\tau }_{n}$ be the dual basis of ${\alt}^{1}( V)  = {V}^*$ to a symplectic basis for $V$. Show that
+    \[
+      \omega  = \sum_{{j = 1}}^{n}{\omega }_{j} \land  {\tau }_{j}
+    \]
+  \NewItem Let ${M}^{n}$ be an oriented closed smooth manifold of dimension $n \equiv$ 2 (mod 4). Show that Poincar\'e duality organizes ${H}^{n/2}( M)$ as a nondegenerate symplectic space (see Exercise \ref{exercise:13-1}). Prove that $\chi ( M)$ is even.
+  \NewItem Consider a smooth map $f\colon {N}^{n} \ra  {M}^{n}$ between $n$-dimensional oriented smooth closed manifolds, where $M$ is connected. Prove that if ${H}^{n}( f)  \neq  0$ then ${H}^{p}( f)\colon {H}^{p}( M)  \ra  {H}^{p}( N)$ is injective for every $p$.
+  \NewItem Let $( {{S}^{n},{M}^{m}})$ be a smooth compact manifold pair with $0 < m < n$ and $U = {S}^{n}- {M}^{m}$. Construct isomorphisms
+    \[
+      {H}^{p}( U)  \cong  {H}^{n- p- 1}{( M) }^*\quad( {1 \leq  p \leq  n- 2}).
+    \]
+    Show that ${H}^{n}( U)  = 0$ and find short exact sequences
+    \[
+    \begin{aligned}
+      0 & \ra  {H}^{n- 1}( U)  \ra  {H}^{0}{( M) }^* \ra  \B{R} \ra  0 \\
+      0 & \ra  \B{R} \ra  {H}^{0}( U)  \ra  {H}^{n- 1}{( M) }^* \ra  0.
+    \end{aligned}
+    \]
+  \NewItem Let $\pi\colon  \hat{M} \ra  M$ be the oriented double covering constructed in Exercise \ref{exercise:9-15} and define $A : \hat{M} \ra  \hat{M}$ as in Exercise \ref{exercise:9-18}. Find isomorphisms
+    \[
+      {H}^{p}( M)  \ra  {( {H}_{c}^{n- p}{( \hat{M}) }_{-1}) }^*
+    \]
+    where ${H}_{c}^{q}{( \hat{M}) }_{-1}$ denotes the(-1)-eigenspace of ${A}^*$ on ${H}_{c}^{q}( \hat{M})$.
+  \NewItem Compute ${H}^{n}( {M}^{n})$ for every smooth connected $n$-dimensional manifold ${M}^{n}$.
+    \par(Hint: Use Exercise \ref{exercise:13-5}. The answer depends on whether $M$ is compact or not, and also whether $M$ is orientable or not,)
+  \NewItem Prove that ${H}_{c}^{q}( M)$ for every smooth manifold and every $q$ is at most countably generated.
+    \par(Hint: Induction on open sets.)
+  \NewItem Show that any de Rham cohomology space ${H}^{p}( M)$ is either finite-dimensional or isomorphic to a product $\prod_{{n = 1}}^{\infty }\B{R}$ of countably many copies of $\B{R}$.
+  \NewItem A compact set $K \subseteq  {\B{R}}^{n}$ is said to be \textit{cellular}\index{cellular set} if $K = \bigcap_{{j = 1}}^{\infty }{D}_{j}$, where each ${D}_{j} \subseteq  {\B{R}}^{n}$ is homeomorphic to ${D}^{n}$ and ${D}_{j + 1} \subseteq  {D}_{j}$ for every $j$. Show for $K$ cellular that
+    \[
+      {H}^{p}( {{\B{R}}^{n}- K})  \cong  \left\{  \begin{array}{ll} \B{R} & \text{ if }p = 0,n- 1 \\  0 & \text{ otherwise. } \end{array}\right.
+    \]
+  \NewItem For $K \subseteq  {\B{R}}^{n}$ compact denote by ${\check{H}}^{0}( {K,\B{R}})$ the vector space of locally constant functions $K \ra  \B{R}$. Construct an isomorphism
+    \[
+      {\Phi }^{1} : {\check{H}}^{0}( {K,\B{R}})  \ra  {H}_{c}^{1}( {{\B{R}}^{n}- K})
+    \]
+    such that ${\Phi }^{1}( f)  = [  {d\tilde{f}}]$ where $\tilde{f} \in  {C}_{c}^{\infty }( {{\B{R}}^{n},\B{R}})$ is locally constant on an open set containing $K$ and $\tilde{f}$ extends $f$. Find an isomorphism
+    \[
+      \Phi  : {H}^{n- 1}( {{\B{R}}^{n}- K})  \ra  {\check{H}}^{0}{( K,\B{R}) }^*
+    \]
+    such that $\Phi ( [  \omega ]  )$ for $\omega  \in  {\Omega }^{n- 1}( {{\B{R}}^{n}- K})$ can be evaluated on $f \in$  ${\check{H}}^{0}( {K,\B{R}})$ by the following procedure:
+    There are disjoint compact domains ${R}_{1},\ldots,{R}_{d}$ with smooth boundary such that $K \subseteq \bigcup_{{j = 1}}^{d}( {{R}_{j}- \partial {R}_{j}})$ and $f$ is constant on $K \cap  {R}_{j}$ with value ${a}_{j}$. Then
+    \[
+      \Phi ( [  \omega ]  ) ( f)  = \sum_{{j = 1}}^{d}{a}_{j}\int_{\partial {R}_{j}}\omega.
+    \]
+    \par(Hint: Exercise \ref{exercise:11-7} is needed.)
+  \newchap[14]
+  \NewItem A rational function
+    \[
+      R( z)  = \frac{P( z) }{Q( z) },
+    \]
+    where $P$ and $Q$ are complex polynomials, is initially defined only on $\B{C}$ with the roots of $Q$ removed. Show that $R$ extends to a smooth map of the Riemann sphere $\B{C} \cup  \{ \infty \}$ to itself.
+  \NewItem The $n$-th \Index{symmetric power} $S\!P^{n}(X)$ of a topological space $X$ is the set of orbits under the action of the symmetric group $S( n)$ on ${X}^{n} = X \times  \ldots  \times  X$ ( $n$ factors) with the quotient topology from ${X}^{n}$.
+    Show that ${\mathrm{{SP}}}^{n}( {S}^{2})$ is homeomorphic to ${\B{{CP}}}^{n}$ by the map $f\colon {( {\B{{CP}}}^{1}) }^{n} \ra$  ${\B{{CP}}}^{n}$ taking
+    \[
+      ( {[  {{\alpha }_{1},{\beta }_{1}}] ,\ldots,[  {{\alpha }_{n},{\beta }_{n}}]  })
+    \]
+    into $[  {{a}_{0},{a}_{1},\ldots,{a}_{n}}]   \in  {\B{{CP}}}^{n}$, where the ${a}_{k}$ are determined by the identity
+    \[
+      \mathop{\prod }\limits_{{j = 1}}^{n}( {{\beta }_{j}z- {\alpha }_{j}})  = \sum_{{k = 0}}^{n}{a}_{k}{z}^{k}.
+    \]
+  \NewItem Show that ${H}^{p}( {{S}^{2} \times  {S}^{4}})  \cong  {H}^{p}( {\B{{CP}}}^{3})$ for every $p$, but that the graded algebras ${H}^*( {{S}^{2} \times  {S}^{4}})$ and ${H}^*( {\B{{CP}}}^{3})$ are not isomorphic.
+  \NewItem Show that any continuous $f\colon {\B{{CP}}}^{m} \ra  {\B{{CP}}}^{n}$ induces the zero homomorphism
+    \[
+      {f}^* : {H}^{p}( {\B{{CP}}}^{n})  \ra  {H}^{p}( {\B{{CP}}}^{m})
+    \]
+    for $p \neq  0$ when $m > n$.
+  \NewItem Prove in the following steps that $\pi\colon  {S}^{{2n} + 1} \ra  {\B{{CP}}}^{n}$ is not homotopic to a constant. Suppose
+    \[
+      f\colon {S}^{{2n} + 1} \times  [  {0,1}]   \ra  {\B{{CP}}}^{n}
+    \]
+    is a homotopy from a constant ${F}_{0}$ to ${F}_{1} = \pi$, and extend $\pi$ continuously to $g\colon {D}^{{2n} + 2} \ra  {\B{{CP}}}^{n}$ by
+    \begin{align*}%\label{eq:appD-1}
+      g( {tz})  = F( {z,t}),\;z \in  {S}^{{2n} + 1},\;t \in  [  {0,1}] .
+    \end{align*}
+    
+    Define $h : {D}^{{2n} + 2} \ra  {\B{{CP}}}^{n + 1}$ by
+    \[
+      h( {{z}_{0},{z}_{1},\ldots,{z}_{n}})  = \left[  {{z}_{0},{z}_{1},\ldots,{z}_{n},{\bigg( 1- \sum_{{j = 0}}^{n}{\left| {z}_{j}\right| }^{2}\bigg) }^{1/2}}\right]
+    \]
+    and observe that $h$ maps the open disc ${\mathring{D}}^{{2n} + 2}$ bijectively onto ${U}_{n + 1} =$  ${\B{{CP}}}^{n + 1}- {\B{{CP}}}^{n}$. Moreover ${h}_{\mid {S}^{{2n} + 1}}$ is the composite of $\pi$ with the inclusion $j : {\B{{CP}}}^{n} \ra  {\B{{CP}}}^{n + 1}$. Find $f\colon {\B{{CP}}}^{n + 1} \ra  {\B{{CP}}}^{n}$ so that $f \circ  h = g$ and argue that $f$ is continuous. Observe that $f \circ  j = {\R{id}}_{{\B{{CP}}}^{n}}$, and pass to de Rham cohomology to obtain a contradiction.\par
+    This proves Hopf's result mentioned in Example \ref{example:14-1}.
+  \NewItem Given $z \in  {\B{C}}^{n + 1}- \{ 0\},p = \pi ( z)  \in  {\B{{CP}}}^{n}$, and two vectors ${v}_{j} \in  {T}_{z}{\B{C}}^{n + 1} =$  ${\B{C}}^{n + 1},j = 1,2$. Let ${w}_{j} = {D}_{z}\pi ( {v}_{j})  \in  {T}_{p}{\B{{CP}}}^{n}$. Show that the hermitian inner product $\langle \langle\,,\,\rangle {\rangle }_{p}$ on ${T}_{p}{\B{{CP}}}^{n}$ from Lemma \ref{lemma:14-4} satisfies
+    \[
+      {\langle  \langle  {w}_{1},{w}_{2}\rangle  \rangle  }_{p} = \langle  {{v}_{1},{v}_{2}}\rangle  - \frac{\langle  {{v}_{1},z}\rangle  \langle  {z,{v}_{2}}\rangle  }{\langle z,z\rangle },
+    \]
+    where $\langle\,,\, \rangle$ denotes the usual hermitian inner product on ${\B{C}}^{n + 1}$.
+  \NewItem A \Index{symplectic manifold} $( {M,\omega })$ is a smooth manifold $M$ equipped with a 2-form $\omega  \in  {\Omega }^{2}( M)$ satisfying the following conditions
+    \begin{enumerate}[(i)]
+      \item ${\dd\omega } = 0$.
+      \item $( {{T}_{p}M,{\omega }_{p}})$ is a non-degenerate symplectic space for every $p \in  M$%
+      (see Exercise \ref{exercise:13-1}).
+    \end{enumerate}
+    Show that ${\B{{CP}}}^{n}$ admits the structure of a symplectic manifold.
+    Show that a symplectic manifold $( {M,\omega })$ has even dimension ${2m}$ and that ${\omega }^{m} = \omega  \land  \ldots  \land  \omega$ is an orientation form on $M$.\par
+    Show for a closed symplectic manifold $( {{M}^{2m},\omega })$ that ${H}^*( M)$ contains a subalgebra isomorphic to $\B{R}[  c]  /( {c}^{m + 1})$, where $c = [  \omega ]   \in  {H}^{2}( M)$.
+  \NewItem (Grassmann manifolds) Fix integers $0 < m < n$ and let $\digamma$ denote either $\B{R}$ or $\B{C}$. Equip ${\B{F}}^{n}$ with the usual inner product. Denote by ${G}_{m}( {\B{F}}^{n})$ the set of $m$-dimensional linear subspaces $V \subseteq  {\B{F}}^{n}$.
+    Show that ${G}_{m}( {\B{F}}^{n})$ can be identified with a compact subspace of the $n \times  n$-matrices over $\B{F}$ by associating to $V$ the orthogonal projection on $V$. This makes ${G}_{m}( {\B{F}}^{n})$ a compact Hausdorff space (with countable basis for the topology).\par
+    Denote by ${\R{Fr}}_{m}( {\B{F}}^{n})$ the set of $n \times  m$ matrices over $\B{F}$ of rank $m$. Observe that ${\R{Fr}}_{m}( {\B{F}}^{n})$ can be identified with an open subset of ${\B{F}}^{mn}$ and hence is a smooth manifold. The group ${\mathrm{{GL}}}_{m}(\B{F})$ acts by right multiplication on ${\R{Fr}}_{m}( {\B{F}}^{n})$. Show that the orbit space ${\R{Fr}}_{m}( {\B{F}}^{n}) /{\mathrm{{GL}}}_{m}( \B{F})$ with quotient topology can be identified with ${G}_{m}( {\B{F}}^{n})$ by associating to $A \in  {\R{Fr}}_{m}( {\B{F}}^{n})$ the span of its column vectors denoted $[ A]  \in  {G}_{m}( {\B{F}}^{n})$. \par
+    To an increasing set of indices $I\colon 1 \leq  {i}_{1} < {i}_{2} < \cdots  < {i}_{m} \leq  n$ and $A \in  {\R{Fr}}_{m}( {\B{F}}^{n})$ is associated the $m \times m$-submatrix ${A}_{I}$ of rows numbered by $I$ and the $( {n- m})  \times  m$-matrix ${A}_{{I}^{\prime }}$ consisting of the remaining rows. Show that
+    \[
+      {U}_{I} = \left\{  {[  A]   \mid  A \in  {\R{Fr}}_{m}( {\B{F}}^{n}),{A}_{I}\text{ invertible }}\right\}
+    \]
+    is an open set in ${G}_{m}( {\B{F}}^{n})$ and define ${h}_{I}\colon {U}_{I} \ra  {\R{Mat}}_{n- m,m}( \B{F})$ into $( {n- m})  \times  m$ matrices by
+    \[
+      {h}_{I}( [  A]  )  = {A}_{{I}^{\prime }}{A}_{I}^{-1}.
+    \]
+    Show that ${h}_{I}$ is a homeomorphism, and finally (identifying ${\R{Mat}}_{n- m,m}( \B{F})$ with ${\mathrm{F}}^{( {n- m}) m})$ that $\mathcal{H} = \left\{  ( {{U}_{I},{h}_{I}}) \right\}$ is a smooth atlas on ${G}_{m}( {\B{F}}^{n})$. The resulting closed smooth manifold ${G}_{m}( {\B{F}}^{n})$ is the Grassmann manifold of $m$-dimensional subspaces of ${F}^{n}$.
+  \newchap[15]
+  \NewItem Show that the pull-back ${\eta }^*( {\tau }_{{S}^{2}})$ by the Hopf fibration $\eta  : {S}^{3} \ra  {S}^{2}$ is a trivial vector bundle (see Example \ref{example:14-10}). Prove also that the tangent bundle ${\tau }_{{S}^{3}}$ is trivial.
+  \NewItem Let $G$ be any Lie group (see Exercise \ref{exercise:9-10}). Right translation by $g \in  G$ is the diffeomorphism ${R}_{g} : G \ra  G;\;{R}_{g}( x)  = {xg}$. Given a tangent vector ${X}_{e} \in  {T}_{e}G$ at the neutral element $e$, define ${X}_{g} \in  {T}_{g}G$ for $g \in  G$ by ${X}_{g} = {D}_{e}{R}_{g}( {X}_{e})$. Show that this extends ${X}_{e}$ to a smooth vector field $X$ on $G$ and moreover that $X$ is right-invariant in the sense that
+    \[
+      {X}_{hg} = {D}_{h}{R}_{g}( {X}_{h}) \;\text{ for all }h,g \in  G.
+    \]
+    Construct a frame over $G$ for the tangent bundle ${TG}$ consisting of right-invariant vector fields.
+  \NewItem Let $\xi$ be a smooth real line bundle over ${\B{{RP}}}^{n}$ with total space ${S}^{n}{ \times  }_{{S}^{0}}\B{R}$, i.e. the orbit space of ${S}^{n} \times  \B{R}$ under the action of ${S}^{0} = \{  \pm  1\}$, where-1 acts by $( {x,t})  \mapsto  ( {-x,- t})$. This is the \Index{canonical line bundle} over ${\B{{RP}}}^{n}$. Construct a smooth isomorphism of vector bundles
+    \[
+      {\tau }_{\B{RP}^n} \oplus  {\varepsilon }^{1} \cong  ( {n + 1}) \xi
+    \]
+    where ${k\xi }$ denotes the $k$-fold direct sum $\xi  \oplus  \cdots  \oplus  \xi$. \par(Hint: Both total spaces can be identified with ${S}^{n}{ \times  }_{{S}^{0}}{\B{R}}^{n + 1}$.)
+  \NewItem Prove that the tangent bundle ${\tau }_{{\B{{CP}}}^{n}}$ with the complex structure on ${T}_{p}{\B{{CP}}}^{n}$ given by Lemma \ref{lemma:14-4} is a smooth complex vector bundle over ${\B{{CP}}}^{n}$.
+  \par Construct a smooth isomorphism of complex vector bundles (similar to that in Exercise \ref{exercise:15-3})
+    \[
+      {\tau }_{{\B{{CP}}}^{n}} \oplus  {\varepsilon }^{1} \cong  ( {n + 1}) {\bar{H}}_{n}
+    \]
+    where ${\bar{H}}_{n}$ is conjugate to ${H}_{n}$, i.e. as a real vector bundle ${\bar{H}}_{n}$ is the same as ${H}_{n}$, but $z \in  \B{C}$ acts on ${\bar{H}}_{n}$ the same way as $\bar{z} \in  \B{C}$ acts on ${H}_{n}$.
+  \NewItem Continuing Exercise \ref{exercise:14-8}, define the smooth map $\pi\colon  {\R{Fr}}_{m}( {\B{F}}^{n})  \ra  {G}_{m}( {\B{F}}^{n})$ by $\pi ( A)  = [  A]$.
+    Construct for each $I : 1 \leq  {i}_{1} < {i}_{2} < \ldots  < {i}_{m}$ a smooth section ${S}_{I} : {U}_{I} \ra  {\pi }^{-1}( {U}_{I})$ such that ${S}_{I}( [  A]  )  = A{A}_{I}^{-1}$. Show that the map
+    \[
+      {k}_{I} : {U}_{I} \times  {\mathrm{{GL}}}_{m}( \B{F})  \ra  {\pi }^{-1}( {U}_{I});\;{k}_{I}( {[  A] ,Q})  = {S}_{I}( [  A]  ) Q
+    \]
+    is a diffeomorphism (note that ${\mathrm{{GL}}}_{m}( \B{F})$ is a Lie group). Define a smooth action of ${\mathrm{{GL}}}_{m}( \B{F})$ on ${\R{Fr}}_{m}( {\B{F}}^{n})  \times  {\B{F}}^{m}$ :
+    \[
+      ( {A,x}) Q = ( {{AQ},{Q}^{-1}x})
+    \]
+    and form the orbit space $E = \R{Fr}{( {\B{F}}^{\mathrm{n}}) }_{m} \times  {}_{{\mathrm{{GL}}}_{m}( \B{F}) }{\B{F}}^{m}$ with the induced projection $\bar{\pi } : E \ra  {G}_{m}( {\B{F}}^{n}),\bar{\pi }( [  {A,x}]  )  = [  A]$. Show that this is a smooth $m$-dimensional $\mathrm{F}$-vector bundle in such a way that the assignment
+    \[
+      [  A]   \mapsto  ( {[  {{S}_{I}( [  A]  ),{e}_{1}}] ,\ldots,[  {{S}_{I}( [  A]  ),{e}_{n}}]  })
+    \]
+    defines a smooth frame over ${U}_{I}$. This is the \Index{canonical vector bundle} $\gamma  = {\gamma }_{n}^{{\B{F}}^{m}}$ over ${G}_{m}( {\B{F}}^{n})$.\par
+    Give an identification of the fiber ${\gamma }_{V}$ over $V \in  {G}_{m}( {\B{F}}^{n})$ with $V$, which to $[  {A,x}]   \in  {\gamma }_{V}$ (with $[  A]   = V,x \in  {\B{F}}^{n}$, a column vector) assigns ${Ax} \in  V$.
+    Establish a 1-1 correspondence between smooth sections $S : U \ra  {\pi }^{-1}( U)$ over a given open set $U \subseteq  {G}_{m}( {\B{F}}^{n})$ and smooth frames $( {{s}_{1},\ldots,{s}_{n}})$ for $\gamma$ over $U$ such that $( {{s}_{1}( p),\ldots,{s}_{n}( p) })$ for $p \in  V$ via the identification ${\gamma }_{p} \cong  V$ corresponds to the column vectors of $S( p)$.
+  \NewItem Show that the canonical vector bundle constructed in Exercise \ref{exercise:15-5} in the case $m = 1$ can be identified (smoothly) with the canonical line bundle over ${\B{{RP}}}^{n- 1}$ or ${\B{{CP}}}^{n- 1}$ (Exercise \ref{exercise:15-3} and Example \ref{example:15-2}).
+  \NewItem Let $\xi$ be an $m$-dimensional vector bundle over $B$ admitting a complement
+    $\eta$, i.e. $\xi\oplus\eta\simee\varepsilon^N$. Construct a vector bundle homomorphism $(f, \tilde{f})$
+    to the $m$-dimensional canonical vector bundle $\gamma$ over the Grassmannian $G_m = G_m(\RR^N)$, such that
+    the fiber $\xi_b$ maps isomorphically to a fiber in $\gamma$ by including $\xi_b$ in $\varepsilon_b^N\simee\RR^N$.
+    Conclude that $\xi\simee f^*(\gamma)$. Do the same for complex vector bundles.
+  \NewItem Show that any vector bundle over a compact smooth manifold $B$ is
+    isomorphic to a smooth vector bundle. (Apply Exercise \ref{exercise:15-7} and pick a homotopy from $f$
+    to a smooth map.)
+  \NewItem Let $\pi:E\to B$ be a smooth fiber bundle. For $p\in E, b = \pi(p)$ we have
+    the fiber $F_b$ through $p$. Observe that $F_b$ is a smooth submanifold of $E$, so
+    that $T_pF_b$ can be identified with a subspace of $T_pE$. Show that the union
+    of these subspaces $T_pF_b$ as $p$ runs through $E$ is the total space of a smooth
+    vector bundle $\tau^v$ over $E$ (the tangent bundle along the fibers or
+    \Index{vertical tangent bundle}).\par
+    Show that the orthogonal complements $(T_pF_b)^\perp$ to $T_pF_b$ in $T_pE$ with
+    respect to a Riemannian metric on $E$ are the fibers of another smooth
+    vector bundle $\tau^h$ over $E$ (the normal bundle to the fibers or
+    \Index{horizontal tangent bundle}).\par
+    Find smooth vector bundle isomorphisms
+    \[
+      \tau^v\oplus \tau^h \simee \tau_E, \qquad \tau^h\simee \pi^*(\tau_B).
+    \]
+  \NewItem Prove Theorem \ref{theorem:15-18} without the compactness assumption
+    on $B$ for smooth real vector bundles by embedding $E(\xi)$ in some Euclidean space (Theorem \ref{theorem:8-11}).
+    Make use of Exercise \ref{exercise:15-9}, observing that $\tau^v\simee \pi^*(\xi)$
+    Deduce the smooth complex case of Theorem \ref{theorem:15-18} without the compactness assumption.
+  \NewItem Let $\xi$ be a smooth vector bundle with inner product over $B$ (not assumed to be compact). Suppose $A \subseteq  B$ is a closed set and $U \subseteq  B$ is open with $A \subseteq  U$. Let $s$ be a continuous section in $\xi$ over $B$ which is smooth on $U$. Construct for any given continuous map $\epsilon  : B \ra  ( {0,\infty })$ a smooth section $\tilde{s}$ over $B$ that satisfies
+    \begin{enumerate}[(i)]
+      \item $\tilde{s}( b)  = s( b)$ for $b \in  A$.
+      \item $\| \tilde{s}( b) - s( b) {\| }_{b} \leq  \epsilon ( b)$ for every $b \in  B$.
+    \end{enumerate}
+  \NewItem Let $\hat{f}\colon \xi  \ra  \eta$ be a map of vector bundles over ${\R{id}}_{B}$, such that the rank $r = \R{rk}( {\hat{f}}_{b})$ of the induced linear map of fibers is independent of $b \in  B$. Show that the subspaces
+    \[
+    \begin{aligned}
+      E( {\im( \hat{f}) })  & = \mathop{\bigcup }\limits_{{b \in  B}}\im( {\hat{f}}_{b})  \subseteq  E( \eta ) \\
+      E( {{\ker}( \hat{f}) })  & = \mathop{\bigcup }\limits_{{b \in  B}}{\ker}( {\hat{f}}_{b})  \subseteq  E( \xi )
+    \end{aligned}
+    \]
+    are total spaces of vector bundles $\im( \hat{f})$ and ${\ker}( \hat{f})$ over $B$ (smooth if $\xi,\eta$ and $\hat{f}$ are smooth).
+  \NewItem Show for a map $\hat{f}\colon \xi  \ra  \eta$ of vector bundles over ${\mathrm{{id}}}_{B}$, that the function $b \mapsto  \R{rk}( {\hat{f}}_{b})$ is lower semicontinuous on $B$.
+  \NewItem Suppose $\hat{p}\colon \xi  \ra  \xi$ is a vector bundle map over ${\R{id}}_{B}$ satisfying $\hat{p} \circ  \hat{p} = \hat{p}$. Show that $r = \R{rk}( {\hat{p}}_{b})$ is independent of $b \in  B$ when $B$ is connected. Prove that $\xi  \cong  \im( \hat{p})  \oplus  {\ker}( \hat{p})$ (see Exercise \ref{exercise:15-12}).
+  \newchap[16]
+  \NewItem Show for integers $n > 0,m > 0$ that
+    \[
+      \B{Z}/n\B{Z}\,{ \otimes  }_{\B{Z}}\,\B{Z}/m\B{Z} \cong  \B{Z}/d\B{Z}
+    \]
+    where $d$ is the greatest common divisor of $n$ and $m$.
+  \NewItem Prove the isomorphisms \eqref{eq:16-4} listed above Lemma \ref{lemma:16-4}.
+  \NewItem Let $V$ be a finite-dimensional complex vector space with Hermitian inner product $\langle\,,\, \rangle$. Construct a hermitian inner producton $\Lambda^kV$ satisfying
+    \[
+      \langle  {{v}_{1} \land  \ldots  \land  {v}_{k},{w}_{1} \land  \ldots  \land  {w}_{k}}\rangle   = \det ( \langle  {{v}_{\alpha },{w}_{\beta }}\rangle  ).
+    \]
+  \NewItem Let $F$ be a covariant functor from the category of finite-dimensional real vector spaces to itself. Assume $F$ to be smooth in the sense that the maps induced by $F$
+    \[
+      {\R{Hom}}_{\RR}( {V,W})  \ra  {\R{Hom}}_{\RR}( {F( V),F( W) })
+    \]
+    are smooth.\par
+    Construct for a given smooth real vector bundle $\xi$ over $B$ another smooth real vector bundle $F( \xi )$ over $B$ with fibers $F{( \xi ) }_{b} = F( {\xi }_{b}),b \in  B$.
+    Show that this extends $F$ to a covariant functor from the category of smooth real vector bundles over $B$ and smooth homomorphisms over ${\mathrm{{id}}}_{B}$ to itself. (Note: Many variations are possible: $\B{R}$ can be replaced by $\B{C}$ in the source and/or target category, $F$ can be contravariant, and smooth can be changed to continuous.)
+  \NewItem Prove that the construction of Exercise \ref{exercise:16-4} is compatible with pull-back, i.e. construct for $h : {B}^{\prime } \ra  B$ a smooth vector bundle isomorphism
+    \[
+      {\psi }_{\xi } : F( {{h}^*( \xi ) })  \ra  {h}^*( {F( \xi ) }).
+    \]
+    Show that pull-back by $h$ extends to a functor ${h}^*$ from the category of vector bundles over $B$ (see Exercise \ref{exercise:16-4}) to the corresponding category over ${B}^{\prime }$, and that the diagram
+    \[\begin{tikzcd}
+      F(h^*(\xi)) \rar{\psi_\xi}\dar{F(h^*(\hat{g})} & h^*(F(\xi))\dar{h^*(F( \hat{g}))} \\
+      F( {{h}^*( \eta ) }) \rar{\psi_\eta } & h^*(F(\eta))
+    \end{tikzcd}\]
+    commutes for every $\hat{g}\colon \xi \ra \eta$ over ${\R{id}}_{B}$.
+  \NewItem Consider two smooth covariant functors $F,G$ as in Exercise \ref{exercise:16-4}. Assume given (for each finite-dimensional vector space $V$) a linear map ${\phi }_{V}\colon F( V)  \ra  G( V)$ such that the diagram
+    \[\begin{tikzcd}
+      F(V)\dar{F(h)}\rar{\phi_V} & G(V)\dar{G(h)} \\
+      F(W) \rar{\phi_W} & G(W)
+    \end{tikzcd}\]
+    is commutative for every $h \in  {\R{Hom}}_{\RR}( {V,W})$.\par
+    Construct for a given smooth real vector bundle over $B$ a smooth bundle homomorphism ${\phi }_{\xi } : F( \xi )  \ra  G( \xi )$ over ${\R{id}}_{B}$, and show that any smooth vector bundle homomorphism $\widehat{g} : \xi  \ra  \eta$ over ${\mathrm{{id}}}_{B}$ leads to a commutative diagram
+    \[\begin{tikzcd}
+      F(\xi)\dar{F(\hat g)}\rar{\phi_\xi} & G(\xi)\dar{G(\hat g)} \\
+      F(\eta) \rar{\phi_\eta} & G(\eta)
+    \end{tikzcd}\]
+    Prove finally with the assumptions and notation of Exercise \ref{exercise:16-5} that the diagrams
+    \[\begin{tikzcd}
+      F( {{h}^*( \xi ) }) \dar{{\psi }_{\xi }}\rar{{\phi }_{{h}^*( \xi ) }} & G( {{h}^*( \xi ) })\dar{{\psi }_{\xi }}\\
+      {h}^*( {F( \xi ) }) \rar{{h}^*( {\phi }_{\xi }) } & {h}^*( {G( \xi ) })
+    \end{tikzcd}\]
+    commute.
+  \NewItem Let $V$ be a finite-dimensional real or complex vector space. Construct a linear map $e : {\bigotimes }^{k}V \ra  {\bigotimes }^{k}V$ such that
+    \[
+      e( {{v}_{1} \otimes  \cdots  \otimes  {v}_{k}})  = \frac{1}{k!}\sum_{{\sigma  \in  S( k) }}\R{sign}( \sigma ) {v}_{\sigma ( 1) } \otimes  \cdots  \otimes  {v}_{\sigma ( k) }.
+    \]
+    Show that $e \circ  e = e$, and that the quotient homomorphism ${ \otimes  }^{k}V \ra  {\Lambda }^{k}V$ induces an isomorphism $\im( e)  \cong  {\Lambda }^{k}V$.\par
+    Apply Exercise \ref{exercise:15-14} to give an alternative construction of the vector bundles ${\Lambda }^{k}( \xi )$.
+  \NewItem For finite-dimensional vector spaces $V$ and $W$, construct a linear map
+    \[
+      {\Lambda }^{k}V \otimes  {\Lambda }^{l}W \ra  {\Lambda }^{k + l}( {V \oplus  W})
+    \]
+    carrying $( {{v}_{1} \land  \ldots  \land  {v}_{k}})  \otimes  ( {{w}_{1} \land  \ldots  \land  {w}_{l}})$ into $( {{v}_{1},0})  \land  \ldots  \land  ( {{v}_{k},0})  \land$  $( {0,{w}_{1}})  \land  \ldots  \land  ( {0,{w}_{l}})$. Show that these combine to give isomorphisms
+    \[
+      \bigoplus_{k = 0}^n{\Lambda }^{k}V \otimes  {\Lambda }^{n- k}W \cong  {\Lambda }^{n}( {V \oplus  W})
+    \]
+    Extend this to vector bundle isomorphisms
+    \[
+      \bigoplus_{k = 0}^n{\Lambda }^{k}\xi  \otimes  {\Lambda }^{n- k}\eta  \cong  {\Lambda }^{n}( {\xi  \oplus  \eta })
+    \]
+  \NewItem Prove Lemma \ref{lemma:16-10}.(i).
+    \NewItem Finish the proof of Theorem \ref{theorem:16-13}.(iv).
+  \NewItem Let $\xi$ and $\eta$ be smooth vector bundles over a compact smooth manifold $M$. Show that $\xi$ and $\eta$ are isomorphic if and only if ${\Omega }^{0}( \xi )  \cong  {\Omega }^{0}( \eta )$ as ${\Omega }^{0}( M)$- modules. Prove that every finitely generated projective ${\Omega }^{0}( M)$-module $P$ is isomorphic to ${\Omega }^{0}( \eta )$ for some smooth vector bundle $\eta$ over $M$.
+    \par(Hint: Apply Exercise \ref{exercise:15-14} with $\xi  = {\varepsilon }^{n}$.)
+  \NewItem Prove for any line bundle $\xi$ (real or complex) that $\R{Hom}( {\xi,\xi })$ is trivial. Prove for any real line bundle that $\xi  \otimes  \xi$ is trivial.
+  \NewItem Let ${T}^*M$ be the total space of the dual tangent bundle ${\tau }_{M}^*$ of a smooth manifold ${M}^{n}$, and $\pi\colon  {T}^*M \ra  M$ the projection. For $q \in  {T}^*M$ (i.e. a linear form on ${T}_{\pi ( q) }M$ ) define
+    \[
+      {\theta }_{q} \in  {\alt}^{1}( {{T}_{q}( {{T}^*M}) });\;{\theta }_{q}( X)  = q( {{D}_{q}\pi ( X) }).
+    \]
+    Show that this defines a differential 1-form $\theta$ on ${T}^*M$ and moreover that $\theta$ can be given in local coordinates by the expression
+    \[
+      \sum_{i=1}^{n}{t}_{i}d{x}_{i}
+    \]
+    where ${x}_{1},\ldots,{x}_{n}$ are the coordinate functions on a chart $U \subseteq  M$ and ${t}_{1},\ldots,{t}_{n}$ are linear coordinates on ${T}_{p}^*M,p \in  U$ with respect to the basis ${\dd}_{p}{x}_{1},\ldots,{\dd}_{p}{x}_{n}$.\par
+    Show that $( {{T}^*M,{\dd\theta }})$ is a symplectic manifold (see Exercise \ref{exercise:14-7}).
+  \newchap[17]
+  \NewItem A derivation on an $\B{R}$-algebra $A$ is an $\B{R}$-linear map $D\colon A \ra  A$ that satisfies the identity
+    \[
+      D( {xy})  = ( {Dx}) y + x( {Dy}).
+    \]
+    These form an $\B{R}$-vector space Der $A$. Show for any smooth manifold ${M}^{m}$ that there is a linear isomorphism
+    \[
+      {\Omega }^{0}( {\tau }_{M})  \cong  \R{Der}{\Omega }^{0}( M)
+    \]
+    which to a vector field $X$ assigns the derivation ${L}_{X}$ given by
+    \[
+      {L}_{X}( f)  = {Xf} = {\dd f}( X).
+    \]
+    \par(Hint: Derivations are local operators.)\par
+    Show that the commutator $[  {{D}_{1},{D}_{2}}]   = {D}_{1} \circ  {D}_{2}- {D}_{2} \circ  {D}_{1}$ of ${D}_{1},{D}_{2} \in  \R{Der}A$ also belongs to $\R{Der}A$, and define the \Index{Lie bracket} $[  {X,Y}]   \in  {\Omega }^{0}( {\tau }_{M})$ of smooth vector fields $X,Y$ on $M$ by the condition
+    \[
+      {L}_{[  X,Y]  } = [  {{L}_{X},{L}_{Y}}]
+    \]
+    Prove that ${\Omega }^{0}( {\tau }_{M})$ is a \Index{Lie algebra}, i.e. that the following conditions hold
+    \begin{enumerate}
+      \item[(L1)] $[  {\;,\;}]$ is bilinear.
+      \item[(L2)] $[  {X,X}] = 0$.
+      \item[(L3)] $[  {X,[  {Y,Z}]  }]   + [  {Y,[  {Z,X}]  }]   + [  {Z,[  {X,Y}]  }] = 0$ (\Index{Jacobi identity}).
+    \end{enumerate}
+    Show for $X,Y \in  {\Omega }^{0}( {\tau }_{M})$ and $f,g \in  {\Omega }^{0}( M)$ that
+    \[
+      [  {{fX},Y}]   = f[  {X,Y}]  - ( {Yf}) X
+    \]
+    \[
+      [  {X,{gY}}]   = g[  {X,Y}]   + ( {Xg}) Y
+    \]
+    Suppose $X$ and $Y$ are given on a chart $U \subseteq  M$ by the expressions (see Remark \ref{remark:9-4})
+    \[
+      X = \sum_{i=1}^{m}{a}_{i}\frac{\partial }{\partial {x}_{i}},\;Y = \sum_{{j = 1}}^{m}{b}_{j}\frac{\partial }{\partial {x}_{j}}.
+    \]
+    Show that in these coordinates $[  {X,Y}]$ is given on $U$ by
+    \[
+      [  {X,Y}]   = \sum_{{k = 1}}^{m}\left( {\sum_{i=1}^{m}{a}_{i}\frac{\partial {b}_{k}}{\partial {x}_{i}}- \sum_{{j = 1}}^{m}{b}_{j}\frac{\partial {a}_{k}}{\partial {x}_{j}}}\right) \frac{\partial }{\partial {x}_{k}}.
+    \]
+  \NewItem Prove for $\omega  \in  {\Omega }^{p}( M)$ and ${X}_{j} \in  {\Omega }^{0}( {\tau }_{M}),1 \leq  j \leq  p + 1$, the formula
+    \[
+      \begin{aligned}
+        {\dd\omega } & ( {{X}_{1},\ldots,{X}_{p + 1}})  
+          = \sum_{i=1}^{{p + 1}}{(-1) }^{i- 1}{X}_{i}\big( {\omega ( {{X}_{1},\ldots,{\widehat{X}}_{i},\ldots,{X}_{p + 1}}) }\big)\\
+        & + \sum_{{1 \leq  i < j \leq  p + 1}}{(-1) }^{i + j}\omega \big( ( {[  {{X}_{i},{X}_{j}}] ,{X}_{1},\ldots,{\widehat{X}}_{i},\ldots,{\widehat{X}}_{j},\ldots,{X}_{p + 1}}) \big).
+      \end{aligned}
+    \]
+    In particular
+    \[
+      {\dd\omega }( {X,Y})  = X( {\omega ( Y) }) - Y( {\omega X}) - \omega ( [  {X,Y}]  ).
+    \]
+    for $\omega  \in  {\Omega }^{1}( M),X,Y \in  {\Omega }^{0}( {\tau }_{M})$
+  \NewItem Let $M$ be a Riemannian manifold with metric $\langle\,,\,\rangle$. Prove the existence and uniqueness of a connection $\bigtriangledown$ on ${\tau }_{M}$ such that ${ \bigtriangledown  }_{X} : {\Omega }^{0}( \tau )  \ra  {\Omega }^{0}( \tau )$ satisfies the following two conditions for smooth vector fields $X,Y,Z$ :
+    \begin{enumerate}[(a)]
+      \item $X( {\langle Y,Z\rangle }) = \langle \nabla {XY},Z\rangle  + \langle Y,\nabla {XZ}\rangle$
+      \item ${ \bigtriangledown  }_{X}Y- { \bigtriangledown  }_{Y}X = [  {X,Y}]$
+    \end{enumerate}
+    Prove moreover that $\bigtriangledown$ satisfies the \Index{Koszul identity}
+    \[
+      \begin{aligned}
+        2\langle {\nabla }_{X}Y,Z\rangle  
+        & = X\langle Y,Z\rangle  + Y\langle Z,X\rangle - Z\langle X,Y\rangle \\
+        & - \langle X,[  {Y,Z}]  \rangle  + \langle Y,[  {Z,X}]  \rangle  + \langle Z,[  {X,Y}]  \rangle.
+      \end{aligned}
+    \]
+    (Hints: Let $A( {X,Y,Z})$ be the 6-term expression above. To prove uniqueness, derive the Koszul identity by rewriting the six terms using the equations obtained from (a) and (b) by cyclic permutation of $X,Y,Z$. For existence verify first the identity
+    \[
+      A( {X,Y,{fZ}})  = {fA}( {X,Y,Z}),
+    \]
+    where $f \in  {\Omega }^{0}( M)$, and construct ${ \bigtriangledown  }_{X}Y$ so that the Koszul identity holds.) This connection is the \Index{Levi-Civita connection} on $M$.
+  \NewItem Prove for ${M}^{n} \subseteq  {\B{R}}^{n + k}$ that the connection on ${\tau }_{M}$ constructed in Example \ref{example:17-2} is the same as the Levi-Civita connection of Exercise \ref{exercise:17-3}, when $M$ is given the Riemannian metric induced from ${\B{R}}^{n + k}$.
+  \NewItem Let $\bigtriangledown$ be any connection on the vector bundle $\xi$ over $M$. Given two vector fields $X,Y \in  {\Omega }^{0}( {\tau }_{M})$ define the operator $R( {X,Y})  : {\Omega }^{0}( \xi )  \ra  {\Omega }^{0}( \xi )$ by
+    \[
+      R( {X,Y})  = {\btd }_{X} \circ  {\btd }_{Y}- {\btd }_{Y} \circ  {\btd }_{X}- {\btd }_{[  X,Y]  }.
+    \]
+    Verify that $R( {X,Y})$ is a ${\Omega }^{0}( M)$-module homomorphism, and prove that $R( {X,Y})  = {F}_{X,Y}^{\btd }.$
+    \par(Hint: Work locally using the formula (17.\ref{eq:17-4}). Show by direct computation that the two operators agree on ${e}_{i}$.)
+  \NewItem Let ${M}^{n}$ be a Riemannian manifold and $\bigtriangledown$ the Levi-Civita connection on ${\tau }_{M}$ from Exercise \ref{exercise:17-3}. Define $R( {X,Y})  : {\Omega }^{0}( {\tau }_{M})  \ra  {\Omega }^{0}( {\tau }_{M})$ as in Exercise \ref{exercise:17-5}. Prove the Bianchi identity
+    \[
+      R( {X,Y}) Z + R( {Y,Z}) X + R( {Z,X}) Y = 0
+    \]
+    for $X,Y,Z \in  {\Omega }^{0}( {\tau }_{M})$.\par
+    Show that the value of $R( {X,Y}) Z$ at $p \in  M$ depends only on ${X}_{p},{Y}_{p},{Z}_{p} \in$  ${T}_{p}M$. Hence $R$ defines for ${X}_{p},{Y}_{p} \in  {T}_{p}M$ a linear map $R( {{X}_{p},{Y}_{p}})  : {T}_{p}M \ra$  ${T}_{p}M$.
+  \NewItem Let $h : U \ra  {U}^{\prime } \subseteq  {\B{R}}^{n}$ be a chart in ${M}^{n}$ and ${\partial }_{i} = \frac{\partial }{\partial {x}_{i}}$ the vector fields on $U$ considered in Remark \ref{remark:17-4}. The Christoffel symbols are the smooth functions ${\Gamma }_{ij}^{k}$ on ${U}^{\prime }$ determined by
+    \[
+      \btd_{\partial_i}{\partial }_{j} = \sum_{k}( {{\Gamma }_{ij}^{k} \circ  h}) {\partial }_{k}.
+    \]
+    Prove the formula
+    \[
+      {\Gamma }_{ij}^{k} = \frac{1}{2}\sum_{l}{g}^{kl}\left( {\frac{\partial {g}_{jl}}{\partial {x}_{i}} + \frac{\partial {g}_{il}}{\partial {x}_{j}}- \frac{\partial {g}_{ij}}{\partial {x}_{l}}}\right),
+    \]
+    where $( {g}_{ij})$ is the matrix of coefficients to the first fundamental form (see below Definition \ref{definition:9-15}) and where $( {g}^{kl})$ is the inverse matrix ${( {g}_{ij}) }^{-1}$. \par(Hint: Apply the Koszul identity (cf. Exercise \ref{exercise:17-3}) to ${\partial }_{i},{\partial }_{j},{\partial }_{k}$.) Define functions ${R}_{ijk}^{m}$ on ${U}^{\prime }$ by
+    \[
+      R( {{\partial }_{j},{\partial }_{k}}) {\partial }_{i} = \sum_{m}\big( {{R}_{ijk}^{m} \circ  h}\big) {\partial }_{m}.
+    \]
+    Show that
+    \[
+      {R}_{ijk}^{m} = \frac{\partial {\Gamma }_{ki}^{m}}{\partial {x}_{j}}- \frac{\partial {\Gamma }_{ji}^{m}}{\partial {x}_{k}} + \sum_{l}\Big( {{\Gamma }_{ki}^{l}{\Gamma }_{jl}^{m}- {\Gamma }_{ji}^{l}{\Gamma }_{kl}^{m}}\Big).
+    \]
+  \NewItem Let $\bigtriangledown$ be a connection on $\xi$ and consider two frames ${e}_{1},\ldots,{e}_{k}$ and ${\tilde{e}}_{1},\ldots,{\tilde{e}}_{k}$ on the same open set $U$ and the corresponding matrices $A =$  $( {A}_{ij}),\tilde{A} = ( {\tilde{A}}_{ij})$ of 1-forms on $U$ with
+    \[
+      \btd ( {e}_{i})  = \sum_{{j = 1}}^{k}{A}_{ij} \otimes  {e}_{j},\;\btd ( {\tilde{e}}_{i})  = \sum_{{j = 1}}^{k}{\tilde{A}}_{ij} \otimes  {\tilde{e}}_{j}.
+    \]
+    Let $\Phi  = ( {\phi }_{jm})$ be the invertible matrix of smooth functions given by
+    \[
+      {\tilde{e}}_{j} = \sum_{{m = 1}}^{k}{\phi }_{jm}{e}_{m}.
+    \]
+    Show that $\tilde{A} = ( {\dd\Phi }) {\Phi }^{-1} + {\Phi A}{\Phi }^{-1}$. What is the relationship between $d\tilde{A}- \tilde{A} \land  \tilde{A}$ and ${\dd A}- A \land  A$ ?
+  \NewItem Prove Lemma \ref{lemma:17-5}.
+  \NewItem Prove formula (17.\ref{eq:17-18}).
+  \NewItem Given $\xi$ with connection ${\btd }_{\xi }$, a frame ${e}_{1},\ldots,{e}_{k}$ over an open set $U$ and the connection matrix $A = ( {A}_{ij})$.\par
+    Prove that ${\xi }^*$ with dual connection $\btd_{\xi^*}$ and dual frame ${e}_{1}^*,\ldots,{e}_{k}^*$ has connection matrix $- {A}^{t} = ( {-{A}_{ji}})$.\par
+    Do a similar calculation for ${\btd }_{\xi  \otimes  \eta }$ and ${\btd }_{\R{Hom}( {\xi,\eta }) }$ when ${\btd }_{\eta }$ has connection matrix $B = ( {B}_{rs})$ w.r.t. a frame ${f}_{1},\ldots,{f}_{m}$ over $U$.
+  \NewItem For $\xi$ with connection ${\btd }_{\xi }$, construct connections $\btd  = {\btd }_{{\Lambda }^{i}( \xi ) }$ on ${\Lambda }^{i}( \xi )$ for all $i$, such that ${\btd }_{{\Lambda }^{1}( \xi ) } = {\btd }_{\xi }$ and
+    \[
+      {\btd }_{X}( {s \land  t})  = {\btd }_{X}s \land  t + {(-1) }^{i}s \land  {\btd }_{X}t
+    \]
+    for $s \in  {\Omega }^{0}( {{\Lambda }^{i}( \xi ) }),t \in  {\Omega }^{0}( {{\Lambda }^{j}( \xi ) })$ and $X \in  {T}_{p}M$.
+  \NewItem Let $f\colon {M}^{\prime } \ra  M$ be any smooth map and $\xi$ a smooth (real or complex) vector bundle over $M$. Construct an isomorphism
+    \[
+      {\Omega }^{0}( {M}^{\prime }) { \otimes  }_{{\Omega }^{0}( M) }{\Omega }^{0}( \xi ) \overset{ \cong  }{ \ra  }{\Omega }^{0}( {{f}^*( \xi ) });\;\phi  \otimes  s \mapsto  \phi {f}^*( s),
+    \]
+    where $\psi  \in  {\Omega }^{0}( M)$ acts on ${\Omega }^{0}( {M}^{\prime })$ by multiplication by ${f}^*( \psi )  \in  {\Omega }^{0}( {M}^{\prime })$. \par(Hint: First handle trivial vector bundles. In general pick a complement to $\xi$ as in Exercise \ref{exercise:15-10}.)
+  \newchap[18]
+  \NewItem Prove for the canonical line bundle $H$ over ${\B{{CP}}}^{n}$ that ${H}^*$ is not isomorphic to $H$.
+  \NewItem Show for complex line bundles $\xi,\eta$ over $M$ that
+    \[
+      {c}_{1}( {\xi  \otimes  \eta })  = {c}_{1}( \xi )  + {c}_{1}( \eta ).
+    \]
+    Use the splitting principle to derive the formula
+    \[
+      {c}_{k}( {\xi  \otimes  \eta })  = \sum_{{r = 0}}^{k}\binom{n-r}{k-r}{c}_{r}( \xi ) {c}_{1}{( \eta ) }^{k- r},
+    \]
+    where $\eta$ is a complex line bundle and $\xi$ any $n$-dimensional complex vector bundle over $M$.
+  \NewItem Show for a complex $n$-dimensional vector bundle $\xi$ that ${c}_{1}( {{\Lambda }^{n}( \xi ) })  = {c}_{1}( \xi )$. \par(Hint: Apply the splitting principle and Exercise \ref{exercise:16-8}.)
+  \NewItem Show for the vector bundle ${H}^{ \bot  }$ over ${\B{{CP}}}^{n}$ defined in Example \ref{example:18-13} that
+    \[
+      {c}_{k}( {H}^{ \bot  })  = {(-1) }^{k}{c}_{1}{( H) }^{k}.
+    \]
+    Show that $n$ is the smallest possible dimension of a complementary vector bundle over ${\B{{CP}}}^{n}$ to $H$.
+  \NewItem Show for the complex line bundles $H$ and ${H}^{ \bot  }$ over ${\B{{CP}}}^{1}$ that ${H}^{ \bot  } \cong  {H}^*$. \par(Hint: Consider $H \otimes  {H}^{ \bot  }$.)
+  \NewItem Adopt the notation of Exercise \ref{exercise:14-8}. Show that any tangent vector to ${G}_{m}( {\B{F}}^{n})$ at the ``point'' $V \subseteq  {\B{F}}^{n}$ can be written ${\alpha }^{\prime }( 0)$, where $\alpha ( t)  = [  {{a}_{1}( t),\ldots,{a}_{m}( t) }]$ and ${a}_{j}( t)$ is the $j$-th column of a smooth curve $A : ( {-\delta,\delta })  \ra  {\R{Fr}}_{m}( {\B{F}}^{n})$ with $V = [  {A( 0) }]$. Prove that there is a well-defined $\RR$-linear isomorphism
+    \[
+      {D}_{V} : {T}_{V}{G}_{m}( {\B{F}}^{n})  \ra  {\R{Hom}}_{\B{F}}( {V,{\B{F}}^{n}/V})
+    \]
+    such that ${D}_{V}( {{\alpha }^{\prime }( 0) })\colon V \ra  {\B{F}}^{n}/V$ sends ${a}_{j}( 0)$ into ${a}_{j}^{\prime }( 0)  + V$.\par
+    Let $\gamma$ be the canonical vector bundle over ${G}_{m}( {\B{F}}^{n})$ (see Exercise \ref{exercise:15-5}). Construct another vector bundle ${\gamma }^{ \bot  }$ whose fiber over $V$ is the orthogonal complement to $V$ in ${\B{F}}^{n}$, and show that $\gamma  \oplus  {\gamma }^{ \bot  } \cong  {\varepsilon }^{n}$.\par
+    Prove that the maps ${D}_{V}$ define a smooth vector bundle isomorphism
+    \[
+      {\tau }_{{G}_{m}( {\B{F}}^{n}) } \cong  {\R{Hom}}_{\B{F}}( {\gamma,{\gamma }^{ \bot  }})
+    \]
+    (in particular ${\tau }_{{G}_{m}( {\B{C}}^{m}) }$ has a natural complex structure).
+  \NewItem (Pl\"ucker embedding)\index{Pl{\"u}cker embedding} Prove that a smooth embedding $\Phi$ of ${G}_{m}( {\B{F}}^{n})$ into the copy ${G}_{1}( {{\Lambda }^{m}{\B{F}}^{n}})$ of ${\B{{RP}}}^{N}$ or ${\B{{CP}}}^{N},N = \binom{n}{m} - 1$, can be defined by
+    \[
+      \Phi ( V)  = [  {{a}_{1} \land  \ldots  \land  {a}_{m}}]
+    \]
+    where ${a}_{1},\ldots,{a}_{m}$ is any basis of $V$.
+    \par(Hint: Tangent maps can be computed in terms of the identification ${T}_{V}{G}_{m}( {\B{F}}^{n})  \cong  {\R{Hom}}_{\B{F}}( {V,{\B{F}}^{n}/V})$ from Exercise \ref{exercise:18-6}.)
+  \newchap[19]
+  \NewItem Let ${M}^{n}$ be a Riemannian manifold with Levi-Civita connection $\bigtriangledown$ on ${\tau }_{M}$. Let ${e}_{1},\ldots,{e}_{n}$ be an orthonormal frame in ${\tau }_{M}$ over $U \subseteq  M$ with connection matrix $( {A}_{ij})$, and denote the dual frame in ${\tau }_{M}^*$ over $U$ by ${\epsilon }_{1},\ldots,{\epsilon }_{n}$. Show that
+    \[
+      \dd{\epsilon }_{i}( {{e}_{j},{e}_{k}})  = - {A}_{ki}( {e}_{j})  + {A}_{ji}( {e}_{k}).
+    \]
+    \par(Hint: Use Exercises \ref{exercise:17-2} and \ref{exercise:17-3}.)
+    Conclude in the case $n = 2$ that the connection described in Example \ref{example:19-5} is the Levi-Civita connection.
+  \NewItem Let $V$ be an $n$-dimensional $\B{R}$-vectorspace. A multilinear map $f\colon V \times  V \times$  $V \times  V \ra  \B{R}$ is said to be \Index{curvature-like} when the following identities are satisfied:
+    \begin{enumerate}[(a)]
+      \item $F( {x,y,z,w})  = - F( {y,x,z,w})$.
+      \item $F( {x,y,z,w})  + F( {y,z,x,w})  + F( {z,x,y,w})  = 0$.
+      \item $F( {x,y,z,w})  = - F( {x,y,w,z})$.
+    \end{enumerate}
+    Prove that a curvature-like function on a tangent space ${T}_{p}{M}^{n}$, where $M$ is Riemannian, is given by the expression
+    \[
+      {\langle  {R}_{p}( {X}_{p},{Y}_{p},{Z}_{p}),{W}_{p}\rangle  }_{p}
+    \]
+    (see Exercises \ref{exercise:17-5} and \ref{exercise:17-6}). Prove that the conditions (a), (b), (c) imply
+    \begin{enumerate}[(d)]
+      \item $F( {x,y,z,w})  = F( {z,w,x,y})$.
+    \end{enumerate}
+  \NewItem Show that the curvature-like functions on $V$ defined in Exercise \ref{exercise:19-2} form $a$ vector-space of dimension $\frac{1}{12}{n}^{2}( {{n}^{2}- 1}).$
+  \NewItem Let $F$ be curvature-like on $V$ as defined in Exercise \ref{exercise:19-2}, and suppose $V$ is equipped with an inner product $\langle\,, \,\rangle$. For a 2-dimensional subspace $\Pi  \subseteq  V$, show that the expression
+    \[
+      K( \Pi )  = - \frac{F( {x,y,x,y}) }{\langle x,x\rangle \langle y,y\rangle-\langle x,y{\rangle }^{2}},
+    \]
+    where $x,y$ is a basis for $\Pi$, depends only on $\Pi$. Show that the function $K$ on the Grassmannian ${G}_{2}( V)$ determines $F$ uniquely. Conclude that if $K$ is constant with value $k$ on ${G}_{2}( V)$, then
+    \[
+      F( {x,y,z,w})  = k( {\langle y,z\rangle \langle x,w\rangle-\langle x,z\rangle \langle y,w\rangle }).
+    \]
+  \NewItem Let $\Pi \subseteq  {T}_{p}{M}^{n}$ be a 2-dimensional subspace, where $M$ is a Riemannian manifold. The \Index{sectional curvature} of $M$ at $\Pi$ is the real number
+    \[
+      K( {p,\Pi })  = - \frac{\langle  {R}_{p}( {X}_{p},{Y}_{p}) {X}_{p},{Y}_{p}\rangle  }{\langle  {{X}_{p},{X}_{p}}\rangle  \langle  {{Y}_{p},{Y}_{p}}\rangle  - {\langle  {X}_{p},{Y}_{p}\rangle  }^{2}},
+    \]
+    where ${X}_{p},{Y}_{p}$ is a basis for $\Pi$ (see Exercises \ref{exercise:19-2} and \ref{exercise:19-4}).\par
+    Show that ${S}^{n}( {n \geq  2})$ with the standard Riemannian metric induced from ${\B{R}}^{n + 1}$ has constant sectional curvature, i.e. that $K( {p,\Pi })$ is independent of $p \in  {S}^{n}$ and the plane $\Pi  \subseteq  {T}_{p}{S}^{n}$.\par
+    Show that ${F}_{{X}_{p},{Y}_{p}}^{\nabla } = {R}_{p}( {{X}_{p},{Y}_{p}})\colon {T}_{p}{S}^{n} \ra  {T}_{p}{S}^{n}$ acts by
+    \[
+      {F}_{{X}_{p},{Y}_{p}}^{\nabla }( {Z}_{p})  = k( {\langle  {{Y}_{p},{Z}_{p}}\rangle  {X}_{p}- \langle  {{X}_{p},{Z}_{p}}\rangle  {Y}_{p}}),
+    \]
+    where $k$ is the sectional curvature (in fact $k = 1$, see Exercise \ref{exercise:19-8}).
+  \NewItem Show for the connection described in Example \ref{example:19-5} and Exercise \ref{exercise:19-1} that the Gaussian curvature $\kappa  \in  {\Omega }^{0}( {M}^{2})$ satisfies
+    \[
+      \kappa ( p)  = K( {p,{T}_{p}{M}^{2}}).
+    \]
+  \NewItem Show with the notation of Exercise \ref{exercise:17-7} that
+    \[
+      K( {p,\R{Span}( {{\partial }_{1},{\partial }_{2}}) })  = - \frac{\sum_{m}{R}_{112}^{m}}{{g}_{11}{g}_{22}- {g}_{12}^{2}}.
+    \]
+    Show for $\dim M = 2$ that this reduces to
+    \[
+      K( {p,{T}_{p}{M}^{2}})  = - {g}_{11}^{-1}{R}_{112}^{2}.
+    \]
+    \par(Hint: Use that $\langle  {R( {{\partial }_{1},{\partial }_{2}}) {\partial }_{1},{\partial }_{1}}\rangle   = 0$ to eliminate ${R}_{112}^{1}$ from the previous expression.)
+    Remark: Gaussian curvature $K( p)$ of a surface $S \subseteq  {\B{R}}^{3}$ as defined in Example \ref{example:12-18} is given in local coordinates by the same expression; see e.g. [do Carmo]\supercite{do-Carmo} page 234.
+  \NewItem Show that the constant $k$ in Exercise \ref{exercise:19-5} is independent of $n \geq  2$. Compute it for $n = 2$.
+    \par(Hint: Embed ${S}^{n} \subseteq  {S}^{n + 1}$ as an equatorial sphere and compare connection matrices by applying Exercise \ref{exercise:19-1} to an orthonormal frame ${e}_{1},\ldots,{e}_{n},{e}_{n + 1}$, where ${e}_{n + 1} \in  {( {T}_{p}{S}^{n}) }^{ \bot  }$ for $p \in  {S}^{n}$.)
+  \NewItem Prove that the Pfaffian polynomial in variables ${X}_{ij},1 \leq  i < j \leq  {2n}$ is given by
+    \[
+      \R{Pf}( {X}_{ij})  = \sum_{{\sigma  \in  T( n) }}\R{sign}( \sigma ) \mathop{\prod }\limits_{{\nu  = 1}}^{n}{X}_{\sigma ( {{2\nu }- 1}) \sigma ( {2\nu }) },
+    \]
+    where
+    \[
+      T( n)  = \{ \sigma  \in  S( {2n})  \mid  \sigma ( {{2\nu }- 1})  < \sigma ( {2\nu }) \text{ for }1 \leq  \nu  \leq  n\}.
+    \]
+  \NewItem Let ${\epsilon }_{1},\ldots,{\epsilon }_{2n}$ be the standard basis for ${\alt}^{1}( {\B{R}}^{2n})$. Show that
+    \[
+      \R{Pf}( {{\epsilon }_{i} \land  {\epsilon }_{j}})  = 1 \cdot  3 \cdot  5\cdots ( {{2n}- 1}) \text{ vol. }
+    \]
+  \newchap[20]
+  \NewItem Verify formula \eqref{eq:20-3} in the proof of Theorem \ref{theorem:20-1}.
+  \NewItem Let ${M}_{1}$ and ${M}_{2}$ be smooth manifolds, and assume that at least one of them have finite-dimensional de Rham cohomology. Show that the maps
+    \[
+    \begin{aligned}
+      {H}^{p}( {M}_{1})  \otimes H^{q}( {M}_{2})  \ra H^{p + q}( {{M}_{1} \times  {M}_{2}}) \\
+      {a}_{1} \otimes  {a}_{2} \mapsto  {\R{pr}}_{{M}_{1}}^*( {a}_{1})  \cdot  {\R{pr}}_{{M}_{2}}^*( {a}_{2})
+    \end{aligned}
+    \]
+    combine to give isomorphisms
+    \[
+      \bigoplus_{p + q = n} H^{p}( {M}_{1})  \otimes H^{q}( {M}_{2})  \cong H^{n}( {{M}_{1} \times  {M}_{2}})
+    \]
+    \par(Hint: Use Theorem \ref{theorem:20-1}.)
+  \NewItem Construct a smooth manifold structure on ${\tilde{G}}_{2}({\B{R}}^{m})$ such that the map $\tilde{\phi }$ in diagram (20.\ref{eq:20-9}) is a smooth embedding and ${\pi}_{0}$ a submersion.
+  \NewItem Show that exponentiation of $2 \times  2$ matrices
+    \[
+      \exp ( A)  = \sum_{{n = 0}}^{\infty }\frac{1}{n!}{A}^{n}
+    \]
+    can be used to define a homeomorphism $\psi  : {\B{R}}^{2} \ra  Q$ by
+    \[
+      \psi ( {\alpha,\beta })  = \exp \begin{pmatrix} \alpha & \beta \\ \beta & - \alpha  \end{pmatrix}.
+    \]
+    Show that the space $X$ defined in the proof of Proposition \ref{proposition:20-6} can be identified with the total space of a certain complex line bundle over ${\tilde{G}}_{2}( {\B{R}}^{m})$. How is this line bundle related to the canonical real vector bundle ${\gamma }_{2}$ over ${\tilde{G}}_{2}( {\B{R}}^{m})$ ?
+  \NewItem A complex structure $J$ on ${\B{R}}^{2n}$ is a linear map $J : {\B{R}}^{2n} \ra  {\B{R}}^{2n}$ with ${J}^{2} = - \mathrm{{id}}$. Given $J,{\RR}^{2n}$ becomes a $\B{C}$-vector-space by defining
+    \[
+      ( {a + {ib}}) x = {ax} + {bJx}.
+    \]
+    Show that ${\mathrm{{GL}}}_{2n}( \B{R})$ acts transitively by conjugation on the set of complex structures, and that the subgroup fixing $J$ is isomorphic to ${\mathrm{{GL}}}_{n}( \B{C})$.
+    Prove a similar statement for the subgroup ${\mathrm{{GL}}}_{2n}^{ + }( \B{R})$ of matrices with positive determinant and complex structures inducing the standard orientation.
+  \newchap[21]
+  \NewItem (The Gysin sequence)\index{Gysin sequence} Let $\xi$ be an $m$-dimensional real smooth vector bundle over a compact manifold $M$ with Riemannian metric and $S( \xi )$ the unit sphere bundle. Construct an exact sequence
+    \[
+      \cdots  \ra  {H}^{p- 1}( {S( \xi ) })  \ra  {H}^{p- m}( M) \overset{e}{ \ra  }{H}^{p}( M) \overset{{\pi }^*}{ \ra  }{H}^{p}( {S( \xi ) })  \ra  \cdots
+    \]
+    where the labeled maps are multiplication by the Euler class $e$ of $\xi$ and pull-back by the projection. \par(Hint: Consider the Mayer-Vietoris sequence for $S( {\xi  \oplus  1})$ covered by ${U}_{\infty } = S( {\xi  \oplus  1}) - {s}_{\infty }( M)$ and ${U}_{0} = S( {\xi  \oplus  1}) - {s}_{0}( M)$, where ${s}_{0}$ is the zero section $M \ra  E = E( \xi )  \subseteq  S( {\xi  \oplus  1})$.)
+  \NewItem Show for $n \geq  1$ that
+    \[
+    \begin{aligned}
+      {H}^{p}( {{V}_{2}( {\B{R}}^{{2n} + 1}) })  
+      & \cong \begin{cases} 
+        \B{R} & \text{ for } p = 0,{4n}- 1 \\  
+        0     & \text{ otherwise } 
+      \end{cases} \\
+      {H}^{p}( {{V}_{2}( {\B{R}}^{{2n} + 2}) })  
+      & \cong \begin{cases} 
+        \B{R} & \text{ for } p = 0,{2n},{2n} + 1,{4n} + 1 \\  
+        0     & \text{ otherwise } 
+      \end{cases}
+    \end{aligned}
+    \]
+    \par(Hint: Apply the Gysin sequence of Exercise \ref{exercise:21-1} to the tangent bundle of a sphere.)
+  \NewItem Let ${M}^{n} \subseteq  {\B{R}}^{n + k}$ be a compact orientable smooth submanifold with normal bundle $\nu$. Show that $\nu$ is orientable with $\hat{e}( \nu )  = 0$.
+    \par(Hint: Identify the total space $E( \nu )$ with a tubular neighborhood of $M$.)
+  \NewItem Verify Theorem \ref{theorem:21-13} directly for the sphere ${S}^{2n}$ with the Levi-Civita connection on ${\tau }_{{S}^{2n}}$ by using the information given in Example \ref{example:10-12} and Exercises \ref{exercise:19-5} and \ref{exercise:19-10}.
+    \NewItem Let ${\xi }^{2m}$ be an even-dimensional smooth real vector bundle over $M$. Let ${\tau }^{\nu }$ be the vertical tangent bundle from Exercise \ref{exercise:15-9} of $S( {\xi  \oplus  1})  \ra  M$. Show that the orientation of $\xi$ induces a natural orientation of ${\tau }^{\nu }$. Let ${F}^{ \triangledown  }$ be the curvature of some metric connection on ${\tau }^{\nu }$. Show that
+    \[
+      u = \frac{1}{2}\left[\R{Pf}\left( \frac{-F^\btd }{2\pi }\right) - {\pi }^*{s}_{\infty }^*\R{Pf}\left( \frac{-F^\btd }{2\pi }\right)\right]
+    \]
+    is an orientation class.
+  \NewItem Give an alternative proof of Theorem \ref{theorem:21-13} beginning with the computation in Exercise \ref{exercise:21-4}. Construct $u$ as in Exercise \ref{exercise:21-5} and show that ${s}_{0}^*( u)  =$  $e( \xi )$.
+\end{enumerate}
+% \RemoveFromHook{cmd/item/after}[exercise-label]

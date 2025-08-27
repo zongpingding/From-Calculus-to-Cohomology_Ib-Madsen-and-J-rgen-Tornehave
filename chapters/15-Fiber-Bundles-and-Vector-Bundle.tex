@@ -1,0 +1,514 @@
+\chapter{Fiber Bundles and Vector Bundle}
+\begin{definition}\label{definition:15-1}
+  A \Index{fiber bundle} consists of three topological spaces $E, B, F$ and a continuous 
+  map $\pi:E\to B$, such that the following condition is satisfied: Each
+  $b\in B$ has an open neighborhood $U_b$ and a homeomorphism
+  \[
+    h:U_n\times F\to \pi^{-1}(U_b)
+  \]
+  such that $\pi\circ h=\R{proj}_1$.
+\end{definition}
+
+The space $E$ is called the \Index{total space}, $B$ the \Index{base space} and $F$ the (typical) fiber.
+The pre-image $\pi^{-1}(x)$, frequently denoted by $F_x$ , is called the fiber over $x$. A
+fiber bundle is said to be smooth, if $E, B$ and $F$ are smooth manifolds, $\pi$ is a
+smooth map and the $h$ above can be chosen to be diffeomorphisms. One may
+think of a fiber bundle as a continuous (smooth) family of topological spaces $F_x$
+(all of them homeomorphic to $F$), indexed by $x\in B$.
+
+
+The most obvious example is the \Index{product fiber} bundle $\varepsilon_B^F = (B\times F, B, F, \R{proj}_1)$.
+In general, the condition of Definition \ref{definition:15-1} expresses that the ``family'' is locally
+trivial.
+
+
+\begin{example}[The canonical line bundle]\label{example:15-2}\index{canonical line bundle}
+  At the beginning of Chapter 14 we considered the action of $S^1$ on $S^{2n+1}$ with orbit space $\CP^n$. 
+  We view this as an action from the right, $\F z\cdot\lambda=(z_0\lambda,\ldots, z_n\lambda)$. The circle acts 
+  also on $S^{2n+1}\times\CC^k, (\F z, \F u)\lambda = (\F z\lambda, \lambda^{-1}\F u)$. The associated orbit 
+  space is denoted $S^{2n+1}\times_{S^1}\CC^k$. The projection on the first factor gives a continuous map
+  \[
+    \pi:S^{2n+1}\times_{S^1}\CC^k\to \CP^n
+  \]
+  with fiber $\CC^k$ Similarly, if $S^1$ acts continuously (from the left) on any topological
+  space $F$ we get
+  \[
+    \pi:S^{2n+1}\times_{S^1}F\to \CP^n.
+  \]
+  This is a fiber bundle with fiber $F$. Indeed, we have the open sets $U_j$ displayed
+  at the beginning of Chapter 14 which cover $\CP^n$, and the smooth sections
+  \[
+    s_j:U_j\to S^{2n+1}
+  \]
+  from (14.\ref{eq:14-7}). We can define local trivializations by
+  \[
+    \hat{s}_j([\F z],\F u) = (s_j[\F z], \F u)\in\pi^{-1}(U_j)
+  \]
+  for $[\F z]\in U_j$ and $\F u\in F$. If $F$ is a smooth manifold with smooth $S^1$-action then
+  we obtain a \Index{smooth fiber bundle}.
+
+  If we take $F = \CC$ with its usual action of $S^1$ then we obtain the \Index{dual Hopf bundle},
+  or canonical line bundle, over $\CP^n$. It will be denoted
+  \[
+    H_n = S^{2n+1}\times_{S^1}\CC
+  \]
+  It is a vector bundle in the sense of Definition \ref{definition:15-4} below.
+\end{example}
+
+\begin{example}\label{example:15-3}
+  Over the real projective space $\B{RP}^n$ we have similar bundles
+  $S^n\times_{S^0} F$, where $S^0 = \{\pm1\}$. In particular $D(H) = S^1\times_{s^0} D^1$ is 
+  the Mobius band.
+\end{example}
+
+\begin{definition}\label{definition:15-4}
+  A \Index{vector bundle} $\xi = (E, B, V, \pi)$ is a fiber bundle where the
+  \Index{typical fiber} $V$ and each $\pi^{-1}(x)$ are vector spaces, and where the local 
+  homeomorphism $h:U_b\times V\to\pi^{-1}(U_b)$ can be chosen so that $h(x, -):V\to\pi^{-1}(x)$ is
+  a linear isomorphism for each $x\in U_b$.
+\end{definition}
+
+Vector bundles can be real, complex or quaternion depending on which category
+$V$ and $h(x, -)$ in Definition \ref{definition:15-4} belong to. For the time being we concentrate
+on real vector bundles. A smooth vector bundle is a vector bundle that is also a
+smooth fiber bundle. The dimension of a vector bundle is the dimension of the
+fiber. Vector bundles of dimension 1 are called line bundles.
+
+
+We mostly denote vector bundles by small Greek letters. If $\xi$ is a vector bundle
+then $E(\xi)$ will denote its total space and $F_b(\xi)$, or just $\xi_b$, its fiber over $b$. If
+$W\subset B$ then we write $\xi_{|W}$ for the restriction of $\xi$ to $W$, i.e. $E(\xi_{|W})=\pi^{-1}_\xi(W)$.
+
+\begin{example}[The tangent bundle]\label{example:15-5}\index{tangent bundle}
+  Let $M^n\subset\RR^{n+k}$ be a smooth manifold. Consider 
+  \[
+    TM = \{(p, v)\in M\times\RR^{n+k} \mid v\in T_pM\},\qquad \pi(p, v) = p.
+  \]
+  The fiber over $p\in M$ is the tangent space $T_pM$. We show that the triple
+  $\tau_M = (TM, M, \pi)$ is a vector bundle. Let $b\in M$. Choose a parametrization
+  $(V, g)$ around $b,g:W\to U,\quad W\subseteq\RR^n$ and let
+  \[
+    h:U\times\RR^n\to\pi^{-1}(U);\quad h(x, v) = D_{g_{g^{-1}(x)}}(v).
+  \]
+  This gives the required local triviality.
+\end{example}
+
+\begin{example}[The normal bundle]\label{example:15-6}\index{normal bundle}
+  Let $M^n\subset\RR^{n+k}$ be a smooth manifold. Let 
+  \[
+    N_p(M) = (T_pM)^\perp
+  \]
+  be the orthogonal complement to $T_pM\subset\RR^{n+k}$. Set 
+  \[
+    F(\nu_M) = \bigcup_{p\in M} N_p(M)\subset M\times\RR^{n+k}; \qquad \pi(v) = p\text{ when } v\in N_p(M).
+  \]
+  We must show that $\nu_M$ is locally trivial. For each $p_0\in M$, the proof of Lemma \ref{lemma:9-21} 
+  produced vector fields
+  \[
+    X_1, \ldots, X_n, Y_1, \ldots, Y_k:W\to\RR^{n+k}
+  \]
+  defined in a neighborhood $W$ of $p_0$, with the property that they are orthonormal for
+  each $p\in W$ and such that $X_1(p), \ldots, X_n(p)\in T_pM$. Hence $Y_1(p), \ldots, Y_k(p)\in N_p(M)$.
+  is a basis and the map
+  \[
+    h:W\times\RR^k\to\pi^{-1}(W);\qquad h(p, \F t) = \sum_{i=1 }^{k}{t_iY_i(p)}
+  \]
+  is a local trivialization.
+\end{example}
+
+\begin{definition}\label{definition:15-7}
+  \begin{enumerate}
+    \item A map $(f, \hat f)$ between (smooth) fiber bundles $(E, B, \pi)$ and $(E', B', \pi')$
+      is a pair of (smooth) continuous maps
+      \[
+        f:B\to B',\quad \hat f:E\to E'
+      \]
+      such that $\pi'\circ \hat f=f\circ \pi$.
+    \item A homomorphism between (smooth) vector bundles $\xi$ and $\xi'$ is a (smooth)
+      fiber bundle map such that $\hat f:\pi^{-1}(x)\to(\pi')^{-1}(f(x))$ is linear for all 
+      $x\in B$.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{example:15-8}
+  A smooth map $f: M\to M'$ between smooth manifolds induces a map of tangent bundles $(f, Tf)$, where
+  \[
+    T_pf = D_pf:T_pM\to T_pM'
+  \]
+  is the derivative of $f$.
+\end{example}
+
+\begin{definition}\label{definition:15-9}
+  Vector bundles $\xi$ and $\eta$ over the same base space $B$ are called
+  isomorphic, if there exist homomorphisms $(\id_B, \hat f)$ and $(\id_B, \hat g)$ between them
+  such that $\hat f\circ\hat g=\id = \hat g\circ\hat f$. A vector bundle which is isomorphic to a product
+  bundle is called trivial, and a specific isomorphism is called a \Index{trivialization}.
+\end{definition}
+
+In the above definition the homomorphisms $\hat f$ and $\hat g$ are assumed to be smooth
+when the vector bundles are smooth. The next lemma is a convenient tool for
+deciding if two bundles are isomorphic.
+
+\begin{lemma}\label{lemma:15-10}
+  A (smooth) continuous map $\hat f:E(\xi)\to E(\eta)$ of (smooth) vector
+  bundles over $B$, which map the fiber $F_b(\xi)$ isomorphically onto the fiber $F_b(\eta)$, is
+  a (smooth) \textit{isomorphism}\index{vector bundle!isomorphism}.
+\end{lemma}
+
+\begin{proof}
+  Since $\hat f$ is a bijection, it is sufficient to show that $\hat f^{-1}$ is a (smooth)
+  homomorphism of vector b~ndles (over $\id_B$) We need to check that $\hat f^{-1}$ is
+  continuous (smooth). Since $\hat f$ is a fiberwise isomorphism, it is enough to examine
+  \[
+    \hat f^{-1}:\pi^{-1}_\eta(U)\to \pi^{-1}_\xi(U)
+  \]
+  where $\xi$ and $\eta$ are trival over $U$. Let 
+  \[
+    h:U\times\RR^n\to\pi^{-1}_\xi(U);\quad k:U\times\RR^n\to\pi^{-1}_\eta(U)
+  \]
+  be isomorphisms. Then 
+  \[
+    F = k\circ \hat f\circ h^{-1}:U\times\RR^n\to U\times\RR^n
+  \]
+  is an isomorphism of trival bundles and it has the from 
+  \[
+    F(x, v) = (x, F_2(x, v)), \quad x\in U.
+  \]
+  The map $x\to F_2(x, -)$ defines a map 
+  \[
+    \R{ad}(F_2):U\to\R{GL}_n(\RR).
+  \]
+  Conversely such a map induces a homomorphism $\hat f^{-1}:\pi^{-1}_\xi(U)\to\pi^{-1}_\eta(U)$. Note that 
+  \[
+    \R{ad}(F_2)^{-1}:U\to\R{GL}_n(\RR)
+  \]
+  determines $F^{-1}$. Finally, it is easy to see that $f$ is continuous (smooth) if and only
+  if $\R{ad}(F_2)$ is. The lemma now follows because matrix inversion $(-)^{-1}: \R{GL}_n(\RR)\to\R{GL}_n(\RR)$
+  a smooth map.
+\end{proof}
+
+\begin{definition}\label{definition:15-11}
+  The direct sum $\xi\oplus\eta$ of two vector bundles over the same base space $B$ is the vector 
+  bundle over $B$ with total space
+  \[
+    E(\xi\oplus\eta) = \{(v, w)\in E(\xi)\times E(\eta)\mid \pi_\xi(v)=\pi_\eta(w)\}
+  \]
+  and projection $\pi_{\pi\oplus\eta}(v, w)=\pi_\xi(v)=\pi_\eta(w)$. The fiber $(\xi\oplus\eta)_b$
+  is equal to $\xi_b\oplus\eta_b$.
+\end{definition}
+
+\begin{definition}\label{definition:15-12}
+  An \Index{inner product} on a (smooth) vector bundle $\xi$ is a (smooth)
+  map $\phi:E(\xi\oplus\xi)\to\RR$ such that $\phi:F_b(\xi)\oplus F_b(\xi)\to\RR$ is an inner product on
+  each fiber $F_b(\xi)$.
+\end{definition}
+
+\begin{proposition}\label{proposition:15-13}
+  Every vector bundle over a compact $B$ has an inner product.
+\end{proposition}
+
+\begin{proof}
+  Choose local trivializations
+  \[
+    h_i:U_i\times\RR^n\to\pi^{-1}_\xi(U_i)
+  \]
+  where $U_1,\ldots, U_r$ cover $B$, and choose a partition of unity $\{\alpha_i\}_{i=1}^r$
+  with $\supp(\alpha_i)\subset U_i$.
+
+  The usual inner product in $\RR^n$ induces an inner product in $U_i\times\RR^n$ and hence,
+  via $h_i$, an inner product $\phi_i:\pi^{-1}_\xi(U_i)$. Now
+  \[
+    \phi(v, w) = \sum \phi_i(v, w)\alpha_i(\pi(v))
+  \]
+  is an inner product in $\xi$.
+\end{proof}
+
+An inner product in the tangent bundle $\tau_M$ of a smooth manifold is the same as
+a \Index{Riemannian metric} on $M$ (cf. Definition \ref{definition:9-15}).
+
+\begin{remark}\label{remark:15-14}
+  In the above proposition we used the existence of a continuous
+  partition of unity, i.e. continuous functions $\alpha_i:B\to [0, 1]$ with $\supp(\alpha_i)\subset U_i$
+  and $\sum\alpha_i(b)=1$ for all $b\in B$. When $B$ is a smooth manifold the existence
+  of a smooth partition of unity is proved in Appendix A. More generally, a
+  Hausdorff space $B$ is called \Index{paracompact} if every open covering $\{U_\alpha\}$ has an
+  open refinement $\{V_\beta\}$ which is locally finite. For a given open cover $\{U_\alpha\}$ of
+  a paracompact space there exists a partition of unity subordinated to $\{U_\alpha\}$, i.e.
+  continuous functions $s_\alpha:B\to [0,1]$ with $\supp(s_\alpha)\subset U_\alpha$ and such that each 
+  $b\in B$ has an open neighborhood $V_b$ for which $\{\alpha\mid s_{\alpha|V_b}\neq 0\}$ is a finite set.
+\end{remark}
+
+\begin{definition}\label{definition:15-15}
+  A (smooth) \Index{section} in a (smooth) fiber bundle $(E, B, F;\pi)$ is a (smooth) map $s:B\to E$ 
+  such that $\pi\circ s = E$.
+\end{definition}
+
+The set of sections of a vector bundle $\xi$ is a vector space $\Gamma(\xi)$. One adds sections
+by using the vector space structure of each fiber. The origin in $\Gamma(\xi)$ is the \Index{zero section}
+which to $b\in B$ assigns the origin in the fiber $\xi_b$. If $\xi$ is a smooth vector
+bundle then we let $\Omega^0(\xi)\subset\Gamma(\xi)$ denote the subspace of smooth sections.
+
+
+It follows from local triviality that in a neighbourhood $U$ of each point of
+the base, we can find sections $s_1,\ldots,s_n\in\Gamma(\xi_{|U})$ (or in $\Omega^0(\xi_{|U})$) 
+such that $\{s_1(x), \ldots, s_n(x)\}$ is a basis of $\xi_x$. We call this a frame. If $\xi$ 
+has an inner product we may even choose sections locally so that $\{s_1(x), \ldots, s_n(x)\}$ is an
+orthogonal basis (Gram-Schmidt). We say that $\{s_1, \ldots, s_n\}$ is an orthonormal
+frame for $\xi$ over $U$.
+
+Let $(f, \id_B)$ be a homomorphism from $\xi$ to $\eta$, and let $\{s_i\}, \{t_i\}$ be frames over
+$U$. Then $\hat f_x:\xi_x\to \eta_x$ is represented by a matrix, and we obtain a map
+\begin{align}\label{eq:15-1}
+  \R{ad}(\hat f):U\to M_n(\RR)
+\end{align}
+depending on the given frames. In the smooth situation $\R{ad}(\hat f)$ is smooth. Note
+that $\hat f_x:\xi_x\to \eta_x$ is an isomorphism if and only if $\R{ad}(\hat f_x)\in \R{GL}_n(\RR)$. 
+If $\xi$ and $\eta$ have an inner product, and $\{s_i\}, \{t_i\}$ are orthonormal frames, then $\hat f_x$ 
+is isometric precisely if $\R{ad}(\hat f_x)\in O_n$, the orthogonal subgroup of $\R{GL}_n(\RR)$.
+
+\begin{lemma}\label{lemma:15-16}
+  Let $\xi$ and $\eta$ be (smooth) vector bundles with inner product over
+  the compact space $B$, and let $\hat f:\xi\to \eta$ be an isomorphism. Then there exists an
+  $\epsilon > 0$ such that every homomorphism $g:\xi\to\eta$ that satisfies $\|\hat f_b-\hat g_b\|<\epsilon$ 
+  for $b\in B$ is also an isomorphism.  
+\end{lemma}
+
+\begin{proof}
+  If $\xi$ and $\eta$ are trivial, then after choice of frames, $\hat f$ and $\hat g$ are represented
+  by maps $\R{ad}(\hat f):B\to \R{GL}_n(\RR)$ and $\R{ad}(\hat g):B\to M_n(\RR)$. Since $B$ is 
+  compact and $\R{GL}_n(\RR)$ is open, some $\epsilon$-neighborhood of $\R{ad}(\hat f)(B)$ in $M_n(\RR)$ 
+  is still contained in $\R{GL}_n(\RR)$. But then $\R{ad}(\hat g)(B)\subset \R{GL}_n(\RR)$ when $\hat g$ 
+  satisfies the condition of the lemma. In general, we can cover $B$ with a finite number of compact 
+  neighborhoods over which the bundles are trivial, and take the minimum of the resulting epsilons.
+\end{proof}
+
+Given two smooth vector bundles $\xi$ and $\eta$, one might wonder if there is any
+essential distinction between the notions of continuous and smooth isomorphism.
+The next result shows that this is not the case. Along the same lines one may ask
+if each isomorphism class of continuous vector bundles over a compact manifold
+contains a smooth representative. This is indeed the case (cf. Exercise \ref{exercise:15-8}).
+
+\begin{lemma}\label{lemma:15-17}
+  If two smooth vector bundles $\xi$ and $\eta$ over the compact manifold
+  $B$ are isomorphic as continuous bundles, then they are smoothly isomorphic.
+\end{lemma}
+
+\begin{proof}
+  We choose a cover $U^1,\ldots, U^r$ of $B$ and smooth local orthonormal frames
+  $s^i = (s_1^i,\ldots, s_n^i)$ and $t^i = (t_1^i,\ldots,t_n^i)$ for $\xi$ and $\eta$, over $U^i$.
+
+  A continuous isomorphism $\hat f:\xi\to \eta$ gives continuous maps
+  \[
+    \R{ad}(\hat f^i):U^i\to\R{GL}_n(\RR).
+  \]
+  Let $G^i:U^i\to\R{GL}_n(\RR)$ be a smooth $\epsilon$-approximation with $\|G^i(x)-\R{ad}(\hat f^i_x)\|<\epsilon$
+  for $x\in U^i$. Construct a smooth homomorphism $\hat g^i:\pi^{-1}_\xi(U^i)\to \pi^{-1}_\eta(U^i)$ with 
+  $\R{ad}(\hat g^i) = G^i$ by the formula 
+  \[
+    \hat g^i_b \left(\sum \lambda_k s^k(b)\right) 
+    = \sum t^k(b)\cdot G^i_{k\nu}(b)\cdot\lambda_\nu.
+  \]
+  Then $\R{ad}(\hat g^i)=G^i$, and $\|\hat f_b-\hat g^i_b\|<\epsilon$ for $b\in U^i$. We can then use a smooth 
+  partition of unity $\{\alpha_i\}$ with $\supp(\alpha_i)\subset U^i$ to define 
+  \[
+    \hat g:\xi\to\eta,\quad 
+    \hat g_b = \sum_{i=1 }^{r }{\alpha_i(b)\hat g_b^i}.
+  \] 
+  Then $\|\hat f_b-\hat g_b\| = \|f_b-\Sigma\alpha_i(b)\hat g_b^i\|\le \Sigma\alpha_i(b)\|f_b-\hat g_b^i\|\le\Sigma\alpha_i(b)\epsilon=\epsilon$.
+  With $\epsilon$ as in Lemma \ref{lemma:15-16}, $\hat g$ becomes an isomorphism on every fiber and hence a smooth 
+  isomorphism by Lemma \ref{lemma:15-10}.
+\end{proof}
+
+In Examples \ref{example:15-5} and \ref{example:15-6} we constructed two vector bundles associated to a
+submanifold $M^n\subset \RR^{n +k}$, namely the tangent bundle $\tau$ and the normal bundle
+$\nu$. It is obvious that $\tau\oplus\nu$ is a trivial vector bundle. Indeed, by construction
+$\tau_p\oplus\nu_p=\RR^{n+k}$ for every $p\in M$, and there is a globally defined frame for $\tau\oplus\nu$.
+Hence $\tau\oplus\nu\simee \varepsilon^{n+k}$, where $\varepsilon^{n+k}$ is the \Index{trivial bundle} over $M$ of dimension
+$n + k$. We now give the general construction of complements of vector bundles\index{vector bundle!complement}.
+
+\begin{theorem}\label{theorem:15-18}
+  Every vector bundle $\xi$ over a compact base space $B$ has a complement $\eta$, i.e. $\xi\oplus\eta\simee\varepsilon^N$ 
+  (for a suitably large $N$).
+\end{theorem}
+
+\begin{proof}
+  Choose an open cover $U^1, \ldots, U^r$ of $B$ of B admitting trivializations $h_i$ of
+  $\xi_{|U^i}$ and let $\{\alpha_i\}$ be a partition of unity with $\supp(\alpha_i)\subset U^i$.
+  Denote by $f^i$ the composite
+  \[
+    \pi^{-1}_\xi(U^i)\xra[h^{-1}_i] U^i\times\RR^n\xra[\R{proj}_2] \RR^n,
+  \]
+  and define 
+  \begin{align}\label{eq:15-2}
+    \begin{matrix}
+      S:E(\xi)\to B\times\RR^{nr};\\
+      S(v) = (\pi_\xi(v), \alpha_1(\pi_\xi(v))f^1(v), \ldots, \alpha_r(\pi_\xi(v))f^r(v)).
+    \end{matrix}
+  \end{align}
+  This is a fiberwise map and gives a homomorphism $S:\xi\to\varepsilon^{nr}$ which is an
+  inclusion on each fiber. We give $\RR^{nr}$ the usual inner product and let
+  \[
+    E(\eta) = \{(b, v)\mid v\in S(F_b(\xi))^\perp\}.
+  \]
+  It is easy to see that 
+  \[
+    \eta = (E(\eta), B, \RR^{nr-n}, \R{proj}_1)
+  \]
+  is a vector bundle (cf. Example \ref{example:15-6}) and by definition $\xi\oplus\eta = \varepsilon^{nr}$.
+\end{proof}
+
+If $E$ in Theorem \ref{theorem:15-18} is smooth then so is the constructed complement $\eta$, provided
+$h_i$ and $\alpha_i$ are choosen smooth. The above proof uses that $B$ is compact to ensure
+$r < \infty$. The theorem is not true without the compactness condition; see however
+Exercise \ref{exercise:15-10} when $\xi$ a smooth vector bundle -- it is the finite-dimensionality
+which counts.
+
+Let $\R{Vect}_n(B)$ denote the isomorphism classes of vector bundles over $B$ of
+dimension $n$. Direct sum induces a map
+\[
+  \R{Vect}_n(B)\times \R{Vect}_m(B)\xra[\oplus] \R{Vect}_{n+m}(B)
+\]
+such that 
+\[
+  \R{Vect}(B) = \coprod_{n=0}^\infty \R{Vect}_n(B)
+\]
+becomes an abelian semigroup. The zero dimensional bundle $\varepsilon^0=B\times\{0\}$ is the unit element.
+
+To any abelian semigroup $(V, +)$ one can associate an abelian group $(K(V), +)$
+defined as the formal differences $a - b$, or pairs $(a, b)$, subject to the relation
+\[
+  (a+x) - (b+x) = a-b
+\]
+where $x\in V$ is arbitrary. The construction has the universal property that
+any homomorphism from $V$ to an abelian group A factors over $K(V)$, i.e. is
+induced from a homomorphism from $K(V)$ to $A$. The construction $V\to K(V)$,
+often called the \Index{Grothendieck construction}, corresponds to the way the integers
+are constructed from the natural numbers, except that we do not demand that
+cancellation ``$x+a=y+a\Rightarrow x=y$'' holds in $V$. When $B$ is compact, we define
+\begin{align}\label{eq:15-3}
+  KO(B) = K(\R{Vect}(B))
+\end{align}
+
+By Theorem \ref{theorem:15-18} every element of $KO(B)$ has the form $[\xi]-[\varepsilon^k]$, 
+where $[\xi]$ denotes the isomorphism class of the vector bundle $[\xi]$. Indeed
+\[
+  [\xi_1] -[\xi_2]
+  = ([\xi_1]+[\eta_2]) - ([\xi_2]+[\eta_2])
+  = [\xi_1\oplus\eta_2] - [\eta_2]
+  = [\xi] - [\varepsilon^k]
+\]
+if we choose $\eta_2$ to be a complement to $\xi_2$.
+
+\begin{example}\label{example:15-19}
+  The normal bundle to the unit sphere $S^2\subseteq \RR^3$ is trivial, since
+  the outward directed unit normal vector defines a global frame. We also know
+  that $\tau_{S^2}\oplus\nu_{S^2}=\varepsilon^3$, such that
+  \[
+    [\tau_{S^2}] + [\varepsilon^1] = [\varepsilon^3]
+  \]
+  in $\R{Vect}(S^2)$. However, $[\tau_{S^2}]\neq [\varepsilon^2]$ in $\R{Vect}(S^2)$. 
+  Indeed, if $[\tau_{S^2}]$ were equal to $[\varepsilon^2]$, then there would exist a 
+  section $s\in\Gamma(\varepsilon^2)$ with $s(x)\neq 0$ for all $x\in S^2$.
+  However, Theorem \ref{theorem:7-3} implies that $\varepsilon^2$ does not have a 
+  non-zero section. We see that cancellation does not hold in $\R{Vect}(S^2)$.
+\end{example}
+
+\begin{definition}\label{definition:15-20}
+  Let $f: X\to B$ be a continuous (smooth) map and $\xi$ a (smooth) vector bundle over $B$. 
+  The pre-image or pull-back $f^*(\xi)$ is the vector bundle over $X$ given by
+  \[
+    E(f^*(\xi)) = \{(x, v)\in X\times E(\xi)\mid f(x)=\pi_\xi(v)\}, \quad 
+    \pi_{f^*(\xi)} = \R{proj}_1.
+  \]
+  We note the homomorphism $(f, \hat f):f^*(\xi)\to \xi$ given by $\hat f(x, v) = v$. It is
+  obvious that the pull-backs of isomorphic bundles are isomorphic, so $f^*$ induces homomorphisms
+  \[
+    f^*:\R{Vect}(B)\to \R{Vect}(X) \enspace\text{ and }\enspace
+    f^*:KO(B) \to KO(X).
+  \]
+  and $(g\circ f)^*=f^*\circ g^*, \id^*=\id$. Thus $\R{Vect}(B)$ and $KO(B)$ become contravariant functors.
+\end{definition}
+
+\begin{theorem}\label{theorem:15-21}
+  If $f_0$ and $f_1$ are homotopic maps, then $f^*_0(\xi)$ and $f^*_1(\xi)$ are isomorphic.
+\end{theorem}
+
+\begin{proof}
+  Let $F:X\times I\to B, I=[0, 1]$ be a homotopy between $f_0$ and $f_1$,
+  $f_0(x) = F(x,0)$ and $f_1(x) = F(x,1)$. When $t\in I$ we get $[f^*_t(\xi)]\in\R{Vect}(X)$.
+  It is sufficient to see that the function $t\to [f^*_t(\xi)]$ is locally constant, and thus
+  constant.
+
+  Fix $t$ consider the bundle
+  \[
+    \zeta = \R{proj}_1^*f^*_t(\xi) \quad \text{and}\quad 
+    \eta = F^*(\xi)
+  \]
+  over $X\times I$. Since $F = f_t\circ \R{proj}_1$ on $X\times \{t\}, \zeta=\eta$ on $X\times \{t\}$. We can 
+  choose a fiberwise isomorphism
+  \[\begin{tikzcd}
+    E(\zeta) \arrow[rr, "\hat h"] \arrow[dr, ""] & & E(\eta) \arrow[dl, ""] \\
+    & X\times\{t\} &
+  \end{tikzcd}\]
+  The first step is to extend $\hat h$ to a homomorphism of vector bundles on $X\times [t-\epsilon, t+\epsilon]$
+  for some $\epsilon > 0$. This can be done as follows. Since $X$ is compact, there
+  exists a finite cover $U_1, \ldots, U_r$ of $X$ with $\epsilon_i > 0$ such that both $\zeta$ and $\eta$ 
+  are trivial on $U_i\times [t - \epsilon_i, t + \epsilon_i]$. We can extend $\hat h$ to
+  \[\begin{tikzcd}
+    E(\zeta) \arrow[rr, "\hat h_i"] \arrow[dr, ""] & & E(\eta) \arrow[dl, ""] \\
+    & U_i\times [t - \epsilon_i, t + \epsilon_i] &
+  \end{tikzcd}\]
+  Let $\alpha_1, \ldots, \alpha_r$ be a partition of unity on $X$ with $\supp(\alpha_i)\subset U_i$. We define 
+  \[\begin{tikzcd}
+    E(\zeta) \arrow[rr, "\hat k"] \arrow[dr, ""] & & E(\eta) \arrow[dl, ""] \\
+    & X\times [t - \epsilon, t + \epsilon] &
+  \end{tikzcd}\]
+  where $\epsilon=\min(\epsilon_i)$ by setting
+  \[
+    \hat k(v) = \sum \alpha_i(\R{proj}_1\circ \pi_\zeta(v))\cdot \hat h_i(v).
+  \]
+  Since $\hat h_i(v) = \hat h(v)$ when $\pi_\zeta(v)\in X\times \{t\}$, and since $\sum \alpha_i(x)\equiv 1$,
+  we have $\hat k(v)=\hat h(v)$ on $X\times \{t\}$. In particular $\hat k$ is an isomorphism on $X\times\{t\}$.
+
+  We finally show that $\hat k$ is an isomorphism in a neighborhood $X\times [t-\epsilon_1, t+\epsilon_1]$
+  of $X\times \{t\}$. Since $X$ is compact, it suffices to show that $\hat k$ is an isomorphism on a neighborhood 
+  $V(x, t)$ of any point $(x, t)\in X\times \{t\}$. Let $\F e$ and $\F s$ be frames of $\zeta$
+  and $\eta$ in a neighborhood $W$ of $(x, t)$, and $\R{ad}(\hat k):W\to M_n(\RR)$ the resulting map, cf. \eqref{eq:15-1}.
+  Since $\R{GL}_n(\RR)\subset M_n(\RR)$ is open and $\R{ad}(\hat k)(x, t)\in \R{GL}_n(\RR)$, there exists a neighborhood
+  $V(x, t)$ where $\R{ad}(\hat k)\in \R{GL}_n(\RR)$, and $\hat k$ is an isomorphism.
+\end{proof}
+
+The above theorem expresses that $\R{Vect}(X)$ (and hence also $KO(X)$) is a homotopy 
+functor\index{homotopy!functor}: homotopic maps $f\sime g: X\to Y$ induce the same map
+\[
+  f^*=g^*:\R{Vect}(Y)\to \R{Vect}(X).
+\]
+
+\begin{corollary}\label{corollary:15-22}
+  Every vector bundle over a contractible base space is trivial.
+\end{corollary}
+
+\begin{proof}
+  With our assumption $\id_B \sime f$, where $f$ is the constant map with value $f(B)=\{b\}$.
+  Hence $f^*(\xi)\simee \xi$. But $f^*(\xi)$ is trival by construction when $f$ is constant.
+\end{proof}
+
+
+In the above we have concentrated on \textit{real} vector bundles\index{vector bundle!real}. There is a completely
+analogous notion of \textit{complex} (or even quaternion) vector bundles. In Definition
+\ref{definition:15-4} one simply requires $V$ and $\pi^{-1}(x)$ to be complex vector spaces and $h(x, -)$
+to be a complex isomorphism. The direct sum of complex vector bundles is a
+complex vector bundle\index{vector bundle!complex}. A hermitian inner product on a complex vector bundle is
+a map $\phi$ as in Definition \ref{definition:15-15} but such that it induces a hermitian inner product
+in each fiber. Proposition \ref{proposition:15-13} and Theorem \ref{theorem:15-18} and \ref{theorem:15-21} have obvious
+analogues for complex vector bundles.
+
+
+The isomorphism class of complex vector bundles over $B$ of complex dimension $n$ is 
+denoted $\R{Vect}_n^\CC(B)$. These sets give rise to a semigroup whose corresponding 
+group (for compact $B$) is traditionally denoted
+\[
+  K(B) = K(\R{Vect}^\CC(B))
+\]
+It is a contravariant homotopy functor of $B$, often somewhat easier to calculate
+than its real analogue $KO(B)$.

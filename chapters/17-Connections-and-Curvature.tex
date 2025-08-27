@@ -1,0 +1,851 @@
+\chapter{Connections and Curvature}
+Let $\xi$ be a smooth vector bundle over a smooth manifold $M^n$ of dimension $n$.
+
+\begin{definition}\label{definition:17-1}
+A \Index{connection} on $\xi$ is an $\RR$-linear map
+\[
+  \btd:\Omega^0(\xi)\ra \Omega^1(M)\otimes_{\Omega^0(M)} \Omega^0(\xi)
+\]
+which satisfies ``\Index{Leibnitz' rule}'' $\btd (f\cdot s)=\dd f\otimes  s + f\cdot \btd s$, 
+where $f \in \Omega^0(M)$, $s\in \Omega^0(\xi)$ and $\dd$ is the exterior differential. 
+If $\xi$ is a complex vector bundle then $\Omega^0(\xi)$ is a complex vector space and 
+we require $\btd$ to be $\CC$-linear.
+\end{definition}
+
+Let $\tau$ be the tangent bundle of $M$. Then $\Omega^1(M)  = \Omega^0( {\tau }^{ * })$, 
+and by Theorem \ref{theorem:16-13} we have the following rewritings of the range 
+for $\btd$,
+\begin{align}\label{eq:17-1}
+\Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0(\xi)  
+  \simee  \Omega^0( {\hom( {\tau,\xi }) })  
+  \simee  {\hom}_{\Omega^0(M) }( {\Omega^0( \tau ),\Omega^0(\xi) }).
+\end{align}
+
+A tangent vector field $X$ on $M$ is a section in the tangent bundle $X \in  \Omega^0( \tau )$, 
+and induces an $\Omega^0(M)$-linear map $\R{Ev}_X:\Omega^1(M) \ra \Omega^0(M)$, and hence 
+an $\Omega^0(M)$-linear map
+\[
+\R{Ev}_X:\Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0(\xi)  \ra  \Omega^0(\xi)
+\]
+
+The composition $\R{Ev}_X\circ\btd$ is an $\RR$-linear map $\btd_X:\Omega^0(\xi) 
+\ra\Omega^0(\xi)$ which satisfies
+\begin{align}\label{eq:17-2}
+\btd_X(fs)  = \dd_X(f) s + f\btd_X(s),
+\end{align}
+
+where $\dd_X(f)$ is the directional derivative of $f$ in the direction $X$, 
+since $\R{Ev}_X \circ \dd f =$  $\dd_X(f)$. Thus a connection allows us to 
+take directional derivatives of sections. For fixed $s\in\Omega^0(\xi)$ the 
+map $X\ra\btd_X(s)$ is $\Omega^0(M)$-linear in $X$ :
+\[
+  \btd_{{gX} + {hY}}(s)  = g\btd_X(s)  + h\btd_{Y}(s)
+\]
+for smooth functions $g,h \in  \Omega^0(M)$ and vector fields $X,Y \in \Omega^0( \tau )$. 
+Moreover, the value $\btd_X(s) (p)  \in  {\xi }_{p}$ depends only on the value $X_{p}\in {T}_{p}M$. 
+This is clear from the second term in \eqref{eq:17-1} which implies that $\btd$ can be considered as an $\RR$-linear map
+\[
+  \btd:\Omega^0(\xi) \ra \R{HOM}(\tau,\xi) \mathrel{:=} \Omega^0\hom( {\tau,\xi }).
+\]
+
+Here the range is the set of smooth bundle homomorphisms from $\tau$ to $\xi$ (over the identity). 
+If $X_{p} \in  {T}_{p}M$ then ${ \btd }_{X_{p}}(s)  = ( {\btd s}) ( X_{p})$, and
+\begin{align}\label{eq:17-3}
+\begin{aligned}
+    \btd_{X_{p}}( {f \cdot  s})  & = \dd_{X_{p}}(f)  \cdot  s(p)  + f(p) \btd_{X_{p}}(s)\\
+    \btd_{aX_{p} + b{Y}_{p}}(s)  & = a\btd_{X_{p}}(s)  + b\btd_{{Y}_{p}}(s)
+\end{aligned}
+\end{align}
+where $X_{p},{Y}_{p} \in  {T}_{p}M$, and $a$ and $b$ are real numbers. Conversely \eqref{eq:17-3} guarantees 
+that $\btd_{X_{p}}(s)$ defines a connection.
+
+\begin{example}\label{example:17-2} 
+  Let ${M}^{n} \subset  \RR^{n + k}$ be a smooth manifold. One can define a connection 
+  on its tangent bundle as follows: a section $s \in  \Omega^0( \tau )$ can be considered as a smooth
+  function $s:M \ra  \RR^{n + k}$ with $s(p)  \in  {T}_{p}M$, and we set
+  \[
+    \btd_{X_{p}}(s)  = {j}_{p}( {\dd_{X_{p}}(s) })  \in  {T}_{p}M
+  \]
+  where ${j}_{p}:\RR^{n + k} \ra  {T}_{p}M$ is the orthogonal projection and $X_{p} \in  {T}_{p}M$. 
+  It is easy to see that \eqref{eq:17-3} is satisfied.
+\end{example}
+
+It is a consequence of the ``Leibnitz rule'' that $\btd$ is a local operator in the sense 
+that if $s \in \Omega^0(\xi)$ is a section that vanishes on an open subset $U \subseteq  M$ then so 
+does $\btd (s)$. A local operator between section spaces always induces an operator between 
+the section spaces of the vector bundles restricted to open subsets. In particular a connection on $\xi$ 
+induces a connection on ${\xi }_{\mid U}$.
+
+Let ${e}_1,\ldots,{e}_{k} \in  \Omega^0(\xi)$ be sections such that ${e}_1(p),\ldots,{e}_{k}(p)$ is a 
+basis for ${\xi }_{p}$ for every $p \in  U$ (a frame over $U$ ). Elements of $\Omega^1( U) \otimes_{\Omega^0( U) }\Omega^0( {\xi }_{\mid U})$ 
+can be written uniquely as $\sum {\tau }_{i} \otimes  {e}_{i}$ for some ${\tau }_{i} \in  \Omega^1( U)$, so for a 
+connection $\btd$ on $\xi$,
+\begin{align}\label{eq:17-4}
+\btd ( {e}_{i})  = \sum_{{j = 1}}^{k}{A}_{ij} \otimes  {e}_{j}
+\end{align}
+where ${A}_{ij} \in  \Omega^1( U)$ is a $k \times  k$ matrix of 1-forms, which is called the \textit{connection form}\index{connection!form} 
+with respect to $\mathrm{e}$, and is denoted by $A$.
+
+Conversely, given an arbitrary matrix $A$ of 1-forms on $U$, and a frame for ${\xi }_{\mid U}$, then \eqref{eq:17-4} defines 
+a connection on $\Omega^0( {\xi }_{\mid U})$. Since $s \in  \Omega^0( {\xi }_{\mid U})$ can be written as $s(p)  = \sum {s}_{i}(p) {e}_{i}(p)$, 
+with ${s}_{i} \in  \Omega^0( U)$,
+\[
+  \btd ( {\sum {s}_{i}{e}_{i}})  
+  = \sum \dd{s}_{i} \otimes  {e}_{i} + \sum {s}_{i}\btd {e}_{i} 
+  = \sum ( {\dd{s}_{j} + {s}_{i}{A}_{ij}})  \otimes  {e}_{j}.
+\]
+
+With respect to $\mathbf{e} = ( {{e}_1,\ldots,{e}_{k}}),\btd$ has the matrix form
+\begin{align}\label{eq:17-5}
+\btd ( {{s}_1,\ldots,{s}_{k}})  = (\!{\dd{s}_1,\ldots,\dd{s}_{k}})  + ( {{s}_1,\ldots,{s}_{k}}) A.
+\end{align}
+
+\begin{example}\label{example:17-3}
+  Suppose $\xi  \oplus  \eta  \simee  {\varepsilon }^{n + k}$, and 
+  let $i:\xi  \ra  {\varepsilon }^{n + k}$ and $j:{\varepsilon }^{n + k} \ra  \xi$ be the inclusion and 
+  the projection on the first factor, respectively. We give the trivial bundle the 
+  connection $\btd_0$ from \eqref{eq:17-5} with $A = 0$. There are maps
+  \[
+    \Omega^0(\xi) \overset{{i}_{ * }}{ \ra  }\Omega^0( {\varepsilon }^{n + k}) 
+    \;\text{ and }\;
+    \Omega^0( {\varepsilon }^{n + k}) \overset{{j}_{ * }}{ \ra  }\Omega^0(\xi),
+  \]
+  and the composition
+  \[
+    \Omega^0(\xi) \overset{{i}_{ * }}{ \ra  }
+    \Omega^0( {\varepsilon }^{n + k}) \overset{\btd_0}{ \ra  }
+    \Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0( {\varepsilon }^{n + k}) \overset{\mathrm{{id}} \otimes  {j}_{ * }}{ \ra  }
+    \Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0(\xi)
+  \]
+  defines a connection $\btd$ on $\xi$. Note that
+  \begin{align*}
+    \Omega^0( {\varepsilon }^{n + k})  
+      & \simee \Omega^0(M)  \oplus  \ldots  \oplus  \Omega^0(M)\\
+    \Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0( {\varepsilon }^{n + k})  
+      & \simee \Omega^1(M)  \oplus  \ldots  \oplus  \Omega^1(M),
+  \end{align*}
+  and that $\btd_0 =\dd \oplus \ldots \oplus \dd$. If $\xi$ and $\eta$ are complex vector bundles 
+  and ${\varepsilon }^{n + k}$ is the trivial complex bundle, then the construction gives a complex connection.
+\end{example}
+
+Example \ref{example:17-3} shows that every smooth vector bundle over a compact base manifold has at least 
+one connection, since bundles have complements by Theorem \ref{theorem:15-18}. We observe that Example \ref{example:17-2} 
+is a special case of Example \ref{example:17-3} corresponding to $\xi  = {\tau }_{M}$ and $\eta  = {\nu }_{M}$; see 
+also the exercises.
+
+\begin{remark}\label{remark:17-4}
+After choice of a connection $\btd$ on $\xi$ one can compare the fibers ${\xi }_{p}$ at different 
+points $p \in  M$ by a ``parallel translation along curves''. Let $\alpha (t)$ be a smooth curve in $M$ 
+and $\omega (t)  \in  \Omega^0( {\xi }_{\alpha (t) })$ a section along $\alpha$, 
+i.e. $\omega (t)  = \omega ( {\alpha (t) })$ for some $\omega  \in  \Omega^0(\xi)$. There exists a unique 
+operator (``\Index{covariant differentiation}'') $\frac{D}{\dd t}$ that satisfies:
+\begin{enumerate} 
+  \item $\frac{D( {\Omega_1 + \Omega_{2}}) }{\dd t} = \frac{D\Omega_1}{\dd t} + \frac{D\Omega_{2}}{\dd t}$
+  \item $\frac{D( {f \cdot  \omega }) }{\dd t} = \frac\dd f{\dd t}\omega  + f\frac{D\omega }{\dd t}$
+  \item $\frac{D\omega }{\dd t} = \btd_{{\alpha }^{\prime }(t) }\omega$.
+\end{enumerate}
+
+Suppose first that $\alpha (t)  \subset  U$, where(U, x)is a chart on $M$. 
+Let ${\partial }_{i} = \frac{\partial }{\partial x_{i}} \in  \Omega^0( {\tau }_{U})$ and 
+let $\mathbf{e} = ( {{e}_1,\ldots,{e}_{k}})$ be a frame of $\Omega^0( {\xi }_{\mid U})$. 
+Then $\alpha (t)  = \F x^{-1}( {{u}_1(t),\ldots,{u}_{n}(t) })$ for smooth functions ${u}_{i}(t)$, 
+and $\omega (t)  = \sum \Omega_{i}(t) {e}_{i}(t)$, where ${e}_{i}(t)  = {e}_{i}( {\alpha (t) })$. 
+Conditions (i), (ii) and (iii) give
+\[
+  \frac{D\omega }{\dd t} 
+    = \sum \left( {\frac{\dd\omega_{i}}{\dd t}{e}_{i}(t)  
+      + \omega_{i}(t) \btd_{{\alpha }^{\prime }(t) }( {e}_{i}) }\right),
+\]
+
+and since ${\alpha }^{\prime }(t)  = \sum \frac{\dd{u}_{i}}{\dd t} \cdot  {\partial }_{i}$, \eqref{eq:17-4} implies 
+that for certain smooth functions ${\Gamma}_{ji}^{l}$ on $U$
+\[
+  \btd_{{\alpha }^{\prime }(t) }{e}_{i} 
+  = \sum_{{j = 1}}^{n}\frac{\dd{u}_{j}}{\dd t}\btd_{{\partial }_{j}}( {e}_{i})  
+  = \sum_{{j,\nu }}\frac{\dd{u}_{j}}{\dd t}{\Gamma }_{ji}^{\nu }{e}_{\nu }.
+\]
+
+This gives
+\[
+  \frac{D\omega }{\dd t} 
+  = \sum_{{l = 1}}^{k}\left( {\frac{\dd \omega_{l}}{\dd t} + \sum_{{i,j}}\frac{\dd {u}_{j}}{\dd t}{\Gamma }_{ji}^{l}\omega_{i}}\right) {e}_{l}.
+\]
+
+Conversely this formula defines an operator $\frac\dd{\dd t}$ which satisfies (i),(ii) and (iii). Since we can 
+cover $\alpha (t)$ with coordinate patches, the assumption that $\alpha$ be contained in just one chart 
+is irrelevant. 
+\end{remark}
+
+A section $\omega (t)$ in $\xi$ along $\alpha (t)$ is said to be \textit{parallel}\index{section!parallel}, if $\frac{D\omega }{\dd t} = 0$. 
+For a given $\omega ( 0)  \in  {\xi }_{\alpha ( 0) }$ and smooth curve there exists a unique such section, 
+and the assignment $\omega ( 0)  \ra  \omega ( 1)$ is an isomorphism from ${\xi }_{\alpha ( 0) }$ to ${\xi }_{\alpha ( 1) }$.
+
+Let us introduce the notation
+\begin{align}\label{eq:17-6}
+  \Omega^{i}(\xi)  = \Omega^{i}(M) \otimes_{\Omega^0(M) }\Omega^0(\xi).
+\end{align}
+
+Then a connection is an $\RR$-linear operator $\btd :\Omega^0(\xi)  \ra  \Omega^1(\xi)$ which satisfies 
+the Leibnitz rule. We want to extend $\btd$ to an operator
+\[
+  \dd^\btd:\Omega^{i}(\xi)  \ra  \Omega^{i + 1}(\xi)
+\]
+
+by requiring that $\dd^\btd$ satisfy a suitable Leibnitz rule, similar in spirit to Theorem \ref{theorem:3-7}.(iii).
+
+Let $\xi$ and $\eta$ be two vector bundles over $M$. There is an $\Omega^0(M)$-bilinear product
+
+\begin{align}\label{eq:17-7}
+  \land:\Omega^{i}( \eta )  \otimes  \Omega^{j}(\xi)  \ra  \Omega^{i + j}( {\eta  \otimes  \xi })
+\end{align}
+defined by setting
+\[
+  ( {\omega  \otimes  t})  \land  ( {\tau  \otimes  s})  
+  = \omega  \land  \tau  \otimes  ( {s \otimes  t})
+\]
+where $\omega  \in  \Omega^{i}(M),\tau  \in  \Omega^{j}(M),s \in  \Omega^0(\xi)$ 
+and $t \in  \Omega^0( \eta )$ and $\omega  \land  \tau$ is the exterior product; 
+cf. Theorem \ref{theorem:16-13}.(ii).
+
+We shall first use the product when $\eta  = {\varepsilon }^1$, the trivial line bundle. 
+In this case $\Omega^{i}( \eta )  = \Omega^{i}(M)$, and for $i = 0$ the product in \eqref{eq:17-7} is just 
+the $\Omega^0(M)$-module structure on $\Omega^{j}(\xi)$. Note also for $\omega  \in  \Omega^{i}(M)$ and $s \in  \Omega^0(\xi)$ 
+that $\omega  \land  s = \omega  \otimes  s$ in $\Omega^{i}(\xi)$.
+
+Given three bundles $\eta,\theta$ and $\xi$ one checks from associativity of the exterior product that 
+the product in \eqref{eq:17-7} is associative, and that the constant function $1 \in  \Omega^0(M)$ acts 
+as a unit. In particular we record (for $\eta  = {\varepsilon }^1$ ):
+
+\begin{lemma}\label{lemma:17-5}
+  The product of \eqref{eq:17-7} satisfies:
+  \begin{enumerate} 
+    \item $( {\omega  \land  \tau })  \land  \rho  = \omega  \land  ( {\tau  \land  \rho })$
+    \item $1 \land  \rho  = \rho$ 
+  \end{enumerate}
+  where $\omega  \in  \Omega^{i}(M),\tau  \in  \Omega^{j}(M)$ and $\rho  \in  \Omega^{k}(\xi)$.\hfill$\square$
+\end{lemma}
+
+\begin{lemma}\label{lemma:17-6}
+There is a unique $\RR$-linear operator $\dd^\btd:\Omega^{j}(\xi)  \ra  \Omega^{j + 1}(\xi)$ that satisfies
+\begin{enumerate}
+  \item $\dd^\btd = \btd$ when $j = 0$
+  \item $\dd^\btd( {\omega  \land  t})  = {\dd\omega } \land  t + {(-1) }^{i}\omega  \land  \dd^\btd t$, 
+    where $\omega  \in  \Omega^{i}(M)$ and $t \in  \Omega^{j}(\xi)$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof} 
+Let $\tau  \in  \Omega^{j}(M)$ and $s \in  \Omega^0(\xi)$ and 
+set $\dd^\btd( {\tau  \otimes  s})  = \tau \land  s + {(-1) }^{j}\tau  \land  \btd s$. 
+One checks that $\dd^\btd$ is $\Omega^0(M)$-balanced in the sense of Definition \ref{definition:16-14}, 
+and applies Lemma \ref{lemma:16-15}. Since $s \in  \Omega^0(\xi)$ we have ${\dd\tau } \land  s = {\dd\tau } \otimes  s$, 
+and $\dd^\btd = \btd$ when $j = 0$. We show that (ii) is satisfied. 
+For $\omega  \in  \Omega^{i}(M)$ and $t = \tau  \otimes  s \in  \Omega^{j}(\xi)$,
+\begin{align*}
+  \dd^\btd( {\omega  \land  ( {\tau  \otimes  s}) }) 
+  & = \dd^\btd( {( {\omega  \land  \tau })  \otimes  s})  
+    = \dd( {\omega  \land  \tau })  \otimes  s + {(-1) }^{i + j}( {\omega  \land  \tau })  \land  \btd s\\
+  & = (\!{{\dd\omega } \land  \tau })  \otimes  s + {(-1) }^{i}\omega  \land  {\dd\tau } \otimes  s + {(-1) }^{i + j}( {\omega  \land  \tau })  \land  \btd s\\
+  & = {\dd\omega } \land  ( {\tau  \otimes  s})  + {(-1) }^{i}\omega  \land  \dd^\btd( {\tau  \otimes  s}).
+\end{align*}
+\end{proof}
+
+We have now a sequence
+\begin{align}\label{eq:17-8}
+  0 \ra  \Omega^0(\xi) \overset\btd
+  { \ra  }\Omega^1(\xi) \overset{\dd^\btd}
+  { \ra  }\Omega^{2}(\xi) 
+  \ra  \cdots
+\end{align}
+which when $\xi$ is the trivial line bundle $\xi  = {\varepsilon }^1$ and $\btd = \dd$ is precisely 
+the de Rham complex of Chapter 9. One might expect that \eqref{eq:17-8} is a complex, i.e. 
+that $\dd^\btd \circ \btd = 0$ and $\dd^\btd \circ\dd^\btd = 0$, but 
+this is in general not the case. We do have however that
+\[
+  {F}^\btd = \dd^\btd \circ  \btd :\Omega^0(\xi)\ra\Omega^{2}(\xi)
+\]
+is $\Omega^0(M)$-linear, since
+\begin{align*}
+  \dd^\btd \circ  \btd ( fs) 
+  & = \dd^\btd( {\dd f \land  s + f \land  \btd s}) \\
+  & = \!{\dd\!\dd f} \land  s- \dd f \land   \btd  s + \dd f \land\btd  s + f \land  \dd^\btd( { \btd  s})\\
+  & = f( {\dd^\btd \circ  \btd (s) }).
+\end{align*}
+
+On the other hand Theorem \ref{theorem:16-13} gives
+\begin{align}\label{eq:17-9}
+  {\hom}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^{2}(\xi) })  \simee  \Omega^{2}( \hom(\xi, \xi)).
+\end{align}
+
+Indeed, there is the following string of isomorphisms
+\begin{align*}
+  \hom_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^{2}(\xi) })  
+  & \simee  {\mathrm{{Hom}}}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^0(\xi) }) \otimes_{\Omega^0(M) }\Omega^{2}(M) \\
+  & \simee  \Omega^0( \hom(\xi, \xi)) \otimes_{\Omega^0(M) }\Omega^{2}(M) \\
+  & \simee  \Omega^{2}( \hom(\xi, \xi)).
+\end{align*}
+
+
+\begin{definition}\label{definition:17-7}
+The 2-form ${F}^\btd \in  \Omega^{2}( \hom(\xi, \xi))$ is called the \Index{curvature form} of $( {\xi, \btd  })$. 
+A connection $\btd$ is called \textit{flat}\index{flat connection}\index{connection!flat} if ${F}^\btd = 0$.
+\end{definition}
+
+Let $X,Y \in  \Omega^0( {\tau }_{M})$ be two vector fields. By evaluating a 2-form $\tau$ at $(X, Y)$, we 
+get an $\Omega^0(M)$-linear map
+\[
+  \R{Ev}_{X, Y}:\Omega^{2}(M)  \ra  \Omega^0(M)
+\]
+which induces a map
+\[
+  \R{Ev}_{X, Y}:\Omega^{2}( \hom(\xi, \xi))  \ra  \Omega^0( \hom(\xi, \xi)).
+\]
+
+We write ${F}_{X, Y}^\btd = \R{Ev}_{X, Y}( {F}^\btd)$. As for 
+connections, ${F}_{X, Y}^\btd(p) :{\xi }_{p} \ra  {\xi }_{p}$ depends only on 
+the values $X_{p},{Y}_{p} \in  {T}_{p}M$ of $X,Y$ in $p$.
+
+We can calculate ${F}^{ \triangledown  }$ locally by using \eqref{eq:17-4},
+\begin{align*}
+  \dd^\btd \circ  \btd ( {e}_{i}) 
+  & = \sum \dd{A}_{ij} \otimes  {e}_{j}- \sum {A}_{ij} \land  \btd ( {e}_{j}) \\
+  & = \sum \dd{A}_{ij} \otimes  {e}_{j}- \sum {A}_{ij} \land  \sum {A}_{j\nu } \otimes  {e}_{\nu } \\
+  & = \sum\nolimits_\nu\left( {\dd{A}_{i\nu } \otimes  {e}_{\nu }- \left( {\sum\nolimits_{j}{A}_{ij} \land  {A}_{j\nu }}\right) \otimes  {e}_{\nu }}\right)
+\end{align*}
+
+so that ${F}^\btd( {e}_{i})  = \sum_{\nu }{(\!\dd A- A \land  A) }_{i\nu } \otimes  {e}_{\nu }$. 
+In matrix notation:
+\begin{align}\label{eq:17-10}
+  {F}^\btd = {\dd A}- A \land  A
+\end{align}
+
+where $A$ is the \textit{connection matrix}\index{connection!matrix} for $\btd$. In other words, the matrix of the linear 
+map ${F}_{X_{p},{Y}_{p}}^\btd:{\xi }_{p} \ra  {\xi }_{p}$ in the 
+basis ${e}_1(p),\ldots,{e}_{k}(p)$ is ${(\!\dd A- A \land  A) }_{X_{p},{Y}_{p}}$.
+
+We next consider the $\Omega^0(M)$-bilinear product
+\[
+  \land:\Omega^{i}(\xi)  \times  {\hom}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^{2}(\xi) })  \ra  \Omega^{i + 2}(\xi)
+\]
+which maps a pair $( {\omega  \otimes  s,G})$, with
+\[
+  \omega  \otimes  s \in  \Omega^{i}(M) \otimes_{\Omega^0(M) }\Omega^0(\xi),\qquad
+  G \in  {\hom}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^{2}(\xi) })
+\]
+into
+\begin{align}\label{eq:17-11}
+  ( {\omega  \otimes  s})  \land  G = \omega  \land  G(s)
+\end{align}
+with the right-hand side given by \eqref{eq:17-7}. Alternatively we can use \eqref{eq:17-9} to rewrite \eqref{eq:17-11} 
+as the composition
+\[
+  \Omega^{i}(\xi)  \otimes  \Omega^{2}( \hom(\xi, \xi)) 
+  \overset{ \land  }{ \ra  }
+  \Omega^{i + 2}( {\xi  \otimes  \hom(\xi, \xi) })  \ra  \Omega^{i + 2}(\xi)
+\]
+where the last map is induced from the evaluation bundle homomorphism $\xi  \otimes  \hom(\xi, \xi)  \ra  \xi$
+
+\begin{lemma}\label{lemma:17-8}
+  The composition $\dd^\btd \circ  \dd^\btd:\Omega^{i}(\xi)  \ra \Omega^{i + 2}(\xi)$ 
+  maps $t$ to $t \land  {F}^\btd$.
+\end{lemma}
+
+\begin{proof}
+  Let $\omega  \otimes  s \in  \Omega^{i}(M) \otimes_{\Omega^0(M) }\Omega^0(\xi)$. By Lemma \ref{lemma:17-6},
+  \begin{align*}
+    \dd^\btd \circ  \dd^\btd( {\omega  \otimes  s})  
+    & = \dd^\btd( {{\dd\omega } \otimes  s + {(-1) }^{i}\omega  \land  \btd s}) \\
+    & = \dd \circ  \dd( \omega )  \otimes  s + \omega  \land  \dd^\btd \circ  \btd (s)  
+      = \omega  \land  {F}^\btd(s).
+  \end{align*}
+\end{proof}
+
+We see that the sequence \eqref{eq:17-8} is a chain complex precisely when $\btd$ is a flat 
+connection $( {{F}^\btd = 0})$. However, as will be clear later, not every vector bundle 
+admits a flat connection.
+
+\begin{example}\label{example:17-9}
+  Let $H$ be the canonical complex line bundle over ${\mathbb{{CP}}}^1$ from Example \ref{example:15-2}. 
+  Its total space $E(H)$ consists of pairs $({L,u})  \in  {\mathbb{{CP}}}^1 \times  {\CC}^{2}$ with $u \in  L$. 
+  Indeed, the map
+  \[
+    i:{S}^{3}{ \times  }_{{S}^1}\CC \ra  {\mathbb{{CP}}}^1 \times  {\CC}^{2};\quad
+    [ {{z}_1,{z}_{2},u}] \mapsto  ( {[  {{z}_1,{z}_{2}}] ,u{z}_1,u{z}_{2}})
+  \]
+  is a fiberwise monomorphism, whose image is precisely $E( H)$. It follows that a 
+  complement to $H$ is the bundle ${H}^{ \bot  }$ with total space
+  \[
+    E( {H}^{ \bot  })  = \left\{  {( {L,v})  \mid  v \in  {L}^{ \bot  }}\right\} .
+  \]
+
+  We want to explicate the projection $\pi :{\mathbb{{CP}}}^1 \times  {\CC}^{2} \ra  E( H)$, 
+  which maps $( {L,{u}_1,{u}_{2}})$ to the pair $(L, u)$, where $u$ is the orthogonal projection 
+  of $( {{u}_1,{u}_{2}})$ onto the line $L$. If $L = [  {{z}_1,{z}_{2}}]$ 
+  with ${\left| {z}_1\right| }^{2} + {\left| {z}_{2}\right| }^{2} = 1$, then
+  \[
+    \pi ( {L,{u}_1,{u}_{2}})  = ( {{u}_1,{u}_{2}})  \cdot  {P}_{L}
+  \]
+  where ${P}_{L}$ is the $2 \times 2$ matrix
+  \[
+    {P}_{[  {z}_1,{z}_{2}]  } =  
+    \begin{pmatrix}
+      {\bar{z}}_1{z}_1    & {\bar{z}}_1{z}_{2} \\  
+      {\bar{z}}_{2}{z}_1  & {\bar{z}}_{2}{z}_{2}
+    \end{pmatrix}.
+  \]
+
+  Indeed, if $L$ contains the unit vector $\mathbf{z} = ( {{z}_1,{z}_{2}})$, then orthogonal 
+  projection in ${\CC}^{2}$ onto $L$ is given by the formula
+  \[
+    {\pi }_{L}( {{u}_1,{u}_{2}})  
+    = ( {{\bar{z}}_1{u}_1 + {\bar{z}}_{2}{u}_{2}}) ( {{z}_1,{z}_{2}})  
+    = ( {{u}_1,{u}_{2}}) {P}_{[  {z}_1,{z}_{2}]  }.
+  \]
+
+  We examine the (complex) connection from Example \ref{example:17-3},
+  \[
+    \btd:\Omega^0( H) \overset{{i}_{ \star  }}
+    { \ra  }\Omega^0( {\epsilon }^{2}) \overset{\btd_0}
+    { \ra  }\Omega^1( {\epsilon }^{2}) \overset{{\pi }_{ \star  }}
+    { \ra  }\Omega^1( H),
+    \quad\btd_0 = (\!{\dd,\dd}),
+  \]
+  by calculating the connection form $A$ in \eqref{eq:17-4} with respect to sections over the 
+  stereographic charts ${U}_1$ and ${U}_{2}$ of Example \ref{example:15-2}. Let $g$ be the local parametrization 
+  defined as
+  \[
+    g:\RR^{2} \ra  {U}_1 \subset  {\mathbb{{CP}}}^1;
+    \quad g( x, y) = [  {1,z}]
+  \]
+  with $z = x + {iy}$, and let us consider the section $e$ over ${U}_1$
+  \[
+    e( {g( x, y) })  = ( {g( x, y),( {1,z}) })  \in  \CP^1\times\CC^{2}
+  \]
+  where we also use $z$ to denote the function on ${U}_1$ whose value at $g( x, y)$ is $x + {iy}$. Now
+  \[
+    \btd_0( e)  = ( {g( x, y),( {0,{\dd z}}) }),\;{\dd z} = {\dd x} + {i\!\dd y}
+  \]
+  and hence
+  \begin{align*}
+    \btd ( e)  
+    & = ( {g( x, y), ( {0,{\dd z}})  \cdot  {P}_{g( x, y) }})  
+      = \left( 
+        g( x, y), \frac1{1 + {\left| z\right| }^{2}}( {0,{\dd z}}) 
+        \begin{pmatrix} 
+          1 & z \\  
+          \bar{z} & |z|^2
+        \end{pmatrix}
+        \right) \\
+    & = ( {g( x, y), \frac1{1 + {\left| z\right| }^{2}}
+      ( {\bar{z}\!\dd z,{\left| z\right| }^{2}\!\!{\dd z}}) }).
+  \end{align*}
+
+  We have shown that $\btd  ( e)  = A \otimes  e$ where $A$ is given as
+  \[
+    {A}_{g( x, y) } = \frac{\bar{z}}{1 + {\left| z\right| }^{2}}{\dd z},\quad
+    z( {g( x, y) }) = x + {iy}
+  \]
+  or equivalently
+  \[
+    {g}^{ * }( A)  = \frac{\bar{z}}{1 + {\left| z\right| }^{2}}{\dd z},\quad
+    z( x, y)  = x + {iy}.
+  \]
+
+  We use formula \eqref{eq:17-10} to calculate the curvature form. First note that
+  \begin{align*}
+    {\dd z} \land  \!{\dd z}   & = ( \!{{\dd x} + {i\!\dd y}}) \land  ( \!{{\dd x} + {i\!\dd y}})  = 0\\
+    \dd\bar{z} \land  \!{\dd z}  & = ( \!{{\dd x}- {i\!\dd y}})  \land  ( \!{{\dd x} + {i\!\dd y}})  = {2i\!\dd x} \land \!{\dd y}
+  \end{align*}
+  so that
+  \[
+    \dd{g}^{ * }( A)  
+      = \frac{( {1 + {\left| z\right| }^{2}}) - \bar{z} \cdot  z}{{( 1 + {\left| z\right| }^{2}) }^{2}}
+        \dd\bar{z} \land  \!{\dd z} 
+      = \frac{2i}{{( 1 + {\left| z\right| }^{2}) }^{2}}{\dd x} \land  \!{\dd y}.
+  \]
+
+  Since $A \land  A = 0$ we have the following formula in $\Omega^{2}( {\hom( {{g}^{ * }H,{g}^{ * }H}) })$ :
+  \begin{align}\label{eq:17-12}
+    {g}^{ * }( {F}^\btd)  = \frac{2i}{{( 1 + {\left| z\right| }^{2}) }^{2}}{\!\dd x} \land  {\!\dd y}.
+  \end{align}
+
+  Any complex line bundle $H$ has trivial complex endomorphism bundle $\hom( {H,H})$, because it is a complex line 
+  bundle and has a section $e(p)  = {\R{id}}_{{H}_{p}}$, which is a basis in every fiber. In particular 
+  the curvature form ${F}^\btd \in$  $\Omega^{2}( {\hom( {H,H}) })$ is just a 2-form with complex values.
+
+  It is left for the reader to calculate ${h}^{ * }( {F}^\btd)$ where $h:\RR^{2} \ra  {U}_{2}$ is the 
+  parametrization
+  \[
+    h( x, y)  = [{z,1}],\quad z = x + {iy}.
+  \]
+  This ends the example.
+\end{example}
+
+We conclude this chapter by showing that the constructions $f^*(\xi),\xi^*,\hom( \xi, \eta)$ 
+and $\xi  \otimes  \eta$ can be extended to constructions on vector bundles equipped with connections. We 
+begin with the pull-back construction. Let $f\!:{M}^{\prime } \ra  M$ be a smooth map and $\xi$ a vector bundle 
+over $M$ with connection $\btd$. The map $f^*\!\!:\Omega^0(\xi)\ra\Omega^0(f^*(\xi)); f^*(s) (p) = s( {f(p) })$ 
+can be tensored with $f^*\!\colon\Omega^1(M)  \ra$  $\Omega^1( {M}^{\prime })$, to obtain a linear map
+\[
+  f^*\!\!:\Omega^1(M) \otimes_{\Omega^0(M) }\Omega^0(\xi)  
+  \ra 
+  \Omega^1( {M}^{\prime }) \otimes_{\Omega^0( {M}^{\prime }) }\Omega^0( {f^*(\xi) }).
+\]
+
+\begin{lemma}\label{lemma:17-10}
+There exists a unique connection $f^*( \btd )$ on $f^*(\xi)$ such that the diagram below commutes:
+\[\begin{tikzcd}
+  \Omega^0(\xi) \dar{f^*}\rar{\btd} & \Omega^1(\xi) \dar{f^*} \\
+  \Omega^0( {f^*(\xi) }) \rar{f^*( \btd )} & \Omega^1( {f^*(\xi) })
+\end{tikzcd}\]
+\end{lemma}
+
+
+\begin{proof}
+  The map $f:{M}^{\prime } \ra  M$ induces a homomorphism of rings $\Omega^0(M)  \ra$  $\Omega^0( {M}^{\prime })$, 
+  so that every $\Omega^0( {M}^{\prime })$-module becomes an $\Omega^0(M)$-module. In particular $\Omega^0( {f^*(\xi) })$ 
+  becomes an $\Omega^0(M)$-module, and there is a homomorphism of $\Omega^0(M)$- modules
+  \[
+    f^*\!\!:\Omega^0(\xi)  \ra  \Omega^0( {f^*(\xi) })
+  \]
+  with $f^*(s) ( x^{\prime })  = s( {f( x^{\prime }) })$. We can then define a homomorphism 
+  of $\Omega^0( {M}^{\prime })$- modules
+  \[
+    \Omega^0( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi)  \ra  \Omega^0( {f^*(\xi) })
+  \]
+  by sending ${\phi }^{\prime } \otimes  s$ into ${\phi }^{\prime } \cdot  f^*(s)$. This is an isomorphism; 
+  cf. Exercise \ref{exercise:17-13}. It follows that
+  \[
+    \Omega^{k}( {f^*(\xi) }) 
+    = \Omega^{k}( {M}^{\prime }) \otimes_{\Omega^0( {M}^{\prime }) }\Omega^0( {f^*(\xi) })  
+    \simee \Omega^{k}( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi).
+  \]
+
+  Similarly, pull-back of differential forms
+  \[
+    f^*\!\!:\Omega^{k}(M)  \ra  \Omega^{k}( {M}^{\prime })
+  \]
+  is $\Omega^0(M)$-linear and induces a homomorphism
+  \[
+    \Omega^0( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^{k}(M)  
+    \ra 
+    \Omega^{k}( {M}^{\prime });\;\phi  \otimes  \omega  \mapsto  \phi f^*( \omega ).
+  \]
+
+  This is not an isomorphism, but applying the functor $(-) \otimes_{\Omega^0(M) }\Omega^0(\xi)$ one gets a homomorphism
+  \[
+    \rho\colon\Omega^0( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^{k}(\xi)  
+    \ra
+    \Omega^{k}( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi).
+  \]
+
+  The sum of the maps
+  \begin{align*}
+    \dd \otimes  1:\Omega^0( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi)  
+      & \ra  \Omega^1( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi) \\
+    \rho ( {1 \otimes  \btd }) :\Omega^0( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi)  
+      & \ra  \Omega^1( {M}^{\prime }) \otimes_{\Omega^0(M) }\Omega^0(\xi)
+  \end{align*}
+  defines the required connection
+  \[
+    f^*( \btd ) :\Omega^0( {f^*(\xi) })  \ra  \Omega^1( {f^*(\xi) }).
+  \]
+\end{proof} 
+
+We note that if $A( \mathbf{e})$ is the connection matrix for $\btd$ w.r.t. 
+a frame ${\left. \mathbf{e}\text{ for }\xi \right| }_{U}$ then $f^*( {A( \mathbf{e}) })$ is 
+the connection matrix for $f^*( \btd )$ w.r.t. the frame 
+$\mathbf{e} \circ  f$ for $f^*{(\xi) }_{{f}^{-1}( U) }$. There is a commutative diagram corresponding
+to that of Lemma \ref{lemma:17-10} where $\btd$ is replaced 
+by $\dd^\btd:\Omega^1(\xi) \ra  \Omega^{2}(\xi)$, and thus also a diagram
+\[\begin{tikzcd}
+  \Omega^0(\xi) \dar{f^*}\rar{F^\btd} & \Omega^2(\xi) \dar{f^*} \\
+  \Omega^0(f^*(\xi)) \rar{F^{f^*(\btd)}} & \Omega^2( {f^*(\xi) })
+\end{tikzcd}\]
+
+Since $f^*\hom(\xi, \xi)  = \hom( {f^*(\xi),f^*(\xi) })$ the above gives
+\begin{align}\label{eq:17-13}
+  f^*({F}^\btd)  = {F}^{f^*( \btd ) }.
+\end{align}
+
+Consider the non-singular pairing
+\[
+  (,):\Omega^{i}(\xi)  \otimes  \Omega^{j}( \xi^*) 
+  \overset{ \land  }{ \ra  }
+  \Omega^{i + j}( {\xi  \otimes  \xi^*})  \ra  \Omega^{i + j}(M)
+\]
+where the last map is induced from the bundle map $\xi  \otimes  \xi^* \ra  {\varepsilon }^1$. 
+For $i = j = 0$,
+\[
+  \Omega^0( \xi^*)  \simee  {\hom}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^0(M) })
+\]
+by Theorem \ref{theorem:16-13}.(iii), and the above pairing corresponds to the evaluation
+\[
+  \langle,\rangle :\Omega^0(\xi)  \otimes  {\hom}_{\Omega^0(M) }( {\Omega^0(\xi),\Omega^0(M) }) \ra  \Omega^0(M).
+\]
+
+For general $i$ and $j$,
+\[
+  ( {\omega  \otimes  s,\tau  \otimes  s^*})  
+  = ( {\omega  \land  \tau })  \otimes  \left\langle  {s,s^*}\right\rangle
+\]
+
+where $\omega  \in  \Omega^{i}(M),\tau  \in  \Omega^{j}(M)$ and $s \in  \Omega^0(\xi),s^* \in  \Omega^0(\xi)$.
+
+Given a connection $\btd_{\xi }$ on $\xi$, we define the 
+connection $\btd_{\xi^*}$ on $\xi^*$ by requiring
+\begin{align}\label{eq:17-14}
+\dd(s,s^*)  = ( {\btd_{\xi }(s),s^*})  + ( {s,\btd_{\xi^*}( s^*) }).
+\end{align}
+
+This specifies $\btd_{\xi^*}$ uniquely because the pairing $(\,,\,)$ is non-singular. 
+The desired connection on the tensor product is defined analogously. Indeed the product from \eqref{eq:17-7} induces 
+a $\Omega^0(M)$-linear map
+\[
+  \land  :\Omega^{i}(\xi) \otimes_{\Omega^0(M) }\Omega^{j}( \eta )  \ra  \Omega^{i + j}( {\xi  \otimes  \eta }),
+\]
+which for $i = j = 0$ is the isomorphism
+\[
+  \Omega^0(\xi) \otimes_{\Omega^0(M) }\Omega^0( \eta )  \simee  \Omega^0( {\xi  \otimes  \eta })
+\]
+from Theorem \ref{theorem:16-13}.(ii). Define
+\begin{align}\label{eq:17-15}
+  \btd_{\xi  \otimes  \eta }( {s \otimes  t})  
+  = \btd_{\xi }(s)  \land  t + s \land  \btd_{\eta }(t).
+\end{align}
+
+Finally we can combine \eqref{eq:17-14} and \eqref{eq:17-15} to define
+\[
+\btd_{\xi^* \otimes  \eta }( {s \otimes  t})  = \btd_{\xi^*}(s)  \land  t + s \land  \btd_{\xi }(t).
+\]
+
+Since $\xi^* \otimes  \eta  \simee  \hom( \xi, \eta)$, this defines a connection on $\hom( \xi, \eta)$. 
+Alternatively one can apply the evaluation $\Omega^0( {\hom( \xi, \eta) })  \times  \Omega^0(\xi)  \ra  \Omega^0( \eta )$ 
+and the induced $\Omega^0(M)$-bilinear product $(,) :\Omega^{i}(\xi)  \times  \Omega^{j}( {\hom( \xi, \eta) }) \ra \Omega^{i + j}( \eta )$ 
+and define $\btd_{\hom( \xi, \eta) }$ by the formula
+\begin{align}\label{eq:17-16}
+  \btd_{\eta }( ( {s,\phi }) )  = ( {\btd_{\xi }(s),\phi })  + ( {s,\btd_{\hom( \xi, \eta) }( \phi ) }).
+\end{align}
+
+\begin{lemma}\label{lemma:17-11}
+  Under the identification $\alpha:\xi^* \otimes  \eta \overset{ \simee  }{ \ra  }\hom( \xi, \eta),
+  \btd_{\xi^* \otimes  \eta } =$  $\btd_{\hom( \xi, \eta)}$.
+\end{lemma}
+
+\begin{proof}
+  There is a commutative diagram of vector bundles over $M$
+  \[\begin{tikzcd}
+    \xi\otimes\xi^*\otimes\eta\dar{(\;,\;)\otimes\id_\eta}\rar{\id\otimes\alpha} & \xi\otimes\hom(\xi, \eta)\dar{(\;,\;)}\\
+    \varepsilon_M^1\otimes\eta\rar{\text{mult}} & \eta
+  \end{tikzcd}\]
+  and a corresponding diagram of sections. Let $s \in  \Omega^0(\xi),\;t \in  \Omega^0( \eta )$ 
+  and $s^* \in  \Omega^0( \xi^*)$. Then
+  \begin{align*}
+    & \btd_{\eta }(( {s,\alpha ( {s^* \otimes  t}) }) ) 
+      = ( {\btd_{\xi }(s),\alpha ( {s^* \otimes  t}) })  
+      + ( {s,\btd_{\hom( \xi, \eta) }( {\alpha ( {s^* \otimes  t}) }) }) \\
+    & \dd( ( {s,s^*}) )  = ( {\btd_{\xi }(s),s^*}) 
+      + ( {s,\btd_{\xi^*}( s^*) }) \\
+    & \btd_{\xi^* \otimes  \eta }( {s^* \otimes  t}) 
+      = \btd_{\xi^*}( s^*)  \land  t 
+      + s^* \land  \btd_{\eta }(t).
+  \end{align*}
+
+  From the diagram we get that $( {s,\alpha ( {s^* \otimes  t}) })  = ( {s,s^*}) t$, and hence
+  \begin{align*}
+    ( {\btd_{\xi }(s),\alpha ( {s^* \otimes  t}) }) 
+      & = ( {\btd_{\xi }(s),s^*})  \land  t \\  
+    ( {s,\btd_{\xi^* \otimes  \eta }\R{Im}( {s^* \otimes  t}) })  
+      & = ( {s,\btd_{\xi^*}( s^*) })  \land  t + ( {s,s^*}) \btd_{\eta }(t).
+  \end{align*}
+
+  On the other hand, using these formulas we have
+  \begin{align*}
+    ( {s,\btd_{\hom( \xi, \eta) }( {\alpha ( {s^* \otimes  t}) }) })  
+    & = \!\dd( {( {s,s^*}) t}) - ( {\btd_{\xi }(s),s^*})  \land  t \\
+    & = \!\dd( ( {s,s^*}) )  \land  t + ( {s,s^*}) \btd_{\eta }(t) - ( {\btd_{\xi }(s),s^*})  \land  t \\
+    & = ( {s,\btd_{\xi^*}( s^*) })  \land  t + ( {s,s^*}) \btd_{\eta }(t),
+  \end{align*}
+  and the assertion follows.
+\end{proof}
+
+Each of the connections from \eqref{eq:17-14}, \eqref{eq:17-15} and \eqref{eq:17-16} can 
+be extended to linear maps
+\begin{align*}
+  \Omega^{i}( \xi^*) & \overset{\dd^\btd}{ \ra  }\Omega^{i + 1}( \xi^*)\\
+  \Omega^{i}( {\xi  \otimes  \eta }) & \overset{\dd^\btd}{ \ra  }\Omega^{i + 1}( {\xi  \otimes  \eta })\\
+  \Omega^{i}(\hom(\xi,\eta)) & \overset{\dd^\btd}{ \ra  }\Omega^{i + 1}( {\hom( \xi, \eta) })
+\end{align*}
+and the defining formulas generalize to the following lemma, whose proof is left to the reader.
+
+\begin{lemma}\label{lemma:17-12}
+Let $s \in  \Omega^{i}(\xi),s^* \in  \Omega^{i}( \xi^*),t \in  \Omega^{j}( \eta )$ and $\phi  \in  \Omega^{j}( {\hom( \xi, \eta) })$. 
+We have
+\begin{enumerate}
+  \item $\dd( ( {s,s^*}) )  = ( {\dd^\btd(s),s^*})  + {(-1) }^{i}( {s,\dd^\btd( s^*) })$
+  \item $\dd^\btd( {s \land  t})  = \dd^\btd s \land  t + {(-1) }^{i}s \land  \dd^\btd(t)$
+  \item $\dd^\btd( ( {s,\phi }) )  = ( {\dd^\btd(s),\phi })  + {(-1) }^{i}( {s,\dd^\btd\phi })$ 
+\end{enumerate}
+
+where $\dd^\btd$ corresponds to $\btd  = \btd_{\xi },\btd_{\eta },\btd_{\xi^*}$ 
+and $\btd_{\hom( {\xi,\xi^*}) }$, respectively.\hfill$\square$
+\end{lemma}
+
+The definitions above may appear somewhat abstract, so let us state in local coordinates the case of most 
+importance for our later use. Let $\btd = \btd_{\xi }$ be a connection on $\xi$, and 
+let $\mathbf{e} = ( {{e}_1,\ldots,{e}_{k}})$ be a frame over $U$. This defines isomorphisms
+\[
+  {\xi|}_{U} \simee  U \times\RR^{k},\quad 
+  {\hom(\xi, \xi)|}_U \simee  U \times  {M}_{k}( \RR)
+\]
+and induces
+\[
+  \Omega^{n}(\xi|_U)  \simee  \Omega^{n}{( U) }^{\oplus k},\quad
+  \Omega^{n}(\hom(\xi, \xi)|_U) \simee  {M}_{k}(\Omega^{n}(U)).
+\]
+
+The connections $\btd = \btd_{\xi }$ and $\hat{\btd} = \btd_{\hom(\xi, \xi)}$ and the 
+induced $\dd^\triangledown$ and $\dd^\triangledown$ then become
+\[
+  \dd^\btd:\Omega^{n}{(U) }^{\oplus k} \ra  \Omega^{n + 1}{(U) }^{\oplus k},\quad
+  \dd^\btd:{M}_{k}(\Omega^{n}(U))  \ra  {M}_{k}(\Omega^{n + 1}(U)).
+\]
+
+They are given as
+\begin{align}\label{eq:17-17}
+  \begin{aligned}
+    \dd^\btd( {{s}_1,\ldots,{s}_{k}})  & = ( {\!\dd{s}_1,\ldots,\!\dd{s}_{k}})  + ( {{s}_1,\ldots,{s}_{k}})  \land  A\\
+    \dd^{\hat\btd}( \Phi ) & = {d\Phi }- ( {A \land  \Phi - {(-1) }^{n}\Phi  \land  A})
+  \end{aligned}
+\end{align}
+where $A = A( \mathbf{e})$ is the connection matrix. The first formula follows from \eqref{eq:17-5}; the second is 
+proved quite similarly.
+
+If ${\mathbf{e}}^{\prime }$ is another frame for ${\left. \xi \right| }_{U}$ then ${\mathbf{e}}^{\prime } = G \cdot  \mathbf{e}$ 
+with $G \in  {\mathrm{{GL}}}_{k}( {\Omega^0( U) })$, and the connection matrices $A = A( \mathbf{e}),{A}^{\prime } = A( \mathbf{e})$ 
+and the curvature forms ${F}^\btd( \mathbf{e})$, $F^\btd ({\mathbf{e}}^{\prime })$ are related by
+\begin{align}\label{eq:17-18}
+  \begin{aligned}
+    & {A}^{\prime } = ( {\!\dd G}) {G}^{-1} + {GA}{G}^{-1}\\
+    & {F}^\btd( {\mathbf{e}}^{\prime })  = G{F}^\btd( \mathbf{e}) {G}^{-1}
+  \end{aligned}
+\end{align}
+
+cf. Exercise \ref{exercise:17-8}. The first formula follows from \eqref{eq:17-5} applied to the 
+equation $( {{s}_1,\ldots,{s}_{k}})  = ( {{s}_1^{\prime },\ldots,{s}_{k}^{\prime }}) G$. The second formula follows 
+from the first one and \eqref{eq:17-10}.
+
+\begin{theorem}[Bianchi's identity]\label{theorem:17-13}\index{Bianchi's identity}
+  We have $\dd^\btd{F}^\btd = 0$, where $\dd^\btd$ is associated to the connection $\btd = \btd_{\hom(\xi, \xi) }$.
+\end{theorem}
+
+\begin{proof}
+Use the local forms \eqref{eq:17-10} and \eqref{eq:17-7} to get
+\begin{align*}
+  {F}^\btd & = {\!\dd A}- A \land  A \\
+  \dd^\btd{F}^\btd 
+    & = - \!\dd ( {A \land  A})  + {F}^\btd \land  A- A \land  {F}^\btd\\
+    & = - \!\dd ( {A \land  A})  + {\!\dd A} \land  A- A \land  {\!\dd A} = 0.
+\end{align*}
+\end{proof}
+
+The product in $\Omega^0( \hom(\xi, \xi))$ associated to fiberwise composition induces a product
+\[
+  \land:\Omega^{i}( \hom(\xi, \xi))  \otimes  \Omega^{j}( \hom(\xi, \xi)) 
+  \ra \Omega^{i + j}( \hom(\xi, \xi)).
+\]
+
+It is not hard to show that $\dd^{ \triangledown  }$ is a derivation with respect to this product, i.e. that
+\begin{align}\label{eq:17-19}
+  \dd^\btd( {{R}_1 \land  {R}_{2}}) 
+  = \dd^\btd( {R}_1)  \land  {R}_{2} + {(-1) }^{i}{R}_1 \land  \dd^\btd( {R}_{2}).
+\end{align}
+
+The trace homomorphism
+\[
+  \R{Tr}:\hom(V, V)  \ra  \RR
+\]
+
+can be defined without reference to choice of basis as the composition
+\[
+  \hom(V, V)\xra[\simee] V^*\otimes V \xra*[ev] \RR
+\]
+where $\R{ev}( {f \otimes  v})  = f( v)$. It induces a trace
+\[
+  \R{Tr}:\hom(\xi, \xi)  \ra  {\varepsilon }^1
+\]
+of vector bundles, and hence in turn a trace
+\[
+  \R{Tr}:\Omega^{i}( \hom(\xi, \xi)) \ra \Omega^{i}(M)
+\]
+into the $i$-forms on $M$, and we have:
+
+\begin{theorem}\label{theorem:17-14}
+  For $\phi  \in  \Omega^{i}( \hom(\xi, \xi))$,
+  \[
+    \dd\,\R{Tr}( \phi ) = \R{Tr}(\!\dd^\btd\phi)
+  \]
+  where $\dd^\btd$ is associated to $\btd  = \btd_{\hom(\xi, \xi)}$.
+\end{theorem}
+
+\begin{proof}
+Let $s \in  \Omega^0(\xi),s^* \in  \Omega^0( \xi^*),\omega  \in  \Omega^{i}(M)$ and suppose
+\[
+  \phi  
+  = \omega  \otimes  s \otimes  s^* 
+  \in  \Omega^{i}(M) \otimes_{\Omega^0(M) }\Omega^0(\xi) \otimes_{\Omega^0(M) }\Omega^0( \xi^*)  
+  \simee  \Omega^{i}( \hom(\xi, \xi)).
+\]
+
+Then
+\begin{align*}
+    \dd^\btd\phi  
+  & = {\!\dd\omega } \otimes  ( {s \otimes  s^*})  + {(-1) }^{i}\omega  \otimes  \btd ( {s \otimes  s^*}) \\
+  & = {\!\dd\omega } \otimes  ( {s \otimes  s^*})  + {(-1) }^{i}\omega  \otimes  ( {\btd_{\xi }(s)  \otimes  s^* + s \otimes  \btd_{\xi^*}( s^*) })
+\end{align*}
+and we get
+\begin{align*}
+    \R{Tr}\dd^\btd\phi  
+  & = ( {\!\dd\omega }) ( {s,s^*})  + {(-1) }^{i}\omega  \land  ( {( {\btd_{\xi }(s),s^*})  + ( {s,\btd_{\xi^*}( s^*) }) }) \\
+  & = ( {s,s^*}) {\!\dd\omega } + {(-1) }^{i}\omega  \land  \!\dd( ( {s,s^*}) ) \\
+  & = ( {s,s^*}) {\!\dd\omega } + \!\dd( ( {s,s^*}) )  \land  \omega  = \!\dd( {( {s,s^*}) \omega })  = \!\dd\,\R{Tr}\phi.
+\end{align*}
+\end{proof}
+
+We have mostly formulated the above theorems for real smooth vector bundles, but there are of course completely 
+analogous results for complex vector bundles upon starting with a complex connection $\btd$. One simply 
+replaces $\Omega^{i}(M)$ by $\Omega^{i}( {M;\CC})$, and $\otimes_{\RR}$ by $\otimes_{\CC}$ 
+and $\hom_\RR$ by $\hom_\CC$ throughout, and requires maps to 
+be $\CC$-linear rather than $\RR$-linear. This complex version will be used below in Chapter 18.
+
+Let $\xi$ be a complex vector bundle with complex connection $\btd$. Combining Theorems \ref{theorem:17-13} 
+and \ref{theorem:17-14} we see that the 2-form $\R{Tr}( {F}^\btd)\in\Omega^{2}( {M;\CC})$ is closed, and thus 
+defines a cohomology class in complex de Rham cohomology: $[  {\R{Tr}( {F}^\btd) }]   \in  {H}^{2}( {M;\CC})$. 
+More generally, it follows from \eqref{eq:17-19} that the trace of
+\[
+  {F}^\btd \land  \ldots  \land  {F}^\btd \in  \Omega^{2k}( {{\hom}_{\CC}( \xi, \xi) })
+\]
+is a closed form in $\Omega^{2k}(M)$.
+
+\begin{definition}\label{definition:17-15}
+The $k$-th \Index{Chern character class} of $( {\xi, \btd  })$ is the cohomology class
+\[
+  {\R{ch}}_{k}( {\xi,\btd })  
+  = \frac{{(-1) }^{k}}{{( 2\pi \sqrt{-1}) }^{k}k!}[  {\R{Tr}( {{F}^\btd \land  \ldots  \land  {F}^\btd}) }]  
+  \in  {H}^{2k}( {M;\CC}).
+\]
+\end{definition}
+
+Here ${H}^{ * }( {M;\CC})  = {H}^{ * }(M) \otimes_\RR\CC$ is the cohomology of the complexified de Rham complex. 
+The normalizing factor in Definition \ref{definition:17-15} is chosen so that the cohomology class is actually real, i.e. a 
+class in ${H}^{2k}(M)$. This will be proved in the following chapters, where we also show that the cohomology 
+class is independent of the choice of connection.
+
+A real vector bundle $\xi$ can be complexified ${\xi }_{\CC} = \xi \otimes_\RR{\varepsilon }_{\CC}^1$, and a 
+real connection $\btd$ on $\xi$ induces a complex connection $\btd_{\CC}$ on ${\xi }_{\CC}$.
+
+\begin{definition}\label{definition:17-16}
+  The $k$-th \textit{Pontryagin character class}\index{Pontryagin!character class} $\R{ph}_k(\xi, \btd)$ is the 
+  class $\R{ph}_k(\xi, \btd) = \R{ch}_{2k}(\xi_\CC,\btd_\CC) \in {H}^{4k}(M;\CC).$
+\end{definition}
+

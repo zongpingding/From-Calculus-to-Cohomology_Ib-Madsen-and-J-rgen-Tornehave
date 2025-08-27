@@ -1,0 +1,450 @@
+\chapter{The Complex Projective Space \texorpdfstring{$\B{CP}^n$}{CPn}}
+The set of 1-dimensional complex subspace of $\CC^{n+1}$ is denoted by $\B{CP}^n$, and 
+is called the complex projective $n$-dimensional space.
+
+For $\F z=(z_0, z_1, \ldots, z_n)\in\CC^{n+1}-\{0\}$ let $\pi(z)=[z_0,z_1, \ldots, z_n]$ denote the ``point''
+$\CC_z\in\B{CP}^n$ spanned by $z$. We give $\B{CP}^n$ the quotient topology with respect to $\pi$: a set $U\subseteq \B{CP}^n$
+is open if and only if $\pi^{-1}(U)\subseteq\CC^{n+1}-\{0\}$ is open. In particular there are open subsets of $\B{CP}^n$,
+\[
+  U_j = \{[z_0, \ldots, z_n]\in\B{CP}^n\mid z_j\neq 0\}
+\]
+and the homeomorphism $h_j:U_j\to\CC^n$,
+\begin{align}\label{eq:14-1}
+  h_j([z_0, \ldots, z_n]) = \left(z_0/z_j, \ldots, \widehat{z_j/z_j}, \ldots, z_n/z_j\right)
+\end{align}
+with inverse
+\begin{align}\label{eq:14-2}
+  h_j^{-1}(w_1, \ldots, w_n) = [w_1, \ldots, 1,\ldots, w_n].
+\end{align}
+
+The transition functions $h_k\circ h_j^{-1}$ have coordinate functions of the form $w_l/w_m$ or
+$1/w_m$. The atlas $\C{H} = \{(U_j , h_j)\}$ gives epn the structure of a complex (analytic
+or holomorphic) manifold, because the transition functions are holomorphic. In
+the following, however, we shall mainly use the underlying structure as a smooth
+manifold, by interpreting $\C{H}$ as a $C^\infty$-atlas upon identifying en with $\RR^{2n}$.
+
+\begin{example}[The Riemann sphere and Hopf fibration]\label{example:14-1}
+  Since $\CC\times\RR$ can be identified with $\RR^3$, the unit sphere $S^2$ can be written as
+  \[
+    S^2 = \{(z, t)\in\CC\times\RR\mid |z|^2 + t^2 = 1\}
+  \]
+  with north pole $p_+ = (0,1)$ and south pole $p_{-} = (0, -1)$. The equatorial plane
+  $\CC\times \{0\}$ is identified with $\CC$. The stereographic projections $\psi_{\pm}:S^2-\{p_{\pm}\}\to\CC$
+  map $p$ to the points of intersection between the equatorial plane and the line
+  through $p_{\pm}$ and $p$. A straightforward calculation gives, for $(z, t)\in S^2-\{p_{\pm}\}$,
+  \[
+    \psi_+(z, t) = \frac{z }{1-t},\enspace \psi_{-}(z, t) = \frac{z}{1+t}.
+  \]
+  The $\psi_{\pm}$ are diffeomorphisms with inverse 
+  \[
+    \psi_{\pm}^{-1}(w) = \left(\frac{2w}{1+|w|^2}, \pm\frac{|w|^2-1}{|w|^2+1}\right).
+  \]
+  The transition function $\psi_{-}\circ\psi_{+}^{-1}:\CC-\{0\}\to\CC-\{0\}$ is easily calculated to be 
+  \[
+    \psi_{-}\circ\psi_{+}^{-1}(w) = (\overline{w})^{-1}.
+  \]
+\end{example}
+
+If we orient $\CC$ in the usual manner and consider $S^2$ as the boundary of $D^3$ with
+standard orientation from $\RR^3$, then $\psi_{-}$ is orientation-preserving and $\psi_{+}$ 
+orientation reversing (check at the poles!). This inspires us to replace $\psi_{+}$ by its conjugate
+$\overline{\psi}_{+}:S^2-\{p_+\}\to\CC$. Then the transisition functions between $\overline\psi_{+}$ and $\psi_{-}$ are
+inversion in the multiplicative group of $\CC$, so the atlas on $S^2$ consisting of $\overline\psi_{+}$
+and $\psi_{-}$ gives $S^2$ the structure of a 1-dimensional complex manifold (Riemann surface).
+
+The classical Hopf map $\eta:S^3\to S^2$ is given by 
+\begin{align}\label{eq:14-3}
+  \eta(z_0, z_1) = (2\overline{z}_0z_1, |z_0|^2 - |z_1|^2).
+\end{align}
+Hopf discovered (in 1931) that $\eta$ is not homotopy to a constant map.
+
+The Riemann surface of Example \ref{example:14-1} is holomorphically equivalent to $\B{CP}^1$.
+Indeed, by \eqref{eq:14-2}, the compositions
+\[
+  S^2-\{p_{-}\}\xra[\psi_{-}] \CC \to \B{CP}^1 \enspace\text{and}\enspace
+  S^2-\{p_{+}\}\xra[\overline{\psi}_{+}]\CC \to \B{CP}^1
+\]
+are
+\[
+  h_0^{-1}\circ\psi_{-}(z, t) = [1, z/(1+t)], \quad
+  h_1^{-1}\circ\overline{\psi}_{+}(z, t) = [z/(1-t), 1].
+\] 
+These expressions agree when $t\in (-1,1)$, so we can define a homeomorphism
+\begin{align}\label{eq:14-4}
+  \Psi:S^2\to\B{CP}^1;\quad 
+  \Psi(z, t) = \left\{\begin{aligned}
+    & [1+t, z], && \text{if } (z, t)\neq (0, -1)\\
+    & [\overline{z}, 1-t], && \text{if } (z, t)\neq (0, 1)
+  \end{aligned}\right.
+\end{align}
+
+Actually $\Psi$ is holomorphic with holomorphic inverse. The complex projective
+plane $\B{CP}^1$ is often identified with $C\cup\{\infty\}$ by letting $[z_0, z_1]\in \B{CP}^1$ correspond
+to $z_0^{-1}z_1$, and assigning $\infty$ to $z_0=0$. In this identification $\Psi:S^2\to\CC\cup \{\infty\}$
+becomes the stereographic projection $\psi_{-}$ from the south pole $p_{-}$, extended by
+mapping $p_{-}$ to $\infty$.
+
+One may generalize the Hopf fibration to the map 
+\begin{align}\label{eq:14-5}
+  \pi:S^{2n+1}\to\B{CP}^n;\quad 
+  \pi(z_0, \ldots, z_n) = [z_0, \ldots, z_n].
+\end{align}
+Its fiber $\pi^{-1}(p)$ is the unit circle in the complex line $p\in\B{CP}^n$. For $n=1$ this 
+is nothing but the Hopf fibration of Example \ref{example:14-1}. Indeed with the notation of \eqref{eq:14-3},
+\eqref{eq:14-4}
+\[
+  \Psi^{-1}([z_0, z_1]) =\Psi^{-1}([z, z_0^{-1}z_1])
+  = \psi_{-}^{-1}(z_0^{-1}z_1)
+  = (2\overline{z}_0z_1, |z_0|^2 - |z_1|^2)
+\]
+
+The unit circle $S^2\subseteq\CC$ acts on the sphere $S^{2n+1}\subseteq\CC^{n+1}$ by coordinatewise 
+multiplication:
+\begin{align}\label{eq:14-6}
+  S^2\times S^{2n+1}\to S^{2n+1};\quad 
+  (\lambda, \F z) \ma \lambda\F z.
+\end{align}
+The action is free, and the sets of orbits of this action is precisely $\B{CP}^n$ in the sense 
+that the orbit space $S^{2n+1}/S^1$ is homeomorphism to $\B{CP}^n$. 
+
+
+\begin{theorem}\label{theorem:14-2}
+  The cohomolog of $\B{CP}^n$ is
+  \begin{align*}
+    H^{2j}(\B{CP}^n) = \RR \quad & \text{ for } 0\le j\le n\\
+    H^k(\B{CP}^n) = 0 \quad & \text{ otherwise. }
+  \end{align*}
+\end{theorem}
+
+\begin{proof}
+  The embedding $\CC^n\subset\CC^{n+1}$ induces an embedding of $\B{CP}^{n-1}$ into $\B{CP}^{n}$,
+and we can use Proposition \ref{proposition:13-11} on the pair $(\B{CP}^{n}, \B{CP}^{n-1})$. We can 
+assume the result for $\B{CP}^{n-1}$ and that $n\ge 2$, since the cohomology of $\B{CP}^{1}=S^2$ was given
+in Example \ref{example:9-29}. The complement
+\[
+  \B{CP}^{n}-\B{CP}^{n-1} = U_n
+\]
+is by \eqref{eq:14-1} and \eqref{eq:14-2} homeomorphic with $\RR^{2n}$. The exact cohomolog sequence 
+takes the form 
+\[
+  \cdots\ra H_c^q(\RR^{2n})
+  \xra[i_*]H^q{\B{CP}^n}
+  \xra[j^*]H^q(\B{CP}^{n-1})
+  \xra[\delta]H_c^{q+1}(\RR^{2n})
+  \ra\cdots
+\]
+We know from Lemma \ref{lemma:13-2} that $H_c^{q}(\RR^{2n})$ is non-zero only for $q=2n$, when it 
+is a copy of $\RR$, and the result follows easily.
+\end{proof}
+
+It follows from Theorem \ref{theorem:14-2} that the general Hopf map $\pi:S^{2n+1}\to\B{CP}^n$ cannot 
+have a section $s:\B{CP}^n\to S^{2n+1}$: if $s$ exsited with $\pi\circ s=\id$, then 
+\[
+  H^2(\B{CP}^n)\xra[\pi^*]H^2(S^{2n+1})\xra[s^*]H^2(\B{CP}^n)
+\]
+would be the identity, but this is impossible as $H^2(\B{CP}^n)\neq 0$ and $H_2(S^{2n+1})=0$.
+Since $H^{2n}(\B{CP}^n)=\RR$ we know from Exercise \ref{exercise:10-4} that $\B{CP}^n$ is an oriented 
+manifold, and hence from Theorem \ref{theorem:13-5} that the bilinear map 
+\[
+  H^q(\B{CP}^n)\times H^{2n-q}(\B{CP}^{n})\to \RR
+\]
+given by the wedge product (followed by the integration isomorphism) is a dual
+(non-singular) pairing. In particular, the generator of $H^{2p}(\CP^n)$ and the generator
+of $H^{2n-2p}(\CP^n)$ has non-trivial product.
+
+\begin{theorem}\label{theorem:14-3}
+  The cohomology algebra $H^*(\CP^n)$ is a truncated polynomial algebra
+  \[
+    H^*(\CP^n) =\RR[c]/(C^{n+1})
+  \]
+  where $c$ is a non-zero class in degree 2, and $(c^{n+1})$ the ideal generated by $c^{n+1}$.
+\end{theorem}
+
+\begin{proof}
+  We use induction over n, so suppose the theorem proved for $\CP^{n-1}$. The inclusion
+  \[
+    j:\CP^{n-1}\to\CP^n
+  \]
+  induces the map 
+  \[
+    j^*:H^*(\CP^n)\to H^*(\CP^{n-1}).
+  \]
+  The proof of Theorem \ref{theorem:14-2} shows that $j^*$ is an isomorphism for $i < 2n -2$.
+  Hence $c^{n-1}\neq 0$ in $H^{2n- 2}(\CP^n)$, and the pairing
+  \[
+    H^2(\CP^n)\times H^{2n-2}(\CP^n)\to H^{2n}(\CP^n)
+  \]
+  implies that $c^n\neq 0$.
+\end{proof}
+
+It is a consequence of the above theorem that $\CP^n$ supports an orientation reversing 
+diffeomorphism only if $n$ is odd. Indeed, a map $f:\CP^n\to\CP^n$ induces a homomorphism
+\[
+  f^*:H^*(\CP^n)\to H^*(\CP^n)
+\]
+If $f^*(c)=ac$, then 
+\[
+  f^*(c^j) = a^jc^j\quad (0\le j\le n).
+\]
+
+For $j = n$ we get $\R{deg}(f) = a^n$. If $n$ is even then $\R{deg}(f)\ge 0$. In this case there are
+no orientation-reversing diffeomorphisms of $\CP^n$. If $n$ is odd, on the other hand,
+then complex conjugation is an orientation-reversing diffeomorphism of $\CP^n$:
+\[
+  f([z_0, z_1, \ldots, z_n]) = [\overline{z}_0, \overline{z}_1, \ldots, \overline{z}_n].
+\]
+has $a=-1$ as one sees by restricting to $S^2=\CP^1$.
+
+We close this chapter by constructing closed differential forms which represent a
+basis for $H^{2j}(\CP^n)$. This requires some preparations.
+
+Consider a unit vector $v\in S^{2n+1}\subset\CC^{n+1}$ with image $p = \pi(v)$. Now $iv$ is a
+unit vector tangent to the $S^1$-orbit of $v$ (which was precisely the unit circle in the
+1-dimensional $\CC$-subspace $\CC v$). The orthogonal complement ($(\CC v)^{\perp}$ with respect
+to the usual hermitian inner product on $\CC^{n+1}$ is a real $2n$-dimensional subspace
+of $T_v S^{2n+1}$, and is orthogonal to $iv$ with respect to the real inner product on
+$T_v S^{2n+1}$ induced from $\CC^{n+1}\to\RR^{n+2}$.
+
+
+\begin{lemma}\label{lemma:14-4}
+  \begin{enumerate}
+    \item Let $p\in\CP^n$ and $v\in\pi^{-1}(p)\subseteq S^{2n+1}$. There is an open neighborhood
+      $U$ around $p$ in $\CP^n$ and a smooth map $s:U\to S^{2n+1}$ such that $s(p)=v$ and $\pi\circ s=\id_U$.
+    \item Let $v\in S^{2n+1}$ and $p=\pi(v)$. The differential $D_v\pi$ induces on $\RR$-linear isomorphism
+      from $(\CC v)^\perp$ to $T_p\CP^n$.
+    \item There exists a well-defined structure on $T_p\CP^n$ as an $n$-dimensional $\CC$-vector space with 
+      hermitian inner product, which makes the isomorphisms of (ii) into $\CC$-linear isometries.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Choose $U=U_j$ such that $p\in U$, cf. \eqref{eq:14-1}. Consider the map $s_j:U_j\to S^{2n+1}$ given by 
+  \begin{align}\label{eq:14-7}
+    s_j([z_0, \ldots, z_j, \ldots, z_n]) 
+    = \biggl(\sum_{k=0}^{n }{|z_k|^2}\biggr)^{-1/2}(z_0, \ldots, z_j, \ldots, z_n)
+  \end{align}
+  where $z_j=1$. We let $s$ be this map composed with multiplication by the unique $\lambda\in S^1$ such 
+  that $\lambda s_j(p)=v$. The chain rule implies that
+  \[
+    D_v\pi: T_v S^{2n+1}\to T_p\CP^n
+  \]
+  is surjective. The kernel has real dimension 1, and since it contains $iv$, assertion (ii) follows.
+
+  Let $\phi:S^{2n+1}\to S^{2n+1}$ be the diffeomorphism given by multiplication by $\lambda\in S^1$.
+  The chain rule gives a commutative diagram
+  \[\begin{tikzcd}
+    T_v S^{2n+1} \arrow[rr, "D_v\phi"] \arrow[rd, "D_{v}\pi"'] & & T_{\lambda v} S^{2n+1} \arrow[ld, "D_{\lambda v}\pi"]\\
+    & T_p\CP^n &
+  \end{tikzcd}\]
+  Multiplication by $\lambda$ can be considered as an $\RR$-linear map $\CC^{n+1}\to\CC^{n+1}$, and
+  $D_v\phi$ is its restriction to $T_vS^{2n+1}$. We can conclude that $D_v\phi$ acts on $(\CC v)^\perp$ by
+  multiplying by $\lambda$. Since this is a $\CC$-linear isometry, assertion (iii) follows.
+\end{proof}
+
+Let $V$ be a $\CC$-vector space and let $rV$ denote the underlying $\RR$-vector space. A
+$\CC$-linear map $F: V\to W$ induces an $\RR$-linear map $rF: rV\to rW$.
+
+\begin{lemma}\label{lemma:14-5}
+  If $V$ is a finite-dimensional $\CC$-vector space and $F:V\to V$ is a $\CC$-linear map, then
+  \[
+    \det(rF) = |\det F|^2
+  \]
+\end{lemma}
+
+\begin{proof}
+  We use induction on $m = \dim_{\CC} V$. If $m = 1$ then $F$ is multiplication by
+some $z\in\CC$ The matrix for $rF$, with respect to a basis of the form $b, ib$ for $rV$, is
+\[
+  \begin{pmatrix}
+    x & -y \\
+    y & x
+  \end{pmatrix}
+\]
+where $x=\R{Re} z$ and $y=\im z$. Since $\det(rF)=x^2+y^2 = |z|^2$ the formula holds in this case.
+
+If $m\ge 2$ we can choose a complex line $V_0\subset V$ with $F(V_0)\subseteq V_0$ (generated by
+an eigenvector of $F$). $F$ induces $\CC$-linear maps
+\[
+  F_0:V_0\to V_0, \qquad F_1:V/V_0\to V/V_0
+\]
+and we may assume the formula for both $F_0$ and $F_1$. Since
+\[
+  \det F = (\det F_0)(\det F_1), \qquad \det rF = (\det rF_0)(\det rF_1),
+\]
+we are done.
+\end{proof}
+
+\begin{corollary}\label{corollary:14-6}
+  If $V$ is an $m$-dimensional $\CC$-vector space then $rV$ has a natural
+orientation with the property that any basis $b_1,\ldots, b_m$ over $\CC$ gives rise to a
+positive basis $\{b_1, ib_1, b_2, ib_2,\ldots, b_m, ib_m\}$ for $rV$.
+\end{corollary}
+
+\begin{proof}
+  Let $b_1', \ldots, b_m'$ be another basis of $V$. We can apply Lemma \ref{lemma:14-5} to the
+$\CC$-linear map $F$ determined by $F(b_j) = b_j'\; (1\le j\le m)$. Since $\det(rF) > 0$, the
+assertion follows.
+\end{proof}
+
+\begin{proposition}\label{proposition:14-7}
+  Let $V$ be an $m$-dimensional $\CC$-vector space with hermitian inner product $\langle,\rangle$. Then
+  \begin{enumerate}
+    \item $g(v_1, v_2) = \R{Re}\langle v_1, v_2\rangle$ defines an inner product on $rV$, and
+      \[
+        \omega(v_1, v_2) = g(iv_1, v_2) = -\im\langle v_1, v_2\rangle
+      \]
+      defines an element of $\alt^2(rV)$.
+    \item If $\R{vol}\in \alt^{2m}(rV)$ denotes the volume element determined by $g$ and the arientation
+      from Corololary \ref{corollary:14-6}, then $\omega^m=m!\R{vol}$, 
+      where $\omega^m=\omega\wedge\omega\wedge\ldots\wedge\omega$ ($m$ factors).
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  We leave (i) to the reader. An orthonormal basis $b_1, \ldots, b_m$ of $V$ with
+  respect to $\langle,\rangle$ gives rise to the positively oriented orthonormal basis of $rV$ with
+  respect to $g$,
+  \[
+    b_1, ib_1, b_2, ib_2, \ldots, b_m, ib_m.
+  \]
+  let $\epsilon_1, \tau_1, \epsilon_2, \tau_2, \ldots, \epsilon_m, \tau_m$ denote the dual basis for $\alt^1(rV)$.
+  Since $\omega(b_j, ib_j)=-\omega(ib_j, b_j)=1$, and $\omega$ vanished on all other pairs vectors, Lemma \ref{lemma:2-13}
+  shows that 
+  \begin{align}\label{eq:14-8}
+    \omega = \sum_{j=1}^{m }{\epsilon_j\wedge\tau_j}.
+  \end{align}
+  Furthermore, $\R{vol}=\epsilon_1\wedge\tau_1\wedge\ldots\wedge\epsilon_m\wedge\tau_m$, because both sides are 1 on 
+  the basis above. Direct computation gives $\omega^m=m!\R{vol}$ (See Appendix B.)
+\end{proof}
+
+Note that if $V=\CC^{n+1}$, with the usual hermitian scalar product and standard basis
+$e_0, \ldots, e_n$, then \eqref{eq:14-8} takes the form
+\begin{align}\label{eq:14-9}
+  \omega_{\CC^{n+1}} = \sum_{j=0}^{n }{\dd x_j \wedge\!\dd y_i}\in\Omega^2(r\CC^{n+1})
+\end{align}
+where $x_i$ and $x_j$ are the real and imaginary compositions of the coordinate $z_j$.
+
+We can apply Proposition \ref{proposition:14-7} to $T_p\CP^n$ with the complex structure from Lemma
+\ref{lemma:14-4}.(iii). This gives us a real scalar product $g_p$ on $T_p\CP^n$ and $\omega_p\in\alt^2T_p\CP^n$
+for each $p\in \CP^n$.
+
+\begin{theorem}\label{theorem:14-8}
+  The $\omega=\{\omega_p\}_{p\in\CP^n}$ define a closed 2-form on $\CP^n$ and $g=\{g_p\}_{p\in\CP^n}$ is a 
+  Riemannian metric on $\CP^n$ (the Fubini-Study metric). Moreover,
+  \[
+    \omega^n = n!\,\R{vol}_{\CP^n},
+  \]
+  where $\R{vol}_{\CP^n}$ is the volume form determined by $g$ and the natural orientation 
+  from Corollary \ref{corollary:14-6}.
+\end{theorem}
+
+\begin{proof}
+  Let $p\in\CP^n$ and $v\in S^{2n+1}$ with $\pi(v)=p$. Choose $s:U\to S^{2n+1}$ with 
+  $\pi\circ s =\id_U$ and $s(p)=v$ as in Lemma \ref{lemma:14-4}. We will show that 
+  \begin{align}\label{eq:14-10}
+    \omega_{|U} = s^*(\omega_{\CC^{n+1}}).
+  \end{align}
+  By \eqref{eq:14-9} we have $\dd\omega_{\CC^{n+1}} = 0$. Hence \eqref{eq:14-10} will show that $\omega$ 
+  is a closed 2-form on $\CP^n$. If $w_\nu\in T_p\CP^n, \nu=1, 2$, and $D_ps(w_\nu)=t_\nu+u_\nu$,
+  where $t_\nu$ is a tangent vector to the fiber in $S^{2n+1}$ over $p$ and $u_\nu\in (\CC v)^\perp$, then 
+  \[
+    w_\nu = D_\nu\pi\circ D_ps(w_\nu) = D_\nu\pi(t_\nu + u_\nu) = D_\nu\pi(u_\nu).
+  \]
+  Since $\alt^2(D_\nu\pi)(\omega_p)$ is the restriction to $r(\CC v)^\perp$ of $\omega_{\CC^{n+1}}$, we have 
+  \[
+    \omega_p(w_1, w_2) = \omega_{\CC^{n+1}}(u_1, u_2),
+  \]
+  and \eqref{eq:14-10} follows from 
+  \begin{align*}
+    s^*(\omega_{\CC^{n+1}})(w_1, w_2) 
+    & = \omega_{\CC^{n+1}}(D_ps(w_1), D_ps(w_2)) \\
+    & = \omega_{\CC^{n+1}}(t_1 + u_1, t_2 + u_2)
+      = \omega_{\CC^{n+1}}(u_1, u_2)
+  \end{align*}
+  In the final equality we used that $t_1$ and $t_2$ are orthogonal to respectively $u_2$ and
+  $u_1$ in $\CC^{n+1}$, and the fact that $t_1$ and $t_2$ are linearly dependent over $\RR$.
+
+  When showing the smoothness of $g$, it suffices, since $g_p(w_1, w_2) = -\omega_p(iw_1, w_2)$,
+  to show for a smooth tangent vector field $X$ on an open set $U\subseteq \CP^n$ that $iX$
+  is smooth too. This is left to the reader. The last part of the theorem follows
+  directly from Proposition \ref{proposition:14-7}.
+\end{proof}
+
+\begin{corollary}\label{corollary:14-9}
+  Let $\omega$ be the closed 2-form on $\CP^n$ constructed in Theorem \ref{theorem:14-8}. The $j$-th 
+  exterior power $\omega^j$ represents a basis element of $H^{2j}(\CP^n)$ when $1\le j\le n$.
+\end{corollary}
+
+\begin{proof}
+  The class in $H^{2n}(\CP^n)\simee\RR$ determined by $\R{vol}_{\CP^n}$ is non-trivial. 
+  Since $[\omega]\in H^2(\CP^n)$ we have
+  \[
+    [\omega]^n = n!\,[\R{vol}_{\CP^n}]\in H^{2n}(\CP^n).
+  \]
+  Therefore $[\omega]^n\neq 0$ and thus $[\omega]^j\neq 0$ for $j\le n$. The assertion now follows 
+  from Theorem \ref{theorem:14-2}. 
+\end{proof}
+
+\begin{example}[The Hopffibration again]\label{example:14-10}
+Let $z_\nu=x_\nu+iy_\nu,\nu=1, 2$. The \Index{Hopf fibration} $\eta$ from \eqref{eq:14-3} is the 
+restriction on $S^3\subseteq \RR^4$ of the map $h:\RR^4\to\RR^3$ given by 
+\[
+  h(x_0, y_0, x_1, y_1) = 
+  \begin{pmatrix}
+    2(x_0x_1+y_0y_1)\\
+    2(x_0y_1-y_0x_1)\\
+    x_0^2+y_0^2-x_1^2-y_1^2
+  \end{pmatrix}
+\]
+with Jacobian matrix 
+\[
+  2\begin{pmatrix}
+    x_1 & y_1 & x_0 & y_0\\
+    y_1 & -x_1 & -y_0 & x_0\\
+    x_0 & y_0 & -x_1 & -y_1 
+  \end{pmatrix}
+\]
+
+If $v\in S^3$ has real coordinates $(x_0, y_0, x_1, y_1)$, then $iv$ will have coordinates
+$(-y_0, x_0, -y_1, x_1)$. In $(\CC v)^\perp$ we have the positively oriented real orthonormal
+basis given by
+\begin{align*}
+  \F b & = (-x_1, y_1, x_0, -y_0) \\
+  i\F b & = (-y_1, -x_1, y_0, x_0)
+\end{align*}
+Their images under $D_v\eta:T_vS^3\to T_{\eta{v}}S^2$ can be found by taking the matrix product 
+with the Jacobian matrix above:
+\[
+  \frac12D_v\eta(\F b) = 
+  \begin{pmatrix}
+    x_0^2-y_0^2-x_1^2+y_1^2\\
+    -2x_0y_0-2x_1y_1\\
+    -2x_0x_1+2y_0y_1
+  \end{pmatrix},\quad 
+  \frac12D_v\eta(i\F b) =
+  \begin{pmatrix}
+    2x_0y_1-2x_1y_1\\
+    x_0^2-y_0^2+x_1^2-y_1^2\\
+    -2x_0y_1-2y_0x_1
+  \end{pmatrix}.
+\]
+
+A straightforward calculation  (use that $(x_0^2+y_0^2+x_1^2+y_1^2)^2=1$) shows that 
+$\frac12 D_v\eta(\F b)$ and $\frac12 D_v\eta(i\F b)$ define an orthogonal basis of $T_{\eta(v)}S^2$
+with the Riemann metric inherited from $\RR^3$. Since $\Psi\circ\eta=\pi:S^3\to\CP^1$ with 
+$\Psi:S^2\to\CP^1$ the holomorphic equivalence from \eqref{eq:14-4}, the chain rule gives that 
+\[
+  D_{\eta(v)}\Psi:T_{\eta(v)}S^2\to T_{p}\CP^1\enspace (p=\pi(v))
+\]
+with respect to the listed orthonormal bases has matrix $\diag(1/2,1/2)$. Hence
+\[
+  \Psi^*(\omega) = \frac14\,\R{vol}_{S^2},
+\]
+where $\omega=\R{vol}_{\CP^1}$ by Theorem \ref{theorem:14-8}. In particular we have 
+\[
+  \R{Vol}(\CP^1) = \frac14\,\R{Vol}(S^2) = \pi.
+\]
+
+It follows furthermore that $\CP^1$ with the Riemannian metric $g$ is isometric with
+the sphere of radius $\frac12$ in $\RR^3$.
+\end{example}

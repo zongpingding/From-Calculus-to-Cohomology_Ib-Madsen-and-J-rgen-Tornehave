@@ -1,0 +1,1042 @@
+\chapter{Differential Forms on Smooth Manifolds}
+In this chapter we define the de Rham complex $\Omega^*(M)$ of a smooth manifold $M^m$
+and generalize the material of earlier chapters to the manifold case.
+For a given point $p\in M^m$ we shall construct an $m$-dimensional real 
+vector space $T_pM$ called the \Index{tangent space} at $p$. Moreover we want a smooth 
+map $j:M\to N$ to induce a linear map $D_pf:T_pM\to T_{f(p)}M$ known as the tangent 
+map of $j$ at $p$.
+
+\begin{remark}\label{remark:9-1}
+  \begin{enumerate}[(i)]
+    \item In the case $p\in U\sseq\RR^m$, where $U$ is open, one usually identifies the
+      tangent space to $U$ at $p$ with $\RR^m$. Better suited for generalization is the
+      following description: Consider the set of smooth parametrized curves
+      $\gamma:I\to U$ with $\gamma(0)=p$, defined on open intervals around 0.
+      An equivalence relation on this set is given by the condition $\gamma_1'(0) = \gamma_2'(0)$.
+      There is a 1-1 correspondence between equivalence classes and $\RR^m$, which
+      to the class $[\gamma]$ of, associates the velocity vector $\gamma'(0)\in\RR^m$ .
+    \item Consider a further open set $V\sseq\RR^n$ and a smooth map $F:U\to V$. The Jacobi 
+      matrix of $F$ evaluated at $p\in U$ defines a linear map $D_pF:\RR^m\to\RR^n$. For $\gamma:I\to U,
+      \gamma(0)= p$ as in (i) the \Index{chain rule} implies that $D_pF(\gamma'(0)) = (F\circ \gamma'(0))$. Interpreting 
+      tangent spaces as given by equivalence classes of curves we have
+      \begin{align}\label{eq:9-1}
+        D_pF([\gamma]) = [F\circ \gamma]
+      \end{align}
+      In particular the equivalence class of $F\circ\gamma$, depends only on $[\gamma]$.
+  \end{enumerate}
+\end{remark}
+
+Let $(U, h)$ be a smooth chart around $p\in M^m$. On the set of smooth curves
+$\alpha:I\to M$ with $\alpha(0) = p$ defined on open intervals around 0 we have an 
+equivalence relation
+\begin{align}\label{eq:9-2}
+  \alpha_1 \sim \alpha_2 
+  \equ (h\circ\alpha_1)'(0) = (h\circ\alpha_2)'(0)
+\end{align}
+
+This equivalence relation is independent of the choice of $(U, h)$. In fact, 
+if $(\tilde U, \tilde h)$ is another smooth chart around $p$, one finds that
+\begin{align*}
+  (h\circ\alpha_1)'(0) = (h\circ\alpha_2)'(0)
+  \equ 
+  (\tilde h\circ\alpha_1)'(0) = (\tilde h\circ\alpha_2)'(0)
+\end{align*}
+
+by applying the last statement of Remark \ref{remark:9-1}.(ii) to the transition diffeomorphism
+$F=h\circ \tilde{h}^{-1}$ and its inverse.
+
+\begin{definition}\label{definition:9-2}
+  The \Index{tangent space} $T_pM^m$ is the set of equivalence classes with
+  respect to \eqref{eq:9-2} of smooth curves $\alpha:I\to M, \alpha(0)= p$.
+\end{definition}
+
+We give $T_pM$ the structure of an $m$-dimensional vector space defined by the
+following condition: if $(U, h)$ is a smooth chart in $M$ with $p\in U$, then
+\begin{align*}
+  \Phi_h:T_pM\to\RR^m, && \Phi_h([\alpha]) = (h\circ\alpha)'(0),
+\end{align*}
+
+is a linear isomorphism; here $[\alpha]\in T_pM$ is the equivalence class of $\alpha$.
+
+By definition $\Phi_h$ is a bijection. The linear structure on $T_pM$ is well-defined.
+This can be seen from the following commutative diagram, where $F=h\circ\tilde{h}^{-1}$,
+$q=\tilde{h}(p)$
+
+\begin{center}
+  \begin{tikzcd}
+                                                          & \RR^m\arrow[dd, "D_qF", "\simee"'] \\
+    T_pM \urar{\Phi_{\tilde{h}}}\arrow[dr, "\Phi_h"']     &  \\
+                                                          & \RR^m
+  \end{tikzcd}
+\end{center}
+
+\begin{lemma}\label{lemma:9-3}
+  Let $f:M^m\to N^n$ be a smooth map and $p\in M$.
+  \begin{enumerate}[(i)]
+    \item There is a linear map $D_pf:T_pM\to T_{f(p)}N$ given in terms of representing 
+      curves by 
+      \begin{align*}
+        D_pf([\alpha]) = [f\circ \alpha]
+      \end{align*}
+    \item If $(U, h)$ is a chart around $p$ in $M$ and $(V, g)$ a chart around $f(p)$ in $N$,
+      then we have the following commutative diagram:
+      \begin{center}
+        \begin{tikzcd}
+          T_pM \arrow[rrr, "D_pf"]\arrow[d, "\simee"', "\Phi_h"] &&& T_{f(p)}M \arrow[d, "\simee"', "\Phi_g"] \\
+          \RR^m \arrow[rrr, "D_{h(p)}(g\circ f\circ h^{-1})"]    &&& \RR^n
+        \end{tikzcd}
+      \end{center}
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Remark \ref{remark:9-1}.(ii) applied to $F=g\circ f\circ h^{-1}$ , defined
+  $h(U\cap f^{-1}(V))$, shows that the bottom map in the diagram is linear and given
+  on representing curves as stated there. Since $\Phi_h$ and $\Phi_g$ are linear isomorphisms,
+  there exists a linear map $D_pf$ making the diagram commutative. The formula in
+  (i) follows by chasing around the diagram.
+\end{proof}
+
+Note that the linear isomorphism $\Phi_h$ in Definition \ref{definition:9-2} can be identified with $D_ph$
+through the identification discussed in Remark \ref{remark:9-1}.(ii). From now on we write 
+$D_ph:T_pM\to\RR^m$ for this linear isomorphism, and similarly $D_{h(p)}h^{-1}:\RR^m\to T_pM$ for 
+its inverse.
+
+Suppose $M^m\sseq \RR^l$ is a smooth submanifold with inclusion map $i:M\to \RR^l$. 
+Definition \ref{definition:8-8} implies that $D_pi:T_pM^m\to T_p\RR^l\simee \RR^l$ is injective. In 
+this case we usually identify $T_pM$ with the image in $\RR^l$, consisting of all vectors 
+$\alpha'(0)$ where $\alpha:I\to M\sseq\RR^l$ is a smooth parametrized curve with $\alpha(0)= p$.
+
+For composite $\varphi\circ f$ of smooth maps $f:M\to N, \varphi:N\to P$ and a point $p\in M$ we have 
+the chain rule, immediately from Lemma \ref{lemma:9-3}(i),
+\begin{align}\label{eq:9-3}
+  D_p(\varphi\circ f) = D_{f(p)}\varphi\circ D_p(\varphi).
+\end{align}
+
+\begin{remark}\label{remark:9-4}
+  Given a smooth chart $(U, h)$ around the point $p\in M$ m we obtain
+a basis for $T_pM$
+\begin{align*}
+  \left(\frac{\partial }{\partial x_1}\right)_p, \ldots,
+  \left(\frac{\partial }{\partial x_m}\right)_p,
+\end{align*}
+
+where $(\frac{\partial }{\partial x_i})_p$ is the image under $D_{h(p)}h^{-1}:\RR^m\to T_pM$ of the 
+$i$-th standard basis vector $e_i = (0, \ldots, 1, \ldots, 0)\in\RR^m$. A tangent vector $X_p\in T_pM$
+can be written uniquely as 
+\begin{align}\label{eq:9-4}
+  X_p = \sum_{i=1}^{m }{\left(\frac{\partial }{\partial x_i }\right)_p}
+\end{align}
+
+where $\F{a}=(a_1, \ldots, a_m)\in\RR^m$. If $X_p = [\alpha]$, where $\alpha:I\to U$ with $\alpha(0)=p$ is 
+a representing smooth curve, we have 
+\begin{align*}
+  \F{a} = (h\circ \alpha)'(0)
+\end{align*}
+Given $f\in C^\infty(M, \RR)$ we have the tangent map 
+\begin{align}\label{eq:9-5}
+  D_pf:T_pM\to T_{f(p)}\RR\simee \RR
+\end{align}
+
+The \Index{directional derivative} $X_pf\in\RR$ is defined to be the image in $\RR$ of $X_p$ under
+\eqref{eq:9-5}, i.e. $X_pf = (f\circ \alpha)'(0)$. In terms of $f\circ h^{-1}$ we have by the 
+chain rule
+\begin{align*}
+  X_pf = \frac{\dd }{\dd t}\left(fh^{-1}\circ h\alpha(t)\right)_{|t=0}
+    = \sum_{i=1}^{m }{\frac{\partial fh^{-1}}{\partial x_i} (h(p))_{a_i}}
+\end{align*}
+
+In particular
+\begin{align}\label{eq:9-6}
+  \left(\frac{\partial }{\partial x_j}\right)_p f 
+  = \frac{\partial fh^{-1}}{\partial x_j}(h(p))
+\end{align}
+
+Under the assumptions of Lemma \ref{lemma:9-3}.(ii) there is a similar basis 
+$(\partial/\partial_{y_i})_{f(p)}$, $1\le j\le n$, for $T_{f(p)}N$ and the $D_pf$ with 
+respect to our bases for $T_pM$ and $T_{f(p)}M$ is the Jacobian matrix at $h(p)$ of $g\circ f\circ h^{-1}$.
+Specializing this to the case $N=M$, $f=\id_M$ we find that 
+\begin{align}\label{eq:9-7}
+  \left(\frac{\partial }{\partial x_i}\right)_p 
+  = \sum_{j=1}^{m }{\frac{\partial \varphi_j }{\partial x_j } (h(p))\left(\frac{\partial }{\partial y_j}\right)_p}.
+\end{align}
+This holds when $(U, h)$ and $(V, g)$ are two charts around $p$ with transition function
+\begin{align*}
+  (\varphi_1, \ldots, \varphi_m)
+  = \varphi
+  = g\circ h^{-1}
+\end{align*}
+expressing the $y_j$-coordinates in terms of the $x_i$-coordinates.
+\end{remark}
+
+Suppose $X$ is a function that to each $p\in M$ assigns a tangent vector $X_p\in T_pM$.
+Given the chart $(U, h)$, formula \eqref{eq:9-4} holds for $p\in U$ with certain coefficient
+functions $a_i: U\to \RR$. If these are smooth in a neighborhood of $p\in U$, $X$ is
+said to be smooth at $p$. From \eqref{eq:9-7}, this condition is independent of the choice of
+smooth chart around $p$. If $X$ is smooth at every point $p\in M$, $X$ is a a smooth
+vector field on $M$.
+
+Let us next consider families $\omega=\{\omega_p\}_{p\in M}$ of alternating $k$-forms on $T_pM$, 
+where $\omega_p\in \alt^k(T_pM)$. We need a notion of w being smooth as function of $p$. Let
+$g:W\to M$ be a local parametrization, i.e. the inverse of a smooth chart, where
+W is an open set in $\RR^m$. For $x\in W$,
+\begin{align*}
+  D_xg:\RR^m\to T_{g(x)}M
+\end{align*}
+
+is an isomorphism, and induces an isomorphism 
+\begin{align*}
+  \alt^k(D_xg):\alt^k(T_{g(x)}M)\to\alt^k(\RR^m).
+\end{align*}
+
+We define $g^*(\omega):W\to \alt^k(\RR^m)$ to be the function whom value at $x$ is 
+\begin{align*}
+  g^*(\omega)_x = \alt^k(D_xg)(\omega_{g(x)})
+  && 
+  (g^*(\omega)_x = \omega_g(x) \text{ for } k = 0)
+\end{align*}
+
+\begin{definition}\label{definition:9-5}
+  A family $\omega = \{\omega_p\}_{p\in M}$ of alternating $k$-forms on $T_pM$ is said
+to be smooth if $g^*(\omega)$ is a smooth function for every local parametrization. The
+set of such smooth families is a vector space $\Omega^k(M)$. In particular, $\Omega^0(M)
+= C^\infty(M, \RR)$.
+\end{definition}
+
+\begin{lemma}\label{lemma:9-6}
+  Let $g_i:W_i\to N$ be a family of local parametrizations with $N = \cup_{g_i}(\omega)$ is 
+  smooth for all $i$, then $\omega$ is smooth.
+\end{lemma}
+
+\begin{proof}
+  Let $g:W\to N$ be any local parametrization. and $z\in W$. We show that
+$g^*(w)$ is smooth close to $z$. Choose an index $i$ with $g(z)\in g_i(W_i)$. 
+Close to $z$ we can write $g=g_i\circ g = g_i\circ h$, where $h=g_i^{-1}\circ g(g_i(W_i))\to 
+W_i$ is a smooth map between open sets in Euclidean space. Thus 
+\begin{align*}
+  g^*(\omega) = (g_i\circ h)^*(\omega) = h^*(g_i^*(\omega))
+\end{align*}
+
+in a neighborhood of $z$, and the right-hand side is a smooth $k$-form by assumption.
+\end{proof}
+
+The exterior differential 
+\begin{align*}
+  \dd:\Omega^k(M) \to\Omega^{k+1}(M)
+\end{align*}
+
+can be defined via local parametrizations $g:W\to M$ as follows. If $\omega=\{\omega_p\}_{p\in M}$
+is a smooth $k$-form on $M$ then
+\begin{align}
+  \dd_p\omega = \alt^{k+1}((D_xg)^{-1})\circ \dd_x(g^*\omega), 
+  && p = g(x)
+\end{align}
+
+It is not immediately obvious that $\dd_p\omega$ is independent of the choice of local
+parametrization, but this is indeed the case: Given a local parametrization $g$, then
+any other locally has the form $g\circ\phi$, with $\phi:U\to W$ a diffeomorphism. Let
+$\xi_1, \ldots, \xi_{k+1}\in T_pM$. We choose $v_1, \ldots, v_{k+1}\in\RR^n$ so that 
+$D_x(g\circ \phi)(v_i) = \xi_i$. We must show that
+\begin{align*}
+  \dd_yg^*(\omega)(w_1, \ldots, w_{k+1})
+  = \dd_x(g\circ \phi)^*(\omega)(v_1, \ldots, v_{k+1})
+\end{align*}
+
+where $\phi(x)= y$ and $D_x\phi(v_i) = w_i$. This follows from the equations 
+\begin{align*}
+  (g\circ \phi)^* & = \phi^*(g^*(\omega)) \\
+  \dd\phi^*(\tau) & = \phi^*\dd(\tau)
+\end{align*}
+
+where $\tau = g^*(\omega)$; see Theorem \ref{theorem:3-12}. It is obviously that $\dd\circ\dd = 0$.
+Hence we have defined a chain complex
+\begin{align*}
+  \cdots \xra \Omega^{k-1}(M) \xra[\dd]\Omega^k(M)\xra[\dd]\Omega^{k+1}(M)\xra \cdots,
+\end{align*}
+
+We have $\Omega^k(M) = 0$ if $k>\dim(M)$, since $\alt^k(T_pM) = 0$ when $k>\dim T_p(M)$. A smooth
+map $\phi:M\to N$ induces a chain map $\phi^*:\Omega^*(N)\to \Omega^*(M)$, 
+\begin{align}
+  \phi^*(\tau)_p 
+  = \alt^k(D_p\phi)(\tau_{\phi(p)}), 
+  & \tau\in \Omega^k(N);
+  & \phi^*(\tau)_p = \tau_{\phi(p)} \text{ if } k=0. 
+\end{align}
+
+One defines a bilinear product $\omega\wedge\tau$ by $(\omega\wedge\tau)_p = \tau_{\phi(p)}$,
+\begin{align}
+  \wedge:\Omega^k(M)\times\Omega^l(M)\to \Omega^{k+1}(M).
+\end{align}
+
+One shows by choosing local parametrizations that $\phi^*\omega$ and $\omega\wedge\tau$ are smooth.
+It is equally easy to see that
+\begin{align}
+  \begin{aligned}
+    \dd(\omega\wedge\tau) & = \dd\omega + (-1)^k\omega\wedge\dd\tau \\
+    \omega\wedge\tau & = (-1)^{kl}\tau\wedge\omega
+  \end{aligned}
+\end{align}
+
+for $\omega\in\Omega^k(M), \tau\in\Omega^l(M)$.
+
+\begin{definition}\label{definition:9-7}
+  The $p$-th (de Rham) cohomology of the manifold $M$, denoted $H^p(M)$, is the $p$-th cohomology 
+  vector space of $\Omega^*(M)$.
+\end{definition}
+
+The exterior product induces a product $H^p(M) x H^q(M)\to H^{p+q}(M)$ which
+makes $H^*(M)$ into a graded algebra. Note that $H^p(M) = 0$ for $p> n = \dim M$
+or $p<0$.
+
+The chain map $\phi^*$ induced by a smooth map $\phi:M\to N$ induces linear maps 
+\begin{align*}
+  H^p(\phi):H^p(N)\to H^p(M)
+\end{align*}
+
+and the de Rham cohomology becomes a contravariant functor from the category
+of smooth manifolds and smooth maps to the category of graded anti-commutative
+$\RR$-algebras.
+
+
+\begin{definition}\label{definition:9-8}\index{orientable manifold}
+  \begin{enumerate}[(i)]
+    \item A smooth manifold $M^n$ of dimension $n$ is called orientable, if there exists
+      an $\omega\in\Omega^n(M^n)$ with $\omega_p \neq 0$ for all $p\in M$. Such an $\omega$ is
+      called an orientation form on $M$.
+    \item Two orientation forms $\omega, \tau$ on $M$ are equivalent if $\tau=f\cdot \omega$, for 
+      some $f\in\Omega^0(M)$ with $f(p) > 0$ for all $p\in M$. An orientation of $M$ is an
+      equivalence class of orientation forms on $M$.
+  \end{enumerate}
+\end{definition}
+
+On the Euclidean space $\RR^n$ we have the orientation form $\dd x_1\wedge\ldots\wedge\dd x_n$, which
+represents the standard orientation\index{standard orientation}\index{orientation!standard} of $\RR^n$.
+
+Let $M^n$ be oriented by the orientation form\index{orientation!form} $\omega$. A basis $b_1, \ldots, b_n$ of $T_pM$ is said
+to be positively or \Index{negatively oriented} with respect to $\omega$ depending on whether
+the number
+\begin{align*}
+  \omega_p(b_1 ,\ldots, b_n) \in \RR
+\end{align*}
+
+is positive or negative. (It cannot be 0, because $\omega_p\neq 0$.) The sign depends only
+on the orientation determined by $\omega$. If $\omega$ and $\tau$ are two orientation forms on $M^n$,
+then $\tau=f\cdot\omega$ for a uniquely determined function $f\in\Omega^0(M)$ with $f(p)\neq 0$ for
+all $p\in M$. We say that wand $\tau$ determine the same orientation at $p$, if $f(p) > 0$.
+Equivalently, $\omega$ and $\tau$ induce the same positively oriented bases of $T_pM$. If $M$
+is connected, then $f$ has constant sign on $M$, so we have:
+
+\begin{lemma}\label{lemma:9-9}
+  On a connected orientable smooth manifold there are precisely 2 orientations.
+\end{lemma}
+
+If $V$ is an open subset of an oriented manifold $M^n$, then an orientation of $V$ is
+induced by using the restriction of an orientation form on $M$. Conversely we have:
+
+\begin{lemma}\label{lemma:9-10}
+  Let $\C{V} = (V_i)_{i\in I}$ be an open cover of the smooth submanifold $M^n$.
+Suppose that all $V_i$ have orientations and that the restrictions of the orientations
+from $V_i$ and $V_j$ to $V_i\cap V_j$ coincide for all $i\neq j$. Then $M$ has a uniquely 
+determined orientation with the given restriction to $V_i$ for all $i\in I$.
+\end{lemma}
+
+The proof is a typical application of a smooth partition of unity in the following form:
+
+
+\begin{theorem}\label{theorem:9-11}
+  Let $\C{V} = (V_i)_{i\in I}$ be an open cover of the smooth manifold $M^n\sseq \RR^n$. Then 
+  there exist smooth functions $\phi_i:M\to [0, 1] (i\in I)$ that satisfy
+  \begin{enumerate}[(i)]
+    \item $\R{Supp}_M(\phi_i)\sseq V_i$ for all $i\in I$.
+    \item Every $p\in M$ has an open neighborhood where only finitely many of the
+      functions $\phi_i(i\in I)$ do not vanish.
+    \item For every $p\in M$ we have $\sum_{i\in I}^{}{\phi_i(p)} = 1$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Since $M$ has the topology induced by $\RR^n$, we can choose an open set
+$U_i\sseq \RR^l$ with $U_i\cap M = Vi$ for each $i\in I$. By applying Theorem \ref{theorem:A.1} 
+to $U= \cup_{i\in I} U_i$ we get smooth functions $\psi_i:U\to [0, 1]$ with
+\begin{enumerate}[(i)]
+  \item $\R{Supp}_U(\psi_i)\sseq U_i$.
+  \item Local finiteness.
+  \item For every $x\in U, \sum_{i\in I}\psi_i(x) = 1$.
+\end{enumerate}
+Let $\phi_i:M\to [0, 1]$ be the restriction of $\psi_i$; conditions (i), (ii) and (iii) of the
+theorem follow immediately.
+\end{proof}
+
+\textbf{Proof of Lemma \ref{lemma:9-10}.} Let the orientation of $V_i$ be given by the orientation 
+form $\omega_i\in\Omega^n(V_i)$, and choose smooth functions $\phi_i:M\to [0, 1]$ as in Theorem \ref{theorem:9-11}.
+We can define $\omega\in\Omega^n(M)$ by
+\begin{align*}
+  \omega = \sum_{i\in I}^{}{\phi_i\omega_i}
+\end{align*}
+
+where $\phi_i\omega_i$ is extended to an $n$-form on all of $M$ by letting it vanish on
+$M-\R{Supp}_M(\phi_i)$. This is an orientation form, because if $p\in V_i\sseq M$ and
+$b_1, \ldots, b_n$ is a basis of $T_pM$, with $\omega_{i,p}(b_1, \ldots ,b_n) > 0$, then 
+$\omega_{i',p}(b_1, \ldots ,b_n)>0$ for every other if with $p\in V_i$, and in the formula
+\begin{align*}
+  \omega_p(b_1, \ldots ,b_n)
+  = \sum_{i}^{}{\phi_i(p)\omega_{i,p}(b_1, \ldots ,b_n)}
+\end{align*}
+
+all terms are positive (or zero). Thus $\omega$ is an orientation form on $M$, and $b_1, \ldots, b_n$
+are positively oriented with respect to $\omega$. The orientation of $M$ determined by
+$\omega$ has the desired property.
+
+If $\tau\in\Omega^n(M^n)$ is another orientation form that gives the orientation of the required
+type, then $\tau=f\cdot \omega$ and $\tau_p(b_1, \ldots, b_n) = f(p)\omega_p(b_1, \ldots , b_n)$. 
+Since both $\tau_p$ and wp are positive on $b_1, \ldots, b_n$ we have $f(p) > 0$. Hence $\omega$ 
+and $\tau$ detennine the same orientation.\hfill\(\qedsymbol\)
+
+\begin{definition}\label{definition:9-12}
+  Let $\phi:M_1^n\to M_2^n$ be a diffeomorphism between manifolds that
+  are oriented by the orientation forms $\omega_j\in\Omega^n(M_j^n)$. Then $\phi^*(\omega_2)$ 
+  is an orientation form on $M_1^n$. We say $\phi$ is orientation-preserving\index{orientation!preserving/reversing} (resp. orientation-reversing),
+  when $\phi^*(\omega_2)$ detennines the same orientation of $M_1^n$ as $\omega_1$ (resp. $-\omega_1$).
+\end{definition}
+
+\begin{example}\label{example:9-13}
+  Consider a diffeomorphism $\phi:U_1\to U_2$ between open subsets
+$U_1, U_2$ of $\RR^n$, both equipped with the standard orientation of $\RR^n$. It 
+follows from Example \ref{example:3-13}.(ii) that $\phi$ is orientation-preserving if and only if $\det(D_x\phi) > 0$
+for all $x\in U_1$. Analogously $\phi$ is orientation-reversing if and only if all Jacobi
+detenninants are negative.
+\end{example}
+
+Around any point on an oriented smooth manifold $M^n$ we can find a chart
+$h:U\to U'$ such that $h$ is an orientation-preserving diffeomorphism when $U$ is
+given the orientation of $M$ and $U'$ the orientation of $\RR^n$. We call $h$ an oriented
+chart of $M$. The transition function associated with two oriented charts\index{oriented chart} of $M$
+is an orientation-preserving diffeomorphism. For any atlas of $M$ consisting of
+oriented charts, all Jacobi detenninants of the transition functions will be positive.
+Such an atlas is called positive.
+
+\begin{proposition}\label{prop:9-14}
+  If $\{h_1:U_1\to U_i'\}$ is a \Index{positive atlas} on $M^n$, then $M^n$ has
+a uniquely determined orientation, so all hi are oriented charts.
+\end{proposition}
+
+\begin{proof}
+  For $i\in I$ we orient $U_i$ so that $h_i$ is an orientation-preserving diffeomorphism. 
+  By Example \ref{example:9-13}, the two orientations on $U_i\cap U_j$ defined by the restriction
+from $U_i$ and $U_j$ coincide. The assertion follows from Lemma \ref{lemma:9-10}.
+\end{proof}
+
+\begin{definition}\label{definition:9-15}
+  A \Index{Riemannian structure} (or Riemannian metric) on a smooth manifold $M^n$ is a family of 
+  inner products $\langle , \rangle_p$ on $T_pM$, for all $p\in M$, that satisfy the following 
+  condition: for any local parametrization $f:W\to M$ and any pair $v_1, v_2\in \RR^n$,
+  \begin{align*}
+    x\to \langle D_xf(v_1), D_xf(v_2) \rangle_{f(x)}
+  \end{align*}
+
+  is a smooth function on $W$.
+\end{definition}
+
+It is sufficient to have the smoothness condition satisfied for the functions
+\begin{align*}
+  g_{ij}(x) = \langle D_xf(e_i), D_xf(e_j) \rangle_{f(x)}, && 1\le i, j\le n.
+\end{align*}
+
+where $e_1, \ldots, e_n$ is the standard basis of $\RR^n$. These functions are called the
+coefficients of the first fundamental form\Index{fundamental form, first}. For $x\in W$ the $n\times n$ matrix $g_{ij}(x)$
+is symmetric and positive definite.
+
+A smooth manifold equipped with a Riemannian structure is called a Riemannian
+manifold. A smooth submanifold $M^n\sseq\RR^l$ has a Riemannian structure defined
+by letting $\langle , \rangle_p$ be the restriction to the subspace $T_pM\sseq \RR^l$ of 
+the usual inner product on $\RR^l$.
+
+\begin{proposition}\label{prop:9-16}
+  If $M^n$ is an oriented \Index{Riemannian manifold} then $M^n$ has a uniquely determined orientation 
+  form $\R{vol}_M$ with 
+  \begin{align*}
+    \R{vol}_M (b_1, \ldots, b_n) = 1
+  \end{align*}
+
+  for every positively oriented orthonormal basis of a \Index{tangent space} $T_pM$. We call
+  $\R{vol}_M$ the volume form on $M$.
+\end{proposition}
+
+\begin{proof}
+  Let the orientation be given by the orientation form $\omega\in\Omega^n(M^n)$. Consider
+two positively oriented orthonormal bases $b_1, \ldots, b_n$ and $b'_1, \ldots, b'_n$ in the 
+same tangent space $T_pM$. There exists an orthogonal $n\times n$ matrix $C = (C_{ij})$ such 
+that
+\begin{align*}
+  b_i' = \sum_{j=1}^{n }{e_{ij}b_j},
+\end{align*}
+
+and $\omega_p\in\alt^n T_pM$ satisfies 
+\begin{align}
+  \omega_(b'_1, \ldots, b'_n) = (\det C) \omega_p (b_1, \ldots, b_n).
+\end{align}
+
+Positivity ensures that det $C > 0$; but then $\det C = 1$. Hence there exists a
+function $\rho:M\to (0,\infty)$ such that $\rho(p) = \omega_p(b_1, \ldots, b_n)$ for every 
+positively oriented orthonormal basis $b_1, \ldots, b_n$ of $T_pM$. We must show that $\rho$ is 
+smooth; then $\R{vol}_M = \rho^{-1}\omega$ will be the volume form.
+
+Consider an orientation-preserving local parametrization $f:W\to M^n$ ans set 
+\begin{align*}
+  X_j(q) = \left(\frac{\partial }{\partial x_j }\right)_q 
+  = D_q f(e_j) \in T_{f(q)}M 
+  && \text{ for } 1\le j\le n\text{ and } q\in W.
+\end{align*}
+
+These form a \Index{positively oriented basis} of $T_{f(q)}M$. An application of the
+Gram-Schmidt orthonormalization process gives an upper triangular matrix
+$A(q) = (a_{ij}(q))$ of smooth functions on $W$ with $a_{ii}(q) > 0$, such that
+\begin{align}\label{eq:9-13}
+  b_i(q) = \sum_{j=1 }^{n}{ a_{ij}(q)X_j(q) }, \qquad i=1, \ldots, n.
+\end{align}
+
+is a positively oriented orthonormal basis of $T_{f(q)}M$. Then
+\begin{align}\label{eq:9-14}
+  \begin{aligned}
+    \rho\circ f(q) 
+      & = \omega_{f(q)}(b_1(1), \ldots, b_n(q))
+        = (\det A(q))\omega_{f(q)}(X_1(q), \ldots, X_n(q))\\
+      & = (\det A(q))(f^*\omega)_q (e_1, \ldots, e_n).
+  \end{aligned}
+\end{align}
+
+This shows that $\rho$ is smooth.
+\end{proof}
+
+\begin{addendum}\label{addendum:9-17}
+  There is the following formula for $\R{vol}_M$ in local coordinates:
+  \begin{align}\label{eq:9-15}
+    f^*(\R{vol}_M) = \sqrt{\det (g_{ij})} \dd x_1\wedge\ldots\wedge\dd x_n.
+  \end{align}
+\end{addendum}
+
+\begin{proof}
+  Repeat the proof above starting with $W = \R{vol}_M$, so that $\rho(p) = 1$ for all
+$p\in M$. Formula \eqref{eq:9-14} becomes
+\begin{align}\label{eq:9-16}
+  f^*(\R{vol}_M) = (\det A(x))^{-1}\dd x_1\wedge\ldots\wedge\dd x_n.
+\end{align}
+
+The inner product of \eqref{eq:9-13} with the corresponding formula for $b_k(q)$ yields (with
+a Kronecker delta notation)
+\begin{align*}
+  \delta_{ik} = \langle b_i(q), b_k(q) \rangle_{f(q)} 
+    = \sum_{j=1}^{n}{\sum_{i=1}^{n}{a_{ij}(q)g_{jl}(q)a_{kl}(q)}}
+\end{align*}
+
+This is the matrix identity, $I = A(q) G(q) A(q)^t$, where $G(q) = (g_{jl}(q))$. In
+particular $(\det A(q))^2 \det G(q) = 1$. Since $\det A(q) = \prod_i a_{ii}(q)>0$, we 
+obtain
+\begin{align*}
+  (\det A(q))^{-1} = \sqrt{\det G(q)}.
+\end{align*}
+\end{proof}
+
+\begin{example}\label{example:9-18}
+  Define an $(n - 1)$-form $\omega_0\in \Omega^{n-1}(\RR^n)$ by
+  \begin{align}\label{eq:9-17}
+    \omega_{0x}(w_1, \ldots, w_{n-1})
+    = \det (x, w_1, \ldots, w_{n-1})\in \alt^{n-1}(\RR^n) 
+  \end{align}
+  for $x\in\RR$. Since $\omega_{0x}(e_1, \ldots, \hat{e}_i, \ldots, e_n) = (-1)^{i-1}x_i$, we have 
+  \begin{align}\label{eq:9-18}
+    \omega_0 = \sum_{i=1}^{n }{(-1)^{i-1} x_i \dd x_1\wedge\ldots\wedge\dd x_n}.
+  \end{align}
+
+  If $x\in S^{n-1}$ and $w_1, \ldots, w_{n-1}$ is a basis of $T_xS^{n-1}$ then $w, w_1, \ldots, w_{n-1}$
+  becomes a basis for $\RR^n$ and \eqref{eq:9-17} shows that $\omega_{0x}\neq 0$. Hence $\omega_{0|S^{n-1}} = i^*(\omega_0)$
+  is an orientation form on $S^{n-1}$. For the orientation of $S^{n-1}$ given by $\omega_0$, the
+  basis $w_1, \ldots, w_{n-1}$ of $T_xS^{n-1}$ is positively oriented if and only if the basis
+  $w, w_1, \ldots, w_{n-1}$ for $\RR^n$ is positively oriented.
+
+  We give $S^{n-1}$ the Riemannian structure induced by $\RR^n$. Then \eqref{eq:9-17} implies that
+  $\R{vol}_{S^{n-1}} = \omega_{0|S^{n-1}}$.
+
+  We may construct a closed $(n-1)$-form on $\RR^n-\{0\}$ with $\omega_{|S^{n-1}} = \R{vol}_{S^{n-1}}$
+  by setting $\omega = r^*(\R{vol}_{S^{n-1}})$, where $r:\RR^n-\{0\}\to S^{n-1}$ is the map $r(x) = x/\|x\|$.
+  For $x\in\RR^n-\{0\}$, $\omega_x\in\alt^{n-1}(\RR^n)$ is given by 
+  \begin{align*}
+      \omega_x(v_1, \ldots, v_{n-1}) 
+        & = \omega_{0r(x)}(D_xr(v_1), \ldots, D_xr(v_{n-1})) \\
+        & = \|x\|^{-1}\det (x, D_x r(v_1), \ldots, D_xr(v_{n-1})).
+  \end{align*}
+
+  Now we have 
+  \begin{align*}
+    D_x(r(v)) = \left\{\begin{aligned}
+      & 0         && \text{ if } v\in \RR x \\
+      & \|x\|^{-1}&& \text{ if } v\in (\RR x)^{\perp} 
+    \end{aligned}\right.
+  \end{align*}
+
+  so that $D_xr(v) = \|x\|^{-1}w$, where $w$ is the orthogonal projection of $v$ on $(\RR x)^\perp$.
+  Letting $w_i$ be the orthogonal projection of $v_i$ on $(\RR x)^\perp$ we have
+  \begin{align*}
+    \omega_x (v_1, \ldots, v_{n-1})
+    & = \|x\|^{-n} \det (x, w_1, \ldots, w_{n-1}) 
+      = \|x\|^{-n} \det (x, v_1, \ldots, v_{n-1}) \\
+    & = \|x\|^{-n} \omega_{0x}(v_1, \ldots, v_{n-1}).
+  \end{align*}
+
+  Hence the closed form $\omega$ is given by 
+  \begin{align}\label{eq:9-19}
+    \omega = \frac{1}{\|x\|^n} \sum_{i=1}^{n }{
+      (-1)^{i-1}x_i \dd x_1\wedge\ldots\wedge\widehat{\dd x_i}\wedge\dd x_n
+    }
+  \end{align}
+\end{example}
+
+\begin{example}\label{example:9-19}
+  For the \Index{antipodal map} 
+  \begin{align*}
+    A:S^{n-1} \to S^{n-1}; \qquad Ax = -x 
+  \end{align*}
+  we have 
+  \begin{align*}
+    A^*(\R{vol}_{S^{n-1}}) = (-1)^n \R{vol}_{S^{n-1}}
+  \end{align*}
+
+  and $A$ is orientation-preserving if and only if $n$ is even. In this case we get an
+  orientation form $\tau$ on $\B{RP}^{n-1}$ such that $\pi^*(\tau) = \R{vol}_{S^{n-1}}$,
+  where $\pi$ is the canonical map $\pi:S^{n-1}\to\B{RP}^{n-1}$. For $x\in S^{n-1}$,
+  \begin{align*}
+    T_xS^{n-1} \xra[D_xA] T_{Ax} S^{n-1}
+  \end{align*}
+  is a linear isometry. Hence there exists a Riemannian structure on $\B{RP}^{n-1}$
+  characterized by the requirement that the isomorphism
+  \begin{align*}
+    T_xS^{n-1} \xra[D_x\pi] T_{\pi (x)} \B{RP}^{n-1}
+  \end{align*}
+
+  is an isometry for every $x\in S^{n-1}$. If n is even and $\B{RP}^{n-1}$ is oriented as before,
+  one gets $\pi^*(\R{vol}_{\B{RP}^{n-1}}) = \R{vol}_{S^{n-1}}$. Conversely suppose that $\B{RP}^{n-1}$ 
+  is orientable, $n\ge 2$. Choose an orientation and let $\R{vol}_{\B{RP}^{n-1}}$ be the resulting volume form. Since
+  $D_x\pi$ is an isometry, $\pi^*(\R{vol}_{\B{RP}^{n-1}})$ must coincide with $\pm\R{vol}_{S^{n-1}}$ in all points, 
+  and by continuity the sign is locally constant. Since $S^{n-1}$ is connected the sign is
+  constant on all of $S^{n-1}$. We thus have that
+  \begin{align*}
+    \pi^*(\R{vol}_{\B{RP}^{n-1}})
+    = \delta\R{vol}_{S^{n-1}}
+  \end{align*}
+  where $\delta=\pm 1$. We can apply $A^*$ and use the equation $\pi\circ A =\pi$ to get 
+  \begin{align*}
+    (-1)^n \delta\R{vol}_{S^{n-1}} 
+    & = \delta A^*(\R{vol}_{S^{n-1}})
+        = A^*\pi^*(\R{vol}_{\B{RP}^{n-1}}) \\
+    & = (\pi\circ A)(\R{vol}_{\B{RP}^{n-1}}) 
+        = \pi^*(\R{vol}_{\B{RP}^{n-1}}) 
+        = \delta \R{vol}_{S^{n-1}}.
+  \end{align*}
+  This requires that $n$ is even and implies that $\B{RP}^{n-1}$ is orientable if and only if
+  $n$ is even.
+\end{example}
+
+
+\begin{remark}\label{remark:9-20}
+  For two smooth manifolds $M^m$ and $N^n$ the Cartesian product $M^m\times N^n$ is a smooth 
+  manifold of dimension $m+n$. For a pair of charts $h:U\to U'$
+  and $K:V\to V'$ of $M$ and $N$, respectively, we can use $h\times k:U\times V\to U\times V'$
+  as a chart of $M\times N$. These product charts form a smooth atlas on $M\times N$. For
+  $p\in M$ and $q\in N$ there is a natural isomorphism  
+  \begin{align*}
+    T_{(p, q)}(M\times N) \simee T_pM \oplus T_qN.
+  \end{align*}
+  If $M$ and $N$ are oriented, one can use oriented charts $(V, h)$ and $(V, k)$. The transition 
+  diffeomorphisms between the charts $(V\times V , h\times k)$ satisfy the condition
+  of Proposition \ref{prop:9-14}. Hence we obtain a \Index{product orientation} of $M\times N$. If the
+  orientations are specified by orientation forms $\omega\in\Omega^m(M)$ and $\sigma\in\Omega^n(N)$, 
+  the product orientation is given by the orientation form $\R{pr}^*_M(\omega)\wedge\R{pr}^*_N(\sigma)$, 
+  where $\R{pr}_M$ and $\R{pr}_N$ are the projections of $M\times N$ on $M$ and $N$.
+\end{remark}
+
+In the following we shall consider a smooth submanifold $M^n\sseq \RR^{n+k}$ of
+dimension $n$. At every point $P\in M$ we have a normal vector space $T_pM^\perp$ of 
+dimension $k$. A smooth \Index{normal vector field}\index{vector field, normal} $Y$ on an open set $W\sseq M$ is a
+smooth map $Y:W\to\RR^{n+k}$ with $Y(p)\sin T_pM^\perp$ for every $p\in W$. In the case
+$k = 1$, $Y$ is called a \Index{Gauss map} on $W$ when all $Y(p)$ have length 1. Such a map
+always exists locally since we have the following:
+
+\begin{lemma}\label{lemma:9-21}
+  For every $p_0\in M^n\sseq \RR^{n+k}$ there exists an open neighborhood
+$W$ of $p_0$ on $M$ and smooth normal vector fields $Y_j(1\le j\le k)$ on $W$ such that
+$Y_1(p), \ldots, Y_k(p)$ form an orthonormal basis of $T_pM^\perp$ for every $p\in W$.
+\end{lemma}
+
+\begin{proof}
+  On a coordinate patch around $p_0\in M$, there exist smooth tangent vector
+fields $X_1, \ldots, X_n$, which at every point $p$ yield a basis of $T_pM$, cf. 
+Remark \ref{remark:9-4}. Choose a basis $V_1, \ldots, V_k$ of $T_{p_0}M^\perp$. Since 
+the $(n+k)\times (n+k)$ determinant 
+\begin{align*}
+  \det(X_1(p), \ldots, X_n(p), V_1, \ldots, V_k) 
+\end{align*}
+
+is non-zero at $p_0$, it also non-zero for all $p$ in some open neighborhood $W$ of $p_0$
+on $M$. Gram-Schmidt orthonormalization applied to the basis
+\begin{align*}
+  X_1(p), \ldots, X_n(p), V_1, \ldots, V_k\qquad (p\in W)
+\end{align*}
+of $\RR^{n+k}$ gives an orthonormal basis 
+\begin{align*}
+  \tilde{X}_1(p), \ldots,\tilde{X}_n(p), Y_1(p), \ldots, Y_k(p),
+\end{align*}
+
+where the first $n$ vectors span $T_pM$. The formulas of the Gram-Schmidt orthonormalization 
+show that all $X_i$ and $Y_j$ are smooth on $W$, so that $Y_1, \ldots, Y_k$ have the desired 
+properties.
+\end{proof}
+
+\begin{proposition}\label{prop:9-22}
+  Let $M^n\sseq \RR^{n+1}$ be a smooth submanifold of codimension 1.
+  \begin{enumerate}[(i)]
+    \item There is a 1-1 correspondence between smooth normal vector fields $Y$ on
+      $M$ and $n$-forms in $\Omega^n{M}$. It associates to $Y$ the $n$-form $\omega=\omega_Y$ 
+      given by
+      \begin{align*}
+        \omega_p(W_1, \ldots, W_n) = \det (Y(p), W_1, \ldots, W_n)
+      \end{align*}
+      for $p\in M, W_i\in T_pM$.
+    \item This induces a 1-1 correspondence between Gauss maps $Y\colon M\to S^n$ and
+      orientations of $M$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  If $p\in M$ then $Y(p) = 0$ if and only if $\omega_p = 0$. Since $\omega_Y$ depends linearly
+  on $Y$, the map $Y\to\omega_Y$ must be injective. If $Y$ is a Gauss map, then $\omega_Y$ is an
+  orientation form and it can be seen that $\omega_Y$ is exactly the \Index{volume form} associated
+  to the orientation determined by $\omega_Y$ and the Riemannian structure on $M$ induced
+  from $\RR^{n+1}$. If $M$ has a Gauss map $Y$ then (i) follows, since every element in
+  $\Omega^n(M)$ has the form $f\cdot\omega_Y = \omega_{fY}$ for some $f\in C^\infty(M, \RR)$. 
+  Now $M$ can be covered by open sets, for which there exist Gauss maps. For each of these (i)
+  holds, but then the global case of (i) automatically follows.
+
+  An orientation of $M$ determines a volume form $\R{vol}_M$ and from (i) one gets a $Y$
+  with $\omega_Y = \R{vol}_M$. This $Y$ is a Gauss map.  
+\end{proof}
+
+\begin{theorem}[Tubular neighborhoods]\label{theorem:9-23}
+  Let $M^n\sseq \RR^{n+k}$ be a smooth submanifold. There exists an open set $V\sseq \RR^{n+k}$ with 
+  $M\sseq V$ and an extension of $\id_M$ to a smooth map $r:V\to M$, such that 
+  \begin{enumerate}[(i)]
+    \item For $x\in V$ and $y\in M, \|x-r(x)\|\le \|x-y\|$, with equality if and only if 
+      $y=r(x)$.
+    \item For every $p\in M$ the fiber $r^{-1}(p)$ is an open ball in the affine subspace 
+      $p + T_pM^\perp$ with center at $p$ and radius $\rho(p)$, where $\rho$ is a positive 
+      smooth function on $M$. If $M$ is compact then $\rho$ can be taken to be constant.
+    \item If $\epsilon:M\to\RR$ is smooth and $0<\epsilon(p)<\rho(p)$ for all $p\in M$ then 
+      \begin{align*}
+        S_\epsilon = \{x\in V \mid \|x-r(x)\| = \epsilon(r(x)) \}
+      \end{align*}
+      is a smooth submanifold of codimension 1 in $\RR^{n+k}$.
+  \end{enumerate}
+  We call $V(=V_\rho)$ the open tubular neighborhood of $M$ of radius $\rho$.
+\end{theorem}
+
+\begin{proof}
+  We first give a local construction around a point $p_0\in M$. Choose normal
+vector fields $Y_1, \ldots,Y_k$ as in Lemma \ref{lemma:9-21}, defined on an open neighborhood $W$
+of $p_0$ in $M$ for which we have a diffeomorphism $f:\RR^n\to W$ with $f(0)= p_0$.
+Let us define $\Phi:\RR^{n+k}\to\RR^{n+k}$ by
+\begin{align*}
+  \Phi(x, t) = f(x) + \sum_{j=1}^{k}{t_jY_j(f(x))}\qquad (x\in\RR^n, t\in \RR^k). 
+\end{align*}
+
+The Jacobi matrix of $\Phi$ at 0 has the columns
+\begin{align*}
+  \frac{\partial f }{\partial x_1}(0), \ldots, 
+  \frac{\partial f }{\partial x_n }(0),
+  Y_1(p_0), \ldots, Y_k(p_0)
+\end{align*}
+The first $n$ form a basis of $T_{p_0}M$ and the last $k$ a basis of $T_{p_0}M^\perp$. By the inverse
+function theorem, $\Phi$ is a local diffeomorphism around 0. There exists a (possibly)
+smaller open neighbourhood $W_0$ of $p_0$ in $M$ and an $\epsilon_0>0$, such that
+\begin{align*}
+  \Phi_0(p, t) = p + \sum_{j=1}^{k}{t_jY_j(p)}
+\end{align*}
+
+defines a diffeomorphism from $W_0\times \epsilon_0\mrg{D}^k$ to an open set $V_0\sseq \RR^{n+k}$. 
+The map $r_0 = \R{pr}_{W_0}\circ \Phi_0^{-1}$ defines a smooth map $r_0:V_0\to W_0$, which extends 
+$\id_{W_0}$ so that the fiber $r_0^{-1}(p)$ is the open ball in $p+T_pM^\perp$ with center at $p$ 
+and radius $\epsilon_0$ for every $p\in W_0$. By shrinking $\epsilon_0$ and cutting $W_0$ down we can 
+arrange that the following condition holds:
+\begin{align}\label{eq:9-20}
+  \text{ For } x\in V_0 \text{ and } y\in M \text{ we have } \|x-r_0(x)\|\le \|x-y\|
+\end{align}
+
+with equality if and only if $y = r_0(x)$. This can be done as follows.
+By Definition \ref{definition:8-8} there exists an open neighborhood $\hat{W}$ of $p_0$ 
+in $\RR^{n+k}$ such that $M^n\cap\hat{W}$ is closed in $\hat{W}$. In the above we can 
+ensure that $V_0\sseq \hat{W}$ where $M\cap V_0$ remains closed in $V_0$. Choose compact 
+subsets $K_1\sseq K_2$ of $W_0$ so that (in the induced topology on $M$) $p_0\in\R{int}K_1\sseq K_1\sseq\R{int}K_2$,
+where $\R{int}K_i$ denotes the interior of $K_i$. The set
+\begin{align*}
+  B = (\RR^{n+k}-V_0)\cup (M\cap V_0 - \R{int}K_2)
+\end{align*}
+is closed in $\RR^{n+k}$ and disjoint from $K_1$. There exists an $\epsilon\in(0, \epsilon_0]$ such 
+that $\|b-y\|\ge 2\epsilon$ for all $b\in B$, $y\in K_1$. If we introduce the open set
+\begin{align*}
+  V_0' = \{x\in V_0\mid r_0(x)\in\R{int}K_1 \text{ and } \|x-r_0(x)\|<\epsilon\},
+\end{align*}
+
+we get for $x\in V_0'$ and $b\in M-K_1\sseq B$ that 
+\begin{align*}
+  \|x-b\|\ge \|b-r_0(x)\| - \|x-r_0(x)\| > \epsilon
+\end{align*}
+
+Since $\|x-r_0(x)\|<\epsilon$, the function $y\to\|x-y\|$, defined on $M$, attains a minimum less that 
+$\epsilon$ somewhere on the compact set $K_2$. Consider such a $y_0\in K_2$ with 
+\begin{align*}
+  \|x-y_0\| = \min_{y\in M}\|x-y\| \le \|x-r_0(x)\| < \epsilon \le \epsilon_0.
+\end{align*}
+
+Hence $x-y_0$ is a normal vector to $M$ at $y_0$ (see Exercise \ref{exercise:9-1}), but $x\in V_0$
+and $y_0=r_0(x)$. This shows that Condition \ref{eq:9-20} can be satisfied by replacing $(W_0, V_0, \epsilon_0)$
+by $(\R{int}K_1, V_0', \epsilon)$.
+
+Now all of $M$ can be covered with open sets of the type $V_0$ with the associated
+smooth maps $r_0$ which satisfy Condition \eqref{eq:9-20}. If $(V_1, r_1)$ is a different 
+pair then $r_0$ and $r_1$ will coincide on $V_0\cap V_1$. On the union $V'$ of all such open 
+sets (of the type above) we can now define a smooth map $r:V'\to M$, which extends $\id_M$, such
+that part (i) of the theorem is satisfied. We have $r_{W_0} = r_0$ for every local $(V_0, r_0)$.
+If in the above we always choose $\epsilon_0\le 1$, then the fiber $r^{-1}(p)$ over a $p\in M$ will
+be an open ball in $p+T_pM^\perp$ with radius $\hat{\rho}(p)$ for which $0 < \hat{\rho}(p)\le 1$. Thus
+we have satisfied (i) and (ii), except that $\hat{\rho}$ might be discontinuous.
+
+The distance function from $M$,
+\begin{align*}
+  \dd_M(x) = \inf_{y\in M}\|x-y\|,
+\end{align*}
+is continuous on all of $\RR^{n+k}$. For $x\in V'$, (i) shows that 
+\begin{align*}
+  \dd_m(x) = \|x-r(x)\|\qquad (x\in V')
+\end{align*}
+If $p\in M$ and $r\in T_pM^\perp$ ahs distance $\hat{\rho}(p)$ from $p$, we can conclude that 
+$\dd_m(x) = \hat{\rho}(p)$. In this case (i) exclusion that $x\in V'$, so $x$ lies on the boundary 
+of $V'$. Hence the distance function 
+\begin{align*}
+  \dd:M\to \RR;\qquad \dd(p) = \inf_{x\notin V'}\|p-z\|
+\end{align*}
+
+satisfies $0<\dd(p)\le \hat{\rho}(p)$ and is continuous.
+
+By Lemma\ref{lemma:A.9} the function $\frac12\dd\circ r: V'\to \RR$ can be approximated by a smooth 
+function $\psi:V'\to \RR$ such that 
+\begin{align*}
+  \|\psi(x) - \frac12\dd\circ r(x)\| \le \frac14\dd\circ r(x)
+\end{align*}
+
+for all $x\in V'$. In particular
+\begin{align*}
+  \frac{1}{4}\dd(x)\le \psi(x)\le \frac34\dd(x)\qquad \text{ when } x\in M
+\end{align*}
+
+Hence the restriction $\rho = \psi_{|M}:M\to\RR$ is a positive smooth function with 
+$\rho(p)<\hat{\rho}(p)$ for all $p\in M$. When $M$ is compact, the same can be archieved 
+for the constant function which takes the value $\rho =\frac12\dd(p)$. If we define 
+\begin{align*}
+  V = \{x\in V'\mid \|x-r(x)\|<\rho(r(x))\|\}
+\end{align*}
+both (i) hold for the restriction of $r$ to $V$.
+
+It ramians to prove (iii). It is sufficient to show that $S_\epsilon\cap V_0$ is empty 
+or a smooth submanifold of $V_0$ of codimension 1. The image under the diffeomorphism 
+$\Phi_0^{-1}:V_0\to W_)\times \epsilon_0\mrg{D}^k$ of $S_\epsilon\cap V_0$ is the set 
+\begin{align*}
+  S = \{(\rho, t)\in W_0\times \RR^k \mid \|t\|=\epsilon(p)<\epsilon_0\}.
+\end{align*}
+
+The projection of $S$ on $W_0$ is the open set 
+\begin{align*}
+  U = \{p\in W_0\mid \epsilon(p)<\epsilon_0\}\sseq M.
+\end{align*}
+
+The diffeomorphism $\phi:U\times\RR^k\to U\times\RR^k$ given by $\phi(p, t) = (p, \epsilon(p)t)$
+maps $U\times S^{k-1}$ to $S$. This yields (iii).
+\end{proof}
+
+\begin{remark}\label{remark:9-24}
+  In Chapter 11 we will need additional information in the case where
+$M^n\sseq\RR^{n+k}$ is compact and $\rho>0$ is constant. To any number $\epsilon, 0<\epsilon<\rho$, 
+we define the closed tubular neighborhood\index{tubular neighborhood!closed} of radius $\epsilon$: around $M$ by
+\begin{align*}
+  N_\epsilon = \{x\in V\mid \|x-r(x)\|\le \epsilon\}.
+\end{align*}
+
+This set is the disjoint union of the closed balls in $p+T_pM^\perp$ with centers at $p$ and
+radius $\epsilon$. Note that $N_\epsilon$ is compact and that $S_\epsilon$ is the set of boundary 
+points of $N_\epsilon$ in $\RR^{n+k}$. By Theorem \ref{theorem:9-23}.(i) we see for $p\in M$ that 
+the real-valued function on $S_\epsilon:x\to\|x-p\|$, attains its minimum value $\epsilon$: at all 
+points $x\in S_\epsilon$ with $r(x) = p$. It follows that
+\begin{align}\label{eq:9-21}
+  x -r(x)\in T_xS_\epsilon^\perp.
+\end{align}
+\end{remark}
+
+
+We end this chapter with a few applications of the existence of tubular neighborhoods. 
+Let $(V, i, r)$ be a tubular neighborhood of $M$ with $i:M\to V$ the inclusion map 
+and $r:V\to M$ the smooth retraction map such that $r\circ i=\id_M$.
+
+In cohomology this gives
+\begin{align*}
+  H^d(i)\circ H^d(r) =\id_{H^d(M)},
+\end{align*}
+
+so that $H^d(i):H^d(V)\to H^d(M)$ is surjective and $H^d(r):H^d(M)\to H^d(V)$ is injective.
+
+\begin{proposition}\label{prop:9-25}
+  For any compact differentiable manifold $M^n$ all cohomology spaces $H^d(M)$ are 
+  finite-dimensional.
+\end{proposition}
+
+
+\begin{proof}
+  We may assume that $M^n$ is a smooth submanifold of $\RR^{n+k}$ by Theorem \ref{theorem:8-11}, 
+  and that $(V, i, r)$ is a tubular neighborhood. Since $M$ is compact we can find
+  finitely many open balls $U_1, \ldots, U_r$ in $\RR^{n+k}$ such that their union $U=U_1\cup\ldots\cup U_r$
+  satisfies $M\sseq U\sseq V$. Now we have a smooth inclusion $i:M\to U$ and a smooth
+  map $r_{|U}:U\to W$ with $r_{|U}\circ i = \id_M$. The argument above shows that
+  \begin{align*}
+    H^d(M)(i):H^d(U)\to H^d(M)
+  \end{align*}
+  is surjective, and the assertion now follows from Theorem \ref{theorem:5-5}.
+\end{proof}
+
+\begin{proposition}\label{prop:9-26}
+  Let $M_1$ and $M_2$ be smooth submanifolds of Euclidean spaces. 
+  \begin{enumerate}[(i)]
+    \item If $f_0, f_1:M_1\to M_2$ are two homotopic smooth maps, then 
+      \begin{align*}
+        H^d(f_0) = H^d(f_1):H^d(M_2)\to H^d(M_1).
+      \end{align*}
+    \item Every continuous map $M_1\to M_2$ is homotopic to a smooth map.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  Choose tubular neighborhoods $(V_\nu, i_\nu, r_\nu)$ of $M_\nu, \nu=1, 2$. Lemma \ref{lemma:6-3}
+  implies that $i_2\circ f_0\circ r_1 \sime i_2\circ f_2\circ r_1$. Hence 
+  $H^d(i_2\circ f_0\circ r_1) = H^d(i_2\circ f_2\circ r_1)$, so that 
+  \begin{align*}
+    H^d(r_1)\circ H^d(f_0)\circ H^d(i_2) 
+    = H^d(r_1)\circ H^d(f_1)\circ H^d(i_2) 
+  \end{align*}
+
+  Since $H^d(r_1)$ is injective and $H^d(i_2)$ is surjective, we conclude that $H^d(f_0)
+  = H^d(f_1)$. If $\phi:M_1\to M_2$ is continuous, we can use Lemma \ref{lemma:6-6}.(i) to find 
+  a smooth map $g:V_1\to V_2$ with $g\sime i_2\circ \phi\circ r_1$. For ther smooth map $f = r_2\circ g\circ i_1:M_1\to M_2$,
+  Lemma \ref{lemma:6-3} shows that $f\sime r_2\circ (i_2\circ \phi\circ r_1)\circ i_1 = \phi$. 
+\end{proof}
+
+\begin{remark}\label{remark:9-27}
+  As in the discussion preceeding Theorem \ref{theorem:6-8}, the de Rham cohomology 
+  can now be made functorial on the category of smooth submanifolds of
+  Euclidean space and continuous maps. Theorem \ref{theorem:6-8} and Corollary \ref{corollary:6-9} 
+  are valid (with the same proofs) with open sets in Euclidean space replaced by smooth submanifolds. 
+  By Theorem \ref{theorem:8-11} the same can be done for differentiable manifolds in general.
+\end{remark}
+
+\begin{corollary}\label{corollary:9-28}
+  If $M^n\sseq \RR^{n+k}$ is a smooth submanifold and $(V, i, r)$ an open inbular neighborhood, then 
+  $H^d(i):H^d(V)\to H^d(M)$ is an isomorphism with $H^d(r)$ as its inverse.
+\end{corollary}
+
+\begin{proof}
+  We have $r\circ i = \id_M$ and $i\circ r \sime \id_V$, as $V$ contains the line segment
+between $x$ and $r(x)$ for all $x\in V$. By Proposition \ref{prop:9-26}.(i) we can conclude
+that $H^d(r)$ and $H^d(i)$ are inverses.
+\end{proof}
+
+\begin{example}\label{example:9-29}
+  For $n\ge 1$, we have 
+  \begin{align*}
+    H^d(S^m)\simee \left\{\begin{aligned}
+      & \RR && \text{ if } \dd = 0, n \\
+      & 0 && \text{ otherwise }
+    \end{aligned}\right.
+  \end{align*}
+
+  Let $i:S^n\to\RR^{n+1}-\{0\}$ be the inclusion and define $\RR^{n+1}-\{0\}\to S^n$ by 
+  $r(x) = \frac{x}{\|x\|}$. Then $r\circ i = \id_{S^n}, i\circ r \sime \id_{\RR^{n+1}-\{0\}}$ and 
+  $H^d(i)$ is an isomorphism. The result follows Theorem \ref{theorem:6-13}.
+\end{example}
+
+\begin{remark}\label{remark:9-30}
+  Let $U_1$ and $U_2$ be open subsets of a smooth submanifold $M^n\sseq S^n$.
+  Using Theorem \ref{theorem:9-11}, the proof of Theorem \ref{theorem:5-1} can be carried 
+  through without any significant changes. As in Chapter 5 this gives rise to the Mayer-Vietoris 
+  sequence
+  \begin{align*}
+    \xra H^p(U_1\cup U_2)
+    \xra[I^*] H^p(U_1)\oplus H^p(U_2)
+    \xra[J^*] H^p(U_1\cup U_2)
+    \xra[\partial^*] H^p(U_1\cup U_2)
+    \xra
+  \end{align*}
+\end{remark}
+
+
+\begin{example}\label{example:9-31}
+  We shall compute the de Rham cohomology of $\B{RP}^{n-1}\; (n\ge 2)$. With the 
+  notation od Example \ref{example:9-19} we see that 
+  \begin{align*}
+    \alt^p(D_xA): \alt^p(T_{\pi(x)}\B{RP}^{n-1})
+    \to \alt^p(T_xS^{n-1})
+  \end{align*}  
+  is an isomorphism for every $x\in S^{n-1}$. Therefore 
+  \begin{align*}
+    \Omega^p(\pi):\Omega^p(\B{RP}^{n-1})\to \Omega(S^{n-1})
+  \end{align*}
+  is an monomorphism, and we find that the image of $\Omega^p(\pi)$ is equal to the 
+  set of $p$-form $\omega$ on $S^{n-1}$ such that $A^*\omega=\omega$. Since $A^* = \Omega^p(A):
+  \Omega^p(S^{n-1})\to\Omega^p(S^{n-1})$ has order 2 we can decompose it into $(\pm 1)$-eigenspaces
+  \begin{align*}
+    \Omega^p(S^{n-1}) = \Omega_+^p(S^{n-1})\oplus\Omega_-^p(S^{n-1})
+  \end{align*}
+  where 
+  \begin{align*}
+    \Omega^p_\pm(S^{n-1}) = \im(\frac12(\id\pm \Omega^p(A)))
+  \end{align*}
+  This in fact decomposes the de Rham complex of $S^{n-1}$ into a direct sum of two
+  subcomplexes
+  \begin{align}\label{eq:9-22}
+    \Omega^*(S^{n-1}) = \Omega_+^*(S^{n-1})\oplus\Omega_-^*(S^{n-1}).
+  \end{align}
+  There is an isomorphism of chain complexes
+  \begin{align}\label{eq:9-23}
+    \Omega^*(\B{RP}^{n-1})\simee \Omega^*_+(S^{n-1})
+  \end{align}
+  induced by $\pi:S^{n-1}\to\B{RP}^{n-1}$. From \eqref{eq:9-22} we get isomorphisms 
+  \begin{align*}
+    H^p(S^{n-1}) 
+    & \simee H^p(\Omega^*_+(S^{n-1}))\oplus H^p(\Omega^p_-(S^{n-1})) \\
+    & \simee H^p(\Omega^p_+(S^{n-1}))\oplus H^p(\Omega^p_-(S^{n-1}))
+  \end{align*}
+  where $H^p_\pm (S^{n-1})$ is the $(\pm 1)$-eigenspaces of $A^*$ on $H^p(S^{n-1})$. Combining 
+  with \eqref{eq:9-23} we find that 
+  \begin{align}\label{eq:9-24}
+    H^p(\B{RP}^{n-1}) \simee H^p_+(S^{n-1}).
+  \end{align}
+  There is a commutative diagram with vertical isomorphisms (See Example \ref{example:9-29})
+  \begin{center}
+    \begin{tikzcd}
+      H^{n-1}(\RR^n -\{0\})\arrow[d, "\simee"', "i^*"] \rar & H^{n-1}(\RR^n-\{0\}) \arrow[d, "\simee"', "i^*"] \\
+      H^{n-1}(S^{n-1}) \rar{A^*} & H^{n-1}(S^{n-1}) 
+    \end{tikzcd}
+  \end{center}
+  where the top map is induced by the linear map $x\to -x$ of $\RR^n$ into itself.
+  Lemma \ref{lemma:6-14} shows that the bottom map is multiplication by $(-1)^n$. 
+  Using \eqref{eq:9-24} and Example \ref{example:9-29} we finally get
+  \begin{align}
+    H^p(\B{RP}^{n-1})\simee \left\{\begin{aligned}
+      & \RR && \text{ if } p=0 \text{ or } p=n-1\text{ with $n$ even } \\
+      & 0 && \text{ otherwise }.
+    \end{aligned}\right.
+  \end{align}
+\end{example}

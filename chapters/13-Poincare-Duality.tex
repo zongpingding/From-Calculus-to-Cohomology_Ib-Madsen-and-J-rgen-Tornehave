@@ -1,0 +1,597 @@
+\chapter{Poincar\'{e} Duality}
+Given a compact oriented smooth manifold $M^n$ of dimension $n$, \Index{Poincare duality}
+is the statement that
+\begin{align}\label{eq:13-1}
+  H^p(M) \simee H^{n-p}(M)^*,\qquad p\in\ZZ 
+\end{align}
+where $H^{n-p}(M)^*$ denotes the dual vector space of linear forms on $H^{n-p}(M)$.
+The proof we give below is based upon induction over an open cover of $M$. Thus
+we need a generalization of \eqref{eq:13-1} to oriented manifolds that are not necessarily
+compact. The general statement we will prove is that
+\begin{align}\label{eq:13-2}
+  H^p(M) \simee H^{n-p}_c(M)^*,\qquad p\in\ZZ
+\end{align}
+where the subscript $c$ refers to de Rham cohomology with compact support.
+For a smooth manifold $M$ we let $\Omega_c^*(M)$ be the subcomplex of the de Rham
+complex that in degree $p$ consists of the vector space $\Omega_c^*(M)$ of p-forms with
+compact support. The cohomology groups of $(\Omega_c^*(M), d)$ are denoted $H_c^*(M)$,
+i.e.
+\[
+  H_c^p(M) = \frac
+    {
+      \ker(\!\dd:\Omega_c(M)\to\Omega_{c}^{p+1}(M))}
+    {
+      \im(\!\dd:\Omega_c^{p-1}(M)\to\Omega_c^p(M)).
+    }
+\]
+
+Note that when $M$ is compact $\Omega_c^*(M)=\Omega^*(M)$, so that $H_c^*(M)=H^*(M)$ in this case.
+
+The vector spaces $H_c^*(M)$ are not in general a (contravariant) functor on the
+category of all smooth maps. However, if $\varphi:M\to N$ is proper, i.e. if $\varphi^{-1}(K)$ is
+compact whenever $K$ is, then the induced form $\varphi^*(\omega)$ will have compact support
+when $\omega$ has. Indeed
+\[
+  \supp_M\varphi^*(\omega) \subset \varphi^{-1}(\supp_N\omega).
+\]
+and $\varphi^*$ becomes a chain map from $\Omega_c^*(N)$ to $\Omega_c^*(M)$. Hence by Lemma \ref{lemma:4-3} there
+is an induced map
+\[
+  H_c^p(\varphi):H_c^p(N)\to H_c^p(M).
+\]
+
+and $H_c^p(-)$ becomes a contravariant functor on the category of smooth manifolds
+and smooth proper maps\index{proper map}. A diffeomorphism is proper, so $H_c^p(M)\simee H_c^p(N)$
+when $M$ and $N$ are diffeomorphic.
+
+
+\begin{remark}\label{remark:13-1}
+  \begin{enumerate}[(i)]
+    \item The vector space $H_c^0(M)$ consists of the locally constant functions
+      $f:M\to\RR$ with compact support. Such an $f$ must be identically zero on
+      every non-compact connected component of $M$. In particular $H_c^0(M) = 0$
+      for non-compact connected $M$. In contrast $H^0(M)=\RR$ for such a manifold.
+    \item If $M^n$ is connected, oriented and $n$-dimensional, then we have the iso­
+      morphism from Theorem \ref{theorem:10-13},
+      \[
+        \int_M:H_c^n(M)\xra[\simee]\RR
+      \]
+      whereas by (i) and \eqref{eq:13-2}, $H^n(M)=0$ if $M$ is non-compact.
+  \end{enumerate}
+\end{remark}
+
+\begin{lemma}\label{lemma:13-2}
+\[
+  H_c^q(\RR^n) = \left\{\begin{aligned}
+    & \RR && \text{ if } q = n\\
+    & 0 && \text{ otherwise }.
+  \end{aligned}\right.
+\]
+\end{lemma}
+
+\begin{proof}
+  The above remarks give the result for $q=0$ and $q=n$, so we may assume that $0<q<n$. We identify $\RR^n$ with 
+  $S^n-\{p_0\}$, e.g. by stereographic projecttion and can thus instead prove that 
+  \[
+    H_c^q(S^n-\{p_0\}) = 0
+  \]
+  Now the chain complex $\Omega_c^*(S^n-\{p_0\})$ is the subcomplex of $\Omega_c^*(S^n)$ consisting of differential
+  forms which vanish in a neighborhood of $p_0$.
+
+  Let $\omega\in\Omega_c^*(S^n-\{p_0\})$ be a closed form. Since $H^q(S^n) = 0$, by Example \ref{example:9-29},
+  $\omega$ is exact in $\Omega^*(S^n)$, so there is a $\tau\in\Omega^{q-1}(S^n)$ with $\dd r=\omega$. We must show 
+  that $\tau$ can be chosen to vanish in a neighborhood of $p_0$. Suppose $W$ is an open neighborhood of $\{p_0\}$,
+  diffeomorphic to $\RR^n$, where $\omega|_W = 0$.
+
+  If $q = 1$, then $\tau$ is a function on $S^n$ that is constant on $W$, say $\tau|_W=a$. But then $\kappa=\tau-a\in\Omega_c^0(S^n-\{p_0\})$
+  and $\dd\kappa=\omega$.
+
+  If $2\le q<n$ then we use that $H^{q-1}(W)\simee H^{q-1}(\RR^n) = 0$, and that $\tau|_W$ is a closed 
+  form, to find a $\sigma\in\Omega^{q-2}(W)$ with $\dd\sigma=\tau|_W$. Now choose a smooth function $\varphi:S^n\to[0, 1]$
+  with $\supp(\varphi)\subset W$ taking the value 1 in a smaller open neighborhood $U\subset W$ of $\{p_0\}$. The form 
+  $\varphi\sigma$ on $W$ can be extended to all of $S^n$, assigning the value zero on $S^n-W$. Let $\tilde{\sigma}$ be 
+  the extended form and let $\kappa=\tau-\dd\tilde{\sigma}$. Then $\kappa|_U = 0$ and $\dd\kappa=\dd\tau+\dd\dd\tilde{\sigma}
+  =\omega$.
+\end{proof}
+
+Let $V\subset U$ be open subsets of a smooth manifold $M$, and let $i: V\to U$ be the
+inclusion. There is an induced chain map
+\[
+  i_*:\Omega_c^*(V)\to\Omega_c^*(U),
+\]
+defined by setting 
+\[
+  i_*(\omega)|_V = \omega,\quad i_*(\omega)|_{U-\supp(\omega)} = 0.
+\]
+for $\omega\in\Omega_c^p(V)$. We get a linear map 
+\begin{align}\label{eq:13-3}
+  i_*:H_c^p(V)\to H_c^p(U).
+\end{align}
+which is called the \Index{direct image homomorphism}. Given a second inclusion $j:W\to V, (i\circ j)_*(\omega)=i_*\circ j_*(\omega)$,
+so that $(H_c^p(-), i_*)$ becomes a convariant functor on the category of open subsets and inclusions of given manifold.
+
+There is also a Mayer-Vietor theorem for this functor. Indeed, if $U_1$ and $U_2$ are open subsets of $M$ with union $U$,
+and $i_\nu:U_\nu\to U,i_\nu:U_1\cap U_2\to U_\nu$ are the inclusions, then the sequence
+\begin{align}\label{eq:13-4}
+  0\ra\Omega_c^p(U_1\cap U_2)\xra[J_q]\Omega_c^p(U_1)\oplus\Omega_c^p(U_2)\xra[I_q]\Omega_c^p(U)\ra 0
+\end{align}
+is exact, where 
+\[
+  I_q(\omega_1, \omega_2) = i_{1*}(\omega_1) + i_{2*}(\omega_2),\text{ and } 
+  J_q(\omega) = (j_{1*}(\omega), -j_{2*}(\omega)).
+\]
+
+We leave the verification of the exactness to the reader, with the remark that
+surjectivity of $I_q$ uses a smooth partition of unity on $U$ subordinate to the covering $\{U_\nu\}$; 
+cf. Theorem \ref{theorem:5-1}.
+
+
+\begin{theorem}[Mayer-Vietoris]\label{theorem:13-3}\index{Mayer-Vietoris theorem}
+  With the above notation there is an exact sequence
+  \[
+    \cdots\ra H_c^q(U_1\cap U_2)\xra[J_*] H_c^q(U_1)\oplus H_c^q(U_2)\xra[I_*] H_c^q(U)\xra[\partial_*] H_c^{q+1}(U_1\cap U_2)\ra\cdots
+  \]
+\end{theorem}
+
+\begin{proof}
+  This follows from Theorem \ref{theorem:4-9} applied to \eqref{eq:13-4}.
+\end{proof}
+
+In comparing Theorem \ref{theorem:13-3} with Theorem \ref{theorem:5-2} the reader will notice that the
+directions of all arrows have been reversed.
+
+For later use, let us explicate Definition \ref{definition:4-5}. $\partial_*[\omega]\in H_c^{q+1}(U_1\cap U_2)$ 
+is defdined as follows: write $\omega=\omega_1+\omega_2$ with $\omega_\nu\in\Omega_c^q(U)$ and $\supp_U(\omega_\nu)\subset U_\nu$.
+Then $\dd\omega_1$ and $-\dd\omega_2$ agree on $U_1\cap U_2$ and the common value $\tau=\dd\omega_1|_{U_1\cap U_2} = -\dd\omega_2|_{U_1\cap U_2}$
+is a closed form in $\Omega_c^{q+1}(U_1\cap U_2)$ that represents $\partial_*[\omega]$.
+
+
+\begin{proposition}\label{proposition:13-4}
+  Suppose $\{U_\alpha \mid \alpha\in A\}$ is a family of pairwise disjoint open subsets of the smooth 
+  manifold $M$ with union $U$. Then there are isomorphisms
+  \begin{enumerate}
+    \item $H^q(U)\to\prod_{\alpha\in A}H^q(U_\alpha);\quad [\omega]\ma[i^*_\alpha(\omega)]$
+    \item $\bigoplus_{\alpha\in A}H_c^q(U_\alpha)\to H_c^q(U);\quad ([\omega_\alpha])_{\alpha\in A}\ma \sum_\alpha i_{\alpha*}([\omega_\alpha])$ 
+      where $i_\alpha:U_\alpha\to U$ denotes the inclusion.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  There are isomorphisms 
+  \begin{align*}
+    & \Psi^q:\Omega^q(U)\to\prod_{\alpha\in A}\Omega^q(U_\alpha);
+      \quad \Psi^q(\omega) = (i_\alpha^*(\omega)){\alpha\in A}\\
+    & \Phi^q:\Omega_c^q(U)\to\bigoplus_{\alpha\in A}\Omega_c^q(U_\alpha);
+      \quad \Phi^q((\omega_\alpha)_{\alpha\in A}) = \sum_{\alpha\in A}i_{\alpha*}(\omega).
+  \end{align*}
+  which define isomorphisms of chain complexes when we give $\prod\Omega^*(U_\alpha)$ the differential
+  \[
+    \dd((\tau_\alpha)_{\alpha\in A}) = (\!\dd\tau_\alpha)_{\alpha\in A}
+  \]
+  and view $\bigoplus\Omega_c^*(U_\alpha)\subset\prod\Omega_c^*(U\alpha)\subset\prod^*(U_\alpha)$ as a subcomplex.
+\end{proof}
+
+The contravariant functor that sends a vector space $A$ to its dual vector space
+$A^* = \hom_{\RR}(A, \RR)$ is exact, i.e. if $A\xra[\varphi]B\xra[\psi]C$ is an exact sequence of vector
+spaces, then $A^*\xra[\varphi^*]B^*\xra[\psi^*]C^*$ is exact. It is clear that $\varphi^*\circ\psi=0$. 
+The other inclusion $\ker\varphi^*\subseteq\im\psi^*$ follows because a linear map defined on $\im\psi$ 
+can be extended to a linear map on all of $C$. (This uses Zorn's lemma when $C$ is infinite-dimensional.)
+
+We can therefore dualize the exact sequence of Theorem \ref{theorem:13-3} to get the exact sequence
+\begin{align}\label{eq:13-5}
+  \cdots\ra H_c^{q+1}(U_1\cap U_2)^*
+  \xra[\partial^!] H_c^q(U)^*
+  \xra[I^!] H_c^q(U_1)^*\oplus H_c^q(U_2)^*
+  \xra[J^!] H_c^q(U_1\cap U_2)^*
+  \ra\cdots
+\end{align}
+with 
+\[
+  i^!(\alpha) = \left(i_1^!(\alpha), i_2^!(\alpha)\right) \quad\text{ and }\quad
+  j^!(\alpha_1, \alpha_2) = j_1^!(\alpha_1) - j_2^!(\alpha_2)
+\]
+where we have written $i_1^!:H_c^q(U)^*\to H_c^q(U_1)^*$ for the vector space dual of $i_1^*$ etc.
+The dual of a direct sum is a direct product, so Proposition \ref{proposition:13-4}.(ii) implies the
+isomorphism
+\begin{align}\label{eq:13-6}
+  H_c^q(U)^*\xra[\simee]\prod_{\alpha\in A}H_c^q(U_\alpha)^*;\quad \beta\ma (i_\alpha^!(\beta))_{\alpha\in A}.
+\end{align}
+
+For an oriented $n$-dimensional manifold the exterior product defines a bilinear map
+\[
+  \Omega_p(M)\times\Omega_c^{n-p}(M)\to\Omega_n(M)
+\]
+since $\supp(\omega_1\wedge\omega_2)\subseteq\supp(\omega_1)\cap\supp(\omega_2)$. It induces a bilinear map 
+\[
+  H^p(M)\times H_c^{n-p}(M)\to H^n(M)
+\]
+and we may compose with integration (cf. Remark \ref{remark:13-1}.(ii)) to obtain a bilinear
+pairing
+\[
+  H^p(M)\times H_c^{n-p}(M)\to\RR;\qquad ([\omega_1], [\omega_2])\ma\int_M\omega_1\wedge\omega_2.
+\]
+which in turn defines a linear map $D_M^p:H^p(M)\to H_c^{n-p}(M)^*$.
+
+\begin{theorem}[Poincar\'e duality]\label{theorem:13-5}\index{Poincar\'e duality}
+  For an oriented smooth n-dimensional manifold, $D_M^p$ is an isomorphism for all $p$.
+\end{theorem}
+
+The proof is based upon a series of lemmas.
+
+\begin{lemma}\label{lemma:13-6}
+  Suppose $V\subseteq U\subseteq M^n$ are open seubsets. Then the diagram
+  \[\begin{tikzcd}
+    H^p(U) \arrow[r, "H^p(i)"] \arrow[d, "D_U^p"] &  H^p(V)\arrow[d, "D_V^p"] \\
+    H_c^{n-p}(U)^* \arrow[r, "i^!"] & H_c^{n-p}(V)^*
+  \end{tikzcd}\]
+  commutes.
+\end{lemma}
+
+\begin{proof}
+  Let $\omega\in\Omega^p(U), \tau\in\Omega_c^{n-p}(V)$ be closed forms representing cohomology classes $[\omega]$ and 
+  $[\tau]$. Then 
+  \begin{align*}
+    D_V^p\circ H^p(i)([\omega])([\tau]) & = D_V^p([i^*(\omega)])[\tau]  = \int_V i^*(\omega)\wedge\tau\\
+    i^!\circ D_U^p([\omega])([\tau]) & = D_U^p([\omega])[i_*(\tau)]     = \int_U i^*(\omega)\wedge i_*\tau
+  \end{align*}
+  
+  Since $\supp_U(\omega\wedge i_*(\tau))\subset\supp_U(i_*(\tau))=\supp_V(\tau)$ we may as well in the second integral
+  just integrate over $V$. But the $n$-forms $i^*(\omega)\wedge\tau$ and $\omega\wedge i_*(\tau)$ agree on $V$.
+\end{proof}
+
+\begin{lemma}\label{lemma:13-7}
+  For open subsets $U_1$ and $U_2$ of $M^n$ with union $U$ the diagram
+  \[\begin{tikzcd}
+    H^p(U_1\cap U_2)\arrow[d, "D_{U_1\cap U_2}^p"]\arrow[r, "\partial^*"] & H^{p+1}(U)\arrow[d, "D_U^{p+1}"]\\
+    H_c^{n-p}(U_1\cap U_2)^*\arrow[r, "(-1)^{p+1}\partial^!"] & H_c^{n-p-1}(U)^*
+  \end{tikzcd}\]
+  is commutative. Here $\partial^*$ is the boundary in the Mayer-Vietoris sequence of Theorem \ref{theorem:5-2}, and 
+  $\partial^!$ is from \eqref{eq:13-5}.
+\end{lemma}
+
+\begin{proof}
+  Let $\omega\in\Omega^p(U_1\cap U_2)$ and $\tau\in\Omega_c^{n-p-1}(U)$ be closed forms. We write 
+  $\omega=j_1^*(\omega_1) - j_2^*(\omega_2)$ with $\omega_\nu\in\Omega^p(U_\nu)$ and $j_\nu:U_1\cap U_2\to U_\nu$ the 
+  inclusions. Let $\kappa\in\Omega^{p+1}(U)$ be the $(p+1)$-form with $i_\nu^*(\kappa)=\dd\omega_\nu$, where $i_\nu:U_\nu\to U$
+  are the inclusions. Then $\kappa$ represents $\partial^*([\omega])$ so that 
+  \[
+    D_U^{p+1}\partial^*([\omega])([\tau]) 
+    = D_U^{p+1}([\kappa])[\tau]
+    = \int_U\kappa\wedge\tau.
+  \]
+  It was pointed out after the proof of Theorem \ref{theorem:13-3} that a representative for 
+  $\partial_*[\tau]\in H_c^{n-p}(U_1\cap U_2)$ can be obtained by the following procedure: write
+  $\tau=\tau_1+\tau_2$ with
+  \[
+    \tau_\nu\in\Omega_c^{n-p-1}(U_\nu),\text{ and } \supp(\tau_\nu)\subset U_\nu
+  \]
+  and let $\sigma=j_1^*(\!\dd\tau_1)=-j_2^*(\!\dd\tau_2)$. Then $\sigma$ is a closed $(n-p)$-form that represents
+  $\partial_*([\tau])$. Hence 
+  \[
+    \partial^!D_{U_1\cap U_2}^p([\omega])([\tau]) 
+    = D_{U_1\cap U_2}^p([\omega])[\sigma]
+    = \int_{U_1\cap U_2}\omega\wedge\sigma. 
+  \]
+
+  We must show that the two integrals are equal up to the sign $(-1)^{p+1}$. We have
+  \[
+    \int_U \kappa\wedge\tau 
+    = \int_U \kappa\wedge\tau_1 + \int_U \kappa\wedge\tau_2
+    = \int_{U_1} \dd\omega_1\wedge\tau_1 - \int_{U_2} \dd\omega_2\wedge\tau_2
+  \]
+  since $\supp(\tau_\nu)\subseteq U_\nu$. Now $\dd(\omega_\nu\wedge\tau_\nu) + (-1)^p\omega_\nu\wedge\!\dd\tau_\nu = 0$,
+  and by Corollary \ref{corollary:10-9},
+  \[
+    \int_{U_\nu} \!\dd(\omega_\nu\wedge\tau_\nu) = 0,
+  \]
+  so that 
+  \[
+    (-1)^{p+1}\int_U\kappa\wedge\tau 
+    = \int_{U_1}\omega_1\wedge\!\dd\tau_1 + \int_{U_2}\omega_2\wedge\!\dd\tau_2.
+  \]
+
+  On the other hand, $\dd\tau_1|_{U_1}=j_{1*}(\sigma)$ and $\dd\tau_2|_{U_2}=-j_{2*}(\sigma)$, and we have 
+  \begin{align*}
+    \int_{U_1}\omega_1\wedge\!\dd\tau_1 + \int_{U_2}\omega_2\wedge\!\dd\tau_2
+    & = \int_{U_1}\omega_1\wedge j_{1*}(\sigma) - \int_{U_2}\omega_2\wedge j_{2*}(\sigma)\\
+    & = \int_{U_1\cap U_1}j_{1}^*(\omega_1)\wedge\sigma - \int_{U_1\cap U_1}j_{2}^*(\omega_2)\wedge\sigma\\
+    & = \int_{U_1\cap U_2}\omega\wedge\sigma.
+  \end{align*}
+\end{proof}
+
+\begin{corollary}\label{corollary:13-8}
+  \begin{enumerate}
+    \item Let $U_1$ and $U_2$ be open subsets of $M^n$, and suppose that $U_1, U_2$ and $U_1\cap U_2$
+      satisfy Poincar\'e duality. Then so does $U=U_1\cup U_2$.
+    \item Let $(U_\alpha)_{\alpha\in A}$ be a family of pairwise disjoint open subsets of $M^n$. If each
+      $U_\alpha$ satisfies Poincare duality then so does the union $U=\bigcup_{\alpha}U_\alpha$.
+    \item Every open subset $V\subseteq M^n$ that is diffeomorphic to $\RR^n$ satisfies Poincare duality.
+  \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+  Consider the diagram
+  \[\begin{tikzcd}[scale cd=.75]
+    \ar[r, shorten=2mm] & H^p(U)\rar{i^*}\dar{D_U^p} & H^p(U_1)\oplus H^p(U_2)\dar{D_{U_1}^p\oplus D_{U_2}^p}\rar{j^*}
+      & H^p(U_1\cap U_2)\dar{D_{U_1\cap U_2}^p}\rar{\partial^*} & H^{p+1}(U)\dar{D_{U}^{p+1}}\ar[r, shorten=2mm] & \quad \\
+    \ar[r, shorten=2mm] & H_c^{n-p}(U)^*\rar{i^!} & H_c^{n-p}(U_1)^*\oplus H_c^{n-p}(U_2)^*\rar{j^!}
+      & H_c^{n-p}(U_1\cap U_2)^*\rar{(-1)^{p+1}\partial^!} & H_c^{n-p-1}(U)\ar[r, shorten=2mm] & \quad
+  \end{tikzcd}\]
+  This is a commutative diagram according to the two lemmas above. Our assumptions are 
+  that $D_{U_1}^p\oplus D_{U_2}^p$ and $D_{U_1\cap U_2}^p$ are isomorphisms for all $p$, and it follows
+  by the 5-lemma (cf. Exercise \ref{exercise:4-1}) that so is $D_U^p$.
+
+  The proof of (ii) uses the commutative diagram
+  \[\begin{tikzcd}
+    H^p(U)\rar\dar{D_U^p} & \prod_{\alpha\in A}H^p(U_\alpha)\dar{\prod D_{U_\alpha}^p}\\
+    H_c^{n-p}(U)^*\rar & \prod_{\alpha\in A}H_c^{n-p}(U_\alpha)^*
+  \end{tikzcd}\]
+  The horizontal maps are isomorphisms by Proposition \ref{proposition:13-4} and the right-hand
+  vertical map is an isomorphism by assumption.
+
+  To prove (iii), we use that $H^p(U)\xra[\simee]H^p(\RR^n)$ and $H_c^{n-p}(U)\xra[\simee]H_c^{n-p}(\RR^n)$
+  together with Theorem \ref{theorem:3-15} and Lemma \ref{lemma:13-12}. We only need to check that
+  $D_U^0:H^0(U)\to H_c^n(U)^*$ is an isomorphism. The constant function 1 on $U$ is mapped to the basis element
+  \[
+    \int_U:H_c^n(U) \to \RR
+  \]
+  of $H_c^n(U)^*\simee\RR$.
+\end{proof}
+
+\begin{theorem}[Induction on open sets]\label{theorem:13-9}
+  Let $M^n$ be a smooth $n$-dimensional manifold equipped with an open cover $\C{V}=(V_\beta)_{\beta\in B}$. 
+  Suppose $\C U$ is a collection of open subsets of $M$ that satisfies the following four conditions
+  \begin{enumerate}
+    \item $\ns\in \C U$.
+    \item Any open subset $U\in V_\beta$ diffeomorphic with $\RR^n$ belongs to $\C U$.
+    \item If $U_1, U_1, U_1\cap U_2$ belongs to $\C U$ then $U_1\cup U_2\in \C U$.
+    \item If $U_1, U_2,\ldots$ is a sequence of pairwise disjointj open subsets with $U_i\in \C U$
+      then their unions $\bigcup_i U_i\in\C U$.
+  \end{enumerate}
+  Then $M^n$ belongs to $\C U$.
+\end{theorem}
+
+The proof is based upon the following lemma, where the term relatively compact\index{relative compact} means that the closure is compact.
+
+\begin{lemma}\label{lemma:13-10}
+  In the situation of Theorem \ref{theorem:13-9}, suppose $U_1, U_2, \ldots$ is a sequence of open, relatively compact 
+  subsets of $M$ with
+  \begin{enumerate}
+    \item $\bigcap_{j\in J} U_j\in\C U$ for any finite subsets $J$,
+    \item $(U_j)_{j\in\NN}$ is locally finite.
+  \end{enumerate}
+  Then the union $U_1\cup U_2\cup\ldots$ belongs to $\C U$.
+\end{lemma}
+
+\begin{proof}
+  First we show by induction on $m$ that $U_{j_1}\cup\ldots\cup U_{j_m}\ldots$ for every set
+  of indices $j_1, \ldots, j_m$. The cases $m = 1,2$ follow from (i) and condition (iii) of
+  Theorem \ref{theorem:13-9}, so suppose $m\ge 3$ and that the claim is true for sets of $m - 1$
+  indices. Then setting $V = U_{j_2}\cup\ldots\cup U_{j_m}$,
+  \[
+    U_{j_1}\cap V = \bigcup_{\nu=2}^m U_{j_1}\cap U_{j_\nu}\in\C U
+  \]
+  by the induction hypothesis applied to the new sequence $(U_{j_1}\cap U_{j})_{j\in\NN}$, and
+  condition (iii) of Theorem \ref{theorem:13-9} implies that $U_{j_1}\cup\ldots\cup U_{j_m}\in\C U$. 
+  Since $U_i\cap U_j\in\C U$ by (i), we also have
+  \begin{align}\label{eq:13-7}
+    \bigcup_{\nu=1}^m U_{i_\nu}\cap U_{j_\nu}\in\C U
+  \end{align}
+  for any set of $2m$ indices $i_1, j_1,\ldots, i_m, j_m$.
+
+  Inductively we define index sets $I_m$ and open sets $W_m\subseteq M$ as follows: $I_1=\{1\}, W_1=U_1$ and 
+  for $m\ge 2$
+  \begin{align}\label{eq:13-8}
+    \begin{matrix}
+      I_m = \{m\} \cup \{i\mid i>m, U_i\cap W_{m-1}\neq\ns\} - \bigcup_{j=1}^{m-1} I_j \\
+      W_m = \bigcup_{i\in I_m} U_i
+    \end{matrix}
+  \end{align}
+  
+  If $I_{m-1}$ is finite, then $W_{m-1}$ is relatively compact and (ii) implies that $W_{m-1}$
+  only intersects finitely many of the sets $U_i$. This shows inductively that $I_m$ is
+  indeed finite for all $m$. Moreover, if $m\ge 2$ does not belong to any $I_j$ with $j < m$
+  then it certainly, by definition of $I_m$ , belongs to $I_m$. Thus $\NN$ is the disjoint union
+  of the finite sets $I_m$.
+
+  Since we already know that finite unions are in $U$ we have $W_m\in\C U$ (if $I_m=0, W_m=0\in\C U$). 
+  Similarly, \eqref{eq:13-7} shows that
+  \[
+    W_m\cap W_{m+1} = \bigcup_{(i, j)\in I_m\times I_{m+1}} U_i\cap U_j\in\C U.
+  \]
+
+  Note also from \eqref{eq:13-8} that $W_m\cap W_k=\ns$ if $k\ge m+2$. Indeed, if the intersection 
+  were non-empty, then there would exsit $i\in I_k$ with $W_m\cap U_i\neq\ns$, and by \eqref{eq:13-8}
+  $i\in I_i$ for some $j\le m+1$.
+
+  One now uses condition (iv) of Theorem \ref{theorem:13-9} to see that the following three sets are in $\C U$:
+  \[
+    W^{(0)} = \bigcup_{j=1}^\infty W_{2j},\quad
+    W^{(1)} = \bigcup_{j=1}^\infty W_{2j-1},\quad
+    W^{(0)}\cap W^{(1)} = \bigcup_{j=1}^\infty (W_m\cap W_{m+1}).
+  \]
+  But then Theorem \ref{theorem:13-9}.(iii) implies that the union $\bigcup_{i=1}^\infty U_i=W^{(0)}\cup W^{(1)}\in\C U$.
+\end{proof}
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:13-9}}}
+\begin{proof}
+Consider first the special case where $M = W\subseteq \RR^n$ is an open subset. We consider the maximum 
+norm on $\RR^n$
+\[
+  \|x\|_\infty = \max_{1\le i\le n}|x_i|
+\]
+whose open balls are the cubes $\prod_{i=1}^n(a_i, b_i)$. The argument of Proposition \ref{proposition:A.6}
+gives us a sequence of open $\|\;\;\|_\infty$-balls $U_j$ such that
+\begin{enumerate}
+  \item $W = \bigcup_{j=1}^\infty U_j=\bigcup_{j=1}^\infty \overline{U}_j$.
+  \item $(U_j)_{j\in\NN}$ is locally finite.
+  \item Each $U_j$ is contained in at least one $V_\beta$.
+\end{enumerate}
+
+A finite intersection $U_{j_1}\cap\ldots\cap U_{j_m}$ is either empty or of the form $\prod_{j=1}^n(a_i, b_i)$, so
+is diffeomorphic to $\RR^n$. Thus we can conclude from Lemma \ref{lemma:13-10} that $W\in\C U$. In the general case, 
+consider first an open coordinate patch $(\C U, h)$ of $M$, $h:U\to W$ a diffeomorphism onto an open subset $W\subseteq\RR^n$. 
+We apply the above special case to $W$ with cover $(h^{-1}(V_\beta))_{\beta\in B}$, and with $\C U^h$ the open sets of $W$ 
+whose images by $h-1$ belong to the given $\C U$. The conclusion is that $U\in\C U$ for each coordinate
+patch.
+
+If $M$ is compact then we apply the argument of Lemma \ref{lemma:13-10} to a finite cover
+of $M$ by coordinate patches to conclude that $M\in\C U$. In the non-compact case
+we make use of a locally finite cover of $M$ by a sequence of relatively compact
+coordinate patches; cf. Theorem \ref{theorem:9-11}. (One may alternatively imitate the proof
+of Proposition \ref{proposition:A.6} using relatively compact coordinate patches instead of discs to
+construct the desired cover).
+\end{proof}
+\endgroup
+
+\begingroup 
+\def\proofname{\textup{\bfseries Proof of Theorem \ref{theorem:13-5}}}
+\begin{proof}
+Let 
+\[
+  \C U = \{U\subseteq M^n \mid U \text{ open }, D_u^p \text{ is an isomorphism for all } p\}
+\]
+and let $V = (V_\beta)_{\beta\in B}$ be the trivial cover consisting only of $M$. Corollary \ref{corollary:13-8}
+tells us that the assumptions in Theorem \ref{theorem:13-9} are satisfied, so $M\in\C U$.
+\end{proof}
+\endgroup
+
+
+We close the chapter with an exact sequence associated to a smooth compact
+manifold pair $(N, M)$, i.e. a smooth compact submanifold $M$ of a smooth compact
+manifold $N$. Let $U$ be the complement $U = N - M$, and let 
+\[
+  i:U\to N, \quad j:M\to N
+\]
+
+be the inclusions. Then we have
+\begin{proposition}\label{proposition:13-11}
+  There is a long exact sequence
+  \[
+    \cdots\ra H^{q-1}(M) \xra[\delta]H_c^q(U)\xra[i_*] H^q(N)\xra[j^*] H^q(M)\ra\cdots
+  \]
+\end{proposition}
+
+The proof of this result is based upon the following:
+\begin{lemma}\label{lemma:13-12}
+  \begin{enumerate}
+    \item $j^*=\Omega^q(j):\Omega^q(N)\to\Omega^q(M)$ is an epimorphism.
+    \item If $\omega\in\Omega^q(M)$ is closed, there exists a $q$-form $\tau\in\Omega^q(N)$ such that 
+      $j^*(\tau)=\omega$ and such that $\dd\tau$ is $\tau-\dd\sigma$ is identically zero some open set in $N$ contaning $M$.
+    \item If $\tau\in\Omega^q(N)$ has $\supp_N(\!\dd\tau)\cap M=\ns$ and $j^*(\tau)$ is exact, there exists a form $\sigma\in\Omega^{q-1}(N)$
+      such that $\tau-\dd\sigma$ is identically zero on some open set in $N$ containing $M$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  We can assume by Theorem \ref{theorem:8-11} that $N$ is a smooth submanifold of $\RR^k$.
+  Theorem \ref{theorem:9-23} gives us tubular neighborhoods in $\RR^k$ with corresponding smooth
+  inclusions and retraction $(V_N, i_N, \tau_N), (V_M, i_M, \tau_M)$ for $N$ and $M$ respectively;
+  we may arrange that $V_M\subseteq V_N$. Let $\varphi:N\to [0, 1]$ be a smooth function such that 
+  $\supp_N(\varphi)\subseteq N\cap V_N$ and such that $\varphi$ is constantly equal to 1 on some open 
+  set $W\subseteq N\cap V_M$ with $M\subseteq W$.
+
+  Let $\omega\in\Omega^q(N)$ be closed, and let $\widetilde{\omega}=\tau^*_M(\omega)\in\Omega^q(N\cap V_M)$. 
+  Then (ii) follows upon defining $\tau\in\Omega^q(N)$ to the equal $\varphi\widetilde{\omega}$ on $N\cap V_M$ and 
+  extended trivially over the remaining part of $N$. The same argument proves (i).
+
+  To prove (iii) we set 
+  \[
+    \widetilde{\tau} = r^*_N(\tau)_{|V_M}\in\Omega^q(V_M).
+  \]
+  The assumption that $\supp_N(\!\dd\tau)\cap M=\ns$ implies that $\dd r_N^*(\tau)=r^*_N(\!\dd\tau)$ vanishes
+  on a neighborhood of $M$. Hence $V_M$ may be chosen so small that $\dd\widetilde{\tau} = 0$.
+
+  Observe that
+  \[
+    i^*_M(\widetilde{\tau}) = (i_N\circ j)^*(r^*_N(\tau)) = j^*\circ i^*_N\circ r^*_N(\tau) = j^*(\tau)
+  \]
+  so $[i^*_M(\widetilde{\tau})]=0$ in $H^q(M)$. It follows from Corollary \ref{corollary:9-28} that $[\widetilde{\tau}]=0$
+  in $H^q(V_M)$. Pulling this back by the inclusion $N\cap V_M\to V_M$ we find that $\tau_{|N\cap V_M}$ is exact.
+  Now choose $\sigma_0\in\Omega_{q-1}(N\cap V_M)$ with $\dd\sigma_0=\tau_{|N\cap V_M}$ and define $\sigma\in\Omega^{q-1}(N)$
+  to be $\varphi\sigma_0$ on $N\cap V_m$ and extended trivially over the remaning part of $N$. Then $\tau-\dd\sigma$ vanishes 
+  on $W$.
+\end{proof}
+
+\begingroup
+\def\proofname{\textup{\bfseries Proof of Proposition \ref{proposition:13-11}}}
+\begin{proof}
+  By Lemma \ref{lemma:13-12}.(i) we have a short exact sequence of chain complexes
+  \[
+    0\ra\Omega^*(N, M)\ra\Omega^*(N)\xra[j^*]\Omega^*(M)\ra 0
+  \]
+  where $\Omega^q(N, M)$ is defined to be the kernel of $\Omega^q(j)$. Let use denote the cohomology of $(\Omega^*(N, M), \dd)$
+  by $H^*(N, M)$. Then Theorem \ref{theorem:4-9} gives us a long exact sequence
+  \[
+    \cdots\ra H^{q-1}(M)\ra H^q(N, M)\ra H^q(N)\xra[j^*]H^q(M)\ra\cdots
+  \]
+  The chain map $i_*:\Omega^*_c(U)\to\Omega^*(N)$ has image in $\Omega^*(N, M)$, so it suffices to show that 
+  \[
+    i_*:\Omega^*_c(U)\to\Omega^*(N, M)
+  \]
+  induces an isomorphism in cohomology. We can then substitute $H_c^q(U)$ for $H^q(N, M)$ in the above exact sequence.
+
+  Consider an element $[\omega]$ in the kernel of
+  \[
+    H^q(i_*):H_c^q(U)\to H^q(N, M)
+  \]
+  represents by a closed $q$-form $\omega\in\Omega_c^q(U)$. Then $i_*(\omega)=\dd\tau$ for some $\tau\in\Omega^{q-1}(N, M)$.
+  Since $j^*(\tau)=0$ and $\supp_N(\!\dd\tau)\subseteq U$ we may apply Lemma \ref{lemma:13-12}.(iii) to find $\sigma\in\Omega^{q-2}(N)$
+  such that $\tau-\dd\sigma$ vanishes on an open set around $M$. This gives us $\kappa=(\tau-\dd\sigma_{|U})\in\Omega^{q-1}(U)$ with 
+  $\dd\kappa=\omega$, so $[\omega]=0$. 
+
+  Let $[\omega]\in H^q(N, M)$ be represented by the closed $q$-form $\omega\in\Omega^q(N, M)$. We use Lemma \ref{lemma:13-12}.(iii)
+  to find $\sigma\in\Omega^{q-1}(N)$, with the property that $\omega-\dd\sigma$ vanishes on an open set containing $M$. Observe that 
+  \[
+    \dd(j^*(\sigma)) = j^*(\!\dd\sigma) = j^*(\omega) = 0.
+  \]
+  By Lemma \ref{lemma:13-12}.(ii) we may choose $\tau\in\Omega^{q-1}(N)$ with $j^*(\sigma)=j^*(\tau)$ and such that 
+  $\dd\tau$ vanishes on a neighborhood of $M$. Thus $\sigma-\tau\in\Omega^{q-1}(N, M)$, and defining 
+  \[
+    \kappa = (\omega-\dd(\sigma-\tau))_{|U}
+    = (\omega-\dd\sigma)_{|U} + \dd\tau_{|U}
+    \in \Omega_c^q(U),
+  \]
+  we obtain $[\omega]=[\omega-\dd(\sigma-\tau)]=H^q(i_*)[\kappa]$.
+\end{proof} 
+\endgroup
+
+Let us finally introduce the important \Index{signature invariant} of oriented compact
+manifolds of dimension congruent to zero modulo 4. Given a $2k$-dimensional
+compact smooth manifold $M^{2k}$, its intersection fonn is the bilinear form
+\[
+  \mu:h^k(M)\times H^k(M) \to \RR
+\]
+defined by 
+\begin{align}\label{eq:13-9}
+  \mu([\alpha],[\beta]) = \int_M \alpha\wedge\beta.
+\end{align}
+
+This is $(-1)^k$-symmetric, i.e.
+\[
+  \mu([\alpha],[\beta]) = (-1)^k\mu([\beta],[\alpha]).
+\]
+
+We focus on $k\equiv 0 (\R{mod}~ 2)$, where $\mu$ becomes symmetric. All such bilinear
+forms can be diagonalized; i.e. there exists a basis $e_1,\cdots, e_m$ such that
+\begin{align}\label{eq:13-10}
+  \mu(e_i, e_j) = \left\{\begin{aligned}
+    & 1 && \text{if } i=j,\\
+    & 0 && \text{if } i\neq j.
+  \end{aligned}\right.
+\end{align}
+
+Given a diagonalization of $\mu$, we define the \Index{signature} by
+\[
+  \sigma(\mu) = \#\{i\mid \alpha_i>0\} - \#\{i\mid \alpha_i<0\}.
+\]
+
+This number is independent of the chosen diagonalization. In the case of the
+\Index{intersection form} we know that ($\alpha_i\neq 0$ for all $i$, since by Poincare duality the
+adjoint $D_M^k$ of $\mu$ is an isomorphism.
+
+\begin{definition}\label{definition:13-13}
+  The signature of an oriented closed $4k$-dimensional manifold is the signature of its intersection form.
+\end{definition}
