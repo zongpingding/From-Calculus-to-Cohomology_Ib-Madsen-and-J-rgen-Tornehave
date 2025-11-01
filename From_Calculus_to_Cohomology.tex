@@ -1,24 +1,6 @@
 \documentclass[leqno]{book}
 \usepackage[font=times]{CustomBook}
-% mathpazo-var math font
-\usepackage{mathptmx}
-\makeatletter
-\DeclareSymbolFont{letters}{OML}{ntxmi}{m}{it}
-\DeclareMathAlphabet{\mathbf}{OT1}{ntxtlf}{b}{it}
-\DeclareSymbolFont{CMMletters}{OML}{cmm}{m}{it}
-\DeclareSymbolFont{CMMsymbols}{OMS}{cmsy}{m}{n}
-\DeclareSymbolFont{CMMlargesymbols}{OMX}{cmex}{m}{n}
-\DeclareMathSymbol{\new@pi}{0}{CMMletters}{"19}
-\DeclareMathSymbol{\new@jmath}{0}{CMMletters}{"7C}
-\DeclareMathSymbol{\new@amalg}{0}{CMMsymbols}{"71}
-\DeclareMathSymbol{\new@coprod}{1}{CMMlargesymbols}{"61}
-\AddToHook{begindocument}{
-  \let\pi\new@pi
-  \let\jmath\new@jmath
-  \let\amalg\new@amalg
-  \let\coprod\new@coprod
-}
-\makeatother
+% \usemathpazo % use it with 'font=times' if you like.
 
 
 \begin{document}
@@ -31,7 +13,7 @@
 \mainmatter
 \input{chapters/01-introduction.tex}
 \input{chapters/02-The-Alternating-Algebra.tex}
-\input{chapters/03-de-Rham-Cohomolog.tex}
+\input{chapters/03-de-Rham-Cohomology.tex}
 \input{chapters/04-Chain-Complexes-and-their-Cohomology.tex}
 \input{chapters/05-The-Mayer-Vietoris-Sequence.tex}
 \input{chapters/06-Homotopy.tex}

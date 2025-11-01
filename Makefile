@@ -9,7 +9,7 @@ TEX_SOURCE_FILES = $(shell find $(SRC_CHAPTER) -name '*.tex') \
 
 # build
 $(TARGET).pdf: $(TEX_SOURCE_FILES)
-	pdflatex --shell-escape $(TARGET).tex
+	pdflatex $(TARGET).tex
 	biber $(TARGET)
 	makeindex -s $(TARGET).ist $(TARGET).idx
 	pdflatex $(TARGET).tex

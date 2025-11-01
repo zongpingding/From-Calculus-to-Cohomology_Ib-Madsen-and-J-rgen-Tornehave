@@ -224,6 +224,18 @@
 % --> font config
 \long\def\IfFontTimesTF#1#2{#2}
 \ExplSyntaxOn
+\msg_new:nnn {CustomBook}{unknown@class@option}
+  {
+    unknown~font~option:'#1',~use~CMR~instead,~press~
+    <Enter>~to~continue~...
+  }
+\msg_new:nnn {CustomBook}{buggy@ncmr}
+  {
+    font~option~'ncm'~has~some~bugs,~do~NOT~use~it.~
+    for~example:~'\string\rightarrow'~will~become~'!'.~
+    If~you~do~NOT~mind(or~you~can~fix~it),~use~'xelatex'~to~compile~it.
+  }
+
 \keys_define:nn { CustomBook / option }{
   font          .choice:,
   font / times  .code:n = {
@@ -244,17 +256,39 @@
       \DeclareMathSymbol{\omega}{\mathord}{greekletters}{"21}
     }
   },
-  font / ncmr     .code:n = {
+  font / ncm      .code:n = {
     \usepackage[default]{fontsetup}% use 'xelatex' to compile
+    \msg_error:nn {CustomBook}{buggy@ncmr}
     %% WARNING:'\ra' becomes '!' in 'ncmr' math font
     %% Possible solution: use right 'binhex.tex' in USERS' texmf.
   },
-  font / cmr      .code:n = { },
+  font / cm       .code:n = { },
   font / unknown  .code:n = {
-    \msg_warning:nnn {CustomBook} {unknown-font-option, use CMR instead.} {#1}
+    \msg_error:nnn {CustomBook} {unknown@class@option} {#1}
   },
 }
 \ProcessKeyOptions[ CustomBook / option ]
+
+% mathpazo-var math font
+\newcommand\usemathpazo
+  {
+    \usepackage{mathptmx}
+    \DeclareSymbolFont{letters}{OML}{ntxmi}{m}{it}
+    \DeclareMathAlphabet{\mathbf}{OT1}{ntxtlf}{b}{it}
+    \DeclareSymbolFont{CMMletters}{OML}{cmm}{m}{it}
+    \DeclareSymbolFont{CMMsymbols}{OMS}{cmsy}{m}{n}
+    \DeclareSymbolFont{CMMlargesymbols}{OMX}{cmex}{m}{n}
+    \DeclareMathSymbol{\new@pi}{0}{CMMletters}{"19}
+    \DeclareMathSymbol{\new@jmath}{0}{CMMletters}{"7C}
+    \DeclareMathSymbol{\new@amalg}{0}{CMMsymbols}{"71}
+    \DeclareMathSymbol{\new@coprod}{1}{CMMlargesymbols}{"61}
+    \AddToHook{begindocument}{
+      \let\pi\new@pi
+      \let\jmath\new@jmath
+      \let\amalg\new@amalg
+      \let\coprod\new@coprod
+    }
+  }
 \ExplSyntaxOff
 
 
