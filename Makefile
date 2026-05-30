@@ -16,7 +16,7 @@ $(TARGET).pdf: $(TEX_SOURCE_FILES)
 	pdflatex $(TARGET).tex				
 
 temp:
-	pdflatex --shell-escape $(TARGET).tex
+	pdflatex $(TARGET).tex
 
 clean:
 	latexmk -c

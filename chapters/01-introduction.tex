@@ -41,7 +41,6 @@ Consider the function $f:\RR^2 \to \RR^2$ given by
 
 It is easy to show that \eqref{eq:1-2} is satisfied. However, there is no function $F:\RR^2-\{0\}\to \RR$
 that satisfies \eqref{eq:1-1}. Assume there were; then
-
 \begin{align*}
   \int_{0}^{2\pi}{\frac{\dd }{\dd\theta} F(\cos\theta, \sin\theta)\;\mathrm{d}\theta}
   = F(1, 0) - F(1, 0) = 0
@@ -59,7 +58,7 @@ This contradiction can only be explained by the non-existence of $F$.
 
 \begin{definition}
   A subset $X\subseteq \RR^n$ is said to be star-shaped with respect to the point $x_0\in X$ if
-  the line segemtn $\{tx_0+(1-t)x\mid t\in[0,1]\}$ is contained in $X$ for all $x\in X$.
+  the line segment $\{tx_0+(1-t)x\mid t\in[0,1]\}$ is contained in $X$ for all $x\in X$.
 \end{definition}
 
 \begin{theorem}\label{theorem:1-4}
@@ -73,12 +72,10 @@ This contradiction can only be explained by the non-existence of $F$.
     F(x_1, x_2) = \int_{0}^{1}{\left[ x_1f_1(tx_1, tx_2) + x_2f_2(tx_1, tx_2) \right] \;\mathrm{d}t}.
   \end{align*}
 Then one has
-
 \begin{align*}
   \frac{\partial F}{\partial x_1} 
   = \int_{0}^{1}{\left[ f_1(tx_1, tx_2) + tx_1\frac{\partial f_1}{\partial x_1}(tx_1, tx_2) + tx_2\frac{\partial f_2}{\partial x_1}(tx_1, tx_2) \right] \;\mathrm{d}t}
 \end{align*}
-
 and 
 \begin{align*}
   \frac{\dd }{\dd t} tf_1(tx_1, tx_2) 
@@ -236,7 +233,6 @@ If $U\in\RR^3$ is not star-shaped both $H^1(U)$ and $H^2(U)$ may be non-zero.
 \begin{example}\label{example:1-7}
   Let $S = \{(x_1, x_2, x_3)\in \RR^3\mid x_1^2 + x_2^2 = 1, x_3 = 0\}$ be the unit circle
 in the $(x_1, x_2)$-plane. Consider the function
-
 \begin{align*}
   f(x_1,x_2,x_3)
   & = \left(\frac{-2x_1x_3}{x_3^2+\left(x_1^2+x_2^2-1\right)^2},\frac{-2x_2x_3}{x_3^2+\left(x_1^2+x_2^2-1\right)^2},\frac{x_1^2+x_2^2-1}{x_3^2+\left(x_1^2+x_2^2-1\right)^2}\right)
