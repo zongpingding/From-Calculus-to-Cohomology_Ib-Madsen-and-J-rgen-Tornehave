@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/zongpingding/From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave">From Calculus to Cohomology - Ib Madsen and Jørgen Tornehave</a>
+  <a href="https://github.com/zongpingding/From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave">From Calculus to Cohomology</a>
 </h1>
 
 
@@ -7,7 +7,7 @@
 Compile this book locally:
 
 ```shell
-git clone [https://github.com/zongpingding/From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave.git](https://github.com/zongpingding/From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave.git)
+git clone https://github.com/zongpingding/From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave.git
 cd From-Calculus-to-Cohomology_Ib-Madsen-and-J-rgen-Tornehave
 make
 ```
